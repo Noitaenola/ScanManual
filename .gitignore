@@ -1,0 +1,16 @@
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.lof
+*.log
+*.loscr
+*.lot
+*.out
+/*.pdf
+*.xml
+*.synctex.gz
+*.toc
+
+_minted-ScanManualA5/
+_minted-test/

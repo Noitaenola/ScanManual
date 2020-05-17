@@ -1,0 +1,145 @@
+% ------------------------------------------------------------------------------
+% ---------------------------------  LICENSE  ----------------------------------
+% ------------------------------------------------------------------------------
+% Except where otherwise noted, this work by Noita Enola is licensed under CC BY-SA 4.0. You can check a copy of the license by looking at the LICENSE.md file, or at <https://creativecommons.org/licenses/by-sa/4.0>.
+
+% ------------------------------------------------------------------------------
+% -------------------------------    COMMANDS    -------------------------------
+% ------------------------------------------------------------------------------
+% Some title/author commands
+\newcommand{\documentTitle}{Guía para aprender a escanear}
+\newcommand{\documentVersion}{v1.1}
+\newcommand{\documentAuthor}{Noita Enola}
+\newcommand{\documentURL}{https://github.com/Noitaenola/ScanManual}
+
+% ------------------------------------------------------------------------------
+% Text macros
+\usepackage{xspace} % To manage spaces at the end of text macros
+
+\newcommand{\pdf}{\textsc{pdf}\xspace}
+\newcommand{\pdfa}{\textsc{pdf/a}\xspace}
+\newcommand{\djvu}{\textsc{djvu}\xspace}
+\newcommand{\tiff}{\textsc{tiff}\xspace}
+\newcommand{\png}{\textsc{png}\xspace}
+\newcommand{\jpeg}{\textsc{jpeg}\xspace}
+\newcommand{\jbig}{\textsc{jbig}\xspace}
+\newcommand{\adf}{\textsc{adf}\xspace}
+\newcommand{\ocr}{\textsc{ocr}\xspace}
+\newcommand{\mondaytwothousand}{monday2000\xspace} % Acoording to a footnote at http://www.djvu-soft.narod.ru/ this grumpy old guy is called Ivanov Victor (Иванов Виктор). He dissapears from the scene around 2014.
+\newcommand{\textsharik}{textsharik\xspace}
+
+\newcommand{\szip}{\textsc{7-Zip}\xspace}
+\newcommand{\scantailor}{\textsc{Scan Tailor}\xspace}
+\newcommand{\scantailorAdvanced}{\textsc{Scan Tailor Advanced}\xspace}
+\newcommand{\irfanview}{\textsc{IrfanView}\xspace}
+\newcommand{\xnview}{\textsc{XnView}\xspace}
+\newcommand{\gimp}{\textsc{gimp}\xspace}
+\newcommand{\abby}{\textsc{FineReader}\xspace}
+\newcommand{\acrobat}{\textsc{Acrobat DC}\xspace}
+\newcommand{\qpdf}{\textsc{qpdf}\xspace}
+\newcommand{\veraPDF}{\textsc{veraPDF}\xspace}
+\newcommand{\pdg}{\textsc{PdgCntEditor}\xspace}
+\newcommand{\djvulibre}{\textsc{DjVuLibre}\xspace}
+\newcommand{\dexpress}{\textsc{Document Express}\xspace}
+\newcommand{\djvueditor}{\textsc{DjVu Editor}\xspace}
+\newcommand{\djvusmall}{\textsc{DjVu Small}\xspace}
+\newcommand{\djvusmallmod}{\textsc{DjVu Small Mod}\xspace}
+\newcommand{\djvuimager}{\textsc{DjVu Imager}\xspace}
+\newcommand{\notepad}{\textsc{Notepad\!+\!+}\xspace}
+\newcommand{\imagemagick}{\textsc{ImageMagick}\xspace}
+\newcommand{\exiftool}{\textsc{ExifTool}\xspace}
+
+% ------------------------------------------------------------------------------
+% Play icon
+\newcommand{\play}{%
+	\begin{tikzpicture}[baseline=-0.6ex]%
+%		\node[circle, draw, thick, green!75!black, inner sep=3.2pt] (bcircle) {}; % This line draw the circle
+		\node (bcircle) {}; % This one won't
+		\node[scale=0.7, green!75!black, inner sep=0pt] at ([xshift=0.6pt] bcircle.center) {\faPlay};%
+	\end{tikzpicture}%
+}
+% ------------------------------------------------------------------------------
+% Bold plus-minus
+\newcommand{\boldpm}{%
+	\begin{tikzpicture}[baseline=-0.6ex]%
+		\node (bcircle) {};%
+		\node[inner sep=0pt] at ([yshift=.1em] bcircle.center) {\faPlus};%
+		\node[inner sep=0pt] at ([yshift=-0.4em] bcircle.center) {\faMinus};%
+	\end{tikzpicture}%
+}
+% ------------------------------------------------------------------------------
+% Mouse click icons
+\newcommand{\leftclick}{\raisebox{-.15em}{\!\includegraphics[width=1em]{leftclick}}}
+\newcommand{\rightclick}{\raisebox{-.15em}{\,\includegraphics[width=1em]{rightclick}}}
+
+% ------------------------------------------------------------------------------
+% menukeys package commands with fontawesome5 icons
+% typesetFile command
+\newcommand{\typesetFile}[1]{%
+	\faFile[regular]%
+	\,%
+	\directory{#1}%
+}
+
+% typesetExe command
+\newcommand{\typesetExe}[1]{%
+	\faFile*[regular]%
+	\,%
+	\directory{#1}%
+}
+
+% typesetFolder command
+\newcommand{\typesetFolder}[1]{%
+	\faFolderOpen[regular]%
+	\,%
+	\directory{#1}%
+}
+
+% typesetCheckbox command
+\newcommand{\typesetCheckbox}[1]{%
+	\faCheckSquare[regular]%
+	\,%
+	#1%
+}
+
+% typesetBox command
+\newcommand{\typesetBox}[1]{%
+	\faSquare[regular]%
+	\,%
+	#1%
+}
+
+% typesetCircle command
+\newcommand{\typesetCircle}[1]{%
+	\faCircle[regular]%
+	\,%
+	#1%
+}
+
+% typesetDotCircle command
+\newcommand{\typesetDotCircle}[1]{%
+	\faDotCircle[regular]%
+	\,%
+	#1%
+}
+
+% ------------------------------------------------------------------------------
+% Simple note title styling command
+\newcommand{\note}[1]{%
+	{\noindent\sffamily\bfseries\small#1\hspace{1em}}%
+}
+% ------------------------------------------------------------------------------
+% License command
+\newcommand{\license}{
+	\vspace{\baselineskip}
+	\hfill%
+	\begin{minipage}[c]{.35\linewidth}
+		\doclicenseImage[imagewidth=\linewidth]\\\centering
+		\doclicenseNameRef
+	\end{minipage}
+}
+
+% ------------------------------------------------------------------------------
+% Adapted from the memoir documentation:
+% \hspace*{\fill} Separated\hfill objects\hspace*{\fill}
+% ------------------------------------------------------------------------------

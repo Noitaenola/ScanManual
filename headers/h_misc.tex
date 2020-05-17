@@ -1,0 +1,120 @@
+% ------------------------------------------------------------------------------
+% ---------------------------------  LICENSE  ----------------------------------
+% ------------------------------------------------------------------------------
+% Except where otherwise noted, this work by Noita Enola is licensed under CC BY-SA 4.0. You can check a copy of the license by looking at the LICENSE.md file, or at <https://creativecommons.org/licenses/by-sa/4.0>.
+
+% ------------------------------------------------------------------------------
+% These two speed up compilation time but produce a larger PDF. Should be commented before doing the final build: https://tex.stackexchange.com/a/454235
+\pdfcompresslevel=0
+\pdfobjcompresslevel=0
+
+% ------------------------------------------------------------------------------
+% Depth of the bookmarks
+\setsecnumdepth{subsection}
+\settocdepth{section}
+
+% ------------------------------------------------------------------------------
+% ToDo notes in the margins
+\usepackage[textsize=scriptsize]{todonotes}
+	\setlength{\marginparwidth}{2cm}
+
+% ------------------------------------------------------------------------------
+% Sections of text in multiple columns
+\usepackage{multicol}
+% ------------------------------------------------------------------------------
+% To ease customizing of the list environments
+\usepackage{enumitem}
+
+% ------------------------------------------------------------------------------
+\colorlet{colorLinks}{blue!30!black}
+
+\usepackage[
+	bookmarks,
+	bookmarksopen,
+	bookmarksdepth = 3,
+	bookmarksopenlevel = 1,
+	bookmarksnumbered,
+%	hidelinks,
+	colorlinks,
+	allcolors=colorLinks,
+	pdfusetitle,
+	pdfview = Fit,
+	pdfpagelayout = TwoPageRight,
+]{hyperref}
+
+% ------------------------------------------------------------------------------
+\usepackage[newfloat]{minted}
+\usepackage[skins, breakable, minted]{tcolorbox}
+	\colorlet{bg}{black!5!white}
+%	\definecolor{bg}{rgb}{0.95,0.95,0.95}
+	\newcommand{\pythonScript}[1]{% Shortcut for inputing scripts
+		\begin{tcolorbox}[%
+			arc	= 0mm,
+			colback	= bg,
+			coltitle	= black,
+			colframe	= bg,
+			titlerule	= 1pt,
+			titlerule style	= black,
+			bottomrule	= 1pt,
+			title	= #1,
+			fonttitle	=\sffamily\bfseries,
+			breakable,
+			title after break	= #1 (cont.),
+			toprule at break	= 0pt,
+			bottomrule at break = 0pt,
+			]%
+			\inputminted[breaklines, breakafter=/, fontfamily=tt]{python}{./scripts/#1}%
+		\end{tcolorbox}%
+	}
+
+% ------------------------------------------------------------------------------
+% To include the CC logo
+\usepackage[
+	type		= {CC},
+	modifier	= {by-sa},
+	version		= {4.0},
+]{doclicense}
+
+% ------------------------------------------------------------------------------
+% Bibliography handling.
+\usepackage[style=numeric,sorting=none,sortcites]{biblatex}
+\addbibresource{bibliography.bib}
+%\renewcommand{\cite}[1]{\textbf{[#1]}}
+
+% ------------------------------------------------------------------------------
+% To generate the nicer folder trees. By Guilherme Zanotelli: https://tex.stackexchange.com/questions/5073/making-a-simple-directory-tree
+\usepackage[edges]{forest}
+\definecolor{foldercolor}{RGB}{124,166,198}
+\tikzset{pics/folder/.style={code={%
+			\node[inner sep=0pt, minimum size=#1](-foldericon){};
+			\node[folder style, inner sep=0pt, minimum width=0.3*#1, minimum height=0.6*#1, above right, xshift=0.05*#1] at (-foldericon.west){};
+			\node[folder style, inner sep=0pt, minimum size=#1] at (-foldericon.center){};}
+	},
+	pics/folder/.default={20pt},
+	folder style/.style={draw=foldercolor!80!black,top color=foldercolor!40,bottom color=foldercolor}
+}
+
+\forestset{is file/.style={edge path'/.expanded={%
+			([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor)},
+		inner sep=1pt},
+	this folder size/.style={edge path'/.expanded={%
+			([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor) pic[solid]{folder=#1}}, inner xsep=0.6*#1},
+	folder tree indent/.style={before computing xy={l=#1}},
+	folder icons/.style={folder, this folder size=#1, folder tree indent=3*#1},
+	folder icons/.default={12pt},
+}
+
+% ------------------------------------------------------------------------------
+% Package for the menus and buttons
+\usepackage[os=win]{menukeys}
+\renewmenumacro{\directory}[/]{paths}
+\renewmenumacro{\keys}[+]{shadowedroundedkeys}
+
+% ------------------------------------------------------------------------------
+% Add some space between number and text in the footnotes. By JohnReed: https://tex.stackexchange.com/questions/54685/inserting-space-after-the-number-in-footnotes
+\let\oldfootnote\footnote
+\renewcommand\footnote[1]{\oldfootnote{\hspace{0.5em}#1}}
+
+\let\oldfootnotetext\footnotetext
+\renewcommand\footnotetext[1]{\oldfootnotetext{\hspace{0.5em}#1}}
+% ------------------------------------------------------------------------------
