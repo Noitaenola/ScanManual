@@ -344,7 +344,7 @@
 
 	\subsection{¿Qué partes escanear?\label{sec:scanningWhatToScan}} Antes de continuar hay un aspecto importante que no quisiera dejar de resaltar. En general, pero sobre todo si se trata de un libro publicado, escaneémoslo de cubierta delantera a cubierta trasera, sin dejar fuera absolutamente nada: ni páginas en blanco (llamadas de respeto o de cortesía), ni páginas de copyright, ni índices, ni apéndices, ni lomo\... Todo tiene su razón para estar allí y hace a la calidad de la publicación (y, por ende, de la digitalización), por lo que no hay motivo para dejar fuera nada.
 
-	\subsection{Fotos\label{sec:scanningPhotos}} A lo largo de la guía usaremos el vocablo «fotos» para referirnos a las ilustraciones o fotografías, a color o en escala de grises, impresas en el material que estamos digitalizando. Esto para distinguirlas de otras ilustraciones o diagramas simples que no requieran del tratamiento especial que describe la sección «Picture zones» en~\ref{sec:SToutputPictureZones}.
+	\subsection{Fotos\label{sec:scanningPhotos}} A lo largo de la guía usaremos el vocablo «fotos» para referirnos a las ilustraciones o fotografías, a color o en escala de grises, impresas en el material que estamos digitalizando. Esto para distinguirlas de otras ilustraciones o diagramas simples que no requieran del tratamiento especial que describe la sección «Picture zones» (\ref{sec:SToutputPictureZones}).
 
 	\section{Configuración del software\label{sec:scanningSoftware}} El paso siguiente es configurar el software de escaneo. Generalmente, este viene pensado para que se pueda usar sin pensar demasiado y que aún así puedan obtenerse buenos resultados. Por ello ya se incluyen cantidad de herramientas de posprocesado (mejora de la nitidez, desinclinación, balance de blancos, separación de varias imágenes, entre muchas otras). Debemos desactivarlas todas. Tengamos en cuenta que de ser necesarias algunas de estas correcciones podremos realizarlas más adelante y con mucho más control utilizando programas adicionales.
 
@@ -715,7 +715,7 @@
 
 	Para las páginas que además del texto tengan fotos que queramos preservar, deberemos elegir la opción \menu{Mode > Mixed}.\footnote{Este es el método que recomiendo para trabajar con las páginas con ilustraciones de nuestro material. Algunas alternativas no recomendadas se discuten en el apéndice~\ref{sec:noSplitPages}.} La opción por defecto es \menu{Black and White}, que binariza todo, y la restante, \menu{Color / Grayscale}, retiene la página original completa, salvo por los efectos de los pasos anteriores.
 
-	Eligiendo \menu{Mixed} el software intentará adivinar las áreas donde se encuentran las imágenes. En la pestaña \menu{Picture Zones} se señalan titilando con color azul. Por defecto estas áreas pueden tener cualquier forma, pero en el submenú \menu{Picture Shape > Rectangular} (fig~\ref{fig:SToutputPicureZonesRectangular}) podemos forzar a que sea rectangular, que servirá en la mayoría de los casos.
+	Eligiendo \menu{Mixed} el software intentará adivinar las áreas donde se encuentran las fotos. En la pestaña \menu{Picture Zones} se señalan titilando con color azul. Por defecto estas áreas pueden tener cualquier forma, pero en el submenú \menu{Picture Shape > Rectangular} (fig~\ref{fig:SToutputPicureZonesRectangular}) podemos forzar a que sea rectangular, que servirá en la mayoría de los casos.
 
 	\begin{figure}
 		\centering
@@ -742,9 +742,9 @@
 	\subsubsection{Ilustraciones problemáticas} Algunas ilustraciones, dibujos o diagramas, a pesar de estar impresos a una sola tinta, pierden muchos detalles cuando son binarizados. Ocurre cuando hay líneas muy cercanas pero que no se tocan: el blanco que queda en medio no es lo suficientemente claro, y \scantailor lo convierte en negro. Análogamente si hay líneas negras demasiado tenues. La figura~\ref{fig:SToutputBadDiagrams} ilustra un ejemplo. Para arreglar esto existen tres opciones.
 
 	\begin{enumerate}[noitemsep]
-		\item La más sencilla es tratarlos como imágenes. Procedemos exactamente como se explicó antes.
-		\item Si de dispone de un poco más de tiempo, se pueden editar en el \gimp para generar un contraste mayor que permita una binarización más efectiva. Para ello se pueden usar filtros o manualmente redibujar los detalles que se quieran conservar.
-		\item La tercera consiste en ajustar el algoritmo de binarización, como se explica a continuación. Tiene el inconveniente de que los cambios afectan a toda la página y no solo al dibujo de interés.
+		\item La más sencilla es tratarlos como fotos. Procedemos exactamente como se explicó en la sección~\ref{sec:SToutputPictureZones}.
+		\item Si de dispone de un poco más de tiempo, se pueden editar con \gimp para generar un contraste mayor que permita una binarización más efectiva. Para ello se pueden usar filtros o manualmente redibujar los detalles que se quieran conservar.
+		\item La tercera consiste en ajustar el algoritmo de binarización, como se explica a continuación. Tiene el inconveniente de que los cambios afectan a toda la página y no solo al dibujo de interés, lo que podría generar discordancias visibles con el resto de las páginas que usan los valores por defecto.
 	\end{enumerate}
 
 	\begin{figure}
@@ -758,7 +758,7 @@
 		\caption{Binarización de una ilustración problemática\label{fig:SToutputBadDiagrams}}
 	\end{figure}
 
-	\subsubsection{Algoritmo de binarización} Existen diferentes algoritmos de binarización de imágenes, cada uno con ventajas y desventajas. Con el submenú \menu{Threshold} (umbral) \scantailor permite cambiar entre \menu{Otsu} (por defecto), \menu{Sauvola} y \menu{Wolf}. De no estar conformes con el resultado por defecto, podríamos intentar cambiando el algoritmo o ajustando los parámetros que de cada uno se ofrecen. El impacto que tiene cada algoritmo está por fuera del alcance de nuestra guía, si bien existe abundante literatura al respecto \cite{RashmiBinarization}.
+	\subsubsection{Algoritmo de binarización} Existen diferentes algoritmos de binarización, cada uno con ventajas y desventajas. Con el submenú \menu{Threshold} (umbral) \scantailor permite cambiar entre \menu{Otsu} (por defecto), \menu{Sauvola} y \menu{Wolf}. De no estar conformes con el resultado por defecto, podríamos intentar cambiando el algoritmo o ajustando los parámetros que de cada uno se ofrecen. El impacto que tiene cada algoritmo está por fuera del alcance de nuestra guía, si bien existe abundante literatura al respecto \cite{RashmiBinarization}.
 
 	\subsection{Páginas apaisadas\label{sec:landscapePages}} Recomiendo corregir la rotación de las páginas apaisadas (\emph{landscape}, en inglés) para que estén bien orientadas en el documento final (ver figura~\ref{fig:STlandscapePages}). De esta forma se facilita el \ocr y queda más fácil de visualizar. Si bien podríamos haber elegido la orientación adecuada desde el paso 1 de \scantailor, no lo hacemos así porque no tener todas las páginas orientadas en el mismo sentido nos dificulta la configuración de márgenes consistentes.\footnote{En realidad, nos obliga a considerar todas esas páginas como atípicas, teniendo que ingresar todos sus márgenes manualmente.} Por ello, debemos tomar nota de los números de página que queramos ajustar y adaptar el script~\ref{scr:fixLandscapePages} para que las ajuste correctamente.\footnote{Bastará con rellenar la variable \menu{landscapePages} con los números de página correspondientes.}
 
@@ -784,7 +784,7 @@
 		\caption[Efectos de retoque en la tapa del libro]{Efectos de retoque en la tapa del libro. Se pasó de un \tiff de 56\,MB a uno de 0,69\,MB con una apariencia más limpia\label{fig:SCANcover}}
 	\end{figure}
 
-	Las cubiertas con diseños más complejos o que incluyen imágenes no admiten el mismo tipo de edición, aunque muchas veces es posible mejorarlas ajustando brillo, contraste, etc. Si bien la tapa es la presentación del libro, el peso en el tamaño final no debería ser excesivo.
+	Las cubiertas con diseños más complejos o que incluyen fotos no admiten el mismo tipo de edición, aunque muchas veces es posible mejorarlas ajustando brillo, contraste, etc. Si bien la tapa es la presentación del libro, el peso en el tamaño final no debería ser excesivo.
 
 	\subsection{Nota: sobre la fidelidad de los colores} No tiene mucho sentido obsesionarse con que los colores se vean exactamente igual que en el material físico.
 
@@ -794,7 +794,7 @@
 
 	En el siguiente capítulo trabajaremos con la salida de \scantailor para reconocer el texto. Esto le agregará mucho valor al resultado final, por la posibilidad de hacer búsquedas.
 
-	\chapter{\texorpdfstring{\textsc{Ocr}}{OCR} con \abby\label{sec:OCR}} Una vez que las páginas fueron limpiadas y ajustadas y las imágenes separadas, podemos proceder a realizar el reconocimiento de texto. Como paso previo, notemos que que si marcamos \menu{Picture zones} y elegimos la opción \menu{Split output}, tenemos en la carpeta \typesetFolder{out} las imágenes procesadas y dentro de la misma otras dos carpetas, como se explicó antes.
+	\chapter{\texorpdfstring{\textsc{Ocr}}{OCR} con \abby\label{sec:OCR}} Una vez que las páginas fueron limpiadas y ajustadas y las fotos separadas, podemos proceder a realizar el reconocimiento de texto. Como paso previo, notemos que que si marcamos \menu{Picture zones} y elegimos la opción \menu{Split output}, tenemos en la carpeta \typesetFolder{out} las imágenes procesadas y dentro de la misma otras dos carpetas, como se explicó antes.
 
 	Debemos ahora copiar las imágenes desde \typesetFolder{foreground} a la carpeta \typesetFolder{out} y sobrescribir los archivos. Así, en \typesetFolder{out} habrá solo imágenes binarias (texto y diagramas monocromáticos). Las fotos quedarán en \typesetFolder{background} y trabajaremos sobre ellas más adelante.
 
@@ -802,7 +802,7 @@
 
 	\note{Nota previa} \abby también es un programa muy completo, con una cantidad de modos de funcionamiento, opciones y errores que esta guía no pretende cubrir exhaustivamente. Si alguna explicación no quedara clara, lo mejor será experimentar, leer el manual de usuario o realizar consultas en algún sitio especializado.
 
-	\section{Configuración} Abrimos luego el \abby\footnote{Recomiendo trabajar con la versión 14 (la más reciente al momento de escribir esta guía). Sin embargo, cualquier versión que permita salvar en \djvu es suficiente (v11 o superior). Las opciones no serán exactamente iguales (habrá que improvisar) y no podremos usar el script~\ref{scr:replaceInABBY} (no es grave).} y procedemos a configurar primero las opciones básicas (más adelante trataremos algunas otras). Se accede al menú haciendo \menu{\leftclick > Tools > Options}. En principio sugiero configurar las opciones tal cual se muestran en las imágenes.
+	\section{Configuración} Abrimos luego el \abby\footnote{Recomiendo trabajar con la versión 14 (la más reciente al momento de escribir esta guía). Sin embargo, cualquier versión que permita salvar en \djvu es suficiente (v11 o superior). Las opciones no serán exactamente iguales (habrá que improvisar) y no podremos usar el script~\ref{scr:replaceInABBY} (no es grave).} y procedemos a configurar primero las opciones básicas (más adelante trataremos algunas otras). Se accede al menú haciendo \menu{\leftclick > Tools > Options}. En principio sugiero configurar las opciones tal cual se muestran en las figuras.
 
 	\subsection{Pestaña \texttt{Image Processing}} En la pestaña \menu{Image Processing} presionamos \keys{Show Advanced Settings} y deshabilitamos todas las opciones, como en la fig.~\ref{fig:ABBYoptionsImage}. Así nos aseguramos de que el software no realizará ninguna corrección de imagen. Para eso ya transitamos por los pasos anteriores. Si aún hubiera algo para ajustar, lo mejor será volver a \scantailor y hacerlo nosotros mismos.
 
@@ -874,7 +874,7 @@
 
 	Normalmente las creo como \menu{Recognition areas} (áreas de reconocimiento), para que \abby determine el tipo de contenido y ajuste el tamaño. Esto no es estrictamente necesario y el área puede ser más grande que el contenido que se busca reconocer, mientras no se solape con ninguna otra. Puede establecerse el tipo (generalmente \menu{Text}) manualmente durante la creación.
 
-	Se pueden dibujar tantas áreas como uno quiera. Para nuestro procedimiento usaremos solo las de texto y las de tablas. No será necesario marcar imágenes (aún si no las hubiéramos separado con \scantailor), pues elegimos la opción \menu{Text under the page image}, que preservará las imágenes originales e insertará el texto reconocido debajo de las mismas.
+	Se pueden dibujar tantas áreas como uno quiera. Para nuestro procedimiento usaremos solo las de texto y las de tablas. No será necesario marcar diagramas o fotos (aún si no las hubiéramos separado con \scantailor), pues elegimos la opción \menu{Text under the page image}, que preservará las imágenes originales e insertará el texto reconocido debajo de las mismas.
 
 	Colocar todo el texto dentro de una sola área o usar varias áreas para segmentar el mismo contenido es indistinto desde el punto de vista del resultado final. Si vamos a intentar corregir los errores que veamos, puede convenir no tener todo en una sola área. Esto porque a veces editamos algo manualmente, pero mas abajo nos damos cuenta que queremos reconocer el texto del área de nuevo, porque entrenamos el patrón o lo que sea. Pero de hacerlo perdemos los cambios manuales hechos al principio. Si tenemos varias áreas es más difícil que esto suceda.
 
@@ -1012,7 +1012,7 @@
 
 	En los capítulos siguientes veremos como crear los documentos que incluyan tanto nuestras imágenes procesadas como el texto reconocido.
 
-	\chapter{Creación del \texorpdfstring{\pdf}{PDF}} Llegó el momento de crear nuestro documento \pdf final. Básicamente, debemos insertar las imágenes (si es que las separamos), agregar los marcadores, corregir las etiquetas de las páginas, incluir los metadatos, eventualmente optimizar el documento y guardar en formato \pdfa. Fácil, ¿no?.
+	\chapter{Creación del \texorpdfstring{\pdf}{PDF}} Llegó el momento de crear nuestro documento \pdf final. Básicamente, debemos insertar las fotos (si es que las separamos), agregar los marcadores, corregir las etiquetas de las páginas, incluir los metadatos, eventualmente optimizar el documento y guardar en formato \pdfa. Fácil, ¿no?.
 
 	\section{Insertar fotos\label{sec:pdfPhotos}} Si decidimos separar las fotos del resto del contenido como se explica en~\ref{sec:SToutputPictureZones}, debemos ahora insertarlas nuevamente en el documento con el texto ya reconocido.
 
@@ -1022,16 +1022,16 @@
 	\begin{itemize}[noitemsep]
 		\item \mintinline{monkey}|magick convert| significa convertir con \imagemagick;
 		\item \mintinline{monkey}|SCAN_XXX.tif| es el \tiff original;
-		\item \mintinline{monkey}|-resample 300| redimensiona la foto de manera tal de que, a la nueva resolución (300\,dpi), el tamaño de su representación se mantenga igual que el original (15,5cm por 23,5\,cm en nuestro ejemplo; ver sección~\ref{sec:cleanAdjustDimensions});\footnote{\label{foot:resample}Aquí estamos asumiendo que las páginas fueron todas escaneadas a 300\,dpi. Al pasar por \scantailor, todo es escalado a 600\,dpi. En el caso de las áreas monocromáticas tiene sentido conservar esta resolución, porque el programa hace un mejoramiento importante, pero no con las imágenes (apenas rotación y ecualización), que ahora ocupan el cuádruple y no aportan más información. Por esta razón, las reducimos a su tamaño original.
+		\item \mintinline{monkey}|-resample 300| redimensiona la foto de manera tal de que, a la nueva resolución (300\,dpi), el tamaño de su representación se mantenga igual que el original (15,5cm por 23,5\,cm en nuestro ejemplo; ver sección~\ref{sec:cleanAdjustDimensions});\footnote{\label{foot:resample}Aquí estamos asumiendo que las páginas fueron todas escaneadas a 300\,dpi. Al pasar por \scantailor, todo es escalado a 600\,dpi. En el caso de las áreas monocromáticas tiene sentido conservar esta resolución, porque el programa hace un mejoramiento importante, pero no con las fotos (apenas rotación y ecualización), que ahora ocupan el cuádruple y no aportan más información. Por esta razón, las reducimos a su tamaño original.
 
 		Si hubiera alguna imagen escaneada a más resolución que se quisiera conservar, deberá procesarse con los valores de \texttt{-resample} adecuados e insertarse aparte. No debería ser muy difícil si se entienden los conceptos aquí desarrollados, aunque podría resultar tedioso.}
 		\item \mintinline{monkey}|-transparent white| convierte el blanco en transparente;
 		\item \mintinline{monkey}|-compress jpeg| impone compresión \textsc{jpeg} (con pérdidas);
-		\item \mintinline{monkey}|-quality 40| es el nivel de compresión (va de 1 a 100);\footnote{En este caso elegí un valor de 40, pero deberemos encontrar un valor que nos satisfaga en cada caso.} y
+		\item \mintinline{monkey}|-quality 40| es el nivel de compresión (va de 1 a 100);\footnote{En este caso elegí un valor de 40, pero deberemos encontrar aquel que nos satisfaga en cada caso.} y
 		\item \mintinline{monkey}|SCAN_XXX.tif.pdf| es el archivo \pdf de salida.
 	\end{itemize}
 
-	Luego superpone las imágenes sobre las páginas correspondientes. Para que esta superposición no opaque el resto del contenido es esencial la opción \mintinline[breaklines=true]{monkey}|-transparent white| de \imagemagick.\footnote{Recomiendo probar qué ocurre si se omite.} Cada uno difiere en la forma en la que insertan esas páginas en nuestro documento base.
+	Luego superpone las fotos sobre las páginas correspondientes. Para que esta superposición no opaque el resto del contenido es esencial la opción \mintinline[breaklines=true]{monkey}|-transparent white| de \imagemagick.\footnote{Recomiendo probar qué ocurre si se omite.} Cada uno difiere en la forma en la que insertan esas páginas en nuestro documento base.
 
 	\subsection{Usando \texorpdfstring{\qpdf}{QPDF}\label{sec:pdfPhotosqpdf}} El script~\ref{scr:pdfPhotosqpdf} lo hace invocando la aplicación \qpdf, mediante líneas del tipo \mintinline[breaklines=true]{monkey}|qpdf --overlay SCAN_XXX.tif.pdf --from=1 --to=XXX -- SCAN_INS.pdf|, donde:
 
@@ -1048,7 +1048,7 @@
 	\scriptcaption{Inserción de fotos usando \qpdf\label{scr:pdfPhotosqpdf}}
 
 
-	Su ejecución puede tomar un par de minutos. Al terminar tendremos un archivo \typesetFile{SCAN\_INS.pdf} con las imágenes insertadas.
+	Su ejecución puede tomar un par de minutos. Al terminar tendremos un archivo \typesetFile{SCAN\_INS.pdf} con las fotos insertadas.
 
 	\subsection{Usando \acrobat\label{sec:pdfPhotosAcrobat}} Por otra parte, el script~\ref{scr:pdfPhotosAcrobat},\footnote{Lamentablemente no he conseguido que el script~\ref{scr:pdfPhotosAcrobat} funcione con rutas de directorios relativas, por lo que el lector deberá cambiar \texttt{/C/Project/SCAN/out/background/} por el directorio correspondiente, si es que difiere.} además de invocar a \imagemagick como ya se explicó, crea a su vez un script de \emph{Adobe Javascript} para insertar las páginas usando \acrobat \cite{AdobeJavaScriptGuide, AdobeJavaScriptReference}. Este script se guarda en el archivo \typesetFile{pdfPhotos.js} y contiene líneas del tipo \mintinline[breaklines=true, breakafter={k,.}]{javascript}|this.addWatermarkFromFile({cDIPath: "/C/Project/SCAN/out/background/SCAN_XXX.tif.pdf", nSourcePage: 0, nStart: XXX-1});|,\\donde:
 
@@ -1068,12 +1068,12 @@
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{pdfPhotosJavascriptConsole}
-		\caption{Consola de \emph{Adobe Javascript} lista para insertar imágenes\label{fig:pdfPhotosJavascriptConsole}}
+		\caption{Consola de \emph{Adobe Javascript} lista para insertar fotos\label{fig:pdfPhotosJavascriptConsole}}
 	\end{figure}
 
-	Luego pegamos el contenido de \typesetFile{pdfPhotos.js} en la consola, lo seleccionamos todo y presionamos \keys{\ctrl + \return}. Después de algunos segundos aparecerá nuestro archivo \typesetFile{SCAN\_INS.pdf} con las imágenes insertadas. Si \emph{no} ocurrió ningún error, la consola mostrará el mensaje \texttt{undefined}.
+	Luego pegamos el contenido de \typesetFile{pdfPhotos.js} en la consola, lo seleccionamos todo y presionamos \keys{\ctrl + \return}. Después de algunos segundos aparecerá nuestro archivo \typesetFile{SCAN\_INS.pdf} con las fotos insertadas. Si \emph{no} ocurrió ningún error, la consola mostrará el mensaje \texttt{undefined}.
 
-	\subsection{Nota: sobre el tamaño final} Descubrí que si bien este método funciona bien, el blanco (convertido en transparente) de los \jpeg en algunos casos puede llegar a duplicar el tamaño de las imágenes. De momento lo presento así, pero hay que idear un método más eficiente, que recorte las imágenes (fácil) y las inserte en la posición adecuada en el documento final (difícil). (Acepto sugerencias.)
+	\subsection{Nota: sobre el tamaño final} Descubrí que si bien este método funciona bien, el blanco (convertido en transparente) de los \jpeg en algunos casos puede llegar a duplicar el tamaño de los archivos de fotos. De momento lo presento así, pero hay que idear un método más eficiente, que recorte las fotos (fácil) y las inserte en la posición adecuada en el documento final (difícil). (Acepto sugerencias.)
 
 	\section{Insertar marcadores\label{sec:pdfBookmarks}} Para insertar marcadores comenzaremos abriendo el \notepad, creando un archivo de texto \typesetFile{bookmarks.txt} y pegando allí la tabla de contenidos copiada del \pdf.
 
@@ -1194,7 +1194,7 @@
 
 	Las más importantes son las del menú \menu{\typesetCheckbox{Images}}. Hay que elegir \menu{Downsample > Off} para todos los tipos de imágenes, pues las resoluciones las hemos ajustado en pasos anteriores. Igualmente, ya hemos elegido la calidad de todas las ilustraciones, por lo que para que no sean recomprimidas seleccionamos \menu{Compression > Retain existing} para las \menu{Color Images} y \menu{Grayscale Images}.
 
-	Donde sí hay cierta discrecionalidad es en las \menu{Monochrome Images}, que todavía no hemos tocado. Debemos elegir \menu{Compression > JBIG2}, que es un algoritmo moderno y muy eficiente para comprimir imágenes monocromáticas.\footnote{\menu{CCITT Group 4} es una alternativa, pero fue diseñada para la máquinas de fax y ya es algo obsoleta. \textsc{jbig2} genera archivos entre 3 y 5 veces menores.} Este nos ofrece las opciones \menu{Lossy} y \menu{Lossless} (con y sin pérdidas). Personalmente elijo siempre \menu{Lossless}, dado que en las pruebas que he hecho el tamaño final es prácticamente el mismo.
+	Donde sí hay cierta discrecionalidad es en las \menu{Monochrome Images}, que todavía no hemos tocado. Debemos elegir \menu{Compression > JBIG2}, que es un algoritmo moderno y muy eficiente para comprimir imágenes monocromáticas.\footnote{\menu{CCITT Group 4} es una alternativa, pero fue diseñada para la máquinas de fax y ya es algo obsoleta. \textsc{jbig2} genera archivos entre 3 y 5 veces menores.} Este nos ofrece las opciones \menu{Lossy} y \menu{Lossless} (con y sin pérdidas). Personalmente elijo siempre \menu{Lossless}, dado que en las pruebas que he hecho el tamaño final es prácticamente el mismo.\footnote{Desde que \abby incorpora compresión \jbig, este párrafo se ha vuelto redundante: aplicarlo no mejora el tamaño de archivo.}
 
 	En \menu{\typesetCheckbox{Discard Objects}} debemos desmarcar \menu{\typesetBox{Discard document tags}} y \menu{\typesetBox{Discard bookmarks}}, para no perder el trabajo de la parte anterior. Lo mismo con \menu{\typesetBox{Discard document information and metadata}} en el menú \menu{\typesetCheckbox{Discard User Data}}.
 
@@ -1236,7 +1236,7 @@
 
 	Estos se guardan en la carpeta \typesetFolder{profiles} del directorio del programa, en un archivo llamado \typesetFile{documenttodjvu.conf}. Este es un documento de texto con una sintaxis particular que permite definirlos. Para entenderla basta mirar un poco los perfiles por defecto y los comentarios que dejó el desarrollador. Hay también más información en la documentación de \dexpress y de \djvusmallmod.
 
-	Para utilizar con mis documentos, yo creo tres perfiles: \menu{MyBitonal}, \menu{MyScan} y \menu{MyPhoto}. Básicamente, \menu{MyBitonal} es para páginas bitonales, \menu{MyPhoto} para fotos y \menu{MyScan} para páginas mixtas, donde puede haber texto sobre imágenes. Fueron creados en base a los perfiles existentes, a la documentación de \dexpress y a la información del \emph{Scan\&Share Tutorial} \cite{ScanAndShare2008}.
+	Para utilizar con mis documentos, yo creo tres perfiles: \menu{MyBitonal}, \menu{MyScan} y \menu{MyPhoto}. Básicamente, \menu{MyBitonal} es para páginas bitonales, \menu{MyPhoto} para fotos y \menu{MyScan} para páginas mixtas, donde puede haber texto sobre fotos. Fueron creados en base a los perfiles existentes, a la documentación de \dexpress y a la información del \emph{Scan\&Share Tutorial} \cite{ScanAndShare2008}.
 
 	Los nuevos perfiles quedan disponibles usando \notepad para añadir las líneas de la figura~\ref{fig:djvuProfiles} al final de \typesetFile{documenttodjvu.conf}.
 
@@ -1303,7 +1303,7 @@
 
 	\subsection{Insertar fotos: \djvuimager\label{sec:djvuImager}} Si utilizamos el modo \menu{Mixed} de \scantailor, nos está faltando codificar y e insertar las fotos que separamos en nuestro documento \djvu. Para hacerlo utilizaremos el software \djvuimager. Según ha explicado su autor, \mondaytwothousand, no es más que una GUI para algunas herramientas de \djvulibre, pero no por ello deja de ser muy conveniente.
 
-	Este usa una versión modificada de la aplicación \typesetExe{c44.exe} de \djvulibre\footnote{\typesetExe{fi\_c44.exe} utiliza la biblioteca libre \href{http://freeimage.sourceforge.net/}{\textsc{FreeImage}} para cargar archivos \tiff directamente. De lo contrario habría que convertir primero a \textsc{ppm}.} para codificar las imágenes, y luego las inserta en nuestro documento.
+	Este usa una versión modificada de la aplicación \typesetExe{c44.exe} de \djvulibre\footnote{\typesetExe{fi\_c44.exe} utiliza la biblioteca libre \href{http://freeimage.sourceforge.net/}{\textsc{FreeImage}} para cargar archivos \tiff directamente. De lo contrario habría que convertir primero a \textsc{ppm}.} para codificar las fotos, y luego las inserta en nuestro documento.
 
 	En la figura~\ref{fig:djvuImager}, vemos la ventana principal de \djvuimager. Está dividida principalmente en dos columnas. A la izquierda tiene la lista de archivos que vamos a codificar. A la derecha tenemos, de arriba hacia abajo:
 	\begin{itemize}[noitemsep]
@@ -1311,7 +1311,7 @@
 		\item parámetros de calidad de codificación;
 		\item selección de si las opciones actuales aplican para todos los archivos (\menu{All files}) o solo para el actualmente seleccionado (\menu{Current file}), así como un botón para reiniciar las opciones particulares de todos los archivos (\keys{C});
 		\item botón \keys{Convert}, que convierte a \djvu todos los archivos de la lista, botón \keys{View} (se activa después de dar \keys{Convert}) que abre un \djvu con todos los archivos convertidos y botón \keys{Current} que codifica el archivo actual y lo visualiza;
-		\item botones \keys{Insert in DjVu} (ídem \keys{View}), para insertar las imágenes, \keys{Options} para configurar algunas opciones y \keys{Help} para abrir el archivo de ayuda; y
+		\item botones \keys{Insert in DjVu} (ídem \keys{View}), para insertar las fotos, \keys{Options} para configurar algunas opciones y \keys{Help} para abrir el archivo de ayuda; y
 		\item rutas de los archivos de origen (\keys{Source}) y destino~(\keys{Dest}).
 	\end{itemize} 
 
@@ -1329,11 +1329,11 @@
 
 	Luego, presionando \keys{Open file(s)}, agregamos a la lista todos los archivos de la carpeta \typesetFolder{background}.
 
-	Debemos elegir ahora las opciones de compresión de las imágenes. \menu{BSF} significa \emph{Background subsample factor} (factor de submuestreo del fondo) y es el factor por el cual se reduce la foto antes de codificarla. Esta opción es análoga a la opción \mintinline{monkey}|-resample 300| que pasamos a \imagemagick en la sección~\ref{sec:pdfPhotosImageMagick} (ver nota al pie en la p.~\pageref{foot:resample}). Por las mismas razones recomiendo seleccionar \menu{\typesetCheckbox{BSF} > 2}.
+	Debemos elegir ahora las opciones de compresión de las fotos. \menu{BSF} significa \emph{Background subsample factor} (factor de submuestreo del fondo) y es el factor por el cual se reduce la foto antes de codificarla. Esta opción es análoga a la opción \mintinline{monkey}|-resample 300| que pasamos a \imagemagick en la sección~\ref{sec:pdfPhotosImageMagick} (ver nota al pie en la p.~\pageref{foot:resample}). Por las mismas razones recomiendo seleccionar \menu{\typesetCheckbox{BSF} > 2}.
 
 	La otra, \menu{Background quality} (calidad del fondo), determina la calidad del algoritmo de compresión, aunque no directamente. \mondaytwothousand configura algunas opciones del programa \typesetExe{c44.exe} en valores razonables y nos ofrece esa barra deslizante para ajustar el único parámetro que nos deja libre.\footnote{Para entender mejor los detalles debemos estar familiarizados con la estructura del formato \djvu, el funcionamiento de \typesetExe{c44.exe} y la documentación de \djvuimager.} Recomiendo jugar con esta opción para conseguir el balance de tamaño y calidad deseado. De no activar \menu{\typesetBox{Background quality}} se utiliza por defecto un valor de aproximadamente \menu{\typesetCheckbox{Background quality} > 30}.\footnote{Esto no lo sé con certeza, pero fue el valor que estimé comparando los tamaños de archivo que resultaban activando y desactivando la opción.}
 
-	Podemos ir apreciando el resultado de nuestras opciones en el archivo actual presionando \keys{Current}. Una vez hallamos decidido los parámetros para todos los archivos (o para cada archivo en particular si así lo deseamos) presionamos \keys{Convert} para convertirlos todos. Una vez que termina hacemos \keys{Insert in DjVu} y obtenemos nuestro archivo con las imágenes insertadas.
+	Podemos ir apreciando el resultado de nuestras opciones en el archivo actual presionando \keys{Current}. Una vez hallamos decidido los parámetros para todos los archivos (o para cada archivo en particular si así lo deseamos) presionamos \keys{Convert} para convertirlos todos. Una vez que termina hacemos \keys{Insert in DjVu} y obtenemos nuestro archivo con las fotos insertadas.
 
 	\subsubsection{Alternativa usando \djvusmall} Si no nos convence el resultado de codificación que da \djvuimager (basado en \djvulibre), podemos hacer un poco de trampa y codificar las fotos con \djvusmall (basado en \dexpress), usando por ejemplo el perfil \menu{MyPhoto}\footnote{Aquí sí con \menu{bg-subsample=2}.} u otros. El inconveniente es que \djvuimager requiere que cada página a insertar sea un archivo \djvu independiente y \djvusmall no dispone de ninguna opción que permita codificar de una sola vez cada archivo por separado, sino que genera un solo \djvu multipágina con todas las imágenes.\footnote{La alternativa sería hacerlo uno por uno, lo que podría llevar mucho tiempo.} Este inconveniente es fácil de resolver: simplemente ejecutamos el script~\ref{scr:djvuSeparatePhotos}, que invoca al programa \typesetExe{djvmcvt.exe} de \djvulibre para separar las páginas del archivo resultante y reemplaza las generadas por \djvuimager.
 
@@ -1373,7 +1373,7 @@
 
 	Luego habilitamos el botón \menu{\typesetCheckbox{\keys{Options}}} y lo presionamos. Serán de interés las pestañas \menu{Transform}, \menu{Segmenter} y \menu{Background}.
 
-	En la primera (fig.~\ref{fig:djvuSmallModTransformTab}) nos interesará solo activar \menu{\typesetCheckbox{Subsample} > 2}. Esta tiene el mismo efecto que la \menu{BSF} de la sección~\ref{sec:djvuImager}, es decir, reducir las dimensiones de las imágenes a la mitad. Recomiendo dejarla en 2 por las razones que allí se explicaron.
+	En la primera (fig.~\ref{fig:djvuSmallModTransformTab}) nos interesará solo activar \menu{\typesetCheckbox{Subsample} > 2}. Esta tiene el mismo efecto que la \menu{BSF} de la sección~\ref{sec:djvuImager}, es decir, reducir las dimensiones de las fotos a la mitad. Recomiendo dejarla en 2 por las razones que allí se explicaron.
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{djvuSmallModTransformTab}
@@ -1757,8 +1757,9 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Ampliadas la sección~\ref{sec:scanningSoftware} y la figura~\ref{fig:scanningIrfanView} para incluir el formato \png y otras opciones.
 				\item Ampliada la sección~\ref{sec:STselectContent}.
 				\item Modificado el procedimiento de configuración de márgenes, haciendo mejor uso de las facilidades de \scantailor. Gracias a esto se pudo intercambiar el orden de las secciones~\ref{sec:STmargins} y \ref{sec:SToutput} para respetar el flujo natural del proceso.
+				\item Aplicada la definición de «fotos» en las instancias que corresponde.
 				\item Ampliada la lista de referencias.
-%				\item Cambiada la licencia a CC BY-SA 4.0.
+				\item Cambiada la licencia a CC BY-SA 4.0.
 				\item Otras correcciones menores.
 			\end{itemize}
 		\item v1.0 -- 2019-04-16:
