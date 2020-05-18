@@ -330,7 +330,7 @@
 	Si estamos hablando de un libro barato o al que no nos sentimos apegados, la opción más eficiente es cortarle el lomo en una guillotina\footnote{O cortar sus páginas de una, para los que tengan paciencia.} y colocarlo en un escáner \adf. Si no tenemos ese tipo de escáner, de todas formas es más fácil colocar las hojas sueltas en uno de cama plana y conseguir digitalizaciones de muy buena calidad. Luego de esto se pueden tirar las hojas o, si vale la pena, enviarlas a reencuadernar.
 
 	Si el material no puede ser destruido, debemos preguntarnos si aún así no puede ser abusado. Es decir, ¿podemos permitirnos abrirlo 180\textdegree\ y apretarlo con fuerza contra el vidrio del escáner? He escaneado muchos libros de esta manera y salvo algunas excepciones nunca han perdido páginas ni quedado con daños permanentes, pero esa evaluación la debe hacer cada persona. %your mileage may vary
-	Aún si estamos dispuestos, podría ocurrir que no logremos buenos resultados en la parte donde se unen las hojas (ver figura~\ref{fig:epsonScan}). Para estar seguros podemos hacer algunas previsualizaciones de prueba.
+	Aún si estamos dispuestos, podría ocurrir que no logremos buenos resultados en la parte donde se unen las hojas (fig.~\ref{fig:epsonScan}). Para estar seguros podemos hacer algunas previsualizaciones de prueba.
 
 	Si seguimos sin encontrar la solución, debemos considerar adquirir otro tipo de escáner. O tal vez otro ejemplar de la obra que tenga menos valor y permita estos abusos.
 
@@ -375,7 +375,7 @@
 
 	En nuestro caso las opciones \menu{Tipo Documento(Y)} y \menu{Origen Documento} no se pueden modificar. \menu{Tipo Auto Exposición} se explica más abajo.
 
-	En \menu{Tipo de imagen} elegimos \menu{Color 24-bit} o \menu{Grises 8-bit}, dependiendo de si la página es a color o no. Se ofrecen también \menu{Suavizado de Color} y \menu{Ninguno}. Según la documentación de Epson la primera es para «gráficos a color, como un diagrama o un gráfico». La segunda no tiene un nombre muy explícito pero significa bitonal. Es decir, blanco o negro. Esta opción puede ser tentadora porque generalmente produce un tamaño de archivo más pequeño. Sin embargo, se pierde muchísima información de la página (ver figura~\ref{fig:epsonScanBitonal}). Nuestro resultado final será en general bitonal, pero luego de todo el procesamiento tendremos imágenes de excelente calidad e ínfimo tamaño. Por todo esto, no debe usarse ninguna de estas dos opciones u otras similares que puedan ofrecer las aplicaciones de los distintos fabricantes.
+	En \menu{Tipo de imagen} elegimos \menu{Color 24-bit} o \menu{Grises 8-bit}, dependiendo de si la página es a color o no. Se ofrecen también \menu{Suavizado de Color} y \menu{Ninguno}. Según la documentación de Epson la primera es para «gráficos a color, como un diagrama o un gráfico». La segunda no tiene un nombre muy explícito pero significa bitonal. Es decir, blanco o negro. Esta opción puede ser tentadora porque generalmente produce un tamaño de archivo más pequeño. Sin embargo, se pierde muchísima información de la página (fig.~\ref{fig:epsonScanBitonal}). Nuestro resultado final será en general bitonal, pero luego de todo el procesamiento tendremos imágenes de excelente calidad e ínfimo tamaño. Por todo esto, no debe usarse ninguna de estas dos opciones u otras similares que puedan ofrecer las aplicaciones de los distintos fabricantes.
 
 	\begin{figure}
 		\includegraphics[angle=-90, width=\linewidth]{epsonScanBitonal}
@@ -510,7 +510,7 @@
 
 	Cuando estemos listos presionaremos \play\ a la derecha del nombre del filtro. El programa recorre rápidamente todas las imágenes y genera todas las miniaturas. Al terminar podemos ir al paso 2.
 
-	\note{Nota: páginas apaisadas} Si bien la mayoría de las páginas tienen orientación vertical, a veces nuestro material contiene algunas páginas con orientación horizontal,\footnote{Ver \cite{WikipediaPageOrientation} (en inglés).} también llamadas páginas «apaisadas» (ver fig.~\ref{fig:STsplitPagesError}). Más adelante deberemos decidir como queremos que estén en nuestro documento final (sección~\ref{sec:landscapePages}). De momento orientémoslas todas tal como aparecen en el material original.
+	\note{Nota: páginas apaisadas} Si bien la mayoría de las páginas tienen orientación vertical, a veces nuestro material contiene algunas páginas con orientación horizontal,\footnote{Ver \cite{WikipediaPageOrientation} (en inglés).} también llamadas páginas «apaisadas» (fig.~\ref{fig:STsplitPagesError}). Más adelante deberemos decidir como queremos que estén en nuestro documento final (sección~\ref{sec:landscapePages}). De momento orientémoslas todas tal como aparecen en el material original.
 
 	\subsection{Paso 2. Split Pages\label{sec:STsplitPages}} En este paso le indicaremos a \scantailor qué parte de la imagen escaneada corresponde a la página. Lo que debemos lograr es que toda la página quede dentro del área azul y que el resto quede fuera: trozos de la hoja que no estábamos escaneando, imágenes de nuestras manos presionando el material, bandas negras donde no había papel, etc.
 
@@ -562,11 +562,11 @@
 
 	Como alternativa y si no nos interesa ser muy escrupulosos con las dimensiones originales, podemos elegir \menu{Page Box > \keys{Auto}} y dejar que el programa trate de adivinar el tamaño de cada página y su ubicación. Si procedemos así, entonces podemos saltarnos la sección~\ref{sec:STmarginsOriginals} e ir directo a \ref{sec:STmarginsReasonables}.\todo{Están mal los números de sección.}
 
-	Sea cual sea la opción que elijamos, se generará un rectángulo anaranjado que indica donde \scantailor cree que esta situada la hoja en la imagen y qué tamaño tiene (ver figura~\ref{fig:STselectContentError})\todo{figuraX vs. ver figuraX par todos?}. Es posible cambiarle el tamaño arrastrando los bordes. Haciendo \keys{\shift + \leftclick + arrastrar} sobre dicho rectángulo podremos posicionarlo correctamente sobre la página.\footnote{Esto solo será necesario si en el paso siguiente (sec.~\ref{sec:STmargins}) usamos la opción \menu{Auto Margins}.}
+	Sea cual sea la opción que elijamos, se generará un rectángulo anaranjado que indica donde \scantailor cree que esta situada la hoja en la imagen y qué tamaño tiene (fig.~\ref{fig:STselectContentError}). Es posible cambiarle el tamaño arrastrando los bordes. Haciendo \keys{\shift + \leftclick + arrastrar} sobre dicho rectángulo podremos posicionarlo correctamente sobre la página.\footnote{Esto solo será necesario si en el paso siguiente (sec.~\ref{sec:STmargins}) usamos la opción \menu{Auto Margins}.}
 
 	Para páginas atípicas recomiendo elegir \keys{Manual} e ingresar las dimensiones manualmente. Si vamos a editar las tapas manualmente como se esboza en la sección~\ref{sec:covers} podemos presionar \keys{Disable}.
 
-	\subsubsection{Content Box} Por defecto, \scantailor trata de detectar las áreas de contenido automáticamente. Para ello usa un algoritmo relativamente lento y propenso a errores, sobre todo si el material contiene manchas, puntos o defectos similares, que puedan ser confundidos con contenido legítimo (ver fig.~\ref{fig:STselectContentError}). A su vez, tiende a dejar afuera contenido que esté aislado del resto, como pueden ser las cabeceras o pies de página. Por todo esto recomiendo presionar \play\ y después revisar bien.
+	\subsubsection{Content Box} Por defecto, \scantailor trata de detectar las áreas de contenido automáticamente. Para ello usa un algoritmo relativamente lento y propenso a errores, sobre todo si el material contiene manchas, puntos o defectos similares, que puedan ser confundidos con contenido legítimo (fig.~\ref{fig:STselectContentError}). A su vez, tiende a dejar afuera contenido que esté aislado del resto, como pueden ser las cabeceras o pies de página. Por todo esto recomiendo presionar \play\ y después revisar bien.
 
 	\scantailorAdvanced permite hacer \menu{\leftclick\,\leftclick} sobre la imagen para cambiar rápidamente el área de contenido, y así incluir o excluir la zona donde se señaló. También podemos arrastrar los bordes del rectángulo manualmente con \keys{\leftclick + arrastrar} o reposicionarlo con \keys{\shift + \leftclick + arrastrar} (aunque esta última opción no es en general útil).
 
@@ -766,7 +766,7 @@
 
 	\subsubsection{Algoritmo de binarización} Existen diferentes algoritmos de binarización, cada uno con ventajas y desventajas. Con el submenú \menu{Threshold} (umbral) \scantailor permite cambiar entre \menu{Otsu} (por defecto), \menu{Sauvola} y \menu{Wolf}. De no estar conformes con el resultado por defecto, podríamos intentar cambiando el algoritmo o ajustando los parámetros que de cada uno se ofrecen. El impacto que tiene cada algoritmo está por fuera del alcance de nuestra guía, si bien existe abundante literatura al respecto \cite{RashmiBinarization}.
 
-	\subsection{Páginas apaisadas\label{sec:landscapePages}} Recomiendo corregir la rotación de las páginas apaisadas (\emph{landscape}, en inglés) para que estén bien orientadas en el documento final (ver figura~\ref{fig:STlandscapePages}). De esta forma se facilita el \ocr y queda más fácil de visualizar. Si bien podríamos haber elegido la orientación adecuada desde el paso 1 de \scantailor, no lo hacemos así porque no tener todas las páginas orientadas en el mismo sentido nos dificulta la configuración de márgenes consistentes.\footnote{En realidad, nos obliga a considerar todas esas páginas como atípicas, teniendo que ingresar todos sus márgenes manualmente.} Por ello, debemos tomar nota de los números de página que queramos ajustar y adaptar el script~\ref{scr:fixLandscapePages} para que las ajuste correctamente.\footnote{Bastará con rellenar la variable \menu{landscapePages} con los números de página correspondientes.}
+	\subsection{Páginas apaisadas\label{sec:landscapePages}} Recomiendo corregir la rotación de las páginas apaisadas (\emph{landscape}, en inglés) para que estén bien orientadas en el documento final (fig.~\ref{fig:STlandscapePages}). De esta forma se facilita el \ocr y queda más fácil de visualizar. Si bien podríamos haber elegido la orientación adecuada desde el paso 1 de \scantailor, no lo hacemos así porque no tener todas las páginas orientadas en el mismo sentido nos dificulta la configuración de márgenes consistentes.\footnote{En realidad, nos obliga a considerar todas esas páginas como atípicas, teniendo que ingresar todos sus márgenes manualmente.} Por ello, debemos tomar nota de los números de página que queramos ajustar y adaptar el script~\ref{scr:fixLandscapePages} para que las ajuste correctamente.\footnote{Bastará con rellenar la variable \menu{landscapePages} con los números de página correspondientes.}
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{STlandscapePages}
@@ -927,7 +927,7 @@
 
 	Si nuestro documento utiliza más caracteres,\footnote{Por ejemplo, nuestro material contiene algunas letras del alfabeto griego.} debemos agregarlos al diccionario y preferentemente entrenar el patrón de usuario para facilitar su reconocimiento.
 
-	Esto lo haremos editando las propiedades de nuestro idioma (ver fig.~\ref{fig:ABBYoptionsLanguagesLanguageProperties}). Allí, presionando \keys{\raisebox{.25em}{\...}}, podemos ver y editar los caracteres incluidos.\footnote{En realidad básicamente solo las letras y números. \keys{Advanced} despliega un menú similar, pero que además incluye los distintos símbolos y signos de puntuación. En algún caso podríamos necesitar trabajar con él (es análogo).}
+	Esto lo haremos editando las propiedades de nuestro idioma (fig.~\ref{fig:ABBYoptionsLanguagesLanguageProperties}). Allí, presionando \keys{\raisebox{.25em}{\...}}, podemos ver y editar los caracteres incluidos.\footnote{En realidad básicamente solo las letras y números. \keys{Advanced} despliega un menú similar, pero que además incluye los distintos símbolos y signos de puntuación. En algún caso podríamos necesitar trabajar con él (es análogo).}
 
 	El cuadro de diálogo se muestra en la figura~\ref{fig:ABBYoptionsLanguagesLanguagePropertiesAlphabet}. En el menú desplegable \menu{Unicode subrange} tenemos páginas con los diferentes conjuntos de caracteres para seleccionar.\footnote{Normalmente solo uso caracteres de las páginas: \menu{Basic Latin}, \menu{Latin-1 Supplement}, \menu{Basic Greek}, \menu{General Punctuation} y \menu{Mathematical Operators}, si bien hay algunos de otras páginas seleccionados por defecto. Esto dependerá mucho de lo que haya impreso en el material que estemos reconociendo.}
 
@@ -958,7 +958,7 @@
 
 	\subsubsection{Mejor diccionario que edición manual} Si hay alguna palabra mal reconocida es probable que esta no esté en el diccionario. Si es así, \abby la subraya y haciendo \keys{\rightclick} sobre ella nos presenta una lista de posibles candidatas tomadas del diccionario. Desde el punto de vista de mantener la selección en el documento final sincronizada con lo que se está viendo, es mejor corregir la palabra de esta manera que borrando y tipeando manualmente.
 
-	\subsubsection{Área no abarca todo el contenido} En algunas áreas, sobre todo aquellas en donde el texto no está justificado, \abby tiende a dejar fuera algunos caracteres, especialmente los guiones o signos de puntuación (ver fig.~\ref{fig:ABBYCorrectionsSpotAndArea}). En estos casos debemos modificar el área para que pase a incluir todos los contenidos.
+	\subsubsection{Área no abarca todo el contenido} En algunas áreas, sobre todo aquellas en donde el texto no está justificado, \abby tiende a dejar fuera algunos caracteres, especialmente los guiones o signos de puntuación (fig.~\ref{fig:ABBYCorrectionsSpotAndArea}). En estos casos debemos modificar el área para que pase a incluir todos los contenidos.
 
 	\subsubsection{Errores comunes} Para los errores que se repiten comúnmente, por ejemplo cuando \abby confunde «\textit{R}» por «/?», podemos ir tomando nota en un archivo de texto. Al terminar de reconocer todas las páginas, usamos la función de buscar (\keys{\ctrl + F}) para encontrarlos y corregirlos todos de una sola vez.
 
@@ -979,7 +979,7 @@
 
 	El proceso de entrenamiento no es difícil, pero para los detalles refiero al lector al manual de usuario de \abby. A continuación veremos algunos consejos y buenas prácticas respecto al trabajo con patrones.
 
-	\subsubsection{Configuración} Para que el patrón entrenado se use hay que tener marcada la opción \menu{\typesetDotCircle{Use user patterns}} con \menu{\typesetCheckbox{Also use built-in patterns}}, de manera de que se puedan complementar (ver figura~\ref{fig:ABBYoptionsOCR}). Solo el patrón personalizado es mala idea: no funciona bien y además no se adapta a los diferentes tamaños y fuentes que pueda haber en el documento.
+	\subsubsection{Configuración} Para que el patrón entrenado se use hay que tener marcada la opción \menu{\typesetDotCircle{Use user patterns}} con \menu{\typesetCheckbox{Also use built-in patterns}}, de manera de que se puedan complementar (fig.~\ref{fig:ABBYoptionsOCR}). Solo el patrón personalizado es mala idea: no funciona bien y además no se adapta a los diferentes tamaños y fuentes que pueda haber en el documento.
 
 	\begin{figure}
 		\centering
@@ -1191,7 +1191,7 @@
 
 	Finalmente vamos a \menu{File > Save As\ldots} y guardamos el archivo con el nombre \typesetFile{SCAN\_INS\_BOOK\_PAG.pdf}.
 
-	\section{Optimización\label{sec:pdfOptimize}} A veces podemos optimizar el \pdf para reducir un poco el tamaño sin afectar demasiado la calidad. Para ello seleccionamos \menu{File > Save as Other > Optimized PDF\ldots} y elegimos las opciones que queramos (ver fig.~\ref{fig:pdfOptimizeImages}).
+	\section{Optimización\label{sec:pdfOptimize}} A veces podemos optimizar el \pdf para reducir un poco el tamaño sin afectar demasiado la calidad. Para ello seleccionamos \menu{File > Save as Other > Optimized PDF\ldots} y elegimos las opciones que queramos (fig.~\ref{fig:pdfOptimizeImages}).
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{pdfOptimizeImages}
@@ -1212,7 +1212,7 @@
 
 	Tenemos dos formas de hacerlo. La primera es mediante el menú \menu{File > Save as Other > Archivable PDF (PDF/A)}. Allí aparece un cuadro de diálogo para guardar, y con \keys{Settings} podemos cambiar las opciones.
 
-	Yo prefiero usar el menú \menu{Tools > Preflight} y la pestaña \menu{Standards} (ver fig.~\ref{fig:pdfPdfaPreflightStandards}). Allí elegimos \menu{Save as PDF/A}, presionamos \keys{Continue\ldots}, elegimos el estándar (recomiendo \menu{PDF/A-2u} o \menu{PDF/A-2b}), presionamos \keys{Continue\ldots} nuevamente y por último cambiamos las opciones. En principio marcamos solo \menu{Apply corrections} y vemos que sucede.
+	Yo prefiero usar el menú \menu{Tools > Preflight} y la pestaña \menu{Standards} (fig.~\ref{fig:pdfPdfaPreflightStandards}). Allí elegimos \menu{Save as PDF/A}, presionamos \keys{Continue\ldots}, elegimos el estándar (recomiendo \menu{PDF/A-2u} o \menu{PDF/A-2b}), presionamos \keys{Continue\ldots} nuevamente y por último cambiamos las opciones. En principio marcamos solo \menu{Apply corrections} y vemos que sucede.
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{pdfPdfaPreflightStandards}
@@ -1293,7 +1293,7 @@
 
 	\subsection{Codificación del cuerpo del documento\label{sec:djvuSmallBody}} Si seguimos la guía correctamente, todas las páginas de nuestro documento salvo las cubiertas deberían estar en blanco y negro. A este conjunto le llamamos cuerpo del texto. En este caso van de la 002 a la 459.
 
-	Para comprimirlo abrimos el \djvusmall (ver figura~\ref{fig:djvuSmallBody}) y usamos \keys{Open File(s)} para agregar las imágenes del cuerpo. Seleccionamos luego el perfil \menu{MyBitonal} del menú desplegable \menu{Select encoding profile}. Elegimos el directorio de salida y presionamos \keys{Convert}. Al archivo resultante le llamaremos \typesetFile{BODY.djvu}.
+	Para comprimirlo abrimos el \djvusmall (fig.~\ref{fig:djvuSmallBody}) y usamos \keys{Open File(s)} para agregar las imágenes del cuerpo. Seleccionamos luego el perfil \menu{MyBitonal} del menú desplegable \menu{Select encoding profile}. Elegimos el directorio de salida y presionamos \keys{Convert}. Al archivo resultante le llamaremos \typesetFile{BODY.djvu}.
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{djvuSmallBody}
@@ -1368,7 +1368,7 @@
 
 	Los perfiles están agrupados en categorías que se pueden seleccionar desde el menú desplegable \menu{Profiles Set}. Las originales de \dexpress están agrupadas en \menu{Original} y el autor de \djvusmallmod creó varios perfiles personalizados bajo la categoría \menu{Extreme}.\footnote{Los perfiles de cada categoría están muy bien explicados en la documentación del programa.}
 
-	\subsection{Codificación del cuerpo + inserción de fotos\label{sec:djvuSmallModPhotos}} Si separamos las fotografías usando \scantailor (ver sección~\ref{sec:SToutputPictureZones}) \djvusmallmod nos da la posibilidad de insertarlas en el mismo momento en que codificamos el cuerpo del documento.
+	\subsection{Codificación del cuerpo + inserción de fotos\label{sec:djvuSmallModPhotos}} Si separamos las fotografías usando \scantailor (sec.~\ref{sec:SToutputPictureZones}) \djvusmallmod nos da la posibilidad de insertarlas en el mismo momento en que codificamos el cuerpo del documento.
 
 	Para hacerlo presionamos \keys{\faFilter} (\menu{Set manual segmentation}) y configuramos las opciones como las de la figura~\ref{fig:djvuSmallModLayers}. En particular, debemos elegir \menu{\typesetCheckbox{Enable layers separation} > User-defined}, el campo \menu{\typesetCheckbox{Text}} debe decir \menu{<name\textgreater.<ext\textgreater} y el campo \menu{\typesetCheckbox{Background}} \menu{background\textbackslash <name\textgreater.<ext\textgreater}. De esta manera reconocerá las imágenes de la carpeta \typesetFolder{background} como fotos para insertar.
 
@@ -1765,6 +1765,7 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Ampliada la sección~\ref{sec:STselectContent} y agregada la figura~\ref{fig:STselectContentOrder}.
 				\item Modificado el procedimiento de configuración de márgenes, haciendo mejor uso de las facilidades de \scantailor. Gracias a esto se pudo intercambiar el orden de las secciones~\ref{sec:STmargins} y \ref{sec:SToutput} para respetar el flujo natural del proceso.
 				\item Aplicada la definición de «fotos» en las instancias que corresponde.
+				\item Uniformizado el estilo de las referencias entre paréntesis: (ver figura X) \faLongArrowAltRight\ (fig. X).
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
 				\item Otras correcciones menores.
