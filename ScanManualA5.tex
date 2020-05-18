@@ -549,9 +549,7 @@
 
 	Lo segundo es parecido al paso 2, solo que ahora se usará un rectángulo para indicar el área de la imagen donde está el contenido. Todo lo que quede fuera de este rectángulo será descartado del resultado final.
 
-	\note{Nota: páginas atípicas} Llamaremos \emph{páginas atípicas} a las correspondientes a las tapas y lomo, así como aquellas páginas que por alguna razón tengan un tamaño físico mayor o menor que el resto, como puede ocurrir con libros que traen páginas dobladas que pueden extenderse.
-
-	\todo{Agregar a la historia que se cambió la definición de páginas atípicas y se ajustaron los proc. de los pasos 4-6 para reflejarlo.}
+	\note{Nota: páginas atípicas} Llamaremos \emph{páginas atípicas} a las correspondientes a las tapas y lomo, así como aquellas páginas que por alguna razón tengan un tamaño físico mayor o menor que el resto, como puede ocurrir con libros que traen páginas dobladas que pueden extenderse. Todas las demás serán, entonces, \emph{páginas típicas}.
 
 	\begin{figure}
 		\centering
@@ -560,19 +558,27 @@
 		\caption{Paso 4: \emph{Select content}\label{fig:STselectContent}}
 	\end{figure}
 
-	\subsubsection{Page Box} En el cuadro \menu{Page Box} que se ve en la figura~\ref{fig:STselectContentOptions} presionamos \keys{Manual} e ingresamos respectivamente el ancho y el alto del material en \menu{Width} y \menu{Height} del cuadro \menu{Options}. En nuestro caso el cuadro~\ref{tab:bookDimensions} de la sección~\ref{sec:cleanAdjustDimensions} nos indica 155\,mm y 235\,mm. Luego presionamos \keys{Apply To} y en el cuadro de diálogo que aparece (fig.~\ref{fig:STselectContentApplyTo}) activamos \menu{\typesetCheckbox{Apply page box}} y elegimos \menu{\typesetDotCircle{All pages}}. Finalmente damos \keys{OK} para aplicar las dimensiones ingresadas a todas las páginas del proyecto.
+	\subsubsection{Page Box} En el cuadro \menu{Page Box} que se ve en la figura~\ref{fig:STselectContentOptions} presionamos \keys{Manual} e ingresamos respectivamente el ancho y el alto del material en \menu{Width} y \menu{Height} del subcuadro \menu{Options}. En nuestro caso el cuadro~\ref{tab:bookDimensions} de la sección~\ref{sec:cleanAdjustDimensions} nos indica 155\,mm y 235\,mm. Luego presionamos \keys{Apply To} y en el cuadro de diálogo que aparece (fig.~\ref{fig:STselectContentApplyTo}) activamos \menu{\typesetCheckbox{Apply page box}} y elegimos \menu{\typesetDotCircle{All pages}}. Finalmente damos \keys{OK} para aplicar las dimensiones ingresadas a todas las páginas del proyecto.
 
-	Como alternativa y si no nos interesa ser muy escrupulosos con las dimensiones originales, podemos elegir \menu{Page Box > \keys{Auto}} y dejar que el programa trate de adivinar el tamaño de cada página. Si procedemos así, entonces podemos saltarnos la sección~\ref{sec:STmarginsOriginals} e ir directo a \ref{sec:STmarginsReasonables}.
+	Como alternativa y si no nos interesa ser muy escrupulosos con las dimensiones originales, podemos elegir \menu{Page Box > \keys{Auto}} y dejar que el programa trate de adivinar el tamaño de cada página y su ubicación. Si procedemos así, entonces podemos saltarnos la sección~\ref{sec:STmarginsOriginals} e ir directo a \ref{sec:STmarginsReasonables}.\todo{Están mal los números de sección.}
 
-	Sea cual sea la opción que elijamos, se generará un rectángulo anaranjado que indica donde \scantailor cree que esta situada la hoja en la imagen y qué tamaño tiene (ver figura~\ref{fig:STselectContentError})\todo{figuraX vs. ver figuraX par todos?}. Es posible cambiarle el tamaño arrastrando los bordes. Haciendo \keys{\shift + \leftclick + arrastrar} sobre dicho rectángulo podremos posicionarlo correctamente sobre la página.\footnote{Esto solo será necesario si en el paso siguiente (sec.~\ref{sec:STmargins}) usamos la opción \menu{Auto Margins}.}\todo{páginas atípicas?}
+	Sea cual sea la opción que elijamos, se generará un rectángulo anaranjado que indica donde \scantailor cree que esta situada la hoja en la imagen y qué tamaño tiene (ver figura~\ref{fig:STselectContentError})\todo{figuraX vs. ver figuraX par todos?}. Es posible cambiarle el tamaño arrastrando los bordes. Haciendo \keys{\shift + \leftclick + arrastrar} sobre dicho rectángulo podremos posicionarlo correctamente sobre la página.\footnote{Esto solo será necesario si en el paso siguiente (sec.~\ref{sec:STmargins}) usamos la opción \menu{Auto Margins}.}
 
-	Para las tapas y páginas atípicas
+	Para páginas atípicas recomiendo elegir \keys{Manual} e ingresar las dimensiones manualmente. Si vamos a editar las tapas manualmente como se esboza en la sección~\ref{sec:covers} podemos presionar \keys{Disable}.
 
-	\subsubsection{Content Box} Por defecto, \scantailor trata de detectar las áreas de contenido automáticamente. Para ello usa un algoritmo relativamente lento y propenso a errores, sobre todo si el material contiene manchas, puntos o defectos similares, que puedan ser confundidos con contenido legítimo (ver fig.~\ref{fig:STselectContentError}). A su vez, tiende a dejar afuera contenido que esté aislado del resto, como pueden ser las cabeceras o pies de página. Por todo esto recomiendo revisar bien después de dar \play.
+	\subsubsection{Content Box} Por defecto, \scantailor trata de detectar las áreas de contenido automáticamente. Para ello usa un algoritmo relativamente lento y propenso a errores, sobre todo si el material contiene manchas, puntos o defectos similares, que puedan ser confundidos con contenido legítimo (ver fig.~\ref{fig:STselectContentError}). A su vez, tiende a dejar afuera contenido que esté aislado del resto, como pueden ser las cabeceras o pies de página. Por todo esto recomiendo presionar \play\ y después revisar bien.
 
-	\scantailorAdvanced permite hacer \menu{\leftclick\,\leftclick} sobre la imagen para cambiar rápidamente el área de contenido, y así incluir o excluir la zona donde se señaló. También podemos arrastrar los bordes del rectángulo manualmente o reposicionarlo con \keys{\shift + \leftclick + arrastrar} (aunque esta última opción no es en general útil).
+	\scantailorAdvanced permite hacer \menu{\leftclick\,\leftclick} sobre la imagen para cambiar rápidamente el área de contenido, y así incluir o excluir la zona donde se señaló. También podemos arrastrar los bordes del rectángulo manualmente con \keys{\leftclick + arrastrar} o reposicionarlo con \keys{\shift + \leftclick + arrastrar} (aunque esta última opción no es en general útil).
 
-	Para ayudarnos en esta tarea, también podemos ordenar las páginas: \menu{Order by increasing > width, height, deviation} nos permite agrupar todas las páginas más altas (bajas), más anchas (angostas) o que se desvían más (menos) de la media juntas. En esos conjuntos es más probable encontrar errores. Por ejemplo, en la figura~\ref{fig:STselectContentError} vemos que la página en cuestión era de las más altas no porque el contenido lo fuera, sino porque no había sido correctamente reconocido y debemos arreglarlo.
+	Para ayudarnos en la tarea de asegurar el correcto reconocimiento de todas las áreas de contenido también podemos ordenar las páginas: \menu{Order by increasing > width, height, deviation} nos permite agrupar todas las páginas más altas (bajas), más anchas (angostas) o que se desvían más (menos) de la media juntas (fig.~\ref{fig:STselectContentOrder}). En esos conjuntos es más probable encontrar errores.
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=.3\linewidth]{STselectContentOrder}
+		\caption{Opciones de ordenación de páginas\label{fig:STselectContentOrder}}
+	\end{figure}
+
+	Por ejemplo, en la figura~\ref{fig:STselectContentError} vemos que la página en cuestión era de las más altas no porque el contenido lo fuera, sino porque no había sido correctamente reconocido y debemos arreglarlo.
 
 	\begin{figure}
 		\centering
@@ -583,13 +589,13 @@
 
 	En otros casos lo será simplemente porque el contenido va más allá de los márgenes usuales del material, común en libros como el nuestro, con muchos dibujos y diagramas; o simplemente porque la ortotipografía del mismo no fue bien cuidada.\footnote{Como en nuestro material, donde el texto no está justificado.} A veces se encuentran páginas mal desinclinadas o con fotos o diagramas que no fueron correctamente reconocidos como contenido.
 
-	Todos los errores de selección de contenido que no corrijamos seguramente se hagan evidentes al compaginar el documento, sobre todo si somos escrupulosos con los márgenes. En ese punto serán aún fáciles de corregir, pero cuanto menos trabajo nos quede hacia adelante, mejor.
+	Todos los errores de selección de contenido que no corrijamos seguramente se hagan evidentes al compaginar el documento, sobre todo si somos escrupulosos con los márgenes. En ese punto aún serán fáciles de corregir, pero cuanto menos trabajo nos quede hacia adelante, mejor.
 
 	\subsection{Paso 5. \emph{Margins}\label{sec:STmargins}} Una vez que ya hemos revisado cada página y acomodado bien los contenidos es hora de ajustar los márgenes. Propongo un método que conserva lo más exactamente posible la apariencia original y otro que introduce márgenes razonables (arbitrarios o automáticos).
 
 	\subsubsection{Conservando la apariencia original\label{sec:STmarginsOriginals}} Si estamos buscando reproducir las dimensiones del material original deberemos tener los cuidados que se explican a continuación.
 
-	Comenzamos decidiendo respecto a qué parte de las páginas vamos a referir los márgenes. En el caso que nos ocupa, el libro tiene los números de páginas impresos en las esquinas superiores exteriores de cada hoja. Las pares en la superior izquierda y las impares en la superior derecha. Estos son referencias bastante naturales y son las que usaremos.
+	Comenzamos decidiendo respecto a qué parte de las páginas vamos a referir los márgenes. En el caso que nos ocupa, el libro tiene los números de página impresos en las esquinas superiores exteriores de cada hoja. Las pares en la superior izquierda y las impares en la superior derecha. Estos son referencias bastante naturales y son las que usaremos.
 
 	Vamos entonces al paso 5 de \scantailor, nos paramos en una página par y en el submenú \menu{Alignment} (fig.~\ref{fig:STmarginsAlignment}) presionamos la flecha que apunta hacia arriba y a la izquierda. Veremos que la alienación cambia. Por ahora no nos preocuparemos por el ancho de los márgenes. El paso siguiente es presionar \keys{Apply To\...}, seleccionar \menu{Every other page} y dar \keys{OK}. Luego hacemos lo mismo con las páginas impares, eligiendo la flecha que apunta arriba a la derecha.
 
@@ -1755,7 +1761,8 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Simplificados los nombres de algunos archivos y de algunas etiquetas internas del fuente \LaTeX.
 				\item Ampliado un poco el prólogo.
 				\item Ampliadas la sección~\ref{sec:scanningSoftware} y la figura~\ref{fig:scanningIrfanView} para incluir el formato \png y otras opciones.
-				\item Ampliada la sección~\ref{sec:STselectContent}.
+				\item Cambiada la definición de páginas atípicas.
+				\item Ampliada la sección~\ref{sec:STselectContent} y agregada la figura~\ref{fig:STselectContentOrder}.
 				\item Modificado el procedimiento de configuración de márgenes, haciendo mejor uso de las facilidades de \scantailor. Gracias a esto se pudo intercambiar el orden de las secciones~\ref{sec:STmargins} y \ref{sec:SToutput} para respetar el flujo natural del proceso.
 				\item Aplicada la definición de «fotos» en las instancias que corresponde.
 				\item Ampliada la lista de referencias.
@@ -1773,7 +1780,9 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 	\item Elegir un mejor título para el documento.
 	\item Agregar una página de copyright.
 	\item Dejar de usar los floats de memoir y pasar a los del paquete caption como sugiere el encargado de mantenimiento de memoir en \href{https://tex.stackexchange.com/questions/524747/memoir-subbottom-and-subtop-vertical-alignment-control}{Memoir subbottom (and subtop) vertical alignment control}.
+	\item uniformizar los títulos. ej: insertar fotos vs. inserción de fotos?
 	\item Uniformizar algunos términos: imágenes (insertadas) -- fotografías. Exploración -- escaneo.
+	\item homogeneizar todo el tono del documento: haremos, haré, haga?
 	\item respecto a la nota al final de la sección~\ref{sec:pdfPhotos} hay otras posibilidades para insertar las imágenes en el \pdf, pero me pasa el agua:
 		\begin{itemize}[noitemsep]
 			\item API \href{cairographics.org}{cairo} (también en Python con \href{https://www.cairographics.org/pycairo/}{Pycairo});
@@ -1785,9 +1794,7 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 			\item Alguien estaba buscando lo mismo que yo en este foro de \imagemagick: \href{https://www.imagemagick.org/discourse-server/viewtopic.php?t=31103}{Adding image to pdf}.
 		\end{itemize}
 	\item Investigar este \href{https://github.com/lovasoa/pagelabels-py}{script} de Python para cambiar las etiquetas de página de los \pdf.
-	\item homogeneizar todo el tono del documento: haremos, haré, haga?
 	\item agregar una sección sobre como trabajar con \djvulibre?
-	\item uniformizar los títulos. ej: insertar fotos vs. inserción de fotos?
 	\item ordenar la bibliografía?
 	\item Crear un script para agregar los metadatos con \exiftool.
 	\item Dar alguna referencia sobre qué hacer si falla la conversión \pdfa.
@@ -1798,10 +1805,8 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 	\item Respecto a la conversión de hOCR a djvused, ver \href{https://github.com/ksa242/pdfsed-tools}{pdfsed-tools}.
 	\item Investigar y comentar Djvutoy para la creación de djvus.
 	\item Transparencias de páginas de pueden corregir también por software.
-	\item Otra referencia interesante (en ruso)L \href{http://publ.lib.ru/cgi/forum/YaBB.pl?catselect=ocr}{OCR Forum}.
-	\item revisar la sección de optimización de \pdf; aclarar que ahora (\abby 14) quizás no sea necesaria.
+	\item Otra referencia interesante (en ruso) \href{http://publ.lib.ru/cgi/forum/YaBB.pl?catselect=ocr}{OCR Forum}.
 	\item archivos ocultos en estructura de \abby.
-	\item Arreglar el caption de \ref{fig:epsonScanBitonal}.
 	\item Algún comentario más sobre que Split pages rompe otras cosas como el \djvuimager.
 	\item En esta versión de la guía se incluyeron materiales distintos del gregory. Aclararlo en la sección~\ref{sec:aboutGregory}.
 \end{itemize}
