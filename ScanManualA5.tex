@@ -481,7 +481,7 @@
 		\caption{Dimensiones del libro a escanear (en cm) y dimensiones estimadas de imagen a 600\,dpi (en pix)\label{tab:bookDimensions}}
 	\end{table}
 
-	\section{Orientación de páginas\label{sec:fixOrientation}} De acuerdo a como hayamos colocado el material en el escáner, es posible que las páginas pares o las impares estén rotadas 180\textdegree. Siempre es una buena idea, pero especialmente si estamos pensando en corregir frecuentemente los errores que vayamos encontrando, como se explica en la sección~\ref{sec:SToutput}, que la orientación de todas las páginas originales sea corregida.
+	\section{Orientación de páginas\label{sec:fixOrientation}} De acuerdo a como hayamos colocado el material en el escáner, es posible que las páginas pares o las impares estén rotadas 180\textdegree. Siempre es una buena idea, pero especialmente si estamos pensando en corregir frecuentemente los errores que vayamos encontrando, como se explica en la sección~\ref{sec:SToutput}, que la orientación de todas las páginas originales sea corregida antes de ingresarlas a \scantailor.
 
 	En nuestro caso de ejemplo son las páginas pares las que requieren ajuste. Para hacerlo ejecutamos el script~\ref{scr:orientationOddEven} de Python que invoca el comando \texttt{mogrify} de \imagemagick sobre las páginas de interés. Este nos preguntará por las páginas a corregir (\mintinline{python}|'Rotate odd or even pages?'|): deberemos ingresar \texttt{even} para rotar las pares y \texttt{odd} para las impares. Téngase en cuenta lo dicho en la sección~\ref{sec:scanOriginalBackup} sobre el respaldo de los originales, puesto que con este script los estaremos modificando.
 
@@ -498,7 +498,7 @@
 		\caption[Cuadro de diálogo New Project, de \scantailor]{Cuadro de diálogo \menu{New Project}, de \scantailor\label{fig:STnewProject}}
 	\end{figure}
 
-	\subsection{Paso 1. Fix Orientation} Presionamos \keys{OK} y se cargan las imágenes. La vista debería ser como la de la figura~\ref{fig:STfixOrientation}. Sobre la izquierda tenemos el panel \menu{Filters}, con 6 pasos o filtros. Cada uno corresponde a una etapa del proceso. El primero es \menu{Fix Orientation} y se utiliza para corregir la orientación de las imágenes. Si no lo hicimos manualmente como se explica en la subsección~\ref{sec:fixOrientation} debemos hacerlo ahora.
+	\subsection{Paso 1. Fix Orientation\label{sec:STfixOrientation}} Presionamos \keys{OK} y se cargan las imágenes. La vista debería ser como la de la figura~\ref{fig:STfixOrientation}. Sobre la izquierda tenemos el panel \menu{Filters}, con 6 pasos o filtros. Cada uno corresponde a una etapa del proceso. El primero es \menu{Fix Orientation} y se utiliza para corregir la orientación de las imágenes. Si no lo hicimos manualmente como se explica en la subsección~\ref{sec:fixOrientation} debemos hacerlo ahora.
 
 	\begin{figure}
 		\centering
@@ -506,11 +506,19 @@
 		\caption[Paso 1: \emph{Fix orientation}]{Ventana principal de \scantailor y Paso 1: \emph{Fix orientation}\label{fig:STfixOrientation}}
 	\end{figure}
 
-	Dijimos que teníamos rotadas las páginas pares, por lo que seleccionaremos una cualquiera de estas y presionaremos una de las flechas naranja debajo de \menu{Rotate} hasta que la página quede en la orientación correcta. Una vez listo presionaremos \keys{Apply to \...} y elegiremos la opción \menu{Every other page}. Para ver que más o menos haya quedado bien, podemos recorrer las miniaturas de la columna derecha y verificar que efectivamente todas las páginas están bien orientadas.
+	Dijimos que teníamos rotadas las páginas pares, por lo que seleccionaremos una cualquiera de estas y presionaremos una de las flechas naranja debajo de \menu{Rotate} hasta que la página quede en la orientación correcta. Una vez listo presionaremos \keys{Apply to\...} y elegiremos la opción \menu{\typesetDotCircle{Every other page}} (fig.~\ref{fig:STfixOrientationApplyTo}). Para ver que más o menos haya quedado bien, podemos recorrer las miniaturas de la columna derecha y verificar que efectivamente todas las páginas están bien orientadas.
 
-	Cuando estemos listos presionaremos \play\ a la derecha del nombre del filtro. El programa recorre rápidamente todas las imágenes y genera todas las miniaturas. Al terminar podemos ir al paso 2.
+	\begin{figure}
+		\centering
+		\includegraphics[width=.6\linewidth]{STfixOrientationApplyTo}
+		\caption[Cuadro de diálogo \emph{Apply to\...} de \scantailor]{Cuadro de diálogo \menu{Apply to\...} de \scantailor\label{fig:STfixOrientationApplyTo}}
+	\end{figure}
 
-	\note{Nota: páginas apaisadas} Si bien la mayoría de las páginas tienen orientación vertical, a veces nuestro material contiene algunas páginas con orientación horizontal,\footnote{Ver \cite{WikipediaPageOrientation} (en inglés).} también llamadas páginas «apaisadas» (fig.~\ref{fig:STsplitPagesError}). Más adelante deberemos decidir como queremos que estén en nuestro documento final (sección~\ref{sec:landscapePages}). De momento orientémoslas todas tal como aparecen en el material original.
+	Si la rotación de nuestras exploraciones originales no fuera así de regular, deberemos usar una combinación de rotación manual con opciones del cuadro~\ref{fig:STfixOrientationApplyTo} para asegurarnos de que todas queden con la misma orientación.
+
+	Cuando hayamos terminado presionaremos \play\ a la derecha del nombre del filtro. El programa recorre rápidamente todas las imágenes y genera las miniaturas. Al terminar podemos ir al paso 2.
+
+	\note{Nota: páginas apaisadas} Si bien la mayoría de las páginas tienen orientación vertical, a veces nuestro material contiene algunas páginas con orientación horizontal,\footnote{Ver Wikipedia \cite{WikipediaPageOrientation} (en inglés).} también llamadas páginas «apaisadas» (fig.~\ref{fig:STsplitPagesError}). Más adelante deberemos decidir como queremos que estén en nuestro documento final (sección~\ref{sec:landscapePages}). De momento orientémoslas todas tal como aparecen en el material original.
 
 	\subsection{Paso 2. Split Pages\label{sec:STsplitPages}} En este paso le indicaremos a \scantailor qué parte de la imagen escaneada corresponde a la página. Lo que debemos lograr es que toda la página quede dentro del área azul y que el resto quede fuera: trozos de la hoja que no estábamos escaneando, imágenes de nuestras manos presionando el material, bandas negras donde no había papel, etc.
 
@@ -549,16 +557,16 @@
 
 	Lo segundo es parecido al paso 2, solo que ahora se usará un rectángulo para indicar el área de la imagen donde está el contenido. Todo lo que quede fuera de este rectángulo será descartado del resultado final.
 
-	\note{Nota: páginas atípicas} Llamaremos \emph{páginas atípicas} a las correspondientes a las tapas y lomo, así como aquellas páginas que por alguna razón tengan un tamaño físico mayor o menor que el resto, como puede ocurrir con libros que traen páginas dobladas que pueden extenderse. Todas las demás serán, entonces, \emph{páginas típicas}.
+	\note{Definición: páginas atípicas} Llamaremos \emph{páginas atípicas} a las correspondientes a las tapas y lomo, así como aquellas páginas que por alguna razón tengan un tamaño físico mayor o menor que el resto, como puede ocurrir con libros que traen páginas dobladas que pueden extenderse. Todas las demás serán, entonces, \emph{páginas típicas}.
 
 	\begin{figure}
 		\centering
 		\subbottom[Opciones\label{fig:STselectContentOptions}]{\includegraphics[width=.4\linewidth]{STselectContent}}\hfill
-		\subbottom[Diálogo \menu{Apply to}\label{fig:STselectContentApplyTo}]{\includegraphics[width=.58\linewidth]{STselectContentApplyTo}}
+		\subbottom[Diálogo \menu{Apply to\...}\label{fig:STselectContentApplyTo}]{\includegraphics[width=.58\linewidth]{STselectContentApplyTo}}
 		\caption{Paso 4: \emph{Select content}\label{fig:STselectContent}}
 	\end{figure}
 
-	\subsubsection{Page Box} En el cuadro \menu{Page Box} que se ve en la figura~\ref{fig:STselectContentOptions} presionamos \keys{Manual} e ingresamos respectivamente el ancho y el alto del material en \menu{Width} y \menu{Height} del subcuadro \menu{Options}. En nuestro caso el cuadro~\ref{tab:bookDimensions} de la sección~\ref{sec:cleanAdjustDimensions} nos indica 155\,mm y 235\,mm. Luego presionamos \keys{Apply To} y en el cuadro de diálogo que aparece (fig.~\ref{fig:STselectContentApplyTo}) activamos \menu{\typesetCheckbox{Apply page box}} y elegimos \menu{\typesetDotCircle{All pages}}. Finalmente damos \keys{OK} para aplicar las dimensiones ingresadas a todas las páginas del proyecto.
+	\subsubsection{Page Box} En el cuadro \menu{Page Box} que se ve en la figura~\ref{fig:STselectContentOptions} presionamos \keys{Manual} e ingresamos respectivamente el ancho y el alto del material en \menu{Width} y \menu{Height} del subcuadro \menu{Options}. En nuestro caso el cuadro~\ref{tab:bookDimensions} de la sección~\ref{sec:cleanAdjustDimensions} nos indica 155\,mm y 235\,mm. Luego presionamos \keys{Apply to\...} y en el cuadro de diálogo que aparece (fig.~\ref{fig:STselectContentApplyTo}) activamos \menu{\typesetCheckbox{Apply page box}} y elegimos \menu{\typesetDotCircle{All pages}}. Finalmente damos \keys{OK} para aplicar las dimensiones ingresadas a todas las páginas del proyecto.
 
 	Como alternativa y si no nos interesa ser muy escrupulosos con las dimensiones originales, podemos elegir \menu{Page Box > \keys{Auto}} y dejar que el programa trate de adivinar el tamaño de cada página y su ubicación. Si procedemos así, entonces podemos saltarnos la sección~\ref{sec:STmarginsOriginals} e ir directo a \ref{sec:STmarginsReasonables}.\todo{Están mal los números de sección.}
 
@@ -591,13 +599,11 @@
 
 	Todos los errores de selección de contenido que no corrijamos seguramente se hagan evidentes al compaginar el documento, sobre todo si somos escrupulosos con los márgenes. En ese punto aún serán fáciles de corregir, pero cuanto menos trabajo nos quede hacia adelante, mejor.
 
-	\subsection{Paso 5. \emph{Margins}\label{sec:STmargins}} Una vez que ya hemos revisado cada página y acomodado bien los contenidos es hora de ajustar los márgenes. Propongo un método que conserva lo más exactamente posible la apariencia original y otro que introduce márgenes razonables (arbitrarios o automáticos).
+	\subsection{Paso 5. \emph{Margins}\label{sec:STmargins}} Una vez que ya hemos revisado cada página y marcado bien los contenidos es hora de ajustar los márgenes. Propongo un método que conserva lo más exactamente posible la apariencia original y otro que introduce márgenes razonables.
 
-	\subsubsection{Conservando la apariencia original\label{sec:STmarginsOriginals}} Si estamos buscando reproducir las dimensiones del material original deberemos tener los cuidados que se explican a continuación.
+	Cualquiera sea el caso, comenzamos decidiendo respecto a qué parte de las páginas vamos a referir los márgenes. En el caso que nos ocupa, el libro tiene los números de página impresos en las esquinas superiores exteriores de cada hoja. Las pares en la superior izquierda y las impares en la superior derecha. Estos son referencias bastante naturales y son las que usaremos.
 
-	Comenzamos decidiendo respecto a qué parte de las páginas vamos a referir los márgenes. En el caso que nos ocupa, el libro tiene los números de página impresos en las esquinas superiores exteriores de cada hoja. Las pares en la superior izquierda y las impares en la superior derecha. Estos son referencias bastante naturales y son las que usaremos.
-
-	Vamos entonces al paso 5 de \scantailor, nos paramos en una página par y en el submenú \menu{Alignment} (fig.~\ref{fig:STmarginsAlignment}) presionamos la flecha que apunta hacia arriba y a la izquierda. Veremos que la alienación cambia. Por ahora no nos preocuparemos por el ancho de los márgenes. El paso siguiente es presionar \keys{Apply To\...}, seleccionar \menu{Every other page} y dar \keys{OK}. Luego hacemos lo mismo con las páginas impares, eligiendo la flecha que apunta arriba a la derecha.
+	Vamos entonces al paso 5 de \scantailor, nos paramos en una página par y en el submenú \menu{Alignment} (fig.~\ref{fig:STmarginsAlignment}) presionamos la flecha que apunta hacia arriba y a la izquierda. Veremos que la alienación cambia. Por ahora no nos preocuparemos por el ancho de los márgenes. El paso siguiente es presionar \keys{Apply to\...}, seleccionar \menu{\typesetDotCircle{Every other page}} y dar \keys{OK}. Luego hacemos lo mismo con las páginas impares, eligiendo la flecha que apunta hacia arriba y a la derecha.
 
 	\begin{figure}
 		\subbottom[Submenú \menu{Margins}\label{fig:STmarginsWidth}]{\includegraphics[width=.49\linewidth]{STmarginsWidth}}
@@ -605,13 +611,19 @@
 		\caption{Paso 5: \emph{Margins}\label{fig:STmargins}}
 	\end{figure}
 
-	Si nuestra alineación fuera por ejemplo sobre los números de página que aparecen abajo al centro u otra, deberemos elegir la flecha que mejor se ajuste al resultado buscado.
+	Si nuestra alineación fuera por ejemplo sobre los números de página que aparecen abajo al centro u otra, deberemos elegir la flecha que mejor se ajuste al resultado buscado, tal vez también teniendo que discriminar entre páginas pares e impares.
 
-	Para las páginas atípicas probablemente no usemos márgenes, por lo que desactivamos \menu{\typesetBox{Match size with other pages}} en esas páginas. Veremos que al hacerlo las dimensiones finales de estas páginas no afectarán a todas las demás.
+	Para las páginas atípicas usaremos márgenes especiales, por lo que desactivamos \menu{\typesetBox{Match size with other pages}} para cada una de ellas. Veremos que al hacerlo las dimensiones finales de estas páginas no afectarán a todas las demás.
 
-	De momento concentrémonos en las típicas. Elijamos ordenar las páginas por alto (\menu{Order by increasing height}) y busquemos abajo del todo la típica más alta. En nuestro caso al final aparecen las tapas (obviamente) y páginas con tablas. La típica más alta es la p.~296. Vamos entonces a esa página en el libro y medimos los márgenes superior e inferior con la regla. Ingresamos esos valores y presionamos \menu{\keys{Apply To\...} > All pages}.
+	Por último activamos la casilla \menu{\typesetCheckbox{Auto Margins}} del menú correspondiente, presionamos \keys{Apply to\...} y elegimos \menu{\typesetDotCircle{All pages}}. Esta opción utilizará la información de \menu{Page Box} y \menu{Content Box} que hayamos ingresado en el paso anterior para generar los márgenes. Para aplicar los márgenes automáticos presionamos \play\ al lado del nombre del filtro.
 
-	Ahora pasamos a ordenar por ancho: \menu{Order by increasing width}. Haremos lo mismo que antes, buscaremos la típica más ancha par e impar. Son las pp.~250 y 117. Medimos para cada una el margen izquierdo y derecho, los ingresamos y elegimos \menu{\keys{Apply To\...} > Every other page}, para cada una. Las medidas en este caso se presentan en el cuadro~\ref{tab:pageMargins}.\footnote{Las medidas dieron 20\,mm y 11\,mm para las pares, y 10\,mm y 19\,mm para las impares. Debido a tolerancias de impresión y/o encuadernado las páginas no son simétricas, por lo que las medidas de los márgenes tampoco lo serán exactamente. Para no complicarnos, haremos que en nuestro resultado sí lo sean, simetrizando estos valores.}
+	\subsubsection{Medida de márgenes originales*} Como muchas veces nuestro material tiene páginas cuyo contenido invade los márgenes, no existe un único valor para el ancho de los márgenes de cada una. En esta subsección opcional veremos una forma de asignar un valor representativo a cada uno de los márgenes.
+
+	\note{Definición: páginas bien comportadas} Dentro del conjunto de páginas típicas, llamaremos páginas \emph{bien comportadas} a aquellas en las que el contenido se mantiene aproximadamente dentro de una misma región. Quedan excluidas de esta definición, y serán por tanto \emph{mal comportadas}, aquellas páginas con imágenes, diagramas, tablas u otros elementos que invaden los márgenes, o aquellas que dan comienzo a un capítulo o sección, entre otras.\todo{Tapas o cubiertas?}
+
+	Comenzando con los márgenes superior e inferior, ordenamos las páginas por alto (\menu{Order by increasing height}) y buscamos abajo del todo la bien comportada más alta. En nuestro caso al final aparecen las tapas (obviamente) y páginas con tablas. La bien comportada más alta es la p.~296. Vamos entonces a esa página en el libro, medimos los márgenes superior e inferior con la regla y los registramos.
+
+	Ahora pasamos a ordenar por ancho: \menu{Order by increasing width}. Hacemos lo mismo que antes, buscamos las bien comportadas más anchas par e impar. Son las pp.~250 y 117. Medimos para cada una el margen izquierdo y derecho y los registramos. Las medidas en este caso se presentan en el cuadro~\ref{tab:pageMargins}.\footnote{Las medidas dieron 20\,mm y 11\,mm para las pares, y 10\,mm y 19\,mm para las impares. Debido a tolerancias de impresión y/o encuadernado las páginas no son simétricas, por lo que las medidas de los márgenes tampoco lo serán exactamente. Para simplificar, haremos que en nuestro resultado sí lo sean, simetrizando estos valores.}
 
 	\begin{table}
 		\centering
@@ -624,18 +636,18 @@
 			ancha (impar) & p.~117 & --- & --- & 11 & 20 \\
 			\bottomrule
 		\end{tabular}
-		\caption{Márgenes ingresados para las distintas páginas (en mm)\label{tab:pageMargins}}
+		\caption{Márgenes de las páginas bien comportadas (en mm)\label{tab:pageMargins}}
 	\end{table}
 
-	\scantailor por defecto impone el mismo valor para los márgenes izquierdo-derecho y superior-inferior. Si, como en este caso, queremos ingresar distintos anchos para cada margen, debemos presionar \keys{\faLink} a la derecha en la figura~\ref{fig:STmarginsWidth}. Así, la cadena se abre \keys{\faUnlink} y los márgenes pueden ser arbitrarios.
+	\subsubsection{Márgenes razonables\label{sec:STmarginsReasonables}} Si mantenerse 100\% fiel al material original no es el objetivo, en general la opción \menu{\typesetCheckbox{Auto Margins}} da un buen resultado que además conserva las dimensiones de la página original, por lo que se podría dar aquí por finalizado el paso 5.
 
-	Pero por el momento elijamos una página cualquiera y vayamos al paso 6. Buscando en la carpeta \typesetFolder{out} podemos ver de que dimensiones quedó. En este primer intento obtuve un archivo de 3955\,pix por 5790\,pix. Aplicando la fórmula que se da al principio de la sección concluimos que medirá 16,7\,cm por 24,5\,cm, lo que en ambas dimensiones es un poco más grande que el original físico. Esto seguramente se deba a las páginas atípicas, para las que deberemos ajustar manualmente los márgenes.
+	Como alternativa manual, se pueden elegir márgenes arbitrarios (por ej. 10\,mm) o cercanos a los originales, tal vez discriminando un poco para páginas pares e impares (lo mismo respecto de la alineación) y aplicar masivamente a todas las páginas, editando manualmente alguna si así se desea. El resultado dependerá enteramente de nuestro gusto y parecer, pero recomiendo usar los márgenes aproximados del material original al menos como referencia.
 
-	Volvemos al paso 5 y ordenamos por altura. Vamos a buscar los \emph{outliers} que nos están agrandando todas las páginas. Les medimos los márgenes e ingresamos esos datos. Lo mismo ordenando por ancho.
+	\scantailor por defecto impone el mismo valor para los márgenes izquierdo-derecho y superior-inferior. Si queremos ingresar distintos valores para cada margen debemos presionar \keys{\faLink} a la derecha en la figura~\ref{fig:STmarginsWidth}. Así, la cadena se abre \keys{\faUnlink} y los márgenes ya no tienen por que ser iguales.
 
-	Al terminar, deberíamos tener archivos de dimensiones adecuadas. En este caso obtuve 3663\,pix por 5554\,pix, lo que es menos del 0,1\% de diferencia con lo que esperábamos. Yo lo doy por bueno.
+	\subsubsection{Conservando la apariencia original\label{sec:STmarginsOriginals}} Si estamos buscando reproducir la apariencia del material original deberemos tener los cuidados que se explican a continuación.
 
-	\paragraph{Alineación} Aunque los tamaños ya están bien, aún falta alinear las páginas. Podríamos dejarlo así, pero quedaría mejor si todos los números de página ocuparan la misma posición en todas las páginas, independientemente de que haya contenido que invada los márgenes. Para hacer este ajuste, \scantailorAdvanced ofrece las así llamadas \emph{guides} (fig.~\ref{fig:STmarginsGuides}), que pueden ser verticales u horizontales.
+	\paragraph{Alineación} La opción \menu{\typesetCheckbox{Auto Margins}} nos asegura un tamaño de página correcto, pero aún falta alinear los contenidos. Podríamos dejarlo así, pero quedaría mejor si todos los números de página ocuparan la misma posición en todas las páginas, independientemente de que haya contenido que invada los márgenes. Para hacer este ajuste, \scantailorAdvanced ofrece las así llamadas \emph{guides} (fig.~\ref{fig:STmarginsGuides}), que pueden ser verticales u horizontales.
 
 	\begin{figure}
 		\tiny
@@ -643,24 +655,22 @@
 		\subbottom[Página par]{\input{img/STmarginsEven.pdf_tex}}
 		\def\svgwidth{\linewidth}
 		\subbottom[Página impar]{\input{img/STmarginsOdd.pdf_tex}}
-		\caption[Detalle de las guías para ajustar márgenes]{Detalle de las guías para ajustar márgenes. Las páginas (típicas) ya fueron alineadas con sus guías correspondientes\label{fig:STmarginsGuides}}
+		\caption[Detalle de las guías para ajustar márgenes]{Detalle de las guías para ajustar márgenes. Las páginas (bien comportadas) ya fueron alineadas con sus guías correspondientes\label{fig:STmarginsGuides}}
 	\end{figure}
 
-	Para crearlas hacemos \menu{\rightclick > Add vertical guide}, y las posicionamos con \keys{\ctrl + \Alt + \leftclick + arrastrar}. Haciendo \keys{\shift + \leftclick + arrastrar} podemos mover el contenido en sentido horizontal para alinearlo. En este caso será al número de página. Necesitaremos una para las pares y otra para las impares. Sugiero fijar las guías en las páginas más anchas (pp.~250 y 117).
+	Para crearlas hacemos \menu{\rightclick > Add vertical guide}, y las posicionamos con \keys{\ctrl + \Alt + \leftclick + arrastrar}. Haciendo \keys{\shift + \leftclick + arrastrar} podemos mover el contenido en sentido horizontal para alinearlo. En este caso será al número de página. Necesitaremos una para las pares y otra para las impares. Sugiero fijar las guías en las páginas más anchas (pp.~250 y 117).\todo{Referir a la documentación de \scantailor para los controles.}
 
 	Con \keys{\shift + \,\leftclick\,\leftclick} sobre el área que queremos alinear, \scantailor hace un buen trabajo de acomodar automáticamente el contenido a la guía más cercana. Si no nos satisface el resultado, podemos arrastrarlo manualmente como en el párrafo anterior, hasta colocarlo donde queramos.
 
-	Si también quisiéramos ajustar la posición vertical, crearíamos una guía horizontal con \menu{\rightclick > Add horizontal guide} y usaríamos \keys{\ctrl + \,\leftclick\,\leftclick} o \keys{\ctrl + \leftclick + arrastrar} para alinear el contenido verticalmente. Podría ponerse esta guía en los títulos de página, en cuyo caso la crearíamos con la página más alta como referencia. En este caso considero que no es necesario ajustar verticalmente las páginas típicas.
+	Si también quisiéramos ajustar la posición vertical, crearíamos una guía horizontal con \menu{\rightclick > Add horizontal guide} y usaríamos \keys{\ctrl + \,\leftclick\,\leftclick} o \keys{\ctrl + \leftclick + arrastrar} para alinear el contenido verticalmente. Podría ponerse esta guía en los títulos de página, en cuyo caso la crearíamos con la página más alta como referencia. En este caso considero que no es necesario ajustar verticalmente las páginas bien comportadas.
 
 	Como todos los comienzos de capítulos omiten el número de página, debemos usar otro punto como referencia. Elegí la base del texto que marca el título. Es la única guía horizontal que creé para este proyecto.
 
-	Algunas otras páginas atípicas pueden alinearse sin la necesidad de guías. Bastará con medir los márgenes e ingresarlos manualmente. Estoy pensando en las portadillas, portadas, colofones, etc.
+	Algunas páginas mal comportadas podrían alinearse sin la necesidad de guías. Bastará con medir los márgenes e ingresarlos manualmente, desactivando \menu{\typesetBox{Auto Margins}}. Estoy pensando en las portadillas, portadas, colofones, etc.
 
 	Para sacar provecho de este método debemos avanzar manualmente página por página, alineando el contenido a las guías. Este puede tomar algo de tiempo y según el caso podría no ser necesario o no valer la pena.
 
-	\paragraph{Verificación} Si nos interesa verificar que los márgenes nos hayan quedado bien, podemos usar \djvusmall con un perfil cualquiera (por ejemplo, \menu{default}) para generar un \djvu de prueba y, pasando las páginas rápidamente, detectar algún error de alineación que no hayamos notado.\footnote{Para aprender a trabajar con \djvusmall consultar la sección~\ref{sec:djvuSmall}.} También es posible ir pasando dentro de \scantailor, pero de momento la carga es más lenta y a veces no permite apreciar las diferencias.
-
-	\subsubsection{Márgenes razonables\label{sec:STmarginsReasonables}} Si mantenerse fiel al material original no es el objetivo, se pueden elegir márgenes razonables, tal vez discriminando un poco para páginas pares e impares (lo mismo respecto de la alineación) y aplicar masivamente a todas las páginas, editando manualmente alguna si así se desea. El resultado dependerá enteramente de nuestro gusto y parecer, pero recomiendo usar los márgenes aproximados del material original al menos como referencia.
+	\paragraph{Verificación} Si nos interesa verificar que los márgenes nos hayan quedado bien, podemos usar \djvusmall\footnote{Para aprender a trabajar con \djvusmall consultar la sección~\ref{sec:djvuSmall}.} con un perfil cualquiera (por ejemplo, \menu{default}) para generar un \djvu de prueba y, pasando las páginas rápidamente, detectar algún error de alineación que no hayamos notado. También es posible ir pasando dentro de \scantailor, pero de momento la navegación es bastante lenta y a veces no permite apreciar las diferencias.
 
 	\subsection{Paso 6. \emph{Output}\label{sec:SToutput}} ¿Y el paso 5? Bueno, hay una razón por la que recomiendo ir primero al paso 6: muchas de las correcciones que realizaremos en este paso afectarán los ajustes del paso 5. Por ello, será mejor no pasar al 5 hasta que hayamos terminado con el paso 6.
 
@@ -1766,9 +1776,12 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Modificado el procedimiento de configuración de márgenes, haciendo mejor uso de las facilidades de \scantailor. Gracias a esto se pudo intercambiar el orden de las secciones~\ref{sec:STmargins} y \ref{sec:SToutput} para respetar el flujo natural del proceso.
 				\item Aplicada la definición de «fotos» en las instancias que corresponde.
 				\item Uniformizado el estilo de las referencias entre paréntesis: (ver figura X) \faLongArrowAltRight\ (fig. X).
+				\item Agregada una imagen del cuadro de diálogo \keys{Apply to\...} y uniformizados los textos que lo refieren.
+				\item Agregado un breve párrafo a la sección «1. Fix Orientation».
+				\item Simplificado el procedimiento del paso «5. Margins» (sec.~\ref{sec:STmargins}) y reorganizada la redacción de la sección. El método anterior era totalmente manual y fue reemplazado por uno que hace uso de la función \menu{Auto Margins} de ScanTailor.
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
-				\item Otras correcciones menores.
+				\item Muchas otras correcciones menores.
 			\end{itemize}
 		\item v1.0 -- 2019-04-16:
 			\begin{itemize}
@@ -1780,6 +1793,7 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 \begin{itemize}
 	\item Elegir un mejor título para el documento.
 	\item Agregar una página de copyright.
+	\item ¿Resumir el historial de cambios?
 	\item Dejar de usar los floats de memoir y pasar a los del paquete caption como sugiere el encargado de mantenimiento de memoir en \href{https://tex.stackexchange.com/questions/524747/memoir-subbottom-and-subtop-vertical-alignment-control}{Memoir subbottom (and subtop) vertical alignment control}.
 	\item uniformizar los títulos. ej: insertar fotos vs. inserción de fotos?
 	\item Uniformizar algunos términos: imágenes (insertadas) -- fotografías. Exploración -- escaneo.
