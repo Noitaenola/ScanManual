@@ -10,7 +10,7 @@
 
 % ------------------------------------------------------------------------------
 % Depth of the bookmarks
-\setsecnumdepth{subsection}
+\setsecnumdepth{subsubsection}
 \settocdepth{section}
 
 % ------------------------------------------------------------------------------
@@ -26,6 +26,7 @@
 \usepackage{enumitem}
 
 % ------------------------------------------------------------------------------
+% hyperref package and hypelinks colour
 \colorlet{colorLinks}{blue!30!black}
 
 \usepackage[
@@ -43,9 +44,10 @@
 ]{hyperref}
 
 % ------------------------------------------------------------------------------
+% To typeset code snippets
 \usepackage[newfloat]{minted}
 \usepackage[skins, breakable, minted]{tcolorbox}
-	\colorlet{bg}{black!5!white}
+	\colorlet{bg}{black!5!white} % background color for snippets
 %	\definecolor{bg}{rgb}{0.95,0.95,0.95}
 	\newcommand{\pythonScript}[1]{% Shortcut for inputing scripts
 		\begin{tcolorbox}[%

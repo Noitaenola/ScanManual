@@ -58,6 +58,7 @@
 		\node[scale=0.7, green!75!black, inner sep=0pt] at ([xshift=0.6pt] bcircle.center) {\faPlay};%
 	\end{tikzpicture}%
 }
+
 % ------------------------------------------------------------------------------
 % Bold plus-minus
 \newcommand{\boldpm}{%
@@ -67,6 +68,7 @@
 		\node[inner sep=0pt] at ([yshift=-0.4em] bcircle.center) {\faMinus};%
 	\end{tikzpicture}%
 }
+
 % ------------------------------------------------------------------------------
 % Mouse click icons
 \newcommand{\leftclick}{\raisebox{-.15em}{\!\includegraphics[width=1em]{leftclick}}}
@@ -74,6 +76,8 @@
 
 % ------------------------------------------------------------------------------
 % menukeys package commands with fontawesome5 icons
+
+% ------------------------------------------------------------------------------
 % typesetFile command
 \newcommand{\typesetFile}[1]{%
 	\faFile[regular]%
@@ -81,6 +85,7 @@
 	\directory{#1}%
 }
 
+% ------------------------------------------------------------------------------
 % typesetExe command
 \newcommand{\typesetExe}[1]{%
 	\faFile*[regular]%
@@ -88,6 +93,7 @@
 	\directory{#1}%
 }
 
+% ------------------------------------------------------------------------------
 % typesetFolder command
 \newcommand{\typesetFolder}[1]{%
 	\faFolderOpen[regular]%
@@ -95,6 +101,7 @@
 	\directory{#1}%
 }
 
+% ------------------------------------------------------------------------------
 % typesetCheckbox command
 \newcommand{\typesetCheckbox}[1]{%
 	\faCheckSquare[regular]%
@@ -102,6 +109,7 @@
 	#1%
 }
 
+% ------------------------------------------------------------------------------
 % typesetBox command
 \newcommand{\typesetBox}[1]{%
 	\faSquare[regular]%
@@ -109,6 +117,7 @@
 	#1%
 }
 
+% ------------------------------------------------------------------------------
 % typesetCircle command
 \newcommand{\typesetCircle}[1]{%
 	\faCircle[regular]%
@@ -116,6 +125,7 @@
 	#1%
 }
 
+% ------------------------------------------------------------------------------
 % typesetDotCircle command
 \newcommand{\typesetDotCircle}[1]{%
 	\faDotCircle[regular]%
@@ -138,8 +148,3 @@
 		\doclicenseNameRef
 	\end{minipage}
 }
-
-% ------------------------------------------------------------------------------
-% Adapted from the memoir documentation:
-% \hspace*{\fill} Separated\hfill objects\hspace*{\fill}
-% ------------------------------------------------------------------------------
