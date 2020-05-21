@@ -672,9 +672,7 @@
 
 	\paragraph{Verificación} Si nos interesa verificar que los márgenes nos hayan quedado bien, podemos usar \djvusmall\footnote{Para aprender a trabajar con \djvusmall consultar la sección~\ref{sec:djvuSmall}.} con un perfil cualquiera (por ejemplo, \menu{default}) para generar un \djvu de prueba y, pasando las páginas rápidamente, detectar algún error de alineación que no hayamos notado. También es posible ir pasando dentro de \scantailor, pero de momento la navegación es bastante lenta y a veces no permite apreciar las diferencias.
 
-	\subsection{Paso 6. \emph{Output}\label{sec:SToutput}} ¿Y el paso 5? Bueno, hay una razón por la que recomiendo ir primero al paso 6: muchas de las correcciones que realizaremos en este paso afectarán los ajustes del paso 5. Por ello, será mejor no pasar al 5 hasta que hayamos terminado con el paso 6.
-
-	Comenzaremos por seleccionar \menu{Output Resolution (DPI) > 600} y presionamos \play\ para que se binaricen todos los archivos. Este es un proceso que también le lleva a \scantailorAdvanced algo de tiempo, aunque se ha mejorado mucho respecto a la versión original. Al finalizar podemos inspeccionar cada página en busca de errores. A continuación veamos algunos de los más comunes.
+	\subsection{Paso 6. \emph{Output}\label{sec:SToutput}} Comenzaremos por seleccionar \menu{Output Resolution (DPI) > 600} y presionamos \play\ para que se binaricen todos los archivos. Este es un proceso que también le lleva a \scantailorAdvanced algo de tiempo, aunque se ha mejorado mucho respecto de la versión original. Al finalizar podemos inspeccionar cada página en busca de errores. A continuación veamos algunos de los más comunes.
 
 	\subsubsection{Caracteres mal impresos o faltantes} A veces el proceso de impresión falla y algunos caracteres aparecen cortados, como en la figura~\ref{fig:SToutputBadChars}. Existen dos formas de corregirlos.
 	\begin{enumerate}
@@ -724,19 +722,19 @@
 	Se trata de páginas que no se rotaron el ángulo correcto. En mi experiencia, sucede principalmente en dos casos:
 	\begin{enumerate}
 		\item Páginas apaisadas. Nuestro libro tiene varias tablas grandes y páginas con figuras que se imprimieron rotadas para que quepan mejor en la hoja. Deberemos ajustar el ángulo manualmente.\footnote{Téngase en cuenta lo que se explica en la sección~\ref{sec:landscapePages}.}
-		\item Páginas con contenido a distintos ángulos. En nuestro libro sucede que algunos dibujos consisten de líneas rectas no paralelas al texto. Esto puede confundir al algoritmo. En otros casos podría haber texto escrito a distintos ángulos, ya sea de manera intencional o por errores en la composición de la página. Dependiendo del caso, podemos ajustar el ángulo manualmente o usar la herramienta de rotación de \gimp para alinear solo aquella parte de la página que no lo esté.
+		\item Páginas con contenido a distintos ángulos. En nuestro libro sucede que algunos dibujos consisten en líneas rectas no paralelas al texto. Esto puede confundir al algoritmo. En otros casos podría haber texto escrito a distintos ángulos, ya sea de manera intencional o por errores en la composición de la página. Dependiendo del caso, podemos ajustar el ángulo manualmente o usar la herramienta de rotación de \gimp para alinear solo aquella parte de la página que no lo esté.
 	\end{enumerate}
 
 	\subsubsection{Picture zones\label{sec:SToutputPictureZones}}
 
 	Para las páginas que además del texto tengan fotos que queramos preservar, deberemos elegir la opción \menu{Mode > Mixed}.\footnote{Este es el método que recomiendo para trabajar con las páginas con ilustraciones de nuestro material. Algunas alternativas no recomendadas se discuten en el apéndice~\ref{sec:noSplitPages}.} La opción por defecto es \menu{Black and White}, que binariza todo, y la restante, \menu{Color / Grayscale}, retiene la página original completa, salvo por los efectos de los pasos anteriores.
 
-	Eligiendo \menu{Mixed} el software intentará adivinar las áreas donde se encuentran las fotos. En la pestaña \menu{Picture Zones} se señalan titilando con color azul. Por defecto estas áreas pueden tener cualquier forma, pero en el submenú \menu{Picture Shape > Rectangular} (fig~\ref{fig:SToutputPicureZonesRectangular}) podemos forzar a que sea rectangular, que servirá en la mayoría de los casos.
+	Eligiendo \menu{Mixed} el software intentará adivinar las áreas donde se encuentran las fotos. En la pestaña \menu{Picture Zones} se señalan titilando con color azul. Por defecto estas áreas pueden tener cualquier forma, pero seleccionando \menu{Picture Shape > Rectangular} (fig~\ref{fig:SToutputPicureZonesRectangular}) podemos forzar a que sea rectangular, que servirá en la mayoría de los casos.
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{SToutputPicureZonesRectangular}
-		\caption[Sexto paso: Output. Se seleccionó la pestaña Picture zones]{Sexto paso: Output. Se seleccionó la pestaña \menu{Picture zones}\label{fig:SToutputPicureZonesRectangular}}
+		\caption[Paso 6: \emph{Output}]{Paso 6: \emph{Output}. Se seleccionó la pestaña \menu{Picture zones}\label{fig:SToutputPicureZonesRectangular}}
 	\end{figure}
 
 	En los que no, deberemos dibujar nuestras propias zonas (y tal vez eliminar o corregir algunas mal detectadas). Para cada una podemos hacer \menu{\rightclick > Properties} y elegir si añadirla a la capa ya detectada (\menu{Add to auto layer}), eliminarla de esa capa (\menu{Subtract from auto layer}) o eliminarla de todas las capas (\menu{Subtract from all layers}). Todo esto tendrá sentido si las zonas se superponen. Sugiero experimentar un poco con las opciones para entender bien su significado.
@@ -749,18 +747,18 @@
 		\caption[Selección manual de las fotos en pestaña Picture Zones]{Selección manual de las fotos en pestaña \menu{Picture Zones}. Los contornos rojos se dibujaron manualmente\label{fig:SToutputPicureZonesFree}}
 	\end{figure}
 
-	Activar \menu{Options > Equalize illumination (Color)} me ha dado buenos resultados. Téngase en cuenta.
+	Una opción a tener en cuenta y que me ha dado buenos resultados es \menu{Options > Equalize illumination (Color)}.
 
 	Para estas páginas debemos activar siempre \menu{Splitting > Split output > \typesetCheckbox{B\&W foreground}}. Esto generará dos carpetas más dentro de \typesetFolder{out}: \typesetFolder{foreground} y \typesetFolder{background}, adonde se guardará cada componente de la imagen. A la primera irá todo el contenido binarizado y a la segunda las fotos. Podemos activarla y echar un vistazo para entenderlo mejor.
 
-	Esto nos permitirá procesar cada parte en sus particularidades de manera independiente, de forma de lograr un resultado óptimo. Si no se va a hacer, de todas formas elegir la opción no hace daño, pues en \typesetFolder{out} se sigue guardando la imagen con las dos componentes.
+	Esto nos permitirá procesar cada parte en sus particularidades de manera independiente, de forma de lograr un resultado óptimo. Si no se va a hacer, de todas formas elegir la opción no hace daño, pues en \typesetFolder{out} se sigue guardando la imagen con las dos componentes superpuestas.
 
 	\subsubsection{Ilustraciones problemáticas} Algunas ilustraciones, dibujos o diagramas, a pesar de estar impresos a una sola tinta, pierden muchos detalles cuando son binarizados. Ocurre cuando hay líneas muy cercanas pero que no se tocan: el blanco que queda en medio no es lo suficientemente claro, y \scantailor lo convierte en negro. Análogamente si hay líneas negras demasiado tenues. La figura~\ref{fig:SToutputBadDiagrams} ilustra un ejemplo. Para arreglar esto existen tres opciones.
 
 	\begin{enumerate}[noitemsep]
 		\item La más sencilla es tratarlos como fotos. Procedemos exactamente como se explicó en la sección~\ref{sec:SToutputPictureZones}.
-		\item Si de dispone de un poco más de tiempo, se pueden editar con \gimp para generar un contraste mayor que permita una binarización más efectiva. Para ello se pueden usar filtros o manualmente redibujar los detalles que se quieran conservar.
-		\item La tercera consiste en ajustar el algoritmo de binarización, como se explica a continuación. Tiene el inconveniente de que los cambios afectan a toda la página y no solo al dibujo de interés, lo que podría generar discordancias visibles con el resto de las páginas que usan los valores por defecto.
+		\item Si se dispone de un poco más de tiempo, se pueden editar con \gimp para generar un contraste mayor que permita una binarización más efectiva. Para ello se pueden usar filtros o manualmente redibujar los detalles que se quieran conservar.
+		\item La tercera consiste en ajustar el algoritmo de binarización, como se explica a continuación. Tiene el inconveniente de que los cambios afectan a toda la página y no solo al dibujo de interés, lo que podría generar discordancias visibles con el resto de las páginas que usen los valores por defecto u otros.
 	\end{enumerate}
 
 	\begin{figure}
@@ -774,9 +772,9 @@
 		\caption{Binarización de una ilustración problemática\label{fig:SToutputBadDiagrams}}
 	\end{figure}
 
-	\subsubsection{Algoritmo de binarización} Existen diferentes algoritmos de binarización, cada uno con ventajas y desventajas. Con el submenú \menu{Threshold} (umbral) \scantailor permite cambiar entre \menu{Otsu} (por defecto), \menu{Sauvola} y \menu{Wolf}. De no estar conformes con el resultado por defecto, podríamos intentar cambiando el algoritmo o ajustando los parámetros que de cada uno se ofrecen. El impacto que tiene cada algoritmo está por fuera del alcance de nuestra guía, si bien existe abundante literatura al respecto \cite{RashmiBinarization}.
+	\subsubsection{Algoritmo de binarización} Existen diferentes algoritmos de binarización, cada uno con ventajas y desventajas. Con el submenú \menu{Threshold} (umbral) \scantailorAdvanced permite cambiar entre \menu{Otsu} (por defecto), \menu{Sauvola} y \menu{Wolf}. De no estar conformes con el resultado por defecto, podríamos intentar cambiando el algoritmo o ajustando los parámetros que cada uno ofrece. El impacto que tiene cada algoritmo está por fuera del alcance de nuestra guía, si bien existe abundante literatura al respecto \cite{RashmiBinarization}.
 
-	\subsection{Páginas apaisadas\label{sec:landscapePages}} Recomiendo corregir la rotación de las páginas apaisadas (\emph{landscape}, en inglés) para que estén bien orientadas en el documento final (fig.~\ref{fig:STlandscapePages}). De esta forma se facilita el \ocr y queda más fácil de visualizar. Si bien podríamos haber elegido la orientación adecuada desde el paso 1 de \scantailor, no lo hacemos así porque no tener todas las páginas orientadas en el mismo sentido nos dificulta la configuración de márgenes consistentes.\footnote{En realidad, nos obliga a considerar todas esas páginas como atípicas, teniendo que ingresar todos sus márgenes manualmente.} Por ello, debemos tomar nota de los números de página que queramos ajustar y adaptar el script~\ref{scr:fixLandscapePages} para que las ajuste correctamente.\footnote{Bastará con rellenar la variable \menu{landscapePages} con los números de página correspondientes.}
+	\subsection{Páginas apaisadas\label{sec:landscapePages}} Recomiendo corregir la rotación de las páginas apaisadas (\emph{landscape}, en inglés) para que estén bien orientadas en el documento final (fig.~\ref{fig:STlandscapePages}). De esta forma se facilita el \ocr y queda más fácil de visualizar. Si bien podríamos haber elegido la orientación adecuada desde el paso 1 de \scantailor, no lo hacemos así porque no tener todas las páginas orientadas en el mismo sentido nos dificulta la configuración de márgenes consistentes.\footnote{En realidad, nos obliga a considerar todas esas páginas como atípicas, teniendo que ingresar todos sus márgenes manualmente.} Por ello, debemos tomar nota de los números de página que queramos ajustar y adaptar el script~\ref{scr:fixLandscapePages} para que las procese correctamente.\footnote{Bastará con rellenar la variable \menu{landscapePages} con los números de página correspondientes.}
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{STlandscapePages}
@@ -1779,6 +1777,8 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Agregada una imagen del cuadro de diálogo \keys{Apply to\...} y uniformizados los textos que lo refieren.
 				\item Agregado un breve párrafo a la sección «1. Fix Orientation».
 				\item Simplificado el procedimiento del paso «5. Margins» (sec.~\ref{sec:STmargins}) y reorganizada la redacción de la sección. El método anterior era totalmente manual y fue reemplazado por uno que hace uso de la función \menu{Auto Margins} de ScanTailor.
+				\item Acomodada la redacción de la sección «6. Output» a los cambios del último commit.
+				\item Corregido el script \ref{scr:fixLandscapePages}: debe rotar 90 grados, no 180.
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
 				\item Muchas otras correcciones menores.
