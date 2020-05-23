@@ -34,14 +34,25 @@
 % -------------------------------    DOCUMENT    -------------------------------
 % ------------------------------------------------------------------------------
 \begin{document}%
-	\frontmatter
 
-	\titleTH\thispagestyle{empty}
+% -------------------------  Intentionally blank pages -------------------------
+	\newpage\null\thispagestyle{empty}\newpage
+	\newpage\null\thispagestyle{empty}\newpage
 
-	Acá va el copyright. Tengo que lograr que quede en la página siguiente al título.\todo{Leer el manual de memoir y arreglar esto.}
+% -------------------------------  Front matter  -------------------------------
+\frontmatter
+	\thispagestyle{empty}%
+	\halftitleTH%
+	\cleardoublepage%
+	\thispagestyle{empty}%
+	\titleTH%
+	\clearpage%
 
-	\vspace{4\onelineskip}
-	\license\cleardoublepage
+	\thispagestyle{empty}\pdfbookmark{Legales}{copyright}%
+	{\emph{ScanManual/Guía para aprender a escanear} \textcopyright 2019-2020 Noita Enola está bajo licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional. Para ver una copia de la licencia, puede visitar el sitio  \href{https://creativecommons.org/licenses/by-sa/4.0/deed.es}{https://creativecommons.org/licenses/by-sa/4.0/deed.es}.
+
+	\vfill
+	\license
 
 	\chapter{Prólogo} El objetivo de esta guía es enseñar a digitalizar documentos impresos, especialmente libros, de forma de lograr un resultado que sea fiel al original, más accesible, que facilite su diseminación y permita su preservación a largo plazo.
 
@@ -49,11 +60,12 @@
 
 	A lo largo de diez años de escaneo aficionado fui aprendiendo, perfeccionando el proceso y tomando algunas notas. Últimamente he estado pensando que los conocimientos que he adquirido podrían llegar a ser de utilidad para otras personas. De mi propia experiencia y de aquellas notas es que surge esta guía, y de estas cavilaciones mi voluntad de compartirla. Espero que le sea de utilidad.
 
-	{\raggedleft Noita Enola\par}
+	{\raggedleft Noita Enola\par}\cleardoublepage
 
-	\tableofcontents\cleardoublepage
+	\tableofcontents
 
-	\mainmatter
+% -------------------------------  Main matter  --------------------------------
+\mainmatter
 
 % ------------------------------------------------------------------------------
 % ---------------------------------   PART I   ---------------------------------
@@ -252,7 +264,7 @@
 
 	Como ejemplo vamos a utilizar un libro de instrumentación y medidas de B.~A. Gregory \cite{GregorySpringer}.\footnote{Para más información, ver el apéndice~\ref{sec:aboutGregory}.}
 
-	Comenzaremos explicando los trabajos de escaneo del material original: preparación del escáner, preparación del material, configuración del software de escaneo, proceso de escaneo y posibles complicaciones.
+	Comenzaremos explicando los trabajos de escaneo del material original: preparación del escáner, preparación del material, configuración del software, proceso de escaneo y posibles complicaciones.
 
 	Luego pasaremos al procesamiento de las imágenes adquiridas, para el que utilizaremos fuertemente el software \scantailor.
 
@@ -1670,6 +1682,7 @@ Observaciones (esto todavía está muy verde):
 
 La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que la segunda baja el tamaño a la mitad manteniendo una buena apariencia de las fotos. Considero que allí está el punto óptimo para la mayoría de los casos. En las restantes 4 filas la compresión es mucho mayor pero el resultado comienza a deteriorarse rápidamente. Si se usa alguna de estas combinaciones u otra dependerá de cada caso.
 
+% -------------------------------  Back matter  --------------------------------
 \backmatter
 \chapter{Referencias}%
 \nocite{*}
@@ -1719,14 +1732,24 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Modificado el procedimiento de configuración de márgenes, haciendo mejor uso de las facilidades de \scantailor. Gracias a esto se pudo intercambiar el orden de las secciones~\ref{sec:STmargins} y \ref{sec:SToutput} para respetar el flujo natural del proceso.
 				\item Aplicada la definición de «fotos» en las instancias que corresponde.
 				\item Uniformizado el estilo de las referencias entre paréntesis: (ver figura X) \faLongArrowAltRight\ (fig. X).
-				\item Agregada una imagen del cuadro de diálogo \keys{Apply to\...} y uniformizados los textos que lo refieren.
-				\item Agregado un breve párrafo a la sección «1. Fix Orientation».
+				\item Agregada una imagen del cuadro de diálogo \keys{Apply to\...} (fig.~\ref{fig:STfixOrientationApplyTo}) y uniformizados los textos que lo refieren.
+				\item Agregado un breve párrafo a la sección «1. Fix Orientation» (sec.~\ref{sec:fixOrientation}.
 				\item Simplificado el procedimiento del paso «5. Margins» (sec.~\ref{sec:STmargins}) y reorganizada la redacción de la sección. El método anterior era totalmente manual y fue reemplazado por uno que hace uso de la función \menu{Auto Margins} de ScanTailor.
-				\item Acomodada la redacción de la sección «6. Output» a los cambios del último commit.
+				\item Acomodada la redacción de la sección «6. Output» (sec.~\ref{sec:SToutput} a los cambios del último commit.
 				\item Corregido el script \ref{scr:fixLandscapePages}: debe rotar 90 grados, no 180.
+				\item Limpieza de los archivos auxiliares.
+				\item Agregado un nivel más a la numeración de las secciones. Ahora es capítulo.sección.subsección.subsubsección.
+				\item Mejorada la redacción de la sección «¿Qué partes escanear?» (sec.~\ref{sec:scanningWhatToScan}.
+				\item Usada exclusivamente la palabra «cubierta» (en vez de «tapa»).
+				\item Agregadas páginas de cortesía.
+				\item Modificado el título del documento.
+				\item Generada una portadilla sencilla.
+				\item Agregada una página de legales.
+				\item Actualizados el historial y ToDo.
+				\item Agregadas algunas divisiones al fuente tex.
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
-				\item Muchas otras correcciones menores.
+				\item Muchos otros cambios y correcciones menores.
 			\end{itemize}
 		\item v1.0 -- 2019-04-16:
 			\begin{itemize}
@@ -1736,12 +1759,11 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 
 \chapter{ToDo} Estos son cambios o adiciones que me falta hacer.
 \begin{itemize}
-	\item Elegir un mejor título para el documento.
-	\item Agregar una página de copyright.
-	\item ¿Resumir el historial de cambios?
+	\item Considerar https://www.ctan.org/pkg/lettrine.
+	\item Ordenar el historial de cambios.
 	\item Dejar de usar los floats de memoir y pasar a los del paquete caption como sugiere el encargado de mantenimiento de memoir en \href{https://tex.stackexchange.com/questions/524747/memoir-subbottom-and-subtop-vertical-alignment-control}{Memoir subbottom (and subtop) vertical alignment control}.
 	\item uniformizar los títulos. ej: insertar fotos vs. inserción de fotos?
-	\item Uniformizar algunos términos: imágenes (insertadas) -- fotografías. Exploración -- escaneo.
+	\item El \irfanview o \irfanview a secas?
 	\item homogeneizar todo el tono del documento: haremos, haré, haga?
 	\item respecto a la nota al final de la sección~\ref{sec:pdfPhotos} hay otras posibilidades para insertar las imágenes en el \pdf, pero me pasa el agua:
 		\begin{itemize}[noitemsep]
@@ -1756,6 +1778,7 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 	\item Investigar este \href{https://github.com/lovasoa/pagelabels-py}{script} de Python para cambiar las etiquetas de página de los \pdf.
 	\item agregar una sección sobre como trabajar con \djvulibre?
 	\item ordenar la bibliografía?
+	\item Pasar en limpio o eliminar el apéndice que trata sobre las opciones avanzadas de \djvusmallmod.
 	\item Crear un script para agregar los metadatos con \exiftool.
 	\item Dar alguna referencia sobre qué hacer si falla la conversión \pdfa.
 	\item Algún comentario sobre la librería \href{https://github.com/LibrePDF/OpenPDF/}{OpenPDF}?
@@ -1765,10 +1788,13 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 	\item Respecto a la conversión de hOCR a djvused, ver \href{https://github.com/ksa242/pdfsed-tools}{pdfsed-tools}.
 	\item Investigar y comentar Djvutoy para la creación de djvus.
 	\item Transparencias de páginas de pueden corregir también por software.
-	\item Otra referencia interesante (en ruso) \href{http://publ.lib.ru/cgi/forum/YaBB.pl?catselect=ocr}{OCR Forum}.
 	\item archivos ocultos en estructura de \abby.
 	\item Algún comentario más sobre que Split pages rompe otras cosas como el \djvuimager.
 	\item En esta versión de la guía se incluyeron materiales distintos del gregory. Aclararlo en la sección~\ref{sec:aboutGregory}.
 \end{itemize}
+
+% -------------------------  Intentionally blank pages -------------------------
+\newpage\null\thispagestyle{empty}\newpage
+\newpage\null\thispagestyle{empty}\newpage
 
 \end{document}
