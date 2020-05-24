@@ -41,14 +41,14 @@
 
 % -------------------------------  Front matter  -------------------------------
 \frontmatter
-	\thispagestyle{empty}%
+	\thispagestyle{empty}\pdfbookmark{Portadilla}{halftitlepage}%
 	\halftitleTH%
 	\cleardoublepage%
-	\thispagestyle{empty}%
+	\thispagestyle{empty}\pdfbookmark{Portada}{titlepage}%
 	\titleTH%
 	\clearpage%
 
-	\thispagestyle{empty}\pdfbookmark{Legales}{copyright}%
+	\thispagestyle{empty}\pdfbookmark{Legales}{copyrightpage}%
 	{\emph{ScanManual/Guía para aprender a escanear} \textcopyright 2019-2020 Noita Enola está bajo licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional. Para ver una copia de la licencia, puede visitar el sitio  \href{https://creativecommons.org/licenses/by-sa/4.0/deed.es}{https://creativecommons.org/licenses/by-sa/4.0/deed.es}.
 
 	\vfill
@@ -475,7 +475,7 @@
 
 	Cuando hayamos terminado presionaremos \play\ a la derecha del nombre del filtro. El programa recorre rápidamente todas las imágenes y genera las miniaturas. Al terminar podemos ir al paso 2.
 
-	\note{Nota: páginas apaisadas} Si bien la mayoría de las páginas tienen orientación vertical, a veces nuestro material contiene algunas páginas con orientación horizontal,\footnote{Ver Wikipedia \cite{WikipediaPageOrientation} (en inglés).} también llamadas páginas «apaisadas» (fig.~\ref{fig:STsplitPagesError}). Más adelante deberemos decidir como queremos que estén en nuestro documento final (sección~\ref{sec:landscapePages}). De momento orientémoslas todas tal como aparecen en el material original.
+	\paragraph{Nota: páginas apaisadas} Si bien la mayoría de las páginas tienen orientación vertical, a veces nuestro material contiene algunas páginas con orientación horizontal,\footnote{Ver Wikipedia \cite{WikipediaPageOrientation} (en inglés).} también llamadas páginas «apaisadas» (fig.~\ref{fig:STsplitPagesError}). Más adelante deberemos decidir como queremos que estén en nuestro documento final (sección~\ref{sec:landscapePages}). De momento orientémoslas todas tal como aparecen en el material original.
 
 	\subsection{Paso 2. Split Pages\label{sec:STsplitPages}} En este paso le indicaremos a \scantailor qué parte de la imagen escaneada corresponde a la página. Lo que debemos lograr es que toda la página quede dentro del área azul y que el resto quede fuera: trozos de la hoja que no estábamos escaneando, imágenes de nuestras manos presionando el material, bandas negras donde no había papel, etc.
 
@@ -514,7 +514,7 @@
 
 	Lo segundo es parecido al paso 2, solo que ahora se usará un rectángulo para indicar el área de la imagen donde está el contenido. Todo lo que quede fuera de este rectángulo será descartado del resultado final.
 
-	\note{Definición: páginas atípicas} Llamaremos \emph{páginas atípicas} a las correspondientes a las cubiertas y lomo, así como aquellas páginas que por alguna razón tengan un tamaño físico mayor o menor que el resto, como puede ocurrir con libros que traen páginas dobladas que pueden extenderse. Todas las demás serán, entonces, \emph{páginas típicas}.
+	\paragraph{Definición: páginas atípicas} Llamaremos \emph{páginas atípicas} a las correspondientes a las cubiertas y lomo, así como aquellas páginas que por alguna razón tengan un tamaño físico mayor o menor que el resto, como puede ocurrir con libros que traen páginas dobladas que pueden extenderse. Todas las demás serán, entonces, \emph{páginas típicas}.
 
 	\begin{figure}
 		\centering
@@ -576,7 +576,7 @@
 
 	\subsubsection{Medida de márgenes originales*} Como muchas veces nuestro material tiene páginas cuyo contenido invade los márgenes, no existe un único valor para el ancho de los márgenes de cada una. En esta subsección opcional veremos una forma de asignar un valor representativo a cada uno de los márgenes.
 
-	\note{Definición: páginas bien comportadas} Dentro del conjunto de páginas típicas, llamaremos páginas \emph{bien comportadas} a aquellas en las que el contenido se mantiene aproximadamente dentro de una misma región. Quedan excluidas de esta definición, y serán por tanto \emph{mal comportadas}, aquellas páginas con imágenes, diagramas, tablas u otros elementos que invaden los márgenes, o aquellas que dan comienzo a un capítulo o sección, entre otras.
+	\paragraph{Definición: páginas bien comportadas} Dentro del conjunto de páginas típicas, llamaremos páginas \emph{bien comportadas} a aquellas en las que el contenido se mantiene aproximadamente dentro de una misma región. Quedan excluidas de esta definición, y serán por tanto \emph{mal comportadas}, aquellas páginas con imágenes, diagramas, tablas u otros elementos que invaden los márgenes, o aquellas que dan comienzo a un capítulo o sección, entre otras.
 
 	Comenzando con los márgenes superior e inferior, ordenamos las páginas por alto (\menu{Order by increasing height}) y buscamos abajo del todo la bien comportada más alta. En nuestro caso al final aparecen las cubiertas (obviamente) y páginas con tablas. La bien comportada más alta es la p.~296. Vamos entonces a esa página en el libro, medimos los márgenes superior e inferior con la regla y los registramos.
 
@@ -706,7 +706,7 @@
 
 	Una opción a tener en cuenta y que me ha dado buenos resultados es \menu{Options > Equalize illumination (Color)}.
 
-	Para estas páginas debemos activar siempre \menu{Splitting > Split output > \typesetCheckbox{B\&W foreground}}. Esto generará dos carpetas más dentro de \typesetFolder{out}: \typesetFolder{foreground} y \typesetFolder{background}, adonde se guardará cada componente de la imagen. A la primera irá todo el contenido binarizado y a la segunda las fotos. Podemos activarla y echar un vistazo para entenderlo mejor.
+	Para estas páginas debemos activar siempre \menu{Splitting > \typesetCheckbox{Split output} > \typesetDotCircle{B\&W foreground}}. Esto generará dos carpetas más dentro de \typesetFolder{out}: \typesetFolder{foreground} y \typesetFolder{background}, adonde se guardará cada componente de la imagen. A la primera irá todo el contenido binarizado y a la segunda las fotos. Podemos activarla y echar un vistazo para entenderlo mejor.
 
 	Esto nos permitirá procesar cada parte en sus particularidades de manera independiente, de forma de lograr un resultado óptimo. Si no se va a hacer, de todas formas elegir la opción no hace daño, pues en \typesetFolder{out} se sigue guardando la imagen con las dos componentes superpuestas.
 
@@ -765,13 +765,13 @@
 
 	En el siguiente capítulo trabajaremos con la salida de \scantailor para reconocer el texto. Esto le agregará mucho valor al resultado final, por la posibilidad de hacer búsquedas.
 
-	\chapter{\texorpdfstring{\textsc{Ocr}}{OCR} con \abby\label{sec:OCR}} Una vez que las páginas fueron limpiadas y ajustadas y las fotos separadas, podemos proceder a realizar el reconocimiento de texto. Como paso previo, notemos que que si marcamos \menu{Picture zones} y elegimos la opción \menu{Split output}, tenemos en la carpeta \typesetFolder{out} las imágenes procesadas y dentro de la misma otras dos carpetas, como se explicó antes.
+	\chapter{\texorpdfstring{\textsc{Ocr}}{OCR} con \abby\label{sec:OCR}} Una vez que las páginas fueron limpiadas y ajustadas y las fotos separadas, podemos proceder a realizar el reconocimiento de texto. Como paso previo, notemos que que si marcamos \menu{Picture zones} y elegimos la opción \menu{\typesetCheckbox{Split output}}, tenemos en la carpeta \typesetFolder{out} las imágenes procesadas y dentro de la misma otras dos carpetas, como se explicó antes.
 
 	Debemos ahora copiar las imágenes desde \typesetFolder{foreground} a la carpeta \typesetFolder{out} y sobrescribir los archivos. Así, en \typesetFolder{out} habrá solo imágenes binarias (texto y diagramas monocromáticos). Las fotos quedarán en \typesetFolder{background} y trabajaremos sobre ellas más adelante.
 
 	Lo mismo haremos con las cubiertas si las procesamos aparte. Las copiamos a la carpeta \typesetFolder{out}, sobrescribiendo las que generó \scantailor. De esta manera tendremos en \typesetFolder{out} las páginas que conformarán el documento final (salvo las fotos).
 
-	\note{Nota previa} \abby también es un programa muy completo, con una cantidad de modos de funcionamiento, opciones y errores que esta guía no pretende cubrir exhaustivamente. Si alguna explicación no quedara clara, lo mejor será experimentar, leer el manual de usuario o realizar consultas en algún sitio especializado.
+	\paragraph{Nota previa} \abby también es un programa muy completo, con una cantidad de modos de funcionamiento, opciones y errores que esta guía no pretende cubrir exhaustivamente. Si alguna explicación no quedara clara, lo mejor será experimentar, leer el manual de usuario o realizar consultas en algún sitio especializado.
 
 	\section{Configuración} Abrimos luego \abby\footnote{Recomiendo trabajar con la versión 14 (la más reciente al momento de escribir esta guía). Sin embargo, cualquier versión que permita salvar en \djvu es suficiente (v11 o superior). Las opciones no serán exactamente iguales (habrá que improvisar) y no podremos usar el script~\ref{scr:replaceInABBY} (no es grave).} y procedemos a configurar primero las opciones básicas (más adelante trataremos algunas otras). Se accede al menú haciendo \menu{\leftclick > Tools > Options}. En principio sugiero configurar las opciones tal cual se muestran en las figuras.
 
@@ -1473,7 +1473,7 @@
 
 	\chapter{Alternativas para procesamiento de fotos\label{sec:noSplitPages}} Si no queremos procesar independientemente el texto y las fotos de nuestro material tenemos algunas opciones.
 
-	\note{Advertencia} No recomiendo ir por esta ruta puesto la calidad resultante es realmente baja. Los explico aquí porque son métodos que por desconocimiento usé hace muchos años, pero sobre todo como ejemplo de lo que \emph{no se debe hacer}.
+	\paragraph{Advertencia} No recomiendo ir por esta ruta puesto la calidad resultante es realmente baja. Los explico aquí porque son métodos que por desconocimiento usé hace muchos años, pero sobre todo como ejemplo de lo que \emph{no se debe hacer}.
 
 	Primero que nada, no debemos activar \menu{\typesetCheckbox{Split pages}} de \scantailor o, en su defecto, no hacer la sustitución que se explica al principio de la sección~\ref{sec:OCR}. El procedimiento de limpieza es el que se describe en el capítulo~\ref{sec:cleanAdjust}.
 
@@ -1749,6 +1749,8 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Agregadas algunas divisiones al fuente tex.
 				\item Uniformizados los títulos: Insertar fotos \faLongArrowAltRight\ Inserción de fotos.
 				\item Eliminado el artículo «el» antes de los nombres de programas.
+				\item Eliminado el comando \textbackslash note; reemplazado por \textbackslash paragraph.
+				\item Agregados marcadores \pdf para las portadas.
 
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
