@@ -98,7 +98,7 @@
 
 	Estas limitaciones son muy reales, especialmente en la digitalización de folletos, revistas, cómics o libros a todo color. Para aquellos casos, espero que esta guía pueda ser un buen punto de partida desde el que cada uno pueda desarrollar sus propias técnicas y decidir si un procedimiento es más satisfactorio que otro en función de la calidad, el tamaño final del archivo, el esfuerzo requerido, etc. En el apéndice~\ref{sec:complexScans} esbozo un procedimiento simple para tratar este tipo de materiales.
 
-	En el caso de los libros, que es el que más me interesa, existen multitud de publicaciones que aún no han sido digitalizadas y que caen dentro del alcance de esta guía, y desde allí pienso que esta puede ser un aporte valioso. Para muchos otros existen versiones digitales nativas (\pdf vectorial), por lo que no será necesario escanear nada.
+	En el caso de los libros, que es el que más nos ocupa, existen multitud de publicaciones que aún no han sido digitalizadas y que caen dentro del alcance de esta guía, y desde allí pienso que esta puede ser un aporte valioso. Para muchos otros existen versiones digitales nativas (\pdf vectorial), por lo que no tiene sentido escanearlos.
 
 	\section{Sobre los formatos} Si todo sale bien, al final del proceso de digitalización deberíamos tener una reproducción digital fidedigna del material físico pero, ¿en qué formato?.
 
@@ -125,7 +125,7 @@
 	\subsection{Generales} Estos son programas de uso general. Algunos asociados con el correcto funcionamiento de diferentes aplicaciones y otros con el manejo de archivos de todo tipo.
 	\paragraph{\href{https://www.virtualbox.org}{\textsc{VirtualBox}}} Software de virtualización. Principales funciones bajo licencia GPLv2. Se trata de un programa completamente opcional, pero no es mala idea tener todo el flujo de trabajo encapsulado en una máquina virtual. En caso de usarse, todo el software siguiente se instalaría en la VM creada.
 	\paragraph{\textsc{Drivers}} Drivers del escáner correctamente instalados y funcionando.
-	\paragraph{\href{https://dotnet.microsoft.com}{\textsc{.NET Framework Runtime}}} No sabría definirlo. Licencia MIT. Es necesario para correr algunos programas, en particular el \dexpress. Podría ser opcional si no se instala este último.
+	\paragraph{\href{https://dotnet.microsoft.com}{\textsc{.NET Framework Runtime}}} No sabría definirlo. Licencia MIT. Es necesario para correr algunos programas, en particular \dexpress. Podría ser opcional si no se instala este último.
 	\paragraph{\href{https://www.java.com/es/}{\textsc{Java}}} Ídem anterior. Freeware. Necesario si se va a usar \textsc{veraPDF}.
 	\paragraph{\href{https://www.python.org}{\textsc{Python 3}}} Lenguaje de programación sencillo (para lo que lo vamos a usar). Licencia PSFL (estilo BSD). Necesario para ejecutar los scripts que tengo preparados.
 	\paragraph{\href{https://www.7-zip.org}{\szip}} Archivador de ficheros. GPLv2+BSD. Buena alternativa a \textsc{WinZip} y \textsc{WinRAR}. Desde que lo empecé a usar no he mirado atrás.
@@ -133,11 +133,11 @@
 	\paragraph{\href{https://www.hexelon.com/en}{\textsc{HEXelon MAX}}} Calculadora, conversor de unidades y monedas, etc. Freeware. Alternativa a la calculadora de Windows. Hay otras. Podría sustituirse por una calculadora de escritorio.
 
 	\subsection{Visualizadores de documentos} Programas para visualizar archivos de texto, imágenes y documentos. También nos servirán para escanear nuestro material.
-	\paragraph{\href{https://notepad-plus-plus.org}{\textsc{Notepad++}}} Editor de texto y código fuente. Licencia GPLv2. Adiós Notepad de Windows.
+	\paragraph{\href{https://notepad-plus-plus.org}{\notepad}} Editor de texto y código fuente. Licencia GPLv2. Adiós Notepad de Windows.
 	\paragraph{\href{https://www.irfanview.com}{\irfanview}} Visor de imágenes freeware. Será utilizado para la adquisición de imágenes desde el escáner.
 	\paragraph{\href{https://www.xnview.com/es/}{\textsc{XnView}}} Visor de imágenes freeware. Es con el que me siento cómodo para visualizar imágenes en general. Existen muchas alternativas disponibles (por ejemplo, \irfanview).
 	\paragraph{\href{https://sumatrapdfreader.org}{\textsc{SumatraPDF}}} Un buen visualizador de documentos multiformato. Licencia GPLv3. Para ver los \pdf y \djvu que vamos a generar.
-	\paragraph{\href{https://windjview.sourceforge.io}{\textsc{WinDjView}}} Visualizador de archivos \djvu. GPLv2. El \textsc{sumatraPDF} lo suple en general bien, pero este muestra alguna información adicional específica que puede sernos útil.
+	\paragraph{\href{https://windjview.sourceforge.io}{\textsc{WinDjView}}} Visualizador de archivos \djvu. GPLv2. \textsc{sumatraPDF} lo suple en general bien, pero este muestra alguna información adicional específica que puede sernos útil.
 
 	\subsection{Procesadores de imágenes} Se trata de software para procesar las imágenes escaneadas, realizar algún retoque o edición por lotes.
 	\paragraph{\href{https://github.com/4lex4/scantailor-advanced}{\scantailorAdvanced}} Herramienta interactiva para el postprocesamiento de las páginas escaneadas. Licencia GPLv3. Núcleo de todo el proceso. Con este software se enderezarán y binarizarán las páginas, ajustarán los márgenes, separarán las imágenes, etc. Es un fork del original \href{scantailor.org}{\mbox{\scantailor}}, prácticamente abandonado desde el 2012. Existe otro fork similar y aún mantenido: \href{https://github.com/trufanov-nok/scantailor}{\textsc{\scantailor Universal}}. No tengo experiencia con este último. Siempre que hablamos de \scantailor nos estaremos refiriendo a \scantailorAdvanced.
@@ -146,17 +146,17 @@
 	\paragraph{\href{https://www.imagemagick.org}{\imagemagick}} Conjunto de utilidades para manipular y convertir imágenes. Licencia Apache 2.0. Lo usaremos para procesar imágenes por lotes.
 
 	\subsection{Generadores de \texorpdfstring{\ocr}{OCR}} Este será el software que utilizaremos para reconocer el texto en nuestros documentos escaneados.
-	\paragraph{\href{https://www.abbyy.com/es-es/finereader/}{\textsc{ABBY FineReader}}} Aplicación de software de \textsc{ocr} (reconocimiento óptico de caracteres). Software propietario y de pago. Lo usaremos para insertar una capa de texto seleccionable a nuestros documentos finales.
+	\paragraph{\href{https://www.abbyy.com/es-es/finereader/}{\textsc{ABBY FineReader}}} Aplicación de software de \ocr (reconocimiento óptico de caracteres). Software propietario y de pago. Lo usaremos para insertar una capa de texto seleccionable a nuestros documentos finales.
 	\paragraph{\href{https://github.com/tesseract-ocr/tesseract}{\textsc{tesseract}}} Motor de \ocr libre para varias plataformas. Licencia Apache 2.0. Hay varias interfaces gráficas disponibles. No tengo experiencia con él. Para usarlo habría que hacer adaptaciones a todo el flujo de trabajo.
 	\paragraph{\href{https://www.nuance.com/print-capture-and-pdf-solutions/optical-character-recognition/omnipage.html}{\textsc{Nuance Omnipage}}} Alternativa propietaria y paga. Más bien orientada al reconocimiento en serie de grandes volúmenes de documentos. Tampoco la he probado. No estoy seguro de que maneje archivos \djvu.
 
 	\subsection{Productores de documentos} Este software es el que nos permitirá generar y editar nuestros documentos a partir de las imágenes procesadas.
-	\paragraph{\href{https://acrobat.adobe.com/es/es/acrobat.html}{\textsc{Adobe} \acrobat}} Permite visualizar, crear y modificar archivos \textsc{pdf}. También hace \ocr. Software propietario y de pago. Lo usaremos para personalizar los marcadores, los números de página, insertar las imágenes (opcionalmente) y generar documentos \pdfa, para el guardado a largo plazo de documentos electrónicos. Las versiones anteriores también servirán, salvo quizás para el paso de insertar imágenes (se requiere la ejecución de javascripts de Adobe, que no he probado con estas). Dependiendo del resultado que busquemos, podría ser opcional.
+	\paragraph{\href{https://acrobat.adobe.com/es/es/acrobat.html}{\textsc{Adobe} \acrobat}} Permite visualizar, crear y modificar archivos \pdf. También hace \ocr. Software propietario y de pago. Lo usaremos para personalizar los marcadores, los números de página, insertar las imágenes (opcionalmente) y generar documentos \pdfa, para el guardado a largo plazo de documentos electrónicos. Las versiones anteriores también servirán, salvo quizás para el paso de insertar imágenes (se requiere la ejecución de javascripts de Adobe, que no he probado con estas). Dependiendo del resultado que busquemos, podría ser opcional.
 	\paragraph{\href{http://djvu.sourceforge.net/}{\djvulibre}} Implementación libre del formato \djvu. Incluye visor, decoder, algunos encoders simples y otras herramientas varias. Licencia GPLv2. Si bien podría emplearse para generar nuestros documentos \djvu, de este paquete usaremos casi exclusivamente las herramientas de manipulación (\typesetExe{djvused.exe}, \typesetExe{djvm.exe}, etc.).
 	\paragraph{\textsc{LizardTech DjVu Document Express Enterprise}} Aplicación comercial para la generación de archivos \djvu. Software propietario y de pago. Discontinuado en 2006.\footnote{AT\&T es dueña de varias patentes relativas al formato. (Para más información, ver \cite{DjVuLicensing, DjVuOpenSourceLicensing}.) Desde hace algunos años los derechos de uso comercial de estas se han ido transfiriendo a diferentes compañías: LizardTech (ahora Extensis), Celartem (que adquirió estas dos) y Cuminas. Esta última ofrece un producto con el mismo nombre pero completamente distinto.} La alternativa libre es \djvulibre. Sin embargo, la calidad de los encoders de LizardTech es superior salvo, tal vez, para la codificación de fotografías.\footnote{De la web de \djvulibre: «The compressors provided here are slower, produce larger files (sometimes with lower image quality) than the commercial compressors, but they do the job».} Si bien hay versiones más recientes, la v5.1.0 (b946 o b973) funciona bien. No lo usaremos directamente, por lo que no hay necesidad de obtenerlo.
 	\paragraph{\textsc{LizardTech} \djvueditor} Creador y editor de ficheros \djvu. Software propietario y de pago. Tiene una interfaz amigable que permite insertar páginas en un documento, así como crear hipervínculos. Incluye \ocr. Opcional.
-	\paragraph{\href{http://djvu-soft.narod.ru/scan/djvu_small.htm}{\textsc{DjVu Small}}} Interfaz de usuario para las aplicaciones de línea de comandos \typesetExe{djvudecode.exe} y \typesetExe{documenttodjvu.exe} de \dexpress (v5.0.0.973). La licencia de la \textsc{gui} es GPLv2, pero las aplicaciones que controla son comerciales. Su autor es \mondaytwothousand. Sigue muy vigente a pesar de que se dejó de desarrollar en 2006.\footnote{El autor ofrece por un lado los fuentes, que son libres, y por otro los binarios, que ya incluyen las aplicaciones comerciales. En particular, \typesetExe{documenttodjvu.exe} fue modificada para funcionar sin licencia y redirigir ciertos mensajes internos hacia la consola, lo que permite visualizar el proceso de codificación en tiempo real.}
-	\paragraph{\href{https://book-scan.wixsite.com/djvu}{\textsc{DjVu Small Mod}}} Fork de \djvusmall desarrollado por \textsharik (\href{mailto:textsharik@ya.ru}{textsharik [at] ya.ru}) a partir del \href{http://www.djvu-scan.ru/forum/index.php?topic=1099.0}{2011}. Es un proyecto bastante más ambicioso, que ya incluye la funcionalidad de \djvuimager, la separación automática o semiatomática en capas,\footnote{No la cubro en esta guía.} agrega varias modificaciones más a \typesetExe{documenttodjvu.exe} (por ejemplo, procesamiento multihilos) e incluye ejecutables de versiones más nuevas de \dexpress (para convertir de \djvu a \pdf). Licencia GPLv2. Incluye completa documentación en ruso. Usando un traductor como el de Google se logra entender bastante bien.
+	\paragraph{\href{http://djvu-soft.narod.ru/scan/djvu_small.htm}{\djvusmall}} Interfaz de usuario para las aplicaciones de línea de comandos \typesetExe{djvudecode.exe} y \typesetExe{documenttodjvu.exe} de \dexpress (v5.0.0.973). La licencia de la \textsc{gui} es GPLv2, pero las aplicaciones que controla son comerciales. Su autor es \mondaytwothousand. Sigue muy vigente a pesar de que se dejó de desarrollar en 2006.\footnote{El autor ofrece por un lado los fuentes, que son libres, y por otro los binarios, que ya incluyen las aplicaciones comerciales. En particular, \typesetExe{documenttodjvu.exe} fue modificada para funcionar sin licencia y redirigir ciertos mensajes internos hacia la consola, lo que permite visualizar el proceso de codificación en tiempo real.}
+	\paragraph{\href{https://book-scan.wixsite.com/djvu}{\djvusmallmod}} Fork de \djvusmall desarrollado por \textsharik (\href{mailto:textsharik@ya.ru}{textsharik [at] ya.ru}) a partir del \href{http://www.djvu-scan.ru/forum/index.php?topic=1099.0}{2011}. Es un proyecto bastante más ambicioso, que ya incluye la funcionalidad de \djvuimager, la separación automática o semiatomática en capas,\footnote{No la cubro en esta guía.} agrega varias modificaciones más a \typesetExe{documenttodjvu.exe} (por ejemplo, procesamiento multihilos) e incluye ejecutables de versiones más nuevas de \dexpress (para convertir de \djvu a \pdf). Licencia GPLv2. Incluye completa documentación en ruso. Usando un traductor como el de Google se logra entender bastante bien.
 
 	\subsection{Herramientas varias} Sobre todo para el formato \djvu, existen varias herramientas que vamos a necesitar en los distintos pasos.
 	\paragraph{\href{http://qpdf.sourceforge.net/}{\qpdf}} Aplicación de línea de comandos que hace transformaciones estructurales y que preservan el contenido de archivos \pdf. Licencia Apache~2.0. Lo usaremos para insertar las imágenes en nuestro documento \pdf.
@@ -165,7 +165,7 @@
 	\paragraph{\href{http://www.djvu-scan.ru/forum/index.php?topic=320}{bookm}} Herramienta desarrollada por \mondaytwothousand. A partir de un archivo de marcadores convencional genera otro con la estructura necesaria para usar con \typesetExe{djvused.exe}.
 
 	\subsection{Verificadores} En el caso del formato \pdf, existe un software que permite verificar que nuestro documento cumple con el estándar \pdfa de almacenamiento de largo plazo.
-	\paragraph{\href{https://verapdf.org}{\textsc{veraPDF}}} Herramienta de validación de documentos \textsc{pdf/a}. Licencia GPLv3 o MPLv2. La usaremos para verificar el \textsc{pdf/a} que hayamos creado.
+	\paragraph{\href{https://verapdf.org}{\textsc{veraPDF}}} Herramienta de validación de documentos \pdfa. Licencia GPLv3 o MPLv2. La usaremos para verificar el \pdfa que hayamos creado.
 
 	\section{Requisitos de hardware} Los requisitos de hardware son bastante más escasos, pero hay una discusión interesante sobre el escáner.
 	\subsection{Material para digitalizar} Esta guía está enfocada en la digitalización de libros, pero su lectura podría resultar útil para la digitalización de otro tipo de documentos.
@@ -305,11 +305,11 @@
 
 	\section{Configuración del software\label{sec:scanningSoftware}} El paso siguiente es configurar el software de escaneo. Generalmente, este viene pensado para que se pueda usar sin pensar demasiado y que aún así puedan obtenerse buenos resultados. Por ello ya se incluyen cantidad de herramientas de posprocesado (mejora de la nitidez, desinclinación, balance de blancos, separación de varias imágenes, entre muchas otras). Debemos desactivarlas todas. Tengamos en cuenta que de ser necesarias algunas de estas correcciones podremos realizarlas más adelante y con mucho más control utilizando programas adicionales.
 
-	Abrimos el \irfanview y elegimos \menu{File > Acquire/Batch Scanning\...} obteniendo el cuadro de diálogo de la figura~\ref{fig:scanningIrfanViewBatch}. Debemos seleccionar \menu{\typesetDotCircle{Multiple images (Batch mode)}}, luego en \menu{Output file name > SCAN\_}, en \menu{Number of digits > 3}\footnote{o \menu{4} si nuestro proyecto contiene 1000 páginas o más.} y en \menu{Destination directory > C:\textbackslash Project\textbackslash SCAN}. Es conveniente activar \menu{\typesetCheckbox{Skip existing files}} y \menu{\typesetCheckbox{Remember last scan counter}}.
+	Abrimos \irfanview y elegimos \menu{File > Acquire/Batch Scanning\...} obteniendo el cuadro de diálogo de la figura~\ref{fig:scanningIrfanViewBatch}. Debemos seleccionar \menu{\typesetDotCircle{Multiple images (Batch mode)}}, luego en \menu{Output file name > SCAN\_}, en \menu{Number of digits > 3}\footnote{o \menu{4} si nuestro proyecto contiene 1000 páginas o más.} y en \menu{Destination directory > C:\textbackslash Project\textbackslash SCAN}. Es conveniente activar \menu{\typesetCheckbox{Skip existing files}} y \menu{\typesetCheckbox{Remember last scan counter}}.
 
 	\subsection{Formatos\label{sec:scanningSoftwareFormats}} En este punto debemos elegir el formato de archivo para guardar las exploraciones. \irfanview ofrece muchos, pero dos que funcionan bien son \tiff y \png.
 
-	Para \tiff elegimos la opción \menu{TIF - Tagged Image File Format} del menú \menu{Save as} y presionamos \keys{Options}. Allí aparece el cuadro de la figura~\ref{fig:scanningIrfanViewBatchTIF}, donde se debe seleccionar el tipo de compresión. Sin entrar en más detalles, elegimos \menu{\typesetDotCircle{LZW}}, pues no tiene pérdidas (\emph{lossless}) y ofrece un grado razonable de compresión. Otras alternativas sin pérdidas son \menu{\typesetCircle{ZIP}}, que alguna vez me dio problemas con el \scantailor y \menu{\typesetCircle{Packbits}}, que no he probado. Por ninguna razón elegir \menu{\typesetCircle{JPEG}}, pues introduce pérdidas (\emph{lossy}) o \menu{\typesetCircle{None}} (sin compresión) porque genera archivos enormes.\footnote{Nuestro proceso contendrá muchos archivos temporales de gran tamaño que al final terminarán en un documento de tamaño razonable. Estos archivos temporales podrán ser borrados al terminar, pero si de todas formas pudiéramos ahorrar algo de espacio durante el proceso lo haremos.}
+	Para \tiff elegimos la opción \menu{TIF - Tagged Image File Format} del menú \menu{Save as} y presionamos \keys{Options}. Allí aparece el cuadro de la figura~\ref{fig:scanningIrfanViewBatchTIF}, donde se debe seleccionar el tipo de compresión. Sin entrar en más detalles, elegimos \menu{\typesetDotCircle{LZW}}, pues no tiene pérdidas (\emph{lossless}) y ofrece un grado razonable de compresión. Otras alternativas sin pérdidas son \menu{\typesetCircle{ZIP}}, que alguna vez me dio problemas con \scantailor y \menu{\typesetCircle{Packbits}}, que no he probado. Por ninguna razón elegir \menu{\typesetCircle{JPEG}}, pues introduce pérdidas (\emph{lossy}) o \menu{\typesetCircle{None}} (sin compresión) porque genera archivos enormes.\footnote{Nuestro proceso contendrá muchos archivos temporales de gran tamaño que al final terminarán en un documento de tamaño razonable. Estos archivos temporales podrán ser borrados al terminar, pero si de todas formas pudiéramos ahorrar algo de espacio durante el proceso lo haremos.}
 
 	La alternativa a \tiff es \png. El algoritmo de compresión de \png es siempre sin pérdidas. Elegimos \menu{PNG - Portable Network Graphics} y presionando en  \keys{Options} vemos el cuadro de la figura~\ref{fig:scanningIrfanViewBatchPNG}, donde ingresamos \menu{Compression level > 9}. Activando la casilla \menu{\typesetBox{Use PNGOut PlugIn}} podemos mejorar ligeramente la compresión pero a un costo computacional muy alto, que no vale la pena, por lo que la dejamos desactivada.
 
@@ -318,7 +318,7 @@
 		\subbottom[Menú \menu{Acquire/Batch Scanning\...}\label{fig:scanningIrfanViewBatch}]{\includegraphics[width=\linewidth]{scanningIrfanViewBatch}}\\
 		\subbottom[Opciones del formato \menu{TIF}\label{fig:scanningIrfanViewBatchTIF}]{\includegraphics[width=.49\linewidth]{scanningIrfanViewBatchTIF}}\hfill
 		\subbottom[Opciones del formato \menu{PNG}\label{fig:scanningIrfanViewBatchPNG}]{\includegraphics[width=.49\linewidth]{scanningIrfanViewBatchPNG}}
-		\caption{Ajustes de escaneo del \irfanview\label{fig:scanningIrfanView}}
+		\caption{Ajustes de escaneo de \irfanview\label{fig:scanningIrfanView}}
 	\end{figure}
 
 	Luego de elegir las opciones presionamos \keys{OK} y si el escáner está bien configurado debería iniciarse el software correspondiente. Como ejemplo usaremos el programa EPSON~Scan (v5.7.9.3). En la figura~\ref{fig:epsonScan} se muestra la ventana principal. Podemos ver que se ofrecen varios \menu{Modos}: \menu{Automático}, \menu{Fácil}, \menu{Oficina} y \menu{Profesional}. Por supuesto elegimos \menu{Profesional}.
@@ -349,7 +349,7 @@
 
 	A veces no utilizo la opción de \menu{Autoexposición} sino que presiono \keys{Reiniciar} y dejo todos los valores por defecto. Otra alternativa, que es la que empleé en esta guía, es realizar un autoajuste con una página representativa y usarlo para todas las demás. En caso de dudas lo mejor es experimentar.
 
-	\section{A escanear} Una vez preparado todo, podemos comenzar a escanear. Para ello presionamos \keys{Escanear}. El equipo hará una exploración y el \irfanview irá mostrando y guardando las imágenes de acuerdo a las opciones seleccionadas. Lo hará usando el nombre base (\menu{Output file name}) y aumentando la numeración. Es importante que el orden creciente de las páginas del libro corresponda con el orden creciente de los números de los archivos, para que no haya confusión a la hora de compaginar todo. Además, algunos scripts y aplicaciones que usaremos luego dependerán de que esta numeración sea consistente a lo largo de todo el proyecto para funcionar correctamente.
+	\section{A escanear} Una vez preparado todo, podemos comenzar a escanear. Para ello presionamos \keys{Escanear}. El equipo hará una exploración e \irfanview irá mostrando y guardando las imágenes de acuerdo a las opciones seleccionadas. Lo hará usando el nombre base (\menu{Output file name}) y aumentando la numeración. Es importante que el orden creciente de las páginas del libro corresponda con el orden creciente de los números de los archivos, para que no haya confusión a la hora de compaginar todo. Además, algunos scripts y aplicaciones que usaremos luego dependerán de que esta numeración sea consistente a lo largo de todo el proyecto para funcionar correctamente.
 
 	Si el libro es suficientemente pequeño podremos ir escaneando de a dos páginas a la vez, de lo contrario será de a una. Luego de un rato trabajando veremos que el proceso transcurre prácticamente sin pensar. Llegado ese punto yo aprovecho para paralelamente mirar televisión, escuchar música o meditar sobre lo humano y lo divino.
 
@@ -359,7 +359,7 @@
 
 	Al finalizar deberíamos contar con tantos archivos como páginas tiene el libro salvo que hayamos adquirido de a dos, en cuyo caso serán aproximadamente la mitad de archivos (cubierta, contracubierta y lomo se adquieren de una). Conviene hacer una inspección visual de cada imagen para ver si alguna no quedó del todo bien y necesita escanearse de nuevo. A continuación veremos algunos de los problemas con los que nos podríamos enfrentar y como remediarlos.
 
-	\subsection{Páginas faltantes} Siempre habrá que ir chequeando que no se nos pase por alto alguna página, y si ocurre remediarlo acomodando los nombres de los archivos, de forma de que aquel que haya sido salteado quede intercalado correctamente. Para esto puede ser útil el \textsc{Advanced Renamer}.
+	\subsection{Páginas faltantes} Siempre habrá que ir chequeando que no se nos pase por alto alguna página, y si ocurre remediarlo acomodando los nombres de los archivos, de forma de que aquel que haya sido salteado quede intercalado correctamente. Para esto puede ser útil \textsc{Advanced Renamer}.
 
 	En el ejemplo que estamos trabajando, la página 10 del libro corresponde al archivo \typesetFile{SCAN\_022.tif}, es decir que hay un desfasaje de 12 páginas. Un forma rápida de chequear que no falte ninguna es ver que el archivo \typesetFile{SCAN\_112.tif} corresponda con la página 100, el \typesetFile{SCAN\_212.tif} con la 200, y así\...
 
@@ -375,7 +375,7 @@
 		\caption{Distorsiones y sombras sobre el margen interior\label{fig:distortion1}}
 	\end{figure}
 
-	Si la sombra es pronunciada podría dar problemas durante la binarización. A su vez, si los contenidos están deformados no preservaremos exactamente el material original y probablemente dificultemos el \ocr.
+	Si la sombra es pronunciada podría dar problemas durante la binarización. A su vez, si los contenidos están deformados no preservaremos exactamente el material original y probablemente dificultemos el proceso de \ocr.
 
 	Por otra parte, si no colocamos correctamente el material, podría ocurrir que parte del contenido de interés quedase fuera del área de exploración (fig.~\ref{fig:distortion1}).
 
@@ -665,7 +665,7 @@
 		\caption{Filtro \emph{despeckle} frente a motas pegadas al texto\label{fig:SToutputDespeckleSpeckle}}
 	\end{figure}
 
-	\subsubsection{Contenido por motas} A veces al \emph{despeckle} se le va la mano y borra puntos que en realidad pertenecen al contenido. Ver la figura~\ref{fig:SToutputDespeckle}. Si interesa retener esos puntos podría desactivarse el filtro y hacer un \emph{despeckle} manual en esa página. Otra alternativa puede ser darle énfasis a los puntos de interés con el \gimp, para que el filtro no los borre (es lo que se hizo en este caso).
+	\subsubsection{Contenido por motas} A veces al \emph{despeckle} se le va la mano y borra puntos que en realidad pertenecen al contenido. Ver la figura~\ref{fig:SToutputDespeckle}. Si interesa retener esos puntos podría desactivarse el filtro y hacer un \emph{despeckle} manual en esa página. Otra alternativa puede ser darle énfasis a los puntos de interés con \gimp, para que el filtro no los borre (es lo que se hizo en este caso).
 
 	\begin{figure}
 		\subbottom[Original]{\includegraphics[width=\linewidth]{SToutputDespeckleOriginal}}
@@ -731,7 +731,7 @@
 
 	\subsubsection{Algoritmo de binarización} Existen diferentes algoritmos de binarización, cada uno con ventajas y desventajas. Con el submenú \menu{Threshold} (umbral) \scantailorAdvanced permite cambiar entre \menu{Otsu} (por defecto), \menu{Sauvola} y \menu{Wolf}. De no estar conformes con el resultado por defecto, podríamos intentar cambiando el algoritmo o ajustando los parámetros que cada uno ofrece. El impacto que tiene cada algoritmo está por fuera del alcance de nuestra guía, si bien existe abundante literatura al respecto \cite{RashmiBinarization}.
 
-	\subsection{Páginas apaisadas\label{sec:landscapePages}} Recomiendo corregir la rotación de las páginas apaisadas (\emph{landscape}, en inglés) para que estén bien orientadas en el documento final (fig.~\ref{fig:STlandscapePages}). De esta forma se facilita el \ocr y queda más fácil de visualizar. Si bien podríamos haber elegido la orientación adecuada desde el paso 1 de \scantailor, no lo hacemos así porque no tener todas las páginas orientadas en el mismo sentido nos dificulta la configuración de márgenes consistentes.\footnote{En realidad, nos obliga a considerar todas esas páginas como atípicas, teniendo que ingresar todos sus márgenes manualmente.} Por ello, debemos tomar nota de los números de página que queramos ajustar y adaptar el script~\ref{scr:fixLandscapePages} para que las procese correctamente.\footnote{Bastará con rellenar la variable \menu{landscapePages} con los números de página correspondientes.}
+	\subsection{Páginas apaisadas\label{sec:landscapePages}} Recomiendo corregir la rotación de las páginas apaisadas (\emph{landscape}, en inglés) para que estén bien orientadas en el documento final (fig.~\ref{fig:STlandscapePages}). De esta forma se facilita el proceso de \ocr y queda más fácil de visualizar. Si bien podríamos haber elegido la orientación adecuada desde el paso 1 de \scantailor, no lo hacemos así porque no tener todas las páginas orientadas en el mismo sentido nos dificulta la configuración de márgenes consistentes.\footnote{En realidad, nos obliga a considerar todas esas páginas como atípicas, teniendo que ingresar todos sus márgenes manualmente.} Por ello, debemos tomar nota de los números de página que queramos ajustar y adaptar el script~\ref{scr:fixLandscapePages} para que las procese correctamente.\footnote{Bastará con rellenar la variable \menu{landscapePages} con los números de página correspondientes.}
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{STlandscapePages}
@@ -773,7 +773,7 @@
 
 	\note{Nota previa} \abby también es un programa muy completo, con una cantidad de modos de funcionamiento, opciones y errores que esta guía no pretende cubrir exhaustivamente. Si alguna explicación no quedara clara, lo mejor será experimentar, leer el manual de usuario o realizar consultas en algún sitio especializado.
 
-	\section{Configuración} Abrimos luego el \abby\footnote{Recomiendo trabajar con la versión 14 (la más reciente al momento de escribir esta guía). Sin embargo, cualquier versión que permita salvar en \djvu es suficiente (v11 o superior). Las opciones no serán exactamente iguales (habrá que improvisar) y no podremos usar el script~\ref{scr:replaceInABBY} (no es grave).} y procedemos a configurar primero las opciones básicas (más adelante trataremos algunas otras). Se accede al menú haciendo \menu{\leftclick > Tools > Options}. En principio sugiero configurar las opciones tal cual se muestran en las figuras.
+	\section{Configuración} Abrimos luego \abby\footnote{Recomiendo trabajar con la versión 14 (la más reciente al momento de escribir esta guía). Sin embargo, cualquier versión que permita salvar en \djvu es suficiente (v11 o superior). Las opciones no serán exactamente iguales (habrá que improvisar) y no podremos usar el script~\ref{scr:replaceInABBY} (no es grave).} y procedemos a configurar primero las opciones básicas (más adelante trataremos algunas otras). Se accede al menú haciendo \menu{\leftclick > Tools > Options}. En principio sugiero configurar las opciones tal cual se muestran en las figuras.
 
 	\subsection{Pestaña \texttt{Image Processing}} En la pestaña \menu{Image Processing} presionamos \keys{Show Advanced Settings} y deshabilitamos todas las opciones, como en la fig.~\ref{fig:ABBYoptionsImage}. Así nos aseguramos de que el software no realizará ninguna corrección de imagen. Para eso ya transitamos por los pasos anteriores. Si aún hubiera algo para ajustar, lo mejor será volver a \scantailor y hacerlo nosotros mismos.
 
@@ -938,7 +938,7 @@
 		\caption{Algunas erratas en el libro de ejemplo\label{fig:ABBYCorrectionsTypos}}
 	\end{figure}
 
-	\subsubsection{Vista previa} Podemos inspeccionar como va a quedar una página haciendo \menu{\rightclick > Save as > Searchable PDF Document} en la correspondiente miniatura en el panel de navegación. Si tenemos alguna duda, conviene abrir el \pdf creado y seleccionar el texto de interés para ver que esté alineado con la imagen. También podemos copiar y pegar en el \notepad, para ver que haya sido bien reconocido.
+	\subsubsection{Vista previa} Podemos inspeccionar como va a quedar una página haciendo \menu{\rightclick > Save as > Searchable PDF Document} en la correspondiente miniatura en el panel de navegación. Si tenemos alguna duda, conviene abrir el \pdf creado y seleccionar el texto de interés para ver que esté alineado con la imagen. También podemos copiar y pegar en \notepad, para ver que haya sido bien reconocido.
 
 	\subsection{Patrones} \abby contiene patrones por defecto que han sido entrenados con muchos tipos de documentos. En general funcionan bien, pero es conveniente ayudarlo un poco entrenando un patrón personalizado para el documento presente.
 
@@ -1046,7 +1046,7 @@
 
 	\subsection{Nota: sobre el tamaño final} Descubrí que si bien este método funciona bien, el blanco (convertido en transparente) de los \jpeg en algunos casos puede llegar a duplicar el tamaño de los archivos de fotos. De momento lo presento así, pero hay que idear un método más eficiente, que recorte las fotos (fácil) y las inserte en la posición adecuada en el documento final (difícil). (Acepto sugerencias.)
 
-	\section{Marcadores\label{sec:pdfBookmarks}} Para insertar marcadores comenzaremos abriendo el \notepad, creando un archivo de texto \typesetFile{bookmarks.txt} y pegando allí la tabla de contenidos copiada del \pdf.
+	\section{Marcadores\label{sec:pdfBookmarks}} Para insertar marcadores comenzaremos abriendo \notepad, creando un archivo de texto \typesetFile{bookmarks.txt} y pegando allí la tabla de contenidos copiada del \pdf.
 
 	\subsection{Formato} Debemos darle formato adecuado a los marcadores para poder insertarlos. El nivel del marcador depende de la cantidad de tabuladores (\keys{\tab}) que anteceden a su título. Para los marcadores en el nivel superior (0) no habrá tabuladores, para los del nivel 1 habrá 1 tabulador, y así sucesivamente. Los marcadores se anidarán según su propio nivel y el de los demás.
 
@@ -1082,10 +1082,10 @@
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{pdfBookmarksOffset}
-		\caption[Ventana del \pdg.]{Ventana del \pdg. Se presionó \keys{\protect\boldpm}\label{fig:pdfBookmarksOffset}}
+		\caption[Ventana de \pdg.]{Ventana de \pdg. Se presionó \keys{\protect\boldpm}\label{fig:pdfBookmarksOffset}}
 	\end{figure}
 
-	Para insertarlos en el \pdf creamos antes una copia de \typesetFile{SCAN\_INS.pdf} a la que llamamos \typesetFile{SCAN\_INS\_BOOK.pdf}. Abrimos el \pdg, arrastramos y soltamos nuestro \pdf sobre el programa y luego copiamos los marcadores de \typesetFile{bookmarks.txt} y los pegamos allí. Para guardarlos presionamos \keys{Save}.
+	Para insertarlos en el \pdf creamos antes una copia de \typesetFile{SCAN\_INS.pdf} a la que llamamos \typesetFile{SCAN\_INS\_BOOK.pdf}. Abrimos \pdg, arrastramos y soltamos nuestro \pdf sobre el programa y luego copiamos los marcadores de \typesetFile{bookmarks.txt} y los pegamos allí. Para guardarlos presionamos \keys{Save}.
 
 	\section{Etiquetas de páginas\label{sec:pdfPageLabels}} Hasta ahora, los números de las páginas de nuestro documento no se corresponden con los números impresos. Podemos corregir esto usando \acrobat. En el caso que nos ocupa, las primeras páginas son así:
 
@@ -1230,7 +1230,7 @@
 		\caption{Perfiles personalizados para crear archivos \djvu\label{fig:djvuProfiles}}
 	\end{figure}
 
-	El parámetro \menu{pages-per-dict=10} (valor por defecto) se eligió en virtud de lo explicado en \cite{DjVuDictionarySize}. Básicamente, se obtiene un archivo algo más grande (que eligiendo, por ejemplo, \menu{pages-per-dict=1000}) pero este es más robusto frente a errores.\footnote{La documentación de \dexpress explica que en la mayoría de los casos la reducción de tamaño comienza a ser marginal a partir de \menu{pages-per-dict=20}, así que podría también usarse ese valor.}
+	El parámetro \menu{pages-per-dict=10} (valor por defecto) se eligió en virtud de lo explicado en \cite{DjVuDictionarySize}. Básicamente, se obtiene un archivo algo más grande (que eligiendo, por ejemplo, \menu{pages-per-dict=1000}) pero este es más robusto frente a errores.\footnote{La documentación de \dexpress explica que en la mayoría de los casos la reducción de tamaño comienza a ser marginal a partir de \menu{pages-per-dict=20}, así que también podría usarse ese valor.}
 
 	Por otra parte, podemos jugar con el nivel de compresión eligiendo entre las siguientes opciones:
 	\begin{itemize}[noitemsep]
@@ -1258,7 +1258,7 @@
 
 	\subsection{Codificación del cuerpo del documento\label{sec:djvuSmallBody}} Si seguimos la guía correctamente, todas las páginas de nuestro documento salvo las cubiertas deberían estar en blanco y negro. A este conjunto le llamamos cuerpo del texto. En este caso van de la 002 a la 459.
 
-	Para comprimirlo abrimos el \djvusmall (fig.~\ref{fig:djvuSmallBody}) y usamos \keys{Open File(s)} para agregar las imágenes del cuerpo. Seleccionamos luego el perfil \menu{MyBitonal} del menú desplegable \menu{Select encoding profile}. Elegimos el directorio de salida y presionamos \keys{Convert}. Al archivo resultante le llamaremos \typesetFile{BODY.djvu}.
+	Para comprimirlo abrimos \djvusmall (fig.~\ref{fig:djvuSmallBody}) y usamos \keys{Open File(s)} para agregar las imágenes del cuerpo. Seleccionamos luego el perfil \menu{MyBitonal} del menú desplegable \menu{Select encoding profile}. Elegimos el directorio de salida y presionamos \keys{Convert}. Al archivo resultante le llamaremos \typesetFile{BODY.djvu}.
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{djvuSmallBody}
@@ -1408,7 +1408,7 @@
 	\pythonScript{djvuPageLabels.py}
 	\scriptcaption{Modificación de etiquetas de páginas en documento \djvu\label{scr:djvuPageLabels}}
 
-	\section{Creación de hipervínculos\label{sec:djvuHyperlinks}} Se puede usar el \djvueditor para agregar hipervínculos al documento. Estos pueden ser internos o externos.
+	\section{Creación de hipervínculos\label{sec:djvuHyperlinks}} Se puede usar \djvueditor para agregar hipervínculos al documento. Estos pueden ser internos o externos.
 	
 	Los internos apuntan a páginas del propio documento. Por ejemplo, se pueden crear vínculos desde las entradas de la tabla de contenidos hacia las correspondientes páginas del libro. Los externos apuntan a otros archivos o sitios web.
 	
@@ -1443,7 +1443,7 @@
 	\paragraph{\href{http://jwilk.net/software/pdf2djvu}{\textsc{pdf2djvu}}} Herramienta de línea de comandos para crear archivos \djvu a partir de \pdf. Licencia GPLv2. Existen muchas GUI para trabajar con ella.
 	\paragraph{\href{http://djvu.org/any2djvu/}{\textsc{Any2DjVu}}} Herramienta en línea gratuita que ofrece la creación de archivos \djvu a partir de una gran variedad de formatos de origen. De los autores \djvulibre.
 	\paragraph{\href{http://minidjvu.sourceforge.net/}{\textsc{MiniDjVu}}} Utilidad de línea de comandos para codificar y decodificar archivos \djvu en blanco y negro. La versión para Windows incluye una \textsc{gui} mínima basada en \emph{Javascript} que funciona desde Internet Explorer. Licencia GPLv2. No se actualiza desde el 2009. No la he probado, pero su autor declara que la intención es que se use para experimentar. Los comentarios en la Runet \cite{WikipediaRunet} son similares y hablan de que la calidad de compresión no es la mejor.
-	\paragraph{\href{http://www.djvu-scan.ru/forum/index.php?topic=52.0}{\textsc{MiniDjVu Plus}}} Interfaz gráfica para el \textsc{MiniDjVu}. Además agrega decodificación y codificación de imágenes a color mediante aplicaciones de \djvulibre. Licencia GPLv2. Herramienta experimental. No se actualiza desde el 2010.
+	\paragraph{\href{http://www.djvu-scan.ru/forum/index.php?topic=52.0}{\textsc{MiniDjVu Plus}}} Interfaz gráfica para \textsc{MiniDjVu}. Además agrega decodificación y codificación de imágenes a color mediante aplicaciones de \djvulibre. Licencia GPLv2. Herramienta experimental. No se actualiza desde el 2010.
 	\paragraph{\href{http://www.djvu.org/resources/}{\textsc{LizardTech DjVu Solo}}} Una de las primeras aplicaciones (en su momento prácticamente la única) para crear documentos \djvu. Gratuita para uso no comercial. Discontinuada en el año 2000 y ya superada por las otras alternativas.
 
 	\chapter{Conversión pix-pulgadas\label{app:conversion}} Para convertir entre pixeles y pulgadas las fórmulas son un poco más sencillas, pues no incluyen el factor \mbox{2,54}:
@@ -1477,7 +1477,7 @@
 
 	Primero que nada, no debemos activar \menu{\typesetCheckbox{Split pages}} de \scantailor o, en su defecto, no hacer la sustitución que se explica al principio de la sección~\ref{sec:OCR}. El procedimiento de limpieza es el que se describe en el capítulo~\ref{sec:cleanAdjust}.
 
-	Antes de comenzar con el \ocr tenemos dos alternativas: convertimos las imágenes en bitonales o las procesamos más adelante.
+	Antes de comenzar con el proceso de \ocr tenemos dos alternativas: convertimos las imágenes en bitonales o las procesamos más adelante.
 
 	\section{Conversión previa} Usando \gimp podemos transformar las páginas que tienen fotos (especialmente en escala de grises) en bitonales. Para ello abrimos la imagen y vamos a \menu{Image > Mode > Indexed\...}. Se abrirá el menú de la figura~\ref{fig:noSplitPagesGIMP}. Allí elegimos \menu{\typesetDotCircle{Use black and white (1-bit) palette}} y en \menu{Color dithering} elegimos alguna de las opciones: \menu{None}, \menu{Floyd-Steinberg} (\menu{Normal} o \menu{Reduced color bleeding}) o \menu{Positioned}. Normalmente \menu{None} da los peores resultados.\todo{Agregar alternativa usando \imagemagick}
 
@@ -1653,7 +1653,7 @@ Observaciones (esto todavía está muy verde):
 
 - Aumentar el Bg da como resultado un archivo más grande. Inversamente, aumentar el Tg da como resultado un archivo más chico.
 
-- El valor de Bg (cualquiera sea Tg) no cambia las dimensiones de la imagen, contrariamente a lo que indica la documentación del \dexpress para el argumento --bg-subsample. En las pruebas que he hecho, las distintas combinaciones de Bg y Tg modifican solo el número de slices del primer chunk (la cantidad de slices de cada uno de los otros tres chunks no varía). Manteniendo el par (Bg, Tg) fijo y variando la calidad sí cambia el número de slices de todos los chunks.
+- El valor de Bg (cualquiera sea Tg) no cambia las dimensiones de la imagen, contrariamente a lo que indica la documentación de \dexpress para el argumento --bg-subsample. En las pruebas que he hecho, las distintas combinaciones de Bg y Tg modifican solo el número de slices del primer chunk (la cantidad de slices de cada uno de los otros tres chunks no varía). Manteniendo el par (Bg, Tg) fijo y variando la calidad sí cambia el número de slices de todos los chunks.
 
 - textsharik explica que el parámetro Tg es como una especie de divisor de calidad (aunque no lineal). Es decir: calidad subjetiva ~ Quality/Tg.
 
@@ -1713,7 +1713,7 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item En la sección~\ref{sec:pdfOptimize} se explicaron con más detalle las opciones elegidas para \menu{Downsample} y \menu{Compression} del menú \menu{Images} y se actualizó la imagen~\ref{fig:pdfOptimizeImages}.
 				\item Agregada una división al principio del capítulo~\ref{sec:cleanAdjust}: la subsección \ref{sec:cleanAdjustDimensions} (Dimensiones).
 				\item Modificado el pie del cuadro~\ref{tab:bookDimensions} para que sea más preciso.
-				\item Invertido el orden de las secciones~\ref{sec:djvuHyperlinks} y \ref{sec:djvuMetadata} porque el \djvueditor suprime los metadatos si se usa después. Actualizado levemente el script~\ref{scr:djvuMetadata} para reflejar esto.
+				\item Invertido el orden de las secciones~\ref{sec:djvuHyperlinks} y \ref{sec:djvuMetadata} porque \djvueditor suprime los metadatos si se usa después. Actualizado levemente el script~\ref{scr:djvuMetadata} para reflejar esto.
 				\item Agregada una nota al pie en la sección~\ref{sec:scanningState}.
 				\item Agregado un ejemplo de las diferencias entre niveles de compresión con y sin pérdidas en el formato \djvu (sec~\ref{sec:profiles}).
 				\item Aclarado en una nota al pie (sec.~\ref{sec:djvuPageLabels}) que para que funcione paginate.py (script~\ref{scr:djvuPageLabels}) los nombres de página que lleven algún espacio deben estar entre comillas dobles.
@@ -1748,10 +1748,11 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Actualizados el historial y ToDo.
 				\item Agregadas algunas divisiones al fuente tex.
 				\item Uniformizados los títulos: Insertar fotos \faLongArrowAltRight\ Inserción de fotos.
+				\item Eliminado el artículo «el» antes de los nombres de programas.
 
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
-				\item Muchos otros cambios y correcciones menores.
+				\item Otros muchos cambios y correcciones menores.
 			\end{itemize}
 		\item v1.0 -- 2019-04-16:
 			\begin{itemize}
@@ -1764,7 +1765,6 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 	\item Considerar https://www.ctan.org/pkg/lettrine.
 	\item Ordenar el historial de cambios.
 	\item Dejar de usar los floats de memoir y pasar a los del paquete caption como sugiere el encargado de mantenimiento de memoir en \href{https://tex.stackexchange.com/questions/524747/memoir-subbottom-and-subtop-vertical-alignment-control}{Memoir subbottom (and subtop) vertical alignment control}.
-	\item El \irfanview o \irfanview a secas?
 	\item homogeneizar todo el tono del documento: haremos, haré, haga?
 	\item respecto a la nota al final de la sección~\ref{sec:pdfPhotos} hay otras posibilidades para insertar las imágenes en el \pdf, pero me pasa el agua:
 		\begin{itemize}[noitemsep]
@@ -1790,7 +1790,7 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 	\item Investigar y comentar Djvutoy para la creación de djvus.
 	\item Transparencias de páginas de pueden corregir también por software.
 	\item archivos ocultos en estructura de \abby.
-	\item Algún comentario más sobre que Split pages rompe otras cosas como el \djvuimager.
+	\item Algún comentario más sobre que Split pages rompe otras cosas como \djvuimager.
 	\item En esta versión de la guía se incluyeron materiales distintos del gregory. Aclararlo en la sección~\ref{sec:aboutGregory}.
 \end{itemize}
 
