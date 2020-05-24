@@ -1242,12 +1242,12 @@
 		\item \mintinline{c}{lossless=true}
 	\end{itemize}
 
-	He hecho algunas pruebas y, salvo \menu{lossless}, que es totalmente sin pérdidas y da un archivo algo más grande que las otras, las demás alternativas difieren poco en el tamaño final del archivo. Por esta razón me incliné por usar \menu{quasilossless} en el perfil, que según su nombre sería de estas otras la más fiel al contenido original. Sin embargo, he descubierto algunos casos en los que se pierde información notoria con este nivel. Se trata de los punteados muy finos de algunas gráficas (fig~\ref{fig:djvuSmallProfiles}). Podrían existir otras situaciones donde la diferencia también sea visible.
+	He hecho algunas pruebas y, salvo \menu{lossless}, que es totalmente sin pérdidas y da un archivo algo más grande que las otras, las demás alternativas difieren poco en el tamaño final del archivo. Por esta razón me incliné por usar \menu{quasilossless} en el perfil, que según su nombre sería de estas otras la más fiel al contenido original. Sin embargo, he descubierto algunos casos en los que se pierde información notoria con este nivel. Se trata de los punteados muy finos de algunas gráficas (fig~\ref{fig:djvuSmallProfilesQuality}). Podrían existir otras situaciones donde la diferencia también sea visible.
 
 	\begin{figure}
 		\subbottom[\menu{lossless}]{\includegraphics[width=\linewidth]{djvuSmallProfilesLossless}}
 		\subbottom[\menu{quasilossless}]{\includegraphics[width=\linewidth]{djvuSmallProfilesQuasilossless}}
-		\caption[Diferencia entre niveles de compresión en el \djvu final]{Diferencia entre niveles de compresión \menu{lossless} y \menu{quasilossless} en el \djvu final\label{fig:djvuSmallProfiles}}
+		\caption[Diferencia entre niveles de compresión en el \djvu final]{Diferencia entre niveles de compresión \menu{lossless} y \menu{quasilossless} en el \djvu final\label{fig:djvuSmallProfilesQuality}}
 	\end{figure}
 
 	He notado que en \menu{aggressive}, por ejemplo, a veces se sustituye una \textit{o} cursiva por una redonda, o viceversa, y lo mismo puede ocurrir con otros caracteres o símbolos parecidos. La evaluación de la calidad es bastante subjetiva, por lo que hay lugar para más de una opinión. Personalmente uso siempre \menu{lossless} o \menu{quasilossless}.
@@ -1465,11 +1465,13 @@
 		\caption{Dimensiones del libro a escanear (en in) y dimensiones estimadas de imagen a 600\,dpi (en pix)\label{tab:bookDimensionsInches}}
 	\end{table}
 
-	\chapter{Sobre el material de ejemplo\label{sec:aboutGregory}} Como se explica al comienzo del capítulo~\ref{sec:procedure}, esta guía fue elaborada tomando como ejemplo la digitalización del libro \emph{An Introduction to Electrical Instrumentation and Measurement Systems,} de B.~A. Gregory \cite{GregorySpringer}. Se trata de un ejemplar tapa blanda, compuesto de texto, ecuaciones y diagramas monocromáticos, así como de varias fotografías en escala de grises (semitonos \cite{WikipediaHalftone}).
+	\chapter{Sobre el material de ejemplo\label{sec:aboutGregory}} Como se explica al comienzo del capítulo~\ref{sec:procedure}, esta guía fue elaborada tomando como ejemplo la digitalización del libro \emph{An Introduction to Electrical Instrumentation and Measurement Systems,} de B.~A. Gregory \cite{GregorySpringer}. Se trata de un ejemplar de tapa blanda, compuesto de texto, ecuaciones y diagramas monocromáticos, así como de varias fotografías en escala de grises (semitonos \cite{WikipediaHalftone}).
 
 	Lo elegí por varias razones. La primera es que tengo un ejemplar físico en mi biblioteca y me interesaba obtener un respaldo del mismo en formato digital. Por otra parte, es un caso realista de lo que se podría querer digitalizar y por ello me pareció apropiado usarlo como ejemplo en esta guía. Además, la editorial \emph{Springer} tiene a la venta la versión digital de este libro,\footnote{En realidad se trata de una reimpresión posterior bajo otra editorial y con algunas correcciones, aunque muy parecida.} producida por métodos similares, por lo que existe un punto de referencia con el cual comparar nuestros resultados.
 
 	Los documentos en \pdf\footnote{MD5 (mi \pdf): \href{http://gen.lib.rus.ec/book/index.php?md5=646923F422762352F3E47360952BE03C}{\texttt{646923F422762352F3E47360952BE03C}}.} y \djvu\footnote{MD5 (mi \djvu): \href{http://gen.lib.rus.ec/book/index.php?md5=C34ABFC96152F9B881CCD06593A7CD36}{\texttt{C34ABFC96152F9B881CCD06593A7CD36}}.} creados junto con esta guía, así como el \pdf\footnote{MD5 (\pdf Springer): \href{http://gen.lib.rus.ec/book/index.php?md5=7A43F6FAE8ABB7450FD3A2978D5E295C}{\texttt{7A43F6FAE8ABB7450FD3A2978D5E295C}}.} de \emph{Springer} se pueden descargar de \emph{Library Genesis} \cite{LibGen}.
+
+	A medida que la guía se ha ido expandiendo y con el objetivo de ilustrar ciertos puntos, fui agregando algunos elementos que corresponden a otros documentos (p.e.: fig.~\ref{fig:djvuSmallProfilesQuality}). Siendo que se trata de inclusiones menores, no los cito expresamente.
 
 	\chapter{Alternativas para procesamiento de fotos\label{sec:noSplitPages}} Si no queremos procesar independientemente el texto y las fotos de nuestro material tenemos algunas opciones.
 
@@ -1751,6 +1753,7 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Eliminado el artículo «el» antes de los nombres de programas.
 				\item Eliminado el comando \textbackslash note; reemplazado por \textbackslash paragraph.
 				\item Agregados marcadores \pdf para las portadas.
+				\item Declarada la inclusión de material distinto del Gregory en la sección~\ref{sec:aboutGregory}.
 
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
@@ -1793,7 +1796,6 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 	\item Transparencias de páginas de pueden corregir también por software.
 	\item archivos ocultos en estructura de \abby.
 	\item Algún comentario más sobre que Split pages rompe otras cosas como \djvuimager.
-	\item En esta versión de la guía se incluyeron materiales distintos del gregory. Aclararlo en la sección~\ref{sec:aboutGregory}.
 \end{itemize}
 
 % -------------------------  Intentionally blank pages -------------------------
