@@ -247,7 +247,7 @@
 		\caption{Árbol de directorios del proyecto\label{fig:projectStructure}}
 	\end{figure}
 
-	En \typesetFolder{SCAN} irán nuestras exploraciones hechas con el escáner. Dentro de esa carpeta tendremos \typesetFolder{out}, donde \scantailor guardará las imágenes procesadas. A su vez, podrían estar \typesetFolder{foreground} y \typesetFolder{background}, donde se guardarán independientemente el texto y las imágenes.
+	En \typesetFolder{SCAN} irán nuestras exploraciones hechas con el escáner. Dentro de esa carpeta tendremos \typesetFolder{out}, donde \scantailor guardará las imágenes procesadas. A su vez, podrían estar \typesetFolder{foreground} y \typesetFolder{background}, donde se guardarán respectivamente las imágenes con la capa de texto y de fotos.
 
 	En \typesetFolder{Batches} guardaremos los scripts y algunos archivos asociados a ellos.
 
@@ -445,7 +445,7 @@
 	\pythonScript{orientationOddEven.py}
 	\scriptcaption{Rotación de las páginas\label{scr:orientationOddEven}}
 
-	\section{Procesado con \scantailor} Este software es muy completo e incluye una gran cantidad de opciones en sus distintos pasos. La realidad es que al momento de escribir esta guía aún se encuentra pleno en desarrollo, por lo que no existe documentación suficiente que las explique todas en profundidad. Además, algunas son de carácter experimental o directamente no funcionan bien (la función \menu{Dewarp}, por ejemplo). Quien esto escribe no las ha probado todas. Por ello recomiendo al lector que busque la información que necesite en internet\footnote{El autor del fork original tiene una wiki con información y videos \cite{ScanTailorWiki}.} y que no tenga miedo de experimentar.\footnote{\scantailor \emph{no} modifica los archivos originales.} Tal vez esta guía esté sugiriendo algún procedimiento manual tedioso para una tarea que ya está cubierta por una nueva opción. La misma recomendación vale para todo otro software que se utilice.
+	\section{Procesamiento con \scantailor} Este software es muy completo e incluye una gran cantidad de opciones en sus distintos pasos. La realidad es que al momento de escribir esta guía aún se encuentra pleno en desarrollo, por lo que no existe documentación suficiente que las explique todas en profundidad. Además, algunas son de carácter experimental o directamente no funcionan bien (la función \menu{Dewarp}, por ejemplo). Quien esto escribe no las ha probado todas. Por ello recomiendo al lector que busque la información que necesite en internet\footnote{El autor del fork original tiene una wiki con información y videos \cite{ScanTailorWiki}.} y que no tenga miedo de experimentar.\footnote{\scantailor \emph{no} modifica los archivos originales.} Tal vez esta guía esté sugiriendo algún procedimiento manual tedioso para una tarea que ya está cubierta por una nueva opción. La misma recomendación vale para todo otro software que se utilice.
 
 	\subsection{Creación de un proyecto nuevo} Dicho esto, comenzamos abriendo el software y seleccionando \menu{File > New Project}. Aparecerá un cuadro de diálogo como el de la figura~\ref{fig:STnewProject}, donde elegiremos la carpeta con las páginas escaneadas. Por defecto las imágenes procesadas irán automáticamente a una subcarpeta \typesetFolder{out}. En la columna derecha (\menu{Files In Project}) veremos todos los archivos escaneados. Podríamos excluir algunos seleccionándolos y presionando \keys{«}, pasándolos a la otra columna (\menu{Files Not In Project}). Como la carpeta \typesetFolder{SCAN} es exclusiva para estos archivos, no necesitaremos excluir ninguno.
 
@@ -985,7 +985,7 @@
 
 	\chapter{Creación del \texorpdfstring{\pdf}{PDF}} Llegó el momento de crear nuestro documento \pdf final. Básicamente, debemos insertar las fotos (si es que las separamos), agregar los marcadores, corregir las etiquetas de las páginas, incluir los metadatos, eventualmente optimizar el documento y guardar en formato \pdfa. Fácil, ¿no?.
 
-	\section{Insertar fotos\label{sec:pdfPhotos}} Si decidimos separar las fotos del resto del contenido como se explica en~\ref{sec:SToutputPictureZones}, debemos ahora insertarlas nuevamente en el documento con el texto ya reconocido.
+	\section{Inserción de fotos\label{sec:pdfPhotos}} Si decidimos separar las fotos del resto del contenido como se explica en~\ref{sec:SToutputPictureZones}, debemos ahora insertarlas nuevamente en el documento con el texto ya reconocido.
 
 	\subsection{Conversión con \imagemagick\label{sec:pdfPhotosImageMagick}} Tenemos dos scripts para insertar las fotos. Ambos utilizan \imagemagick para convertir los archivos \tiff sin pérdidas en \jpeg comprimidos con pérdidas encapsulados en \pdf. Esto lo hacen con líneas del tipo \mintinline{monkey}|magick convert SCAN_XXX.tif -resample 300 -transparent|\\
 	\mintinline{monkey}|white -compress jpeg -quality 40 SCAN_XXX.tif.pdf|, donde:
@@ -1046,7 +1046,7 @@
 
 	\subsection{Nota: sobre el tamaño final} Descubrí que si bien este método funciona bien, el blanco (convertido en transparente) de los \jpeg en algunos casos puede llegar a duplicar el tamaño de los archivos de fotos. De momento lo presento así, pero hay que idear un método más eficiente, que recorte las fotos (fácil) y las inserte en la posición adecuada en el documento final (difícil). (Acepto sugerencias.)
 
-	\section{Insertar marcadores\label{sec:pdfBookmarks}} Para insertar marcadores comenzaremos abriendo el \notepad, creando un archivo de texto \typesetFile{bookmarks.txt} y pegando allí la tabla de contenidos copiada del \pdf.
+	\section{Marcadores\label{sec:pdfBookmarks}} Para insertar marcadores comenzaremos abriendo el \notepad, creando un archivo de texto \typesetFile{bookmarks.txt} y pegando allí la tabla de contenidos copiada del \pdf.
 
 	\subsection{Formato} Debemos darle formato adecuado a los marcadores para poder insertarlos. El nivel del marcador depende de la cantidad de tabuladores (\keys{\tab}) que anteceden a su título. Para los marcadores en el nivel superior (0) no habrá tabuladores, para los del nivel 1 habrá 1 tabulador, y así sucesivamente. Los marcadores se anidarán según su propio nivel y el de los demás.
 
@@ -1087,7 +1087,7 @@
 
 	Para insertarlos en el \pdf creamos antes una copia de \typesetFile{SCAN\_INS.pdf} a la que llamamos \typesetFile{SCAN\_INS\_BOOK.pdf}. Abrimos el \pdg, arrastramos y soltamos nuestro \pdf sobre el programa y luego copiamos los marcadores de \typesetFile{bookmarks.txt} y los pegamos allí. Para guardarlos presionamos \keys{Save}.
 
-	\section{Modificar etiquetas de páginas\label{sec:pdfPageLabels}} Hasta ahora, los números de las páginas de nuestro documento no se corresponden con los números impresos. Podemos corregir esto usando \acrobat. En el caso que nos ocupa, las primeras páginas son así:
+	\section{Etiquetas de páginas\label{sec:pdfPageLabels}} Hasta ahora, los números de las páginas de nuestro documento no se corresponden con los números impresos. Podemos corregir esto usando \acrobat. En el caso que nos ocupa, las primeras páginas son así:
 
 	\begin{multicols}{2}
 		\begin{enumerate}[noitemsep]
@@ -1173,7 +1173,7 @@
 
 	Una vez elegidas las opciones presionamos \keys{OK} y guardamos el documento con el nombre \typesetFile{SCAN\_INS\_BOOK\_PAG\_OPT.pdf}.
 
-	\section{Guardar en \texorpdfstring{\pdfa{}}{PDF/A}} Como paso final, podemos guardar el documento como \pdfa. Un \pdfa es un documento \pdf común pero que además cumple con el estándar \textsc{iso~19005} para el archivado a largo plazo de documentos electrónicos.\footnote{Más información en el correspondiente artículo de \emph{Wikipedia} \cite{WikipediaPDFA}.}
+	\section{Guardado en \texorpdfstring{\pdfa{}}{PDF/A}} Como paso final, podemos guardar el documento como \pdfa. Un \pdfa es un documento \pdf común pero que además cumple con el estándar \textsc{iso~19005} para el archivado a largo plazo de documentos electrónicos.\footnote{Más información en el correspondiente artículo de \emph{Wikipedia} \cite{WikipediaPDFA}.}
 
 	Tenemos dos formas de hacerlo. La primera es mediante el menú \menu{File > Save as Other > Archivable PDF (PDF/A)}. Allí aparece un cuadro de diálogo para guardar, y con \keys{Settings} podemos cambiar las opciones.
 
@@ -1272,7 +1272,7 @@
 	\pythonScript{djvuBundle.py}
 	\scriptcaption{Unión del cuerpo con las cubiertas de \djvu\label{scr:djvuBundle}}
 
-	\subsection{Insertar fotos: \djvuimager\label{sec:djvuImager}} Si utilizamos el modo \menu{Mixed} de \scantailor, nos está faltando codificar y e insertar las fotos que separamos en nuestro documento \djvu. Para hacerlo utilizaremos el software \djvuimager. Según ha explicado su autor, \mondaytwothousand, no es más que una GUI para algunas herramientas de \djvulibre, pero no por ello deja de ser muy conveniente.
+	\subsection{Inserción de fotos: \djvuimager\label{sec:djvuImager}} Si utilizamos el modo \menu{Mixed} de \scantailor, nos está faltando codificar y e insertar las fotos que separamos en nuestro documento \djvu. Para hacerlo utilizaremos el software \djvuimager. Según ha explicado su autor, \mondaytwothousand, no es más que una GUI para algunas herramientas de \djvulibre, pero no por ello deja de ser muy conveniente.
 
 	Este usa una versión modificada de la aplicación \typesetExe{c44.exe} de \djvulibre\footnote{\typesetExe{fi\_c44.exe} utiliza la biblioteca libre \href{http://freeimage.sourceforge.net/}{\textsc{FreeImage}} para cargar archivos \tiff directamente. De lo contrario habría que convertir primero a \textsc{ppm}.} para codificar las fotos, y luego las inserta en nuestro documento.
 
@@ -1391,17 +1391,17 @@
 
 	Si por alguna razón el orden en la lista de archivos no fuera el correcto, podemos presionar \keys{\rotatebox[origin=c]{90}{\faCut}} (\menu{Edit files list}) y ordenarlos manualmente. Aunque si fuimos preservando la correcta numeración de los archivos esto no debería ocurrir.
 
-	\section{Insertar la capa \texorpdfstring{\ocr}{OCR}\label{sec:djvuOCR}} Para insertar la capa de texto que reconocimos tenemos el script~\ref{scr:djvuOCR}, que mediante la ejecución del programa \typesetExe{djvused.exe} de \djvulibre extrae la capa de texto del archivo \typesetFile{OCR.djvu} que creamos con \abby. Luego de la búsqueda y sustitución de algunas expresiones regulares, usa el mismo programa para insertarla en el documento \typesetFile{SCAN\_INS\_OCR.djvu}.
+	\section{Inserción de la capa \texorpdfstring{\ocr}{OCR}\label{sec:djvuOCR}} Para insertar la capa de texto que reconocimos tenemos el script~\ref{scr:djvuOCR}, que mediante la ejecución del programa \typesetExe{djvused.exe} de \djvulibre extrae la capa de texto del archivo \typesetFile{OCR.djvu} que creamos con \abby. Luego de la búsqueda y sustitución de algunas expresiones regulares, usa el mismo programa para insertarla en el documento \typesetFile{SCAN\_INS\_OCR.djvu}.
 
 	\pythonScript{djvuOCR.py}
 	\scriptcaption{Inserción de la capa \ocr en documento \djvu\label{scr:djvuOCR}}
 
-	\section{Insertar marcadores\label{sec:djvuBookmarks}} Para insertar los marcadores podemos usar la misma técnica de la sección~\ref{sec:pdfBookmarks} o correr el script~\ref{scr:djvuBookmarks}. Para que funcione debe existir el archivo \typesetFile{bookmarks.txt} con el formato correcto. Al terminar debemos tener un archivo \typesetFile{SCAN\_INS\_OCR\_BOOK.djvu}.
+	\section{Marcadores\label{sec:djvuBookmarks}} Para insertar los marcadores podemos usar la misma técnica de la sección~\ref{sec:pdfBookmarks} o correr el script~\ref{scr:djvuBookmarks}. Para que funcione debe existir el archivo \typesetFile{bookmarks.txt} con el formato correcto. Al terminar debemos tener un archivo \typesetFile{SCAN\_INS\_OCR\_BOOK.djvu}.
 
 	\pythonScript{djvuBookmarks.py}
 	\scriptcaption{Inserción de marcadores en documento \djvu\label{scr:djvuBookmarks}}
 
-	\section{Modificar etiquetas de páginas\label{sec:djvuPageLabels}} Como explicamos en la sección~\ref{sec:pdfPageLabels} podemos modificar las etiquetas de las páginas para que coincidan con los números de página impresos en el material.
+	\section{Etiquetas de páginas\label{sec:djvuPageLabels}} Como explicamos en la sección~\ref{sec:pdfPageLabels} podemos modificar las etiquetas de las páginas para que coincidan con los números de página impresos en el material.
 
 	Para ello, podemos modificar el script~\ref{scr:djvuPageLabels}, de forma que se adapte a las características de nuestro documento y ejecutarlo. Si todo sale bien tendremos un archivo \typesetFile{SCAN\_INS\_OCR\_BOOK\_PAG.djvu} con las etiquetas de página correctas.\footnote{Debemos tener en cuenta que si la etiqueta que queremos usar contiene espacios, entonces deben estar encerradas entre comillas dobles. Como se ve en el script, la etiqueta \emph{Back cover} se ingresa como \mintinline{python}|'"Back cover"'|.}
 
@@ -1419,7 +1419,7 @@
 		\caption{Creación de hipervínculos en \djvueditor\label{fig:djvuHyperlinks}}
 	\end{figure}
 
-	\section{Insertar metadatos\label{sec:djvuMetadata}} Esta es un área del mundo \djvu que aún no se encuentra demasiado desarrollada. Si bien el formato soporta metadatos por diseño, los visualizadores más populares aún no los visualizan. Sin embargo, es buena idea incluir la información referente al material que estamos digitalizando dentro del documento final.
+	\section{Metadatos\label{sec:djvuMetadata}} Esta es un área del mundo \djvu que aún no se encuentra demasiado desarrollada. Si bien el formato soporta metadatos por diseño, los visualizadores más populares aún no los visualizan. Sin embargo, es buena idea incluir la información referente al material que estamos digitalizando dentro del documento final.
 
 	Para hacerlo, editamos los valores de interés en el script~\ref{scr:djvuMetadata} y lo ejecutamos para obtener \typesetFile{SCAN\_INS\_OCR\_BOOK\_PAG\_HYP\_MET.djvu}. Podemos usar la herramienta \exiftool para verificar que la información quedó guardada correctamente. Los campos disponibles están detallados en la propia web de \exiftool \cite{DjVuTags}, aunque los más usuales ya están incluidos en el script.
 
@@ -1733,13 +1733,13 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Aplicada la definición de «fotos» en las instancias que corresponde.
 				\item Uniformizado el estilo de las referencias entre paréntesis: (ver figura X) \faLongArrowAltRight\ (fig. X).
 				\item Agregada una imagen del cuadro de diálogo \keys{Apply to\...} (fig.~\ref{fig:STfixOrientationApplyTo}) y uniformizados los textos que lo refieren.
-				\item Agregado un breve párrafo a la sección «1. Fix Orientation» (sec.~\ref{sec:fixOrientation}.
+				\item Agregado un breve párrafo a la sección «1. Fix Orientation» (sec.~\ref{sec:fixOrientation}).
 				\item Simplificado el procedimiento del paso «5. Margins» (sec.~\ref{sec:STmargins}) y reorganizada la redacción de la sección. El método anterior era totalmente manual y fue reemplazado por uno que hace uso de la función \menu{Auto Margins} de ScanTailor.
 				\item Acomodada la redacción de la sección «6. Output» (sec.~\ref{sec:SToutput} a los cambios del último commit.
 				\item Corregido el script \ref{scr:fixLandscapePages}: debe rotar 90 grados, no 180.
 				\item Limpieza de los archivos auxiliares.
 				\item Agregado un nivel más a la numeración de las secciones. Ahora es capítulo.sección.subsección.subsubsección.
-				\item Mejorada la redacción de la sección «¿Qué partes escanear?» (sec.~\ref{sec:scanningWhatToScan}.
+				\item Mejorada la redacción de la sección «¿Qué partes escanear?» (sec.~\ref{sec:scanningWhatToScan}).
 				\item Usada exclusivamente la palabra «cubierta» (en vez de «tapa»).
 				\item Agregadas páginas de cortesía.
 				\item Modificado el título del documento.
@@ -1747,6 +1747,8 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Agregada una página de legales.
 				\item Actualizados el historial y ToDo.
 				\item Agregadas algunas divisiones al fuente tex.
+				\item Uniformizados los títulos: Insertar fotos \faLongArrowAltRight\ Inserción de fotos.
+
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
 				\item Muchos otros cambios y correcciones menores.
@@ -1762,7 +1764,6 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 	\item Considerar https://www.ctan.org/pkg/lettrine.
 	\item Ordenar el historial de cambios.
 	\item Dejar de usar los floats de memoir y pasar a los del paquete caption como sugiere el encargado de mantenimiento de memoir en \href{https://tex.stackexchange.com/questions/524747/memoir-subbottom-and-subtop-vertical-alignment-control}{Memoir subbottom (and subtop) vertical alignment control}.
-	\item uniformizar los títulos. ej: insertar fotos vs. inserción de fotos?
 	\item El \irfanview o \irfanview a secas?
 	\item homogeneizar todo el tono del documento: haremos, haré, haga?
 	\item respecto a la nota al final de la sección~\ref{sec:pdfPhotos} hay otras posibilidades para insertar las imágenes en el \pdf, pero me pasa el agua:
