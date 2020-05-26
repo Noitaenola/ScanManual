@@ -65,7 +65,12 @@
 			toprule at break	= 0pt,
 			bottomrule at break = 0pt,
 			]%
-			\inputminted[breaklines, breakafter=/, fontfamily=tt]{python}{./scripts/#1}%
+			\inputminted[
+				breaklines,
+				breakafter	= /,
+				fontfamily	= tt,
+				tabsize	= 4,
+			]{python}{./scripts/#1}%
 		\end{tcolorbox}%
 	}
 

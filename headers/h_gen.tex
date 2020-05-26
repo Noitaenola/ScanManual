@@ -79,3 +79,10 @@
 \newfixedcaption{\scriptcaption}{script}
 
 % ------------------------------------------------------------------------------
+% No overfull boxes in toc page numbers greater than 2 digits: https://tex.stackexchange.com/questions/49887/overfull-hbox-warning-for-toc-entries-when-using-memoir-documentclass
+
+\renewcommand*{\cftdotsep}{1}
+\setpnumwidth{2em}
+\setrmarg{3.55em}
+
+% ------------------------------------------------------------------------------

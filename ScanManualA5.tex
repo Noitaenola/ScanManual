@@ -86,7 +86,7 @@
 
 	\paragraph{Parte III} Para la última parte dejé los apéndices. Hacia aquí trasladé algunas discusiones que considero útiles pero que pienso hubieran entorpecido el flujo del proceso. También coloqué las referencias, listas, historial de cambios y cambios y mejoras pendientes.
 
-	\section{Alcance de la guía\label{sec:scope}} El método que presento funciona bien con impresos de texto y diagramas en negro sobre papel claro, con fotografías ya sea a color o escala de grises.
+	\section{Alcance de la guía\label{sec:scope}} El método que presento funciona bien con impresos de texto y diagramas en negro sobre papel claro, con fotos ya sea a color o escala de grises.
 
 	Algunas características que tal vez no sea posible reproducir de forma balanceada simplemente siguiendo esta guía son:
 
@@ -153,7 +153,7 @@
 	\subsection{Productores de documentos} Este software es el que nos permitirá generar y editar nuestros documentos a partir de las imágenes procesadas.
 	\paragraph{\textsc{Adobe} \acrobat} Permite visualizar, crear y modificar archivos \pdf. También hace \ocr. Software propietario y de pago. Lo usaremos para personalizar los marcadores, los números de página, insertar las imágenes (opcionalmente) y generar documentos \pdfa, para el guardado a largo plazo de documentos electrónicos. Las versiones anteriores también servirán, salvo quizás para el paso de insertar imágenes (se requiere la ejecución de javascripts de Adobe, que no he probado con estas). Dependiendo del resultado que busquemos, podría ser opcional \cite{Acrobat}.
 	\paragraph{\djvulibre} Implementación libre del formato \djvu. Incluye visor, decoder, algunos encoders simples y otras herramientas varias. Licencia GPLv2. Si bien podría emplearse para generar nuestros documentos \djvu, de este paquete usaremos casi exclusivamente las herramientas de manipulación (\typesetExe{djvused.exe}, \typesetExe{djvm.exe}, etc.) \cite{DjVuLibre}.
-	\paragraph{\textsc{LizardTech DjVu Document Express Enterprise}} Aplicación comercial para la generación de archivos \djvu. Software propietario y de pago. Discontinuado en 2006.\footnote{AT\&T es dueña de varias patentes relativas al formato. (Para más información, ver \cite{DjVuLicensing, DjVuOpenSourceLicensing}.) Desde hace algunos años los derechos de uso comercial de estas se han ido transfiriendo a diferentes compañías: LizardTech (ahora Extensis), Celartem (que adquirió estas dos) y Cuminas. Esta última ofrece un producto con el mismo nombre pero completamente distinto.} La alternativa libre es \djvulibre. Sin embargo, la calidad de los encoders de LizardTech es superior salvo, tal vez, para la codificación de fotografías.\footnote{De la web de \djvulibre: «The compressors provided here are slower, produce larger files (sometimes with lower image quality) than the commercial compressors, but they do the job».} Si bien hay versiones más recientes, la v5.1.0 (b946 o b973) funciona bien. No lo usaremos directamente, por lo que no hay necesidad de obtenerlo.
+	\paragraph{\textsc{LizardTech DjVu Document Express Enterprise}} Aplicación comercial para la generación de archivos \djvu. Software propietario y de pago. Discontinuado en 2006.\footnote{AT\&T es dueña de varias patentes relativas al formato. (Para más información, ver \cite{DjVuLicensing, DjVuOpenSourceLicensing}.) Desde hace algunos años los derechos de uso comercial de estas se han ido transfiriendo a diferentes compañías: LizardTech (ahora Extensis), Celartem (que adquirió estas dos) y Cuminas. Esta última ofrece un producto con el mismo nombre pero completamente distinto.} La alternativa libre es \djvulibre. Sin embargo, la calidad de los encoders de LizardTech es superior salvo, tal vez, para la codificación de fotos.\footnote{De la web de \djvulibre: «The compressors provided here are slower, produce larger files (sometimes with lower image quality) than the commercial compressors, but they do the job».} Si bien hay versiones más recientes, la v5.1.0 (b946 o b973) funciona bien. No lo usaremos directamente, por lo que no hay necesidad de obtenerlo.
 	\paragraph{\textsc{LizardTech} \djvueditor} Creador y editor de ficheros \djvu. Software propietario y de pago. Tiene una interfaz amigable que permite insertar páginas en un documento, así como crear hipervínculos. Incluye \ocr. Opcional.
 	\paragraph{\djvusmall} Interfaz de usuario para las aplicaciones de línea de comandos \typesetExe{djvudecode.exe} y \typesetExe{documenttodjvu.exe} de \dexpress (v5.0.0.973). La licencia de la \textsc{gui} es GPLv2, pero las aplicaciones que controla son comerciales. Su autor es \mondaytwothousand. Sigue muy vigente a pesar de que se dejó de desarrollar en 2006 \cite{DjVuSmall}.\footnote{El autor ofrece por un lado los fuentes, que son libres, y por otro los binarios, que ya incluyen las aplicaciones comerciales. En particular, \typesetExe{documenttodjvu.exe} fue modificada para funcionar sin licencia y redirigir ciertos mensajes internos hacia la consola, lo que permite visualizar el proceso de codificación en tiempo real.}
 	\paragraph{\djvusmallmod} Fork de \djvusmall desarrollado por \textsharik a partir del 2011. Es un proyecto bastante más ambicioso, que ya incluye la funcionalidad de \djvuimager, la separación automática o semiatomática en capas,\footnote{No la cubro en esta guía.} agrega varias modificaciones más a \typesetExe{documenttodjvu.exe} (por ejemplo, procesamiento multihilos) e incluye ejecutables de versiones más nuevas de \dexpress (para convertir de \djvu a \pdf). Licencia GPLv2. Incluye completa documentación en ruso. Usando un traductor como el de Google se logra entender bastante bien \cite{DjVuSmallMod}.
@@ -202,14 +202,14 @@
 	\begin{figure}
 		\subbottom[Vista general]{\includegraphics[width=.48\linewidth]{scannerOpticBook3800-1}}\hfill
 		\subbottom[Detalle. El vidrio casi alcanza el borde]{\includegraphics[width=.48\linewidth]{scannerOpticBook3800-2}}
-		\caption[OpticBook 3800, de Plustek]{OpticBook 3800, de Plustek\label{fig:scannerOpticBook3800}}
+		\caption[OpticBook 3800]{OpticBook 3800, de Plustek\label{fig:scannerOpticBook3800}}
 	\end{figure}
 
 	\subsubsection{Escáner con \texorpdfstring{\textsc{adf}}{ADF}} \textsc{Adf} significa alimentador automático de documentos (\emph{automatic document feeder}, en inglés). Estos escáneres son muy prácticos, pues toman cada hoja de una pila y la escanean sin necesidad de intervención humana, algunos inclusive por ambas caras. La desventaja es que las hojas a escanear deben estar sueltas. Son muy comunes en las oficinas. Algunos ejemplos en la figura~\ref{fig:scannerADF} \cite{Workforce, ScanJetPro2500}.
 
 	\begin{figure}
 		\hspace*{\fill}
-		\subbottom[Workforce DS-410, de Epson]{\includegraphics[width=.4\linewidth]{scannerWorkforce}}\hfill
+		\subbottom[Workforce DS-410, de EPSON]{\includegraphics[width=.4\linewidth]{scannerWorkforce}}\hfill
 		\subbottom[ScanJet Pro 2500, de HP]{\includegraphics[width=.45\linewidth]{scannerScanJet}}%
 		\hspace*{\fill}
 		\caption{Escáneres con \textsc{adf}\label{fig:scannerADF}.}
@@ -322,22 +322,22 @@
 		\caption{Ajustes de escaneo de \irfanview\label{fig:scanningIrfanView}}
 	\end{figure}
 
-	Luego de elegir las opciones presionamos \keys{OK} y si el escáner está bien configurado debería iniciarse el software correspondiente. Como ejemplo usaremos el programa EPSON~Scan (v5.7.9.3). En la figura~\ref{fig:epsonScan} se muestra la ventana principal. Podemos ver que se ofrecen varios \menu{Modos}: \menu{Automático}, \menu{Fácil}, \menu{Oficina} y \menu{Profesional}. Por supuesto elegimos \menu{Profesional}.
+	Luego de elegir las opciones presionamos \keys{OK} y si el escáner está bien configurado debería iniciarse el software correspondiente. Como ejemplo usaremos el programa \epsonscan (v5.7.9.3). En la figura~\ref{fig:epsonScan} se muestra la ventana principal. Podemos ver que se ofrecen varios \menu{Modos}: \menu{Automático}, \menu{Fácil}, \menu{Oficina} y \menu{Profesional}. Por supuesto elegimos \menu{Profesional}.
 
-	Comenzamos por colocar una página representativa\footnote{Elegí una donde haya tanto texto como fotografías.} del material a escanear y luego presionamos \keys{Previsualización}, lo que nos dará un resultado como el de la fig.~\ref{fig:epsonScan}. En caso de que la región a escanear no ocupe toda la superficie del escáner, conviene seleccionarla dibujando un rectángulo en la pestaña de \menu{Previsualización}, de esta forma se agilizan un poco los tiempos de escaneo. \label{pag:scanningRegionSelection} Para que esta opción funcione bien cada página a escanear debe ser colocada dentro de la misma zona seleccionada. De lo contrario podría quedar contenido fuera.
+	Comenzamos por colocar una página representativa\footnote{Elegí una donde haya tanto texto como fotos.} del material a escanear y luego presionamos \keys{Previsualización}, lo que nos dará un resultado como el de la fig.~\ref{fig:epsonScan}. En caso de que la región a escanear no ocupe toda la superficie del escáner, conviene seleccionarla dibujando un rectángulo en la pestaña de \menu{Previsualización}, de esta forma se agilizan un poco los tiempos de escaneo. \label{pag:scanningRegionSelection} Para que esta opción funcione bien cada página a escanear debe ser colocada dentro de la misma zona seleccionada. De lo contrario podría quedar contenido fuera.
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{epsonScan}
-		\caption[Ventana principal del EPSON Scan]{Ventana principal del EPSON Scan. Se previsualizaron dos páginas representativas\label{fig:epsonScan}}
+		\caption[Ventana principal de \epsonscan]{Ventana principal de \epsonscan. Se previsualizaron dos páginas representativas\label{fig:epsonScan}}
 	\end{figure}
 
 	En nuestro caso las opciones \menu{Tipo Documento(Y)} y \menu{Origen Documento} no se pueden modificar. \menu{Tipo Auto Exposición} se explica más abajo.
 
-	En \menu{Tipo de imagen} elegimos \menu{Color 24-bit} o \menu{Grises 8-bit}, dependiendo de si la página es a color o no. Se ofrecen también \menu{Suavizado de Color} y \menu{Ninguno}. Según la documentación de Epson la primera es para «gráficos a color, como un diagrama o un gráfico». La segunda no tiene un nombre muy explícito pero significa bitonal. Es decir, blanco o negro. Esta opción puede ser tentadora porque generalmente produce un tamaño de archivo más pequeño. Sin embargo, se pierde muchísima información de la página (fig.~\ref{fig:epsonScanBitonal}). Nuestro resultado final será en general bitonal, pero luego de todo el procesamiento tendremos imágenes de excelente calidad e ínfimo tamaño. Por todo esto, no debe usarse ninguna de estas dos opciones u otras similares que puedan ofrecer las aplicaciones de los distintos fabricantes.
+	En \menu{Tipo de imagen} elegimos \menu{Color 24-bit} o \menu{Grises 8-bit}, dependiendo de si la página es a color o no. Se ofrecen también \menu{Suavizado de Color} y \menu{Ninguno}. Según la documentación de EPSON la primera es para «gráficos a color, como un diagrama o un gráfico». La segunda no tiene un nombre muy explícito pero significa bitonal. Es decir, blanco o negro. Esta opción puede ser tentadora porque generalmente produce un tamaño de archivo más pequeño. Sin embargo, se pierde muchísima información de la página (fig.~\ref{fig:epsonScanBitonal}). Nuestro resultado final será en general bitonal, pero luego de todo el procesamiento tendremos imágenes de excelente calidad e ínfimo tamaño. Por todo esto, no debe usarse ninguna de estas dos opciones u otras similares que puedan ofrecer las aplicaciones de los distintos fabricantes.
 
 	\begin{figure}
-		\includegraphics[angle=-90, width=\linewidth]{epsonScanBitonal}
-		\caption[Páginas representativas escaneadas en bitonal]{Páginas representativas escaneadas seleccionando la opción \menu{Tipo de imagen > Ninguno} (bitonal). Nótese que las fotografías están arruinadas y que el texto se vuelve ilegible\label{fig:epsonScanBitonal}}
+		\includegraphics[width=\linewidth]{epsonScanBitonal}
+		\caption[Páginas representativas escaneadas en bitonal]{Páginas representativas escaneadas seleccionando la opción \menu{Tipo de imagen > Ninguno} (bitonal). Nótese que las fotos están arruinadas y que el texto se vuelve ilegible\label{fig:epsonScanBitonal}}
 	\end{figure}
 
 	La \menu{Resolución} es uno de los parámetros más importantes. La óptima es de 300\,dpi (ppi o ppp) y es la que usaremos en esta guía. Así se obtiene un buen resultado final y no se hace eterno el tiempo que se está presionando el libro contra el escáner. 600\,dpi sería aún mejor, pero en los escáneres comunes cada exploración toma mucho más tiempo. Valdrá la pena solo para páginas con un nivel muy alto de detalles. Si bien la elección final dependerá de cada caso, escanear a menos de 300\,dpi será siempre un desperdicio, por la cantidad de detalles que se perderán.
@@ -364,7 +364,7 @@
 
 	En el ejemplo que estamos trabajando, la página 10 del libro corresponde al archivo \typesetFile{SCAN\_022.tif}, es decir que hay un desfasaje de 12 páginas. Un forma rápida de chequear que no falte ninguna es ver que el archivo \typesetFile{SCAN\_112.tif} corresponda con la página 100, el \typesetFile{SCAN\_212.tif} con la 200, y así\...
 
-	De esta forma descubrí que me faltó escanear la página 99 (+ 12 = archivo 111). Usando \textsc{Advanced Renamer} desplacé los nombres de los archivos un lugar: \typesetFile{SCAN\_112.tif} \faLongArrowAltRight\ \typesetFile{SCAN\_113.tif}, \typesetFile{SCAN\_111.tif} \faLongArrowAltRight\ \typesetFile{SCAN\_112.tif}, \...\footnote{Por si no quedó claro, el programa permite renombrar fácil e instantáneamente todos los archivos de la manera que el usuario elija. \emph{No} se hizo uno por uno.} De esta forma quedó el nombre \typesetFile{SCAN\_111.tif} libre para la página que faltaba. Entonces la escaneé y le puse ese nombre.
+	De esta forma descubrí que me faltó escanear la página 99 (+12 = archivo 111). Usando \textsc{Advanced Renamer} desplacé los nombres de los archivos así: \typesetFile{SCAN\_112.tif} \faLongArrowAltRight\ \typesetFile{SCAN\_113.tif}, \typesetFile{SCAN\_111.tif} \faLongArrowAltRight\ \typesetFile{SCAN\_112.tif}, \...\footnote{Por si no quedó claro, el programa permite renombrar fácil e instantáneamente todos los archivos de la manera que el usuario elija. \emph{No} se hizo uno por uno.} De esta forma quedó el nombre \typesetFile{SCAN\_111.tif} libre para la página que faltaba. Entonces la escaneé y le puse ese nombre.
 
 	En cualquier momento podemos reiniciar el proceso de escaneo a partir del número de página que elijamos.
 
@@ -392,11 +392,11 @@
 		\caption{Distorsiones trapezoidal y por movimiento\label{fig:distortion2}}
 	\end{figure}
 
-	\subsection{Transparencia de páginas} Dependiendo del tipo de papel y la tinta que se hayan usado puede ocurrir que sobre cada página se transparenten los contenidos de las contiguas. Normalmente este es un inconveniente que desaparece durante la binarización, pero en el caso de las fotografías o imágenes complejas es más persistente y en algunos casos es fácil de tratar.
+	\subsection{Transparencia de páginas} Dependiendo del tipo de papel y la tinta que se hayan usado puede ocurrir que sobre cada página se transparenten los contenidos de las contiguas. Normalmente este es un inconveniente que desaparece durante la binarización, pero en el caso de las fotos o imágenes complejas es más persistente y en algunos casos es fácil de tratar.
 
 	Ampliando en la figura~\ref{fig:distortion1} vemos que es posible distinguir el texto y los diagramas de las páginas contiguas. En la figura~\ref{fig:transparencyText} se muestra con más detalle.
 
-	Para disminuir el efecto de las transparencias sobre las fotografías (fig.~\ref{fig:transparencyPhoto}) puede colocarse un papel de color negro\footnote{Usé una hoja impresa en negro por las dos caras. Según el caso, podría funcionar mejor otro color.} entre la página que se va a escanear y la siguiente (o anterior; fig.~\ref{fig:transparencyPaper}). Es decir que tendríamos el vidrio del escáner, luego la página que estamos escaneando, luego el papel negro y finalmente las demás hojas. El resultado se ve en la figura~\ref{fig:transparencyPhotoFix}.
+	Para disminuir el efecto de las transparencias en las fotos (fig.~\ref{fig:transparencyPhoto}) puede colocarse un papel de color negro\footnote{Usé una hoja impresa en negro por las dos caras. Según el caso, podría funcionar mejor otro color.} entre la página que se va a escanear y la siguiente (o anterior; fig.~\ref{fig:transparencyPaper}). Es decir que tendríamos el vidrio del escáner, luego la página que estamos escaneando, luego el papel negro y finalmente las demás hojas. El resultado se ve en la figura~\ref{fig:transparencyPhotoFix}.
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{transparencyText}
@@ -405,19 +405,19 @@
 
 	\begin{figure}
 		\vspace{-1.11\onelineskip}
-		\subbottom[Transparencias sobre fotografías\label{fig:transparencyPhoto}]{\includegraphics[width=\linewidth]{transparencyPhoto}}
+		\subbottom[Transparencias sobre fotos\label{fig:transparencyPhoto}]{\includegraphics[width=\linewidth]{transparencyPhoto}}
 		\subbottom[Mitigado el efecto usando un papel negro por debajo\label{fig:transparencyPhotoFix}]{\includegraphics[width=\linewidth]{transparencyPhotoFix}}
 		\subbottom[Colocación del papel negro\label{fig:transparencyPaper}]{\includegraphics[width=\linewidth]{transparencyPaper}}
-		\caption{Detalle de transparencias sobre fotografías impresas\label{fig:transparency}}
+		\caption{Detalle de transparencias sobre fotos\label{fig:transparency}}
 	\end{figure}
 
 	\section{Respaldo de los originales\label{sec:scanOriginalBackup}} Al terminar es buena idea hacer un respaldo de las imágenes escaneadas, porque a veces las modificaremos directamente, y podremos evitarnos un disgusto si algo sale mal. Generalmente utilizo \szip para generar un archivo de respaldo con todas. Para hacerlo seleccionamos todos los archivos, hacemos \menu{\rightclick > \szip > Add to archive\...} y elegimos las opciones que deseemos.\footnote{Las opciones por defecto deberían bastar.} El archivo comprimido con los originales podemos guardarlo en la misma carpeta \typesetFolder{SCAN}.
 
-	\section{Conclusiones} En esta sección hemos visto como preparar el escáner y como configurar el software para escanear nuestro material. Se ha usado como ejemplo el software de Epson, pero el aprendizaje debería ser fácilmente trasladable al que tengamos disponible. También vimos como preparar el material a escanear.
+	\section{Conclusiones} En esta sección hemos visto como preparar el escáner y como configurar el software para escanear nuestro material. Se ha usado como ejemplo el software de EPSON, pero el aprendizaje debería ser fácilmente trasladable al que tengamos disponible. También vimos como preparar el material a escanear.
 
 	Luego aprendimos sobre el proceso de escaneado en sí, algunos problemas que se pueden presentar y como resolverlos.
 
-	En la sección siguiente veremos como procesar los archivos, separando el texto de las fotografías, de forma de obtener imágenes binarizadas aptas para realizar \ocr.
+	En la sección siguiente veremos como procesar los archivos, separando el texto de las fotos, de forma de obtener imágenes binarizadas aptas para realizar \ocr.
 
 	\chapter{Limpieza y ajuste\label{sec:cleanAdjust}} Siendo esta la etapa crucial del procesamiento, la presento de la manera más exhaustiva posible. Sin embargo, el detalle que queramos prestarle a cada etapa del procesamiento dependerá de nuestro tiempo, habilidad y paciencia. Algunos de los pasos que siguen podrían ser salteados y aún así obtener resultados aceptables. He tratado de indicarlo cuando así sea.
 
@@ -453,7 +453,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{STnewProject}
-		\caption[Cuadro de diálogo New Project, de \scantailor]{Cuadro de diálogo \menu{New Project}, de \scantailor\label{fig:STnewProject}}
+		\caption[Cuadro de diálogo \texttt{New Project} de \scantailor]{Cuadro de diálogo \menu{New Project de \scantailor}\label{fig:STnewProject}}
 	\end{figure}
 
 	\subsection{Paso 1. Fix Orientation\label{sec:STfixOrientation}} Presionamos \keys{OK} y se cargan las imágenes. La vista debería ser como la de la figura~\ref{fig:STfixOrientation}. Sobre la izquierda tenemos el panel \menu{Filters}, con 6 pasos o filtros. Cada uno corresponde a una etapa del proceso. El primero es \menu{Fix Orientation} y se utiliza para corregir la orientación de las imágenes. Si no lo hicimos manualmente como se explica en la subsección~\ref{sec:fixOrientation} debemos hacerlo ahora.
@@ -461,7 +461,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{STfixOrientation}
-		\caption[Paso 1: \emph{Fix orientation}]{Ventana principal de \scantailor y Paso 1: \emph{Fix orientation}\label{fig:STfixOrientation}}
+		\caption[Paso 1. \emph{Fix orientation}]{Ventana principal de \scantailor y Paso 1. \emph{Fix orientation}\label{fig:STfixOrientation}}
 	\end{figure}
 
 	Dijimos que teníamos rotadas las páginas pares, por lo que seleccionaremos una cualquiera de estas y presionaremos una de las flechas naranja debajo de \menu{Rotate} hasta que la página quede en la orientación correcta. Una vez listo presionaremos \keys{Apply to\...} y elegiremos la opción \menu{\typesetDotCircle{Every other page}} (fig.~\ref{fig:STfixOrientationApplyTo}). Para ver que más o menos haya quedado bien, podemos recorrer las miniaturas de la columna derecha y verificar que efectivamente todas las páginas están bien orientadas.
@@ -469,7 +469,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=.6\linewidth]{STfixOrientationApplyTo}
-		\caption[Cuadro de diálogo \emph{Apply to\...} de \scantailor]{Cuadro de diálogo \menu{Apply to\...} de \scantailor\label{fig:STfixOrientationApplyTo}}
+		\caption[Cuadro de diálogo \texttt{Apply to\...} de \scantailor]{Cuadro de diálogo \menu{Apply to\...} de \scantailor\label{fig:STfixOrientationApplyTo}}
 	\end{figure}
 
 	Si la rotación de nuestras exploraciones originales no fuera así de regular, deberemos usar una combinación de rotación manual con opciones del cuadro~\ref{fig:STfixOrientationApplyTo} para asegurarnos de que todas queden con la misma orientación.
@@ -487,7 +487,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=.5\linewidth]{STsplitPages}
-		\caption{Paso 2: \emph{Split pages}\label{fig:STsplitPages}}
+		\caption{Paso 2. \emph{Split pages}\label{fig:STsplitPages}}
 	\end{figure}
 
 	Cada vez que seleccionamos una página el programa elige automáticamente la opción que considera más adecuada. También podemos presionar \keys{Change\...} y especificar manualmente las opciones para todas las páginas (o pares, impares, etc.).
@@ -498,7 +498,7 @@
 		\centering
 		\subbottom[Error]{\includegraphics[width=.48\linewidth]{STsplitPagesError}}\hfill
 		\subbottom[Remediado]{\includegraphics[width=.48\linewidth]{STsplitPagesErrorFix}}
-		\caption{Error en el paso 2: Split pages\label{fig:STsplitPagesError}}
+		\caption{Error en el Paso 2\label{fig:STsplitPagesError}}
 	\end{figure}
 
 	\subsection{Paso 3. Deskew\label{sec:STdeskew}} \emph{Deskew} se podría traducir por desinclinar. En este paso el programa analiza cada imagen y corrige la inclinación que pueda tener. Si nuestro trabajo de escaneo fue más o menos prolijo entonces cada imagen necesitará rotarse apenas unos grados o menos. En mi experiencia el algoritmo es bastante robusto y se equivoca poco. De todas formas luego de dar \play\ conviene revisar que esté todo bien.
@@ -506,7 +506,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=.5\linewidth]{STdeskew}
-		\caption{Paso 3: \emph{Deskew}\label{fig:STdeskew}}
+		\caption{Paso 3. \emph{Deskew}\label{fig:STdeskew}}
 	\end{figure}
 
 	El programa ofrece la opción \menu{Order by decreasing deviation}, que permite ordenar las páginas según el ángulo por el cual debieron rotarse. Así ordenadas, las primeras de la lista son las que tienen mayor probabilidad de error, y podemos corregirlas manualmente. En nuestro ejemplo la mayor desinclinación que se debió aplicar fue de solo 1\textdegree. Esto indica que todas las páginas estaban bastante rectas. De todas formas 1\textdegree\ es una cantidad perceptible a simple vista.
@@ -521,7 +521,7 @@
 		\centering
 		\subbottom[Opciones\label{fig:STselectContentOptions}]{\includegraphics[width=.4\linewidth]{STselectContent}}\hfill
 		\subbottom[Diálogo \menu{Apply to\...}\label{fig:STselectContentApplyTo}]{\includegraphics[width=.58\linewidth]{STselectContentApplyTo}}
-		\caption{Paso 4: \emph{Select content}\label{fig:STselectContent}}
+		\caption{Paso 4. \emph{Select content}\label{fig:STselectContent}}
 	\end{figure}
 
 	\subsubsection{Page Box} En el cuadro \menu{Page Box} que se ve en la figura~\ref{fig:STselectContentOptions} presionamos \keys{Manual} e ingresamos respectivamente el ancho y el alto del material en \menu{Width} y \menu{Height} del subcuadro \menu{Options}. En nuestro caso el cuadro~\ref{tab:bookDimensions} de la sección~\ref{sec:cleanAdjustDimensions} nos indica 155\,mm y 235\,mm. Luego presionamos \keys{Apply to\...} y en el cuadro de diálogo que aparece (fig.~\ref{fig:STselectContentApplyTo}) activamos \menu{\typesetCheckbox{Apply page box}} y elegimos \menu{\typesetDotCircle{All pages}}. Finalmente damos \keys{OK} para aplicar las dimensiones ingresadas a todas las páginas del proyecto.
@@ -566,7 +566,7 @@
 	\begin{figure}
 		\subbottom[Submenú \menu{Margins}\label{fig:STmarginsWidth}]{\includegraphics[width=.49\linewidth]{STmarginsWidth}}
 		\subbottom[Submenú \menu{Alignment}\label{fig:STmarginsAlignment}]{\includegraphics[width=.49\linewidth]{STmarginsAlignment}}\hfill
-		\caption{Paso 5: \emph{Margins}\label{fig:STmargins}}
+		\caption{Paso 5. \emph{Margins}\label{fig:STmargins}}
 	\end{figure}
 
 	Si nuestra alineación fuera por ejemplo sobre los números de página que aparecen abajo al centro u otra, deberemos elegir la flecha que mejor se ajuste al resultado buscado, tal vez también teniendo que discriminar entre páginas pares e impares.
@@ -692,7 +692,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{SToutputPicureZonesRectangular}
-		\caption[Paso 6: \emph{Output}]{Paso 6: \emph{Output}. Se seleccionó la pestaña \menu{Picture zones}\label{fig:SToutputPicureZonesRectangular}}
+		\caption[Paso 6. \emph{Output}]{Paso 6. \emph{Output}. Se seleccionó la pestaña \menu{Picture zones}\label{fig:SToutputPicureZonesRectangular}}
 	\end{figure}
 
 	En los que no, deberemos dibujar nuestras propias zonas (y tal vez eliminar o corregir algunas mal detectadas). Para cada una podemos hacer \menu{\rightclick > Properties} y elegir si añadirla a la capa ya detectada (\menu{Add to auto layer}), eliminarla de esa capa (\menu{Subtract from auto layer}) o eliminarla de todas las capas (\menu{Subtract from all layers}). Todo esto tendrá sentido si las zonas se superponen. Sugiero experimentar un poco con las opciones para entender bien su significado.
@@ -702,7 +702,7 @@
 	\begin{figure}
 		\subbottom[Zonas marcadas manualmente\label{fig:SToutputPicureZonesFreeOriginal}]{\includegraphics[width=\linewidth]{SToutputPicureZonesFree}}
 		\subbottom[Resultado]{\includegraphics[width=\linewidth]{SToutputPicureZonesFreeResult}}
-		\caption[Selección manual de las fotos en pestaña Picture Zones]{Selección manual de las fotos en pestaña \menu{Picture Zones}. Los contornos rojos se dibujaron manualmente\label{fig:SToutputPicureZonesFree}}
+		\caption[Selección manual en la pestaña \texttt{Picture Zones}]{Selección manual de las fotos en la pestaña \menu{Picture Zones}. Los contornos rojos se dibujaron manualmente\label{fig:SToutputPicureZonesFree}}
 	\end{figure}
 
 	Una opción a tener en cuenta y que me ha dado buenos resultados es \menu{Options > Equalize illumination (Color)}.
@@ -781,7 +781,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{ABBYYoptionsImage}
-		\caption[Opciones de \abbyy. Pestaña Image Processing]{Opciones de \abbyy. Pestaña \menu{Image Processing}\label{fig:ABBYYoptionsImage}}
+		\caption[Opciones de \abbyy. Pestaña \texttt{Image Processing}]{Opciones de \abbyy. Pestaña \menu{Image Processing}\label{fig:ABBYYoptionsImage}}
 	\end{figure}
 
 	\subsection{Pestaña \texttt{Languages}} Pasamos ahora a la pestaña \menu{Languages} (fig.~\ref{fig:ABBYYoptionsLanguages}) donde crearemos primero un nuevo idioma basado en uno ya existente. Esto lo hacemos así si nuestro material contiene caracteres de otro alfabeto, por ejemplo el griego. O si queremos editar los caracteres permitidos para ayudar con el reconocimiento.\footnote{A veces el programa confunde un carácter por otro. Muy comúnmente «\textit{l}» cursiva por «/». Si este último no es usado en nuestro material, podemos eliminarlo de la lista de caracteres permitidos para forzar al programa a intentar reconocer otro carácter. Esto no garantiza resultados (podría aun confundirlo con «|», por ejemplo), pero puede ayudar.}
@@ -789,7 +789,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{ABBYYoptionsLanguages}
-		\caption[Opciones de \abbyy. Pestaña Languages]{Opciones de \abbyy. Pestaña \menu{Languages}\label{fig:ABBYYoptionsLanguages}}
+		\caption[Opciones de \abbyy. Pestaña \texttt{Languages}]{Opciones de \abbyy. Pestaña \menu{Languages}\label{fig:ABBYYoptionsLanguages}}
 	\end{figure}
 
 	Elegimos \menu{\typesetDotCircle{Specify OCR languages manually}}, presionamos \keys{New} y seleccionamos \menu{\typesetDotCircle{Create a new language based on\...}} (fig.~\ref{fig:ABBYYoptionsLanguagesNewLanguage}). En este caso elegimos \menu{English}, presionamos \keys{OK}, le ponemos por nombre \menu{MyEnglish} y damos \keys{OK} nuevamente (fig.~\ref{fig:ABBYYoptionsLanguagesLanguageProperties}). Al final deberá decir \menu{\typesetDotCircle{Specify OCR languages manually} > MyEnglish;} (fig.~\ref{fig:ABBYYoptionsLanguages}).
@@ -810,12 +810,12 @@
 		\centering
 		\subbottom[Ventana principal\label{fig:ABBYYoptionsFormatsPDF}]{\includegraphics[width=\linewidth]{ABBYYoptionsFormatPDF}}
 		\subbottom[\menu{Custom Settings}\label{fig:ABBYYoptionsFormatPDFCustom}]{\includegraphics[width=.5\linewidth]{ABBYYoptionsFormatPDFCustom}}
-		\caption[Opciones de \abbyy. Pestaña Format Settings >\ PDF]{Opciones de \abbyy. Pestaña \menu{Format Settings > PDF}\label{fig:ABBYYoptionsFormatPDF}}
+		\caption[Opciones de \abbyy. \texttt{Format Settings >\ PDF}]{Opciones de \abbyy. Pestaña \menu{Format Settings > PDF}\label{fig:ABBYYoptionsFormatPDF}}
 	\end{figure}
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{ABBYYoptionsFormatDjVu}
-		\caption[Opciones de \abbyy. Pestaña Format Settings >\ DjVu]{Opciones de \abbyy. Pestaña \menu{Format Settings > DjVu}\label{fig:ABBYYoptionsFormatDjVu}}
+		\caption[Opciones de \abbyy. \texttt{Format Settings >\ DjVu}]{Opciones de \abbyy. Pestaña \menu{Format Settings > DjVu}\label{fig:ABBYYoptionsFormatDjVu}}
 	\end{figure}
 
 	\section{Creación del proyecto} Luego presionamos \menu{File > New OCR Project} e inmediatamente \menu{File > Save OCR Project}. Vamos a guardar el proyecto en \typesetFolder{Project\,\faCaretRight\,ABBYY}. De esta manera, \abbyy irá guardando los cambios a medida que vayamos procesando las páginas.
@@ -825,7 +825,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{ABBYYstart}
-		\caption[Ventana principal de \abbyy una vez cargadas las páginas]{Ventana principal de \abbyy una vez cargadas las páginas. Se ha personalizado la disposición de los paneles respecto a los valores por defecto. La columna de la izquierda es el \menu{Navigation Pane}, que muestra las miniaturas de todas las páginas. Hacia la derecha y arriba está el \menu{Image Pane}, que muestra la página actual. A la derecha de este está el \menu{Text Pane}, con el texto reconocido. Debajo de estos dos últimos tenemos el \menu{Zoom Pane}, que muestra un zoom del \menu{Image Pane}\label{fig:ABBYYstart}}
+		\caption[Ventana principal de \abbyy]{Ventana principal de \abbyy una vez cargadas las páginas. Se ha personalizado la disposición de los paneles respecto a los valores por defecto. La columna de la izquierda es el \menu{Navigation Pane}, que muestra las miniaturas de todas las páginas. Hacia la derecha y arriba está el \menu{Image Pane}, que muestra la página actual. A la derecha de este está el \menu{Text Pane}, con el texto reconocido. Debajo de estos dos últimos tenemos el \menu{Zoom Pane}, que muestra un zoom del \menu{Image Pane}\label{fig:ABBYYstart}}
 	\end{figure}
 
 	\section{Reconocimiento} Esta es la parte sustanciosa de toda la etapa de \ocr.
@@ -870,7 +870,7 @@
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{ABBYYoptionsAreasAndText}
-		\caption[Opciones de \abbyy. Pestaña Areas and Text]{Opciones de \abbyy. Pestaña \menu{Areas and Text}\label{fig:ABBYYoptionsAreasAndText}}
+		\caption[Opciones de \abbyy. Pestaña \texttt{Areas and Text}]{Opciones de \abbyy. Pestaña \menu{Areas and Text}\label{fig:ABBYYoptionsAreasAndText}}
 	\end{figure}
 
 	\subsubsection{Reconocimiento por página o por área} Por alguna razón, muchas veces los resultados de reconocer toda la página de una vez y de hacerlo área por área difieren. Si hay un área muy problemática, podemos intentar reconocerla nuevamente, para ver si al ser individualizada los resultados mejoran.
@@ -879,7 +879,7 @@
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{ABBYYCorrectionsSpotAndArea}
-		\caption[Dos manchas no detectadas durante el paso de limpieza y guion dejado fuera del área de reconocimiento]{Dos manchas no detectadas durante el paso de limpieza y guion dejado fuera del área de reconocimiento. Se muestra la sección del área de texto correspondiente\label{fig:ABBYYCorrectionsSpotAndArea}}
+		\caption[Dos manchas y guion fuera del área de reconocimiento]{Dos manchas no detectadas durante el paso de limpieza y guion dejado fuera del área de reconocimiento. Se muestra la sección del área de texto correspondiente\label{fig:ABBYYCorrectionsSpotAndArea}}
 	\end{figure}
 
 	Entonces, volvemos a \scantailor (y/o \gimp), hacemos las modificaciones pertinentes y nos vemos ante el problema de actualizar el proyecto de \abbyy. Podemos hacer \menu{\rightclick > Page Properties} en la página correspondiente en el panel de navegación y presionar en \keys{Reopen Page}, seleccionando la página que acabamos de corregir. Este procedimiento es un poco tedioso, pero para pocas páginas está bien.
@@ -893,7 +893,7 @@
 
 	Si nuestro documento utiliza más caracteres,\footnote{Por ejemplo, nuestro material contiene algunas letras del alfabeto griego.} debemos agregarlos al diccionario y preferentemente entrenar el patrón de usuario para facilitar su reconocimiento.
 
-	Esto lo haremos editando las propiedades de nuestro idioma (fig.~\ref{fig:ABBYYoptionsLanguagesLanguageProperties}). Allí, presionando \keys{\raisebox{.25em}{\...}}, podemos ver y editar los caracteres incluidos.\footnote{En realidad básicamente solo las letras y números. \keys{Advanced} despliega un menú similar, pero que además incluye los distintos símbolos y signos de puntuación. En algún caso podríamos necesitar trabajar con él (es análogo).}
+	Esto lo haremos editando las propiedades del idioma (fig.~\ref{fig:ABBYYoptionsLanguagesLanguageProperties}). Allí, presionando \keys{\raisebox{.25em}{\...}}, podemos ver y editar los caracteres incluidos.\footnote{En realidad básicamente solo las letras y números. \keys{Advanced} despliega un menú similar, pero que además incluye los distintos símbolos y signos de puntuación. En algún caso podríamos necesitar trabajar con él (es análogo).}
 
 	El cuadro de diálogo se muestra en la figura~\ref{fig:ABBYYoptionsLanguagesLanguagePropertiesAlphabet}. En el menú desplegable \menu{Unicode subrange} tenemos páginas con los diferentes conjuntos de caracteres para seleccionar.\footnote{Normalmente solo uso caracteres de las páginas: \menu{Basic Latin}, \menu{Latin-1 Supplement}, \menu{Basic Greek}, \menu{General Punctuation} y \menu{Mathematical Operators}, si bien hay algunos de otras páginas seleccionados por defecto. Esto dependerá mucho de lo que haya impreso en el material que estemos reconociendo.}
 
@@ -913,7 +913,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=.7\linewidth]{ABBYYareaProperties}
-		\caption[Pestaña Area Properties de \abbyy]{Pestaña \menu{Area Properties} de \abbyy\label{fig:ABBYYareaProperties}}
+		\caption[Pestaña \texttt{Area Properties} de \abbyy]{Pestaña \menu{Area Properties} de \abbyy\label{fig:ABBYYareaProperties}}
 	\end{figure}
 
 	Supongamos que tenemos tres zonas que se encuentran una encima de la otra. Si de arriba hacia abajo las ordenamos 1-3-2, cuando en el documento final queramos seleccionar texto de distintas áreas a la vez, veremos que no ocurre como desearíamos. El orden correcto sería obviamente 1-2-3. Recomiendo experimentar un poco cambiando los números y viendo el resultado para entender de que estamos hablando.
@@ -950,7 +950,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{ABBYYoptionsOCR}
-		\caption[Opciones de \abbyy. Pestaña OCR]{Opciones de \abbyy. Pestaña \menu{OCR}\label{fig:ABBYYoptionsOCR}}
+		\caption[Opciones de \abbyy. Pestaña \texttt{OCR}]{Opciones de \abbyy. Pestaña \menu{OCR}\label{fig:ABBYYoptionsOCR}}
 	\end{figure}
 
 	\subsubsection{Qué entrenar} Debe tenerse en cuenta que el patrón debe corresponder a un solo tipo y tamaño de fuente. Es decir, será perjudicial entrenarlo con texto principal y con el de los títulos, cubiertas, etc. Sí soporta bien variantes de la misma fuente, como pueden ser negrita, cursiva, superíndice o subíndice.
@@ -963,7 +963,7 @@
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{ABBYYPatternTrainingLigature}
-		\caption{Entrenamiento y creación de la ligadura «fl» en \abbyy\label{fig:ABBYYPatternTrainingLigature}}
+		\caption{Entrenamiento y creación de ligaduras en \abbyy\label{fig:ABBYYPatternTrainingLigature}}
 	\end{figure}
 
 	A veces es útil entrenar como ligaduras pares o ternas de letras que en realidad no lo son. Por ejemplo en los subíndices. A veces \abbyy tiene dificultad para reconocer el subíndice de $A_{bc}$ (o similar). En dicho caso podría servir entrenar el patrón para que reconozca $_{bc}$ como una ligadura, aunque estrictamente no lo sea.
@@ -1083,10 +1083,10 @@
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{pdfBookmarksOffset}
-		\caption[Ventana de \pdg.]{Ventana de \pdg. Se presionó \keys{\protect\boldpm}\label{fig:pdfBookmarksOffset}}
+		\caption[Ventana principal de \pdg.]{Ventana principal de \pdg. Se presionó \keys{\protect\boldpm}\label{fig:pdfBookmarksOffset}}
 	\end{figure}
 
-	Para insertarlos en el \pdf creamos antes una copia de \typesetFile{SCAN\_INS.pdf} a la que llamamos \typesetFile{SCAN\_INS\_BOOK.pdf}. Abrimos \pdg, arrastramos y soltamos nuestro \pdf sobre el programa y luego copiamos los marcadores de \typesetFile{bookmarks.txt} y los pegamos allí. Para guardarlos presionamos \keys{Save}.
+	Para insertarlos en el \pdf creamos antes una copia del archivo \typesetFile{SCAN\_INS.pdf} a la que llamamos \typesetFile{SCAN\_INS\_BOOK.pdf}. Abrimos \pdg, arrastramos y soltamos nuestro \pdf sobre el programa y luego copiamos los marcadores de \typesetFile{bookmarks.txt} y los pegamos allí. Para guardarlos presionamos \keys{Save}.
 
 	\section{Etiquetas de páginas\label{sec:pdfPageLabels}} Hasta ahora, los números de las páginas de nuestro documento no se corresponden con los números impresos. Podemos corregir esto usando \acrobat. En el caso que nos ocupa, las primeras páginas son así:
 
@@ -1139,7 +1139,7 @@
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{pdfNumberPages}
-		\caption{Ventana de numeración de páginas\label{fig:pdfNumberPages}}
+		\caption{Ventana de numeración de páginas de \acrobat\label{fig:pdfNumberPages}}
 	\end{figure}
 
 	\section{Metadatos y vista inicial} Antes de guardar el documento, sugiero agregar algunos metadatos y configurar la vista inicial. Esto se hace desde el menú \menu{File > Properties} (\keys{\ctrl + D}), pestaña \menu{Description}. Allí sugiero ingresar al menos el nombre de la obra y el autor, y tal vez un comentario que identifique a la persona o grupo que escaneó el material.
@@ -1161,7 +1161,7 @@
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{pdfOptimizeImages}
-		\caption[PDF Optimizer de \acrobat.]{\menu{PDF Optimizer} de \acrobat. Menú \menu{Images}\label{fig:pdfOptimizeImages}}
+		\caption[\texttt{PDF Optimizer} de \acrobat.]{\menu{PDF Optimizer} de \acrobat. Menú \menu{Images}\label{fig:pdfOptimizeImages}}
 	\end{figure}
 
 	Las más importantes son las del menú \menu{\typesetCheckbox{Images}}. Hay que elegir \menu{Downsample > Off} para todos los tipos de imágenes, pues las resoluciones las hemos ajustado en pasos anteriores. Igualmente, ya hemos elegido la calidad de todas las ilustraciones, por lo que para que no sean recomprimidas seleccionamos \menu{Compression > Retain existing} para las \menu{Color Images} y \menu{Grayscale Images}.
@@ -1182,7 +1182,7 @@
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{pdfPdfaPreflightStandards}
-		\caption[\menu{Preflight} de \acrobat]{\menu{Preflight} de \acrobat. Pestaña \menu{Standards}\label{fig:pdfPdfaPreflightStandards}}
+		\caption[\texttt{Preflight} de \acrobat]{\menu{Preflight} de \acrobat. Pestaña \menu{Standards}\label{fig:pdfPdfaPreflightStandards}}
 	\end{figure}
 
 	Presionando \keys{OK} nos aparece el cuadro de diálogo para guardar. Le ponemos de nombre \typesetFile{SCAN\_INS\_BOOK\_PAG\_OPT\_PDFA.pdf} y esperamos a que termine.
@@ -1196,7 +1196,7 @@
 		\caption{Verificación exitosa con \veraPDF\label{fig:pdfVerify}}
 	\end{figure}
 
-	\section{Conclusiones} La creación del \pdf incluye varios pasos, siendo el más importante la inserción de las fotografías. También es deseable que este cuente con un adecuado árbol de marcadores para su fácil navegación, asistida por etiquetas de página correctas. Los metadatos y vista inicial son un detalle valorable.
+	\section{Conclusiones} La creación del \pdf incluye varios pasos, siendo el más importante la inserción de las fotos. También es deseable que este cuente con un adecuado árbol de marcadores para su fácil navegación, asistida por etiquetas de página correctas. Los metadatos y vista inicial son un detalle valorable.
 
 	La optimización puede ser útil en caso de que el tamaño final sea desproporcionado. La creación y verificación del \pdfa es opcional, pero importa si lo que estamos buscando es la preservación a largo plazo.
 
@@ -1248,7 +1248,7 @@
 	\begin{figure}
 		\subbottom[\menu{lossless}]{\includegraphics[width=\linewidth]{djvuSmallProfilesLossless}}
 		\subbottom[\menu{quasilossless}]{\includegraphics[width=\linewidth]{djvuSmallProfilesQuasilossless}}
-		\caption[Diferencia entre niveles de compresión en el \djvu final]{Diferencia entre niveles de compresión \menu{lossless} y \menu{quasilossless} en el \djvu final\label{fig:djvuSmallProfilesQuality}}
+		\caption[Diferencia entre compresión \texttt{lossless} y \texttt{quasilossless}]{Diferencia entre niveles de compresión \menu{lossless} y \menu{quasilossless} en el \djvu final\label{fig:djvuSmallProfilesQuality}}
 	\end{figure}
 
 	He notado que en \menu{aggressive}, por ejemplo, a veces se sustituye una \textit{o} cursiva por una redonda, o viceversa, y lo mismo puede ocurrir con otros caracteres o símbolos parecidos. La evaluación de la calidad es bastante subjetiva, por lo que hay lugar para más de una opinión. Personalmente uso siempre \menu{lossless} o \menu{quasilossless}.
@@ -1259,7 +1259,7 @@
 
 	\subsection{Codificación del cuerpo del documento\label{sec:djvuSmallBody}} Si seguimos la guía correctamente, todas las páginas de nuestro documento salvo las cubiertas deberían estar en blanco y negro. A este conjunto le llamamos cuerpo del texto. En este caso van de la 002 a la 459.
 
-	Para comprimirlo abrimos \djvusmall (fig.~\ref{fig:djvuSmallBody}) y usamos \keys{Open File(s)} para agregar las imágenes del cuerpo. Seleccionamos luego el perfil \menu{MyBitonal} del menú desplegable \menu{Select encoding profile}. Elegimos el directorio de salida y presionamos \keys{Convert}. Al archivo resultante le llamaremos \typesetFile{BODY.djvu}.
+	Para comprimirlo abrimos \djvusmall (fig.~\ref{fig:djvuSmallBody}) y con \keys{Open File(s)} agregamos las imágenes del cuerpo. Seleccionamos luego el perfil \menu{MyBitonal} del menú desplegable \menu{Select encoding profile}. Elegimos el directorio de salida y presionamos \keys{Convert}. Al archivo resultante le llamaremos \typesetFile{BODY.djvu}.
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{djvuSmallBody}
@@ -1268,7 +1268,7 @@
 
 	\subsection{Codificación de las cubiertas\label{sec:djvuSmallCovers}} Para estas procedemos de la misma manera, solo que utilizamos otro perfil. Habrá que probar un poco para ver cual da el mejor resultado. Recomiendo intentar con \menu{MyScan}, luego con \menu{Clean} y tal vez \menu{MyPhoto}\footnote{Prestar atención a la opción \menu{bg-subsample=2} de este perfil. Si se escanearon las cubiertas a 600\,dpi será deseable conservar la resolución original eliminando esa línea.} u otros. Llamaremos al archivo \typesetFile{COVERS.djvu}.
 
-	\subsection{Unión de cuerpo y cubiertas} Para unir el cuerpo y las cubiertas del material ejecutamos el script~\ref{scr:djvuBundle}, que invoca al programa \typesetExe{djvm.exe} de \djvulibre. Este lo que hace es insertar \typesetFile{BODY.djvu} en \typesetFile{COVERS.djvu} a partir de la página \menu{startPage}, que en este caso es la \menu{2}.
+	\subsection{Unión de cuerpo y cubiertas} Para unir el cuerpo y las cubiertas ejecutamos el script~\ref{scr:djvuBundle}, que invoca al programa \typesetExe{djvm.exe} de \djvulibre. Este lo que hace es insertar \typesetFile{BODY.djvu} en \typesetFile{COVERS.djvu} a partir de la página \menu{startPage}, que en este caso es la \menu{2}.
 
 	\pythonScript{djvuBundle.py}
 	\scriptcaption{Unión del cuerpo con las cubiertas de \djvu\label{scr:djvuBundle}}
@@ -1283,7 +1283,7 @@
 		\item parámetros de calidad de codificación;
 		\item selección de si las opciones actuales aplican para todos los archivos (\menu{All files}) o solo para el actualmente seleccionado (\menu{Current file}), así como un botón para reiniciar las opciones particulares de todos los archivos (\keys{C});
 		\item botón \keys{Convert}, que convierte a \djvu todos los archivos de la lista, botón \keys{View} (se activa después de dar \keys{Convert}) que abre un \djvu con todos los archivos convertidos y botón \keys{Current} que codifica el archivo actual y lo visualiza;
-		\item botones \keys{Insert in DjVu} (ídem \keys{View}), para insertar las fotos, \keys{Options} para configurar algunas opciones y \keys{Help} para abrir el archivo de ayuda; y
+		\item botones \keys{Insert in DjVu}, para insertar las fotos, \keys{Options} para configurar algunas opciones y \keys{Help} para abrir el archivo de ayuda; y
 		\item rutas de los archivos de origen (\keys{Source}) y destino~(\keys{Dest}).
 	\end{itemize} 
 
@@ -1334,7 +1334,7 @@
 
 	Los perfiles están agrupados en categorías que se pueden seleccionar desde el menú desplegable \menu{Profiles Set}. Las originales de \dexpress están agrupadas en \menu{Original} y el autor de \djvusmallmod creó varios perfiles personalizados bajo la categoría \menu{Extreme}.\footnote{Los perfiles de cada categoría están muy bien explicados en la documentación del programa.}
 
-	\subsection{Codificación del cuerpo + inserción de fotos\label{sec:djvuSmallModPhotos}} Si separamos las fotografías usando \scantailor (sec.~\ref{sec:SToutputPictureZones}) \djvusmallmod nos da la posibilidad de insertarlas en el mismo momento en que codificamos el cuerpo del documento.
+	\subsection{Codificación del cuerpo + inserción de fotos\label{sec:djvuSmallModPhotos}} Si separamos las fotos usando \scantailor (sec.~\ref{sec:SToutputPictureZones}) \djvusmallmod nos da la posibilidad de insertarlas en el mismo momento en que codificamos el cuerpo del documento.
 
 	Para hacerlo presionamos \keys{\faFilter} (\menu{Set manual segmentation}) y configuramos las opciones como las de la figura~\ref{fig:djvuSmallModLayers}. En particular, debemos elegir \menu{\typesetCheckbox{Enable layers separation} > User-defined}, el campo \menu{\typesetCheckbox{Text}} debe decir \menu{<name\textgreater.<ext\textgreater} y el campo \menu{\typesetCheckbox{Background}} \menu{background\textbackslash <name\textgreater.<ext\textgreater}. De esta manera reconocerá las imágenes de la carpeta \typesetFolder{background} como fotos para insertar.
 
@@ -1349,30 +1349,30 @@
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{djvuSmallModTransformTab}
-		\caption{Opciones de transformaciones de \djvusmallmod\label{fig:djvuSmallModTransformTab}}
+		\caption{Opciones de transformación de \djvusmallmod\label{fig:djvuSmallModTransformTab}}
 	\end{figure}
 
 	En la segunda (fig.~\ref{fig:djvuSmallModSegmenterTab}), debemos seleccionar \menu{Auto segmentation > \typesetDotCircle{Off} > \typesetDotCircle{Manually segmented files}}. Consulté personalmente a \textsharik por las diferencias entre cada \menu{Encoding method} y me explicó que para el caso que nos ocupa esencialmente no las hay.\footnote{Textualmente dijo: «\emph{Yes, in simple cases (when foreground is B\&W, and layers don't overlap) there is no difference between the manual segmentation methods. (Although encoding speed may differ.) The method selection was intended only for complex cases. I'll try to document these methods better in the next version (when I have time for it). And I'll also hide the method selection by default, as rarely-used option}».} Elegimos \menu{Encoding method > Glue}, que de acuerdo a la documentación es el más flexible, pues habilita todas las opciones de usuario.
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{djvuSmallModSegmenterTab}
-		\caption[]{Pestaña \menu{Segmenter} de las opciones de \djvusmallmod\label{fig:djvuSmallModSegmenterTab}}
+		\caption[Pestaña \texttt{Segmenter} de las opciones de \djvusmallmod]{Pestaña \menu{Segmenter} de las opciones de \djvusmallmod\label{fig:djvuSmallModSegmenterTab}}
 	\end{figure}
 
 	En la tercera pestaña (fig.~\ref{fig:djvuSmallModBackgroundTab}) tenemos que experimentar un poco con las opciones del cuadro izquierdo (\menu{Quality}) porque los detalles en la documentación no están claros. No haremos uso del cuadro \menu{Color}.
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{djvuSmallModBackgroundTab}
-		\caption{Pestaña \menu{Background} de las opciones de \djvusmallmod\label{fig:djvuSmallModBackgroundTab}}
+		\caption[Pestaña \texttt{Background} de las opciones de \djvusmallmod]{Pestaña \menu{Background} de las opciones de \djvusmallmod\label{fig:djvuSmallModBackgroundTab}}
 	\end{figure}
 
-	Un buen punto de partida es elegir \menu{\typesetCheckbox{Quality} > 75}, \menu{\typesetCheckbox{Bg subsample} > 2} y \menu{\typesetCheckbox{Target subsample} > 1}. \menu{\typesetBox{Background floss}} no tiene efecto en nuestro caso de uso, así que no la marcamos. Si los resultados, ya sea en calidad o tamaño final no nos satisfacen, podemos variar un poco estos parámetros, o también desmarcar \menu{\typesetBox{Subsample}} en la pestaña \menu{Transform} y ver como nos va.\footnote{Para ver los resultados de algunos experimentos que he hecho con estas opciones ver el apéndice~\ref{app:djvuSmallModAdvancedEncoding}.}
+	Un buen punto de partida es elegir \menu{\typesetCheckbox{Quality} > 75}, \menu{\typesetCheckbox{Bg subsample} > 2} y \menu{\typesetCheckbox{Target subsample} > 1}. \menu{\typesetBox{Background floss}} no tiene efecto en nuestro caso de uso, así que no la marcamos. Si los resultados, ya sea en calidad o tamaño final no nos satisfacen, podemos variar un poco estos parámetros, o también desmarcar \menu{\typesetBox{Subsample}} en la pestaña \menu{Transform} y ver como nos va.%\footnote{Para ver los resultados de algunos experimentos que he hecho con estas opciones ver el apéndice~\ref{app:djvuSmallModAdvancedEncoding}.}
 
-	Una vez configuradas las opciones cerramos la ventana, presionamos \keys{Open file(s)} y agregamos todos los archivos del cuerpo del documento. Para agregar las fotos presionamos \keys{{+}} (\menu{Add new files}) y seleccionamos todos los archivos de la carpeta \typesetFolder{background}. Al recorrer la lista, las páginas donde se van a insertar las fotografías deberán verse como las de la figura~\ref{fig:djvuSmallModListBackground}.
+	Una vez configuradas las opciones cerramos la ventana, presionamos \keys{Open file(s)} y agregamos todos los archivos del cuerpo del documento. Para agregar las fotos presionamos \keys{{+}} (\menu{Add new files}) y seleccionamos todos los archivos de la carpeta \typesetFolder{background}. Al recorrer la lista, las páginas donde se van a insertar las fotos deberán verse como las de la figura~\ref{fig:djvuSmallModListBackground}.
 
 	\begin{figure}
 		\includegraphics[width=.7\linewidth]{djvuSmallModListBackground}
-		\caption[\menu{Input file(s)} de \djvusmallmod con bitonales y fotos]{\menu{Input file(s)} de \djvusmallmod con imágenes bitonales y sus fotos correspondientes\label{fig:djvuSmallModListBackground}}
+		\caption[Input file(s) de \djvusmallmod]{\menu{Input file(s)} de \djvusmallmod con imágenes bitonales y sus fotos correspondientes\label{fig:djvuSmallModListBackground}}
 	\end{figure}
 
 	Allí vemos por ejemplo que la página \menu{[0014]} estará conformada por dos archivos llamados \typesetFile{SCAN\_015.tif}: uno bitonal  (\includegraphics[width=.8em]{djvuSmallModListTextIcon}, tomado de \typesetFolder{out}) y otro con las fotos (\includegraphics[width=.8em]{djvuSmallModListBackgroundIcon}, tomado de \typesetFolder{background}). Llamaremos al archivo \typesetFile{BODY.djvu}.
@@ -1383,7 +1383,7 @@
 
 	\subsection{Unión de cuerpo y cubiertas} Si no queremos adaptar y usar el script~\ref{scr:djvuBundle} podemos unir el cuerpo y las cubiertas con \djvusmallmod.
 
-	Para ello, elegimos \menu{Choose operation > \typesetDotCircle{Decode DjVu}} y \menu{Output format > djvu}. Luego presionamos \keys{Open pages}, seleccionamos \typesetFile{COVERS.djvu} y \typesetFile{BODY.djvu} y presionamos \keys{Abrir}. Se deberían cargar todas las páginas en la lista de archivos y la ventana debería verse como en la figura~\ref{fig:djvuSmallModBundle}. Presionamos \keys{Decode} y deberíamos obtener el \djvu completo, que llamaremos \typesetFile{SCAN\_INS.djvu}.
+	Para ello, elegimos \menu{Choose operation > \typesetDotCircle{Decode DjVu}} y después en \menu{Output format > djvu}. Luego presionamos \keys{Open pages}, seleccionamos \typesetFile{COVERS.djvu} y \typesetFile{BODY.djvu} y presionamos \keys{Abrir}. Se deberían cargar todas las páginas en la lista de archivos y la ventana debería verse como en la figura~\ref{fig:djvuSmallModBundle}. Presionamos \keys{Decode} y deberíamos obtener el \djvu completo, que llamaremos \typesetFile{SCAN\_INS.djvu}.
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{djvuSmallModBundle}
@@ -1466,7 +1466,7 @@
 		\caption{Dimensiones del libro a escanear (en in) y dimensiones estimadas de imagen a 600\,dpi (en pix)\label{tab:bookDimensionsInches}}
 	\end{table}
 
-	\chapter{Sobre el material de ejemplo\label{sec:aboutGregory}} Como se explica al comienzo del capítulo~\ref{sec:procedure}, esta guía fue elaborada tomando como ejemplo la digitalización del libro \emph{An Introduction to Electrical Instrumentation and Measurement Systems,} de B.~A. Gregory \cite{GregorySpringer}. Se trata de un ejemplar de tapa blanda, compuesto de texto, ecuaciones y diagramas monocromáticos, así como de varias fotografías en escala de grises (semitonos \cite{WikipediaHalftone}).
+	\chapter{Sobre el material de ejemplo\label{sec:aboutGregory}} Como se explica al comienzo del capítulo~\ref{sec:procedure}, esta guía fue elaborada tomando como ejemplo la digitalización del libro \emph{An Introduction to Electrical Instrumentation and Measurement Systems,} de B.~A. Gregory \cite{GregorySpringer}. Se trata de un ejemplar de tapa blanda, compuesto de texto, ecuaciones y diagramas monocromáticos, así como de varias fotos en escala de grises (o semitonos \cite{WikipediaHalftone}).
 
 	Lo elegí por varias razones. La primera es que tengo un ejemplar físico en mi biblioteca y me interesaba obtener un respaldo del mismo en formato digital. Por otra parte, es un caso realista de lo que se podría querer digitalizar y por ello me pareció apropiado usarlo como ejemplo en esta guía. Además, la editorial \emph{Springer} tiene a la venta la versión digital de este libro,\footnote{En realidad se trata de una reimpresión posterior bajo otra editorial y con algunas correcciones, aunque muy parecida.} producida por métodos similares, por lo que existe un punto de referencia con el cual comparar nuestros resultados.
 
@@ -1487,10 +1487,10 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=.7\linewidth]{noSplitPagesGIMP}
-		\caption[Menú Convert Image to Indexed Colors de \gimp]{Menú \menu{Convert Image to Indexed Colors} de \gimp\label{fig:noSplitPagesGIMP}}
+		\caption[Menú \texttt{Convert Image to Indexed Colors} de \gimp]{Menú \menu{Convert Image to Indexed Colors} de \gimp\label{fig:noSplitPagesGIMP}}
 	\end{figure}
 
-	De esta manera, se obtiene una reducción importante del tamaño a costa de la calidad. En el ejemplo de la página 128, se pasó de un archivo de 10,5\,MB a uno de 525\,kB. En la figura~\ref{fig:SToutputPictureZonesBitonal} se ilustra un poco el efecto que produce en una fotografía la conversión a bitonal. Por supuesto que estará acentuado en fotos a color.
+	De esta manera, se obtiene una reducción importante del tamaño a costa de la calidad. En el ejemplo de la página 128, se pasó de un archivo de 10,5\,MB a uno de 525\,kB. En la figura~\ref{fig:SToutputPictureZonesBitonal} se ilustra un poco el efecto que produce en una foto la conversión a bitonal. Por supuesto que estará acentuado en fotos a color.
 
 	\begin{figure}
 		\subbottom[Original]{\includegraphics[width=\linewidth]{SToutputPictureZonesGrayscale}}
@@ -1537,17 +1537,17 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=.7\linewidth]{simpleOCRpdfSettings}
-		\caption{\menu{Edit Settings} del formato \tiff en \acrobat\label{fig:simpleOCRpdfSettings}}
+		\caption[\texttt{Edit Settings} del formato \tiff en \acrobat]{\menu{Edit Settings} del formato \tiff en \acrobat\label{fig:simpleOCRpdfSettings}}
 	\end{figure}
 
 	Sin bien aquí se pueden elegir varias opciones de compresión, no vamos a usar ninguna en esta etapa. Ponemos todas las opciones de \menu{Color Management} en \menu{Preserve embedded profiles}. Además elegimos \menu{JBIG2 (\menu{Lossless})}, \menu{ZIP} y presionamos \keys{OK}. De momento solo queremos crear el documento base. La reducción de tamaño la realizaremos más adelante.
 
-	Ahora vamos a \menu{File > Create > Combine Files\...} y presionamos \keys{Options}. En el cuadro que aparece (fig.~\ref{fig:simpleOCRpdfCombineOptions}) desactivamos todas las casillas, presionamos \menu{File Size > \keys{Default File Size}}\footnote{Como se explica en el tooltip que se despliega al pasar con el ratón por encima, las opciones estarán controladas por el panel de preferencias, que acabamos de configurar.} y luego \keys{OK}.
+	Ahora vamos a \menu{File > Create > Combine Files\...} y presionando en \keys{Options} aparece un cuadro (fig.~\ref{fig:simpleOCRpdfCombineOptions}) en el que desactivamos todas las casillas, presionamos \menu{File Size > \keys{Default File Size}}\footnote{Como se explica en el tooltip que se despliega al pasar con el ratón por encima, las opciones estarán controladas por el panel de preferencias, que acabamos de configurar.} y luego \keys{OK}.
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=.7\linewidth]{simpleOCRpdfCombineOptions}
-		\caption{\menu{Combine Files into a Single PDF\... > Options} en \acrobat\label{fig:simpleOCRpdfCombineOptions}}
+		\caption[\texttt{Combine Files into a Single PDF\...} en \acrobat]{\menu{Combine Files into a Single PDF\... > Options} en \acrobat\label{fig:simpleOCRpdfCombineOptions}}
 	\end{figure}
 
 	\subsection{Creación del documento base} En este momento agregamos todos los archivos de la carpeta \typesetFolder{out}, ya sea seleccionando y arrastrando o usando \keys{Add Files}. Luego presionamos \keys{Combine}. \acrobat se tomará algo de tiempo y creará un \pdf con todas las imágenes. Lo guardaremos en la carpeta \typesetFolder{djv} con el nombre \typesetFile{SCAN.pdf}.
@@ -1556,10 +1556,10 @@
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{simpleOCRpdfEnhanceSettings}
-		\caption{\menu{Enhance Scanned PDF > Settings} en \acrobat\label{fig:simpleOCRpdfEnhanceSettings}}
+		\caption[\texttt{Enhance Scanned PDF >\ Settings} en \acrobat]{\menu{Enhance Scanned PDF > Settings} en \acrobat\label{fig:simpleOCRpdfEnhanceSettings}}
 	\end{figure}
 
-	En \menu{Optimization Options} sugiero activar \menu{\typesetCheckbox{Apply Adaptive Compression}}. Esta opción hace una segmentación automática similar a del formato \djvu ya explicada. Luego tenemos opciones de compresión para imágenes que se explican a continuación.
+	En \menu{Optimization Options} sugiero usar \menu{\typesetCheckbox{Apply Adaptive Compression}}. Esta opción hace una segmentación automática similar a del formato \djvu ya explicada. Luego tenemos opciones de compresión para imágenes que se explican a continuación.
 
 	Las bitonales se pueden comprimir en \menu{JBIG2} (\menu{Lossy} o \menu{Lossless}) o \menu{CCiTT Group 4} (no recomendado). Las que contengan algún elemento a color o en escala de grises en \menu{JPEG}, \menu{JPEG2000} o \menu{ZIP}. Con la barra deslizante ajustamos la calidad global del documento.
 
@@ -1570,7 +1570,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=.7\linewidth]{simpleOCRpdfEnhanceSettingsOCR}
-		\caption{\menu{Text Recognition Options > Edit} en \acrobat\label{fig:simpleOCRpdfEnhanceSettingsOCR}}
+		\caption[\texttt{Text Recognition Options >\ Edit} en \acrobat]{\menu{Text Recognition Options > Edit} en \acrobat\label{fig:simpleOCRpdfEnhanceSettingsOCR}}
 	\end{figure}
 
 	La primera es equivalente a la opción \menu{Text under the page image} de \abbyy. Las imágenes se comprimen con las \menu{Optimization Options} elegidas y la capa de texto se inserta de manera invisible por debajo de estas.
@@ -1580,7 +1580,7 @@
 	\begin{figure}
 		\subbottom[Texto original]{\includegraphics[width=\linewidth]{simpleOCRpdfEnhanceGoodOriginal}}
 		\subbottom[Texto después de ClearScan]{\includegraphics[width=\linewidth]{simpleOCRpdfEnhanceGoodClearScan}}
-		\caption[Resultado de la opción \menu{Editable Text and Images}/ClearScan]{Resultado de la opción \menu{Editable Text and Images}/ClearScan sobre texto reconocido\label{fig:simpleOCRpdfEnhanceGoodExamples}}
+		\caption[\texttt{Editable Text and Images/ClearScan} en \acrobat]{Resultado de la opción \menu{Editable Text and Images}/ClearScan sobre texto reconocido\label{fig:simpleOCRpdfEnhanceGoodExamples}}
 	\end{figure}
 
 	El problema es que depende de que el \ocr detecte correctamente los caracteres para funcionar bien, porque de lo contrario no sabe con cual reemplazarlos. Cuando esto ocurre usa una versión de baja resolución del símbolo que no reconoció, lo que da un resultado desparejo. En otras ocasiones corrompe algunas figuras. Otro detalle es que al activarla y dar \keys{OK} \acrobat nos informa: \emph{Compression settings will not be applied with selected Text Recognition output}. Es decir, que ignorará todas nuestras opciones anteriores y ajustará, corregirá y comprimirá lo que quiera y cuanto quiera.
@@ -1645,45 +1645,45 @@ Este reemplazo permite corregir con \scantailor errores encontrados en la etapa 
 	\caption{Árbol de directorios del proyecto de \abbyy\label{fig:abbyyProjectStructure}}
 \end{figure}
 
-\chapter{Opciones avanzadas de codificación de \djvusmallmod\label{app:djvuSmallModAdvancedEncoding}}
-
-Observaciones (esto todavía está muy verde):
-- Hice todas las pruebas con Quality = 75, usando todas las combinaciones de (Bg, Tg) con 0<=Bg<=6, 0<=Tg<=6.
-
-- Desmarcar la casilla es lo mismo que elegir el valor 3, tanto para bg como tg. Es decir que (Bg = 0, Tg = i) = (Bg = 3, Tg = i).
-
-- (Bg = i, Tg = i), para i >= 0 da el mismo resultado.
-
-- Aumentar el Bg da como resultado un archivo más grande. Inversamente, aumentar el Tg da como resultado un archivo más chico.
-
-- El valor de Bg (cualquiera sea Tg) no cambia las dimensiones de la imagen, contrariamente a lo que indica la documentación de \dexpress para el argumento --bg-subsample. En las pruebas que he hecho, las distintas combinaciones de Bg y Tg modifican solo el número de slices del primer chunk (la cantidad de slices de cada uno de los otros tres chunks no varía). Manteniendo el par (Bg, Tg) fijo y variando la calidad sí cambia el número de slices de todos los chunks.
-
-- textsharik explica que el parámetro Tg es como una especie de divisor de calidad (aunque no lineal). Es decir: calidad subjetiva ~ Quality/Tg.
-
-- También dice que el Bg es como un blur previo a la compresión. Por eso recomienda usar un blur mínimo y baja calidad para fotos, y mu
-
-	Esto es todo lo que había escrito antes.
-
-	La opción \menu{\typesetCheckbox{Bg subsample}} tiene el mismo efecto que la \menu{BSF} de la sección~\ref{sec:djvuImager}, así que recomiendo dejarla en 2 por las razones que allí se explicaron. Según la documentación de \djvusmallmod, \menu{\typesetCheckbox{Target subsample}} sería algo así como un divisor de la calidad, por lo que también lo dejo en 1. \menu{\typesetBox{Background floss}} no tiene efecto en nuestro caso. Nos queda \menu{\typesetCheckbox{Quality}} para probar. Hice algunas pruebas con unas pocas imágenes, fijando \menu{\typesetCheckbox{Quality}} en 75 y obtuve los resultados del cuadro~\ref{tab:djvuSmallModBackgroundTab}.\footnote{Un valor de 0 corresponde a elegir 3 en la casilla correspondiente.}
-
-\begin{table}
-	\centering
-	\begin{tabular}{ccc}
-		\toprule
-		\menu{Bg subsample} & \menu{Target subsample} & tamaño (kB) \\
-		\midrule
-		1 & 1 & 2073 \\
-		2 & 1 & 1082 \\
-		1 & 0 & 897 \\
-		0 & 1 & 760 \\
-		2 & 0 & 418 \\
-		0 & 0 & 354 \\
-		\bottomrule
-	\end{tabular}
-	\caption{Impacto de algunos parámetros de la pestaña \menu{Background} en el tamaño final de un conjunto de imágenes de prueba\label{tab:djvuSmallModBackgroundTab}}
-\end{table}
-
-La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que la segunda baja el tamaño a la mitad manteniendo una buena apariencia de las fotos. Considero que allí está el punto óptimo para la mayoría de los casos. En las restantes 4 filas la compresión es mucho mayor pero el resultado comienza a deteriorarse rápidamente. Si se usa alguna de estas combinaciones u otra dependerá de cada caso.
+%\chapter{Opciones avanzadas de codificación de \djvusmallmod\label{app:djvuSmallModAdvancedEncoding}}
+%
+%Observaciones (esto todavía está muy verde):
+%- Hice todas las pruebas con Quality = 75, usando todas las combinaciones de (Bg, Tg) con 0<=Bg<=6, 0<=Tg<=6.
+%
+%- Desmarcar la casilla es lo mismo que elegir el valor 3, tanto para bg como tg. Es decir que (Bg = 0, Tg = i) = (Bg = 3, Tg = i).
+%
+%- (Bg = i, Tg = i), para i >= 0 da el mismo resultado.
+%
+%- Aumentar el Bg da como resultado un archivo más grande. Inversamente, aumentar el Tg da como resultado un archivo más chico.
+%
+%- El valor de Bg (cualquiera sea Tg) no cambia las dimensiones de la imagen, contrariamente a lo que indica la documentación de \dexpress para el argumento --bg-subsample. En las pruebas que he hecho, las distintas combinaciones de Bg y Tg modifican solo el número de slices del primer chunk (la cantidad de slices de cada uno de los otros tres chunks no varía). Manteniendo el par (Bg, Tg) fijo y variando la calidad sí cambia el número de slices de todos los chunks.
+%
+%- textsharik explica que el parámetro Tg es como una especie de divisor de calidad (aunque no lineal). Es decir: calidad subjetiva ~ Quality/Tg.
+%
+%- También dice que el Bg es como un blur previo a la compresión. Por eso recomienda usar un blur mínimo y baja calidad para fotos, y mu
+%
+%	Esto es todo lo que había escrito antes.
+%
+%	La opción \menu{\typesetCheckbox{Bg subsample}} tiene el mismo efecto que la \menu{BSF} de la sección~\ref{sec:djvuImager}, así que recomiendo dejarla en 2 por las razones que allí se explicaron. Según la documentación de \djvusmallmod, \menu{\typesetCheckbox{Target subsample}} sería algo así como un divisor de la calidad, por lo que también lo dejo en 1. \menu{\typesetBox{Background floss}} no tiene efecto en nuestro caso. Nos queda \menu{\typesetCheckbox{Quality}} para probar. Hice algunas pruebas con unas pocas imágenes, fijando \menu{\typesetCheckbox{Quality}} en 75 y obtuve los resultados del cuadro~\ref{tab:djvuSmallModBackgroundTab}.\footnote{Un valor de 0 corresponde a elegir 3 en la casilla correspondiente.}
+%
+%\begin{table}
+%	\centering
+%	\begin{tabular}{ccc}
+%		\toprule
+%		\menu{Bg subsample} & \menu{Target subsample} & tamaño (kB) \\
+%		\midrule
+%		1 & 1 & 2073 \\
+%		2 & 1 & 1082 \\
+%		1 & 0 & 897 \\
+%		0 & 1 & 760 \\
+%		2 & 0 & 418 \\
+%		0 & 0 & 354 \\
+%		\bottomrule
+%	\end{tabular}
+%	\caption{Impacto de algunos parámetros de la pestaña \menu{Background} en el tamaño final de un conjunto de imágenes de prueba\label{tab:djvuSmallModBackgroundTab}}
+%\end{table}
+%
+%La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que la segunda baja el tamaño a la mitad manteniendo una buena apariencia de las fotos. Considero que allí está el punto óptimo para la mayoría de los casos. En las restantes 4 filas la compresión es mucho mayor pero el resultado comienza a deteriorarse rápidamente. Si se usa alguna de estas combinaciones u otra dependerá de cada caso.
 
 % -------------------------------  Back matter  --------------------------------
 \backmatter
@@ -1761,6 +1761,9 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Declarada la inclusión de material distinto del Gregory en la sección~\ref{sec:aboutGregory}.
 				\item Todas las referencias web explicitadas en la bibliografía.
 				\item Creada la sección «Software» en la bibliografía.
+				\item Uniformizado el estilo de todos los captions.
+				\item Corregido donde correspondiera: fotografías \faLongArrowAltRight\ fotos.
+				\item Modificada la definición de \textbackslash pythonScript para disminuir a la mitad el tamaño de los TABs en los scripts.
 
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
