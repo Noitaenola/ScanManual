@@ -146,7 +146,7 @@
 	\paragraph{\imagemagick} Conjunto de utilidades para manipular y convertir imágenes. Licencia Apache 2.0. Lo usaremos para procesar imágenes por lotes \cite{ImageMagick}.
 
 	\subsection{Generadores de \texorpdfstring{\ocr}{OCR}} Este será el software que utilizaremos para reconocer el texto en nuestros documentos escaneados.
-	\paragraph{\textsc{ABBY \abby}} Aplicación de software de \ocr (reconocimiento óptico de caracteres). Software propietario y de pago. Lo usaremos para insertar una capa de texto seleccionable a nuestros documentos finales.\todo{Aclarar que salió la versión 15.}
+	\paragraph{\textsc{ABBYY \abbyy}} Aplicación de software de \ocr (reconocimiento óptico de caracteres). Software propietario y de pago. Lo usaremos para insertar una capa de texto seleccionable a nuestros documentos finales.\todo{Aclarar que salió la versión 15.}
 	\paragraph{\textsc{tesseract}} Motor de \ocr libre para varias plataformas. Licencia Apache 2.0. Hay varias interfaces gráficas disponibles. No tengo experiencia con él. Para usarlo habría que hacer adaptaciones a todo el flujo de trabajo \cite{tesseract}.
 	\paragraph{\textsc{Nuance Omnipage}} Alternativa propietaria y paga. Más bien orientada al reconocimiento en serie de grandes volúmenes de documentos. Tampoco la he probado. No estoy seguro de que maneje archivos \djvu \cite{Omnipage}.
 
@@ -228,7 +228,7 @@
 				folder indent=.9em, folder icons,
 				edge=densely dotted}
 			[Project
-			[ABBY]
+			[ABBYY]
 			[Batches]
 			[djv]
 			[SCAN]
@@ -252,7 +252,7 @@
 
 	En \typesetFolder{Batches} guardaremos los scripts y algunos archivos asociados a ellos.
 
-	En la carpeta \typesetFolder{ABBY} irá nuestro proyecto de \abby. Dentro de esa carpeta el programa creará muchas otras, con la estructura que se describe en el apéndice~\ref{sec:abbyProjectStructure}.
+	En la carpeta \typesetFolder{ABBYY} irá nuestro proyecto de \abbyy. Dentro de esa carpeta el programa creará muchas otras, con la estructura que se describe en el apéndice~\ref{sec:abbyyProjectStructure}.
 
 	En \typesetFolder{djv} guardaremos varios documentos \pdf y \djvu, que corresponderán a las distintas etapas de procesamiento.
 
@@ -269,7 +269,7 @@
 
 	Luego pasaremos al procesamiento de las imágenes adquiridas, para el que utilizaremos fuertemente el software \scantailor.
 
-	El siguiente paso será reconocer el texto con \abby. Para ello deberemos configurarlo adecuadamente y habrá una cantidad de obstáculos que tendremos que evitar.
+	El siguiente paso será reconocer el texto con \abbyy. Para ello deberemos configurarlo adecuadamente y habrá una cantidad de obstáculos que tendremos que evitar.
 
 	Por último crearemos los documentos finales en formato \pdf y/o \djvu. Deberemos agrupar las imágenes en estos archivos y agregarles el texto reconocido, las imágenes, los marcadores, etiquetas de páginas y metadatos.
 
@@ -482,7 +482,7 @@
 
 	En \menu{Page Layout} tenemos tres opciones (fig.~\ref{fig:STsplitPages}). La primera es para indicarle a \scantailor que la página ocupa toda el área de la imagen,\footnote{Útil si ya al escanear dibujamos un rectángulo en el área de previsualización como se explica en la página~\pageref{pag:scanningRegionSelection}.} mientras que la segunda permite excluir dos bandas verticales. Estas dos opciones las usaremos para páginas escaneadas de a una a la vez.
 
-	Si hicimos la digitalización de a dos páginas por vez usaremos la tercera opción, que es la que efectivamente divide la imagen, separándola en dos páginas.\footnote{Téngase en cuenta que si se utiliza esta última opción, cambiará la forma en que \scantailor nombra los archivos de salida y con ello dejará de funcionar el script~\ref{scr:replaceInABBY} de la sección \ref{sec:ABBYCorrectionsSpotAndArea} tal como está.}
+	Si hicimos la digitalización de a dos páginas por vez usaremos la tercera opción, que es la que efectivamente divide la imagen, separándola en dos páginas.\footnote{Téngase en cuenta que si se utiliza esta última opción, cambiará la forma en que \scantailor nombra los archivos de salida y con ello dejará de funcionar el script~\ref{scr:replaceInABBYY} de la sección \ref{sec:ABBYYCorrectionsSpotAndArea} tal como está.}
 
 	\begin{figure}
 		\centering
@@ -766,66 +766,66 @@
 
 	En el siguiente capítulo trabajaremos con la salida de \scantailor para reconocer el texto. Esto le agregará mucho valor al resultado final, por la posibilidad de hacer búsquedas.
 
-	\chapter{\texorpdfstring{\textsc{Ocr}}{OCR} con \abby\label{sec:OCR}} Una vez que las páginas fueron limpiadas y ajustadas y las fotos separadas, podemos proceder a realizar el reconocimiento de texto. Como paso previo, notemos que que si marcamos \menu{Picture zones} y elegimos la opción \menu{\typesetCheckbox{Split output}}, tenemos en la carpeta \typesetFolder{out} las imágenes procesadas y dentro de la misma otras dos carpetas, como se explicó antes.
+	\chapter{\texorpdfstring{\textsc{Ocr}}{OCR} con \abbyy\label{sec:OCR}} Una vez que las páginas fueron limpiadas y ajustadas y las fotos separadas, podemos proceder a realizar el reconocimiento de texto. Como paso previo, notemos que que si marcamos \menu{Picture zones} y elegimos la opción \menu{\typesetCheckbox{Split output}}, tenemos en la carpeta \typesetFolder{out} las imágenes procesadas y dentro de la misma otras dos carpetas, como se explicó antes.
 
 	Debemos ahora copiar las imágenes desde \typesetFolder{foreground} a la carpeta \typesetFolder{out} y sobrescribir los archivos. Así, en \typesetFolder{out} habrá solo imágenes binarias (texto y diagramas monocromáticos). Las fotos quedarán en \typesetFolder{background} y trabajaremos sobre ellas más adelante.
 
 	Lo mismo haremos con las cubiertas si las procesamos aparte. Las copiamos a la carpeta \typesetFolder{out}, sobrescribiendo las que generó \scantailor. De esta manera tendremos en \typesetFolder{out} las páginas que conformarán el documento final (salvo las fotos).
 
-	\paragraph{Nota previa} \abby también es un programa muy completo, con una cantidad de modos de funcionamiento, opciones y errores que esta guía no pretende cubrir exhaustivamente. Si alguna explicación no quedara clara, lo mejor será experimentar, leer el manual de usuario o realizar consultas en algún sitio especializado.
+	\paragraph{Nota previa} \abbyy también es un programa muy completo, con una cantidad de modos de funcionamiento, opciones y errores que esta guía no pretende cubrir exhaustivamente. Si alguna explicación no quedara clara, lo mejor será experimentar, leer el manual de usuario o realizar consultas en algún sitio especializado.
 
-	\section{Configuración} Abrimos luego \abby\footnote{Recomiendo trabajar con la versión 14 (la más reciente al momento de escribir esta guía). Sin embargo, cualquier versión que permita salvar en \djvu es suficiente (v11 o superior). Las opciones no serán exactamente iguales (habrá que improvisar) y no podremos usar el script~\ref{scr:replaceInABBY} (no es grave).} y procedemos a configurar primero las opciones básicas (más adelante trataremos algunas otras). Se accede al menú haciendo \menu{\leftclick > Tools > Options}. En principio sugiero configurar las opciones tal cual se muestran en las figuras.
+	\section{Configuración} Abrimos luego \abbyy\footnote{Recomiendo trabajar con la versión 14 (la más reciente al momento de escribir esta guía). Sin embargo, cualquier versión que permita salvar en \djvu es suficiente (v11 o superior). Las opciones no serán exactamente iguales (habrá que improvisar) y no podremos usar el script~\ref{scr:replaceInABBYY} (no es grave).} y procedemos a configurar primero las opciones básicas (más adelante trataremos algunas otras). Se accede al menú haciendo \menu{\leftclick > Tools > Options}. En principio sugiero configurar las opciones tal cual se muestran en las figuras.
 
-	\subsection{Pestaña \texttt{Image Processing}} En la pestaña \menu{Image Processing} presionamos \keys{Show Advanced Settings} y deshabilitamos todas las opciones, como en la fig.~\ref{fig:ABBYoptionsImage}. Así nos aseguramos de que el software no realizará ninguna corrección de imagen. Para eso ya transitamos por los pasos anteriores. Si aún hubiera algo para ajustar, lo mejor será volver a \scantailor y hacerlo nosotros mismos.
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=\linewidth]{ABBYoptionsImage}
-		\caption[Opciones de \abby. Pestaña Image Processing]{Opciones de \abby. Pestaña \menu{Image Processing}\label{fig:ABBYoptionsImage}}
-	\end{figure}
-
-	\subsection{Pestaña \texttt{Languages}} Pasamos ahora a la pestaña \menu{Languages} (fig.~\ref{fig:ABBYoptionsLanguages}) donde crearemos primero un nuevo idioma basado en uno ya existente. Esto lo hacemos así si nuestro material contiene caracteres de otro alfabeto, por ejemplo el griego. O si queremos editar los caracteres permitidos para ayudar con el reconocimiento.\footnote{A veces el programa confunde un carácter por otro. Muy comúnmente «\textit{l}» cursiva por «/». Si este último no es usado en nuestro material, podemos eliminarlo de la lista de caracteres permitidos para forzar al programa a intentar reconocer otro carácter. Esto no garantiza resultados (podría aun confundirlo con «|», por ejemplo), pero puede ayudar.}
+	\subsection{Pestaña \texttt{Image Processing}} En la pestaña \menu{Image Processing} presionamos \keys{Show Advanced Settings} y deshabilitamos todas las opciones, como en la fig.~\ref{fig:ABBYYoptionsImage}. Así nos aseguramos de que el software no realizará ninguna corrección de imagen. Para eso ya transitamos por los pasos anteriores. Si aún hubiera algo para ajustar, lo mejor será volver a \scantailor y hacerlo nosotros mismos.
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=\linewidth]{ABBYoptionsLanguages}
-		\caption[Opciones de \abby. Pestaña Languages]{Opciones de \abby. Pestaña \menu{Languages}\label{fig:ABBYoptionsLanguages}}
+		\includegraphics[width=\linewidth]{ABBYYoptionsImage}
+		\caption[Opciones de \abbyy. Pestaña Image Processing]{Opciones de \abbyy. Pestaña \menu{Image Processing}\label{fig:ABBYYoptionsImage}}
 	\end{figure}
 
-	Elegimos \menu{\typesetDotCircle{Specify OCR languages manually}}, presionamos \keys{New} y seleccionamos \menu{\typesetDotCircle{Create a new language based on\...}} (fig.~\ref{fig:ABBYoptionsLanguagesNewLanguage}). En este caso elegimos \menu{English}, presionamos \keys{OK}, le ponemos por nombre \menu{MyEnglish} y damos \keys{OK} nuevamente (fig.~\ref{fig:ABBYoptionsLanguagesLanguageProperties}). Al final deberá decir \menu{\typesetDotCircle{Specify OCR languages manually} > MyEnglish;} (fig.~\ref{fig:ABBYoptionsLanguages}).
+	\subsection{Pestaña \texttt{Languages}} Pasamos ahora a la pestaña \menu{Languages} (fig.~\ref{fig:ABBYYoptionsLanguages}) donde crearemos primero un nuevo idioma basado en uno ya existente. Esto lo hacemos así si nuestro material contiene caracteres de otro alfabeto, por ejemplo el griego. O si queremos editar los caracteres permitidos para ayudar con el reconocimiento.\footnote{A veces el programa confunde un carácter por otro. Muy comúnmente «\textit{l}» cursiva por «/». Si este último no es usado en nuestro material, podemos eliminarlo de la lista de caracteres permitidos para forzar al programa a intentar reconocer otro carácter. Esto no garantiza resultados (podría aun confundirlo con «|», por ejemplo), pero puede ayudar.}
 
 	\begin{figure}
 		\centering
-		\subbottom[Creando un nuevo idioma\label{fig:ABBYoptionsLanguagesNewLanguage}]{\includegraphics[width=.7\linewidth]{ABBYoptionsLanguagesNewLanguage}}
-		\subbottom[Propiedades del idioma\label{fig:ABBYoptionsLanguagesLanguageProperties}]{\includegraphics[width=.7\linewidth]{ABBYoptionsLanguagesLanguageProperties}}
-		\caption{Opciones de \abby. Creando un nuevo idioma.}
+		\includegraphics[width=\linewidth]{ABBYYoptionsLanguages}
+		\caption[Opciones de \abbyy. Pestaña Languages]{Opciones de \abbyy. Pestaña \menu{Languages}\label{fig:ABBYYoptionsLanguages}}
 	\end{figure}
 
-	\subsection{Pestaña \texttt{Format}} Finalmente, en la pestaña \menu{Format Settings} y elegimos el formato \menu{PDF}. Allí configuramos las opciones como en la figura~\ref{fig:ABBYoptionsFormatsPDF}. Es importante que en el menú desplegable \menu{Image quality} elijamos la opción \menu{Custom\...} y que desmarquemos \menu{\typesetBox{Reduce original resolution if required}}, elijamos \menu{Color control > Do not change image color} y también \menu{Quality > Quality loss not allowed}. Además, en \menu{Searchable PDF settings} elegimos \menu{Text under the page image}, \menu{\typesetBox{Create bookmarks from headings}},\footnote{La he probado y no da buenos resultados. Además, crearemos nuestros propios marcadores más adelante.} marcamos \menu{\typesetCheckbox{Create PDF tags}} y seleccionamos \menu{Use Windows fonts}.\footnote{No tengo justificación para esta opción. No sé que consecuencias pueda tener desde el punto de vista legal. Creo que la visualización correcta queda a salvo con el \pdfa, que veremos más adelante.}
+	Elegimos \menu{\typesetDotCircle{Specify OCR languages manually}}, presionamos \keys{New} y seleccionamos \menu{\typesetDotCircle{Create a new language based on\...}} (fig.~\ref{fig:ABBYYoptionsLanguagesNewLanguage}). En este caso elegimos \menu{English}, presionamos \keys{OK}, le ponemos por nombre \menu{MyEnglish} y damos \keys{OK} nuevamente (fig.~\ref{fig:ABBYYoptionsLanguagesLanguageProperties}). Al final deberá decir \menu{\typesetDotCircle{Specify OCR languages manually} > MyEnglish;} (fig.~\ref{fig:ABBYYoptionsLanguages}).
 
-	De forma similar, configuramos las opciones del formato \djvu como en la figura~\ref{fig:ABBYoptionsFormatDjVu}. Aquí la única opción imprescindible será \menu{Save mode > Text under page image}, puesto que el \djvu que genera \abby no lo usaremos más que para «robar» el texto reconocido e insertarlo en otro archivo \djvu, que vamos a generar más adelante con otros programas.
+	\begin{figure}
+		\centering
+		\subbottom[Creando un nuevo idioma\label{fig:ABBYYoptionsLanguagesNewLanguage}]{\includegraphics[width=.7\linewidth]{ABBYYoptionsLanguagesNewLanguage}}
+		\subbottom[Propiedades del idioma\label{fig:ABBYYoptionsLanguagesLanguageProperties}]{\includegraphics[width=.7\linewidth]{ABBYYoptionsLanguagesLanguageProperties}}
+		\caption{Opciones de \abbyy. Creando un nuevo idioma.}
+	\end{figure}
+
+	\subsection{Pestaña \texttt{Format}} Finalmente, en la pestaña \menu{Format Settings} y elegimos el formato \menu{PDF}. Allí configuramos las opciones como en la figura~\ref{fig:ABBYYoptionsFormatsPDF}. Es importante que en el menú desplegable \menu{Image quality} elijamos la opción \menu{Custom\...} y que desmarquemos \menu{\typesetBox{Reduce original resolution if required}}, elijamos \menu{Color control > Do not change image color} y también \menu{Quality > Quality loss not allowed}. Además, en \menu{Searchable PDF settings} elegimos \menu{Text under the page image}, \menu{\typesetBox{Create bookmarks from headings}},\footnote{La he probado y no da buenos resultados. Además, crearemos nuestros propios marcadores más adelante.} marcamos \menu{\typesetCheckbox{Create PDF tags}} y seleccionamos \menu{Use Windows fonts}.\footnote{No tengo justificación para esta opción. No sé que consecuencias pueda tener desde el punto de vista legal. Creo que la visualización correcta queda a salvo con el \pdfa, que veremos más adelante.}
+
+	De forma similar, configuramos las opciones del formato \djvu como en la figura~\ref{fig:ABBYYoptionsFormatDjVu}. Aquí la única opción imprescindible será \menu{Save mode > Text under page image}, puesto que el \djvu que genera \abbyy no lo usaremos más que para «robar» el texto reconocido e insertarlo en otro archivo \djvu, que vamos a generar más adelante con otros programas.
 
 	\begin{figure}
 		\vspace{-20pt}
 		\centering
-		\subbottom[Ventana principal\label{fig:ABBYoptionsFormatsPDF}]{\includegraphics[width=\linewidth]{ABBYoptionsFormatPDF}}
-		\subbottom[\menu{Custom Settings}\label{fig:ABBYoptionsFormatPDFCustom}]{\includegraphics[width=.5\linewidth]{ABBYoptionsFormatPDFCustom}}
-		\caption[Opciones de \abby. Pestaña Format Settings >\ PDF]{Opciones de \abby. Pestaña \menu{Format Settings > PDF}\label{fig:ABBYoptionsFormatPDF}}
+		\subbottom[Ventana principal\label{fig:ABBYYoptionsFormatsPDF}]{\includegraphics[width=\linewidth]{ABBYYoptionsFormatPDF}}
+		\subbottom[\menu{Custom Settings}\label{fig:ABBYYoptionsFormatPDFCustom}]{\includegraphics[width=.5\linewidth]{ABBYYoptionsFormatPDFCustom}}
+		\caption[Opciones de \abbyy. Pestaña Format Settings >\ PDF]{Opciones de \abbyy. Pestaña \menu{Format Settings > PDF}\label{fig:ABBYYoptionsFormatPDF}}
 	\end{figure}
 
 	\begin{figure}
-		\includegraphics[width=\linewidth]{ABBYoptionsFormatDjVu}
-		\caption[Opciones de \abby. Pestaña Format Settings >\ DjVu]{Opciones de \abby. Pestaña \menu{Format Settings > DjVu}\label{fig:ABBYoptionsFormatDjVu}}
+		\includegraphics[width=\linewidth]{ABBYYoptionsFormatDjVu}
+		\caption[Opciones de \abbyy. Pestaña Format Settings >\ DjVu]{Opciones de \abbyy. Pestaña \menu{Format Settings > DjVu}\label{fig:ABBYYoptionsFormatDjVu}}
 	\end{figure}
 
-	\section{Creación del proyecto} Luego presionamos \menu{File > New OCR Project} e inmediatamente \menu{File > Save OCR Project}. Vamos a guardar el proyecto en \typesetFolder{Project\,\faCaretRight\,ABBY}. De esta manera, \abby irá guardando los cambios a medida que vayamos procesando las páginas.
+	\section{Creación del proyecto} Luego presionamos \menu{File > New OCR Project} e inmediatamente \menu{File > Save OCR Project}. Vamos a guardar el proyecto en \typesetFolder{Project\,\faCaretRight\,ABBYY}. De esta manera, \abbyy irá guardando los cambios a medida que vayamos procesando las páginas.
 
-	Luego, cargamos las páginas haciendo \menu{File > Open Image}, seleccionando todos los archivos de la carpeta \typesetFolder{out} y presionando \keys{Open}. Tomará un tiempo para cargarlas todas y luego la ventana quedará como en la figura~\ref{fig:ABBYstart}.
+	Luego, cargamos las páginas haciendo \menu{File > Open Image}, seleccionando todos los archivos de la carpeta \typesetFolder{out} y presionando \keys{Open}. Tomará un tiempo para cargarlas todas y luego la ventana quedará como en la figura~\ref{fig:ABBYYstart}.
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=\linewidth]{ABBYstart}
-		\caption[Ventana principal de \abby una vez cargadas las páginas]{Ventana principal de \abby una vez cargadas las páginas. Se ha personalizado la disposición de los paneles respecto a los valores por defecto. La columna de la izquierda es el \menu{Navigation Pane}, que muestra las miniaturas de todas las páginas. Hacia la derecha y arriba está el \menu{Image Pane}, que muestra la página actual. A la derecha de este está el \menu{Text Pane}, con el texto reconocido. Debajo de estos dos últimos tenemos el \menu{Zoom Pane}, que muestra un zoom del \menu{Image Pane}\label{fig:ABBYstart}}
+		\includegraphics[width=\linewidth]{ABBYYstart}
+		\caption[Ventana principal de \abbyy una vez cargadas las páginas]{Ventana principal de \abbyy una vez cargadas las páginas. Se ha personalizado la disposición de los paneles respecto a los valores por defecto. La columna de la izquierda es el \menu{Navigation Pane}, que muestra las miniaturas de todas las páginas. Hacia la derecha y arriba está el \menu{Image Pane}, que muestra la página actual. A la derecha de este está el \menu{Text Pane}, con el texto reconocido. Debajo de estos dos últimos tenemos el \menu{Zoom Pane}, que muestra un zoom del \menu{Image Pane}\label{fig:ABBYYstart}}
 	\end{figure}
 
 	\section{Reconocimiento} Esta es la parte sustanciosa de toda la etapa de \ocr.
@@ -834,17 +834,17 @@
 
 	El reconocimiento de páginas se realiza en dos pasos. El primero es de análisis (\menu{Analyze}) y el segundo de reconocimiento propiamente (\menu{Recognize}).
 
-	Mediante el análisis, \abby determina las zonas de contenido en la página. Estas pueden ser texto, imagen, tabla, imagen de fondo o área de reconocimiento. En la figura~\ref{fig:ABBYtools} se muestra el detalle de la barra con las herramientas para crear y editar las zonas. Además de los tipos de zona para dibujar tiene herramientas de selección, vistazo, eliminación y reordenación de zonas.\footnote{En inglés, las de dibujo son: \menu{Draw Text Area}, \menu{Draw Picture Area}, \menu{Draw Table Area}, \menu{Draw Background Picture Area} y \menu{Draw Recognition Area}. Y las de edición: \menu{Select Objects}, \menu{Pan Around the Page}, \menu{Delete Area} y \menu{Reorder Areas}. También existe una \menu{Barcode area}, para reconocer códigos de barras. No es muy útil y solo será mencionada aquí.}
+	Mediante el análisis, \abbyy determina las zonas de contenido en la página. Estas pueden ser texto, imagen, tabla, imagen de fondo o área de reconocimiento. En la figura~\ref{fig:ABBYYtools} se muestra el detalle de la barra con las herramientas para crear y editar las zonas. Además de los tipos de zona para dibujar tiene herramientas de selección, vistazo, eliminación y reordenación de zonas.\footnote{En inglés, las de dibujo son: \menu{Draw Text Area}, \menu{Draw Picture Area}, \menu{Draw Table Area}, \menu{Draw Background Picture Area} y \menu{Draw Recognition Area}. Y las de edición: \menu{Select Objects}, \menu{Pan Around the Page}, \menu{Delete Area} y \menu{Reorder Areas}. También existe una \menu{Barcode area}, para reconocer códigos de barras. No es muy útil y solo será mencionada aquí.}
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=.5\linewidth]{ABBYtools}
-		\caption{Herramientas de edición de zonas de \abby\label{fig:ABBYtools}}
+		\includegraphics[width=.5\linewidth]{ABBYYtools}
+		\caption{Herramientas de edición de zonas de \abbyy\label{fig:ABBYYtools}}
 	\end{figure}
 
 	Salvo que el contenido sea muy homogéneo, por ejemplo: solo texto o texto con alguna foto o ilustración, el algoritmo de segmentación de zonas no funciona muy bien y estas deben ser delimitadas manualmente.
 
-	Normalmente las creo como \menu{Recognition areas} (áreas de reconocimiento), para que \abby determine el tipo de contenido y ajuste el tamaño. Esto no es estrictamente necesario y el área puede ser más grande que el contenido que se busca reconocer, mientras no se solape con ninguna otra. Puede establecerse el tipo (generalmente \menu{Text}) manualmente durante la creación.
+	Normalmente las creo como \menu{Recognition areas} (áreas de reconocimiento), para que \abbyy determine el tipo de contenido y ajuste el tamaño. Esto no es estrictamente necesario y el área puede ser más grande que el contenido que se busca reconocer, mientras no se solape con ninguna otra. Puede establecerse el tipo (generalmente \menu{Text}) manualmente durante la creación.
 
 	Se pueden dibujar tantas áreas como uno quiera. Para nuestro procedimiento usaremos solo las de texto y las de tablas. No será necesario marcar diagramas o fotos (aún si no las hubiéramos separado con \scantailor), pues elegimos la opción \menu{Text under the page image}, que preservará las imágenes originales e insertará el texto reconocido debajo de las mismas.
 
@@ -856,50 +856,50 @@
 
 	\subsection{Errores y recomendaciones} A continuación hablaremos sobre algunos de los errores de reconocimiento comunes que vamos a encontrar y daremos algunas recomendaciones. Como siempre, se trata de lineamientos con los que he trabajado y que considero que funcionan bien, pero cada uno deberá experimentar y encontrar el punto de trabajo con el que se siente cómodo. %sweet spot.
 
-	\subsubsection{Advertencias de \abby\label{sec:ABBYwarnings}} Como \abby pretende abarcar todo el proceso de creación del documento, para casi todas las páginas emite advertencias del tipo de las que se ven en la figura~\ref{fig:ABBYwarnings}. Generalmente indica que se necesita desinclinar la imagen, aunque a veces también sugiere cambiar los dpi de la imagen o hacer algún ajuste de brillo o contraste.
+	\subsubsection{Advertencias de \abbyy\label{sec:ABBYYwarnings}} Como \abbyy pretende abarcar todo el proceso de creación del documento, para casi todas las páginas emite advertencias del tipo de las que se ven en la figura~\ref{fig:ABBYYwarnings}. Generalmente indica que se necesita desinclinar la imagen, aunque a veces también sugiere cambiar los dpi de la imagen o hacer algún ajuste de brillo o contraste.
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=.7\linewidth]{ABBYwarnings}
-		\caption{Advertencias típicas de \abby\label{fig:ABBYwarnings}}
+		\includegraphics[width=.7\linewidth]{ABBYYwarnings}
+		\caption{Advertencias típicas de \abbyy\label{fig:ABBYYwarnings}}
 	\end{figure}
 
-	La ventana ofrece abrir su propio editor de imagen para hacer ajustes. Si seguimos correctamente los pasos de la guía no deberíamos necesitar hacer ninguna corrección en esta etapa. Si aun así fuera, deberemos utilizar el script~\ref{scr:replaceInABBY} como se explica más adelante, pero nunca el editor de \abby. Por tanto, debemos ignorar las advertencias presionando \keys{Close}.
+	La ventana ofrece abrir su propio editor de imagen para hacer ajustes. Si seguimos correctamente los pasos de la guía no deberíamos necesitar hacer ninguna corrección en esta etapa. Si aun así fuera, deberemos utilizar el script~\ref{scr:replaceInABBYY} como se explica más adelante, pero nunca el editor de \abbyy. Por tanto, debemos ignorar las advertencias presionando \keys{Close}.
 
-	\subsubsection{Pestaña \texttt{Areas and Text}} \abby permite resaltar los errores o dudas de reconocimiento que tenga, de forma de facilitar la corrección manual. Para la configuración de este comportamiento tenemos la pestaña \menu{Areas and Text} del menú de opciones (fig.~\ref{fig:ABBYoptionsAreasAndText}), donde podemos elegir qué resaltar y con qué colores. Recomiendo elegir un color fácilmente distinguible para los caracteres dudosos.\footnote{El cian que viene configurado por defecto puede confundirse con el fondo blanco, por lo que normalmente uso algún rojo.}
+	\subsubsection{Pestaña \texttt{Areas and Text}} \abbyy permite resaltar los errores o dudas de reconocimiento que tenga, de forma de facilitar la corrección manual. Para la configuración de este comportamiento tenemos la pestaña \menu{Areas and Text} del menú de opciones (fig.~\ref{fig:ABBYYoptionsAreasAndText}), donde podemos elegir qué resaltar y con qué colores. Recomiendo elegir un color fácilmente distinguible para los caracteres dudosos.\footnote{El cian que viene configurado por defecto puede confundirse con el fondo blanco, por lo que normalmente uso algún rojo.}
 
 	\begin{figure}
-		\includegraphics[width=\linewidth]{ABBYoptionsAreasAndText}
-		\caption[Opciones de \abby. Pestaña Areas and Text]{Opciones de \abby. Pestaña \menu{Areas and Text}\label{fig:ABBYoptionsAreasAndText}}
+		\includegraphics[width=\linewidth]{ABBYYoptionsAreasAndText}
+		\caption[Opciones de \abbyy. Pestaña Areas and Text]{Opciones de \abbyy. Pestaña \menu{Areas and Text}\label{fig:ABBYYoptionsAreasAndText}}
 	\end{figure}
 
 	\subsubsection{Reconocimiento por página o por área} Por alguna razón, muchas veces los resultados de reconocer toda la página de una vez y de hacerlo área por área difieren. Si hay un área muy problemática, podemos intentar reconocerla nuevamente, para ver si al ser individualizada los resultados mejoran.
 
-	\subsubsection{Nuevos errores y actualización del proyecto\label{sec:ABBYCorrectionsSpotAndArea}} A veces durante el proceso de reconocimiento descubrimos errores que pasamos por alto durante el proceso de limpieza y ajuste. Pueden ser manchas, caracteres mal impresos o cualquier cosa que no queramos que quede en nuestro documento final. Nótense por ejemplo las manchas en la figura~\ref{fig:ABBYCorrectionsSpotAndArea}.
+	\subsubsection{Nuevos errores y actualización del proyecto\label{sec:ABBYYCorrectionsSpotAndArea}} A veces durante el proceso de reconocimiento descubrimos errores que pasamos por alto durante el proceso de limpieza y ajuste. Pueden ser manchas, caracteres mal impresos o cualquier cosa que no queramos que quede en nuestro documento final. Nótense por ejemplo las manchas en la figura~\ref{fig:ABBYYCorrectionsSpotAndArea}.
 
 	\begin{figure}
-		\includegraphics[width=\linewidth]{ABBYCorrectionsSpotAndArea}
-		\caption[Dos manchas no detectadas durante el paso de limpieza y guion dejado fuera del área de reconocimiento]{Dos manchas no detectadas durante el paso de limpieza y guion dejado fuera del área de reconocimiento. Se muestra la sección del área de texto correspondiente\label{fig:ABBYCorrectionsSpotAndArea}}
+		\includegraphics[width=\linewidth]{ABBYYCorrectionsSpotAndArea}
+		\caption[Dos manchas no detectadas durante el paso de limpieza y guion dejado fuera del área de reconocimiento]{Dos manchas no detectadas durante el paso de limpieza y guion dejado fuera del área de reconocimiento. Se muestra la sección del área de texto correspondiente\label{fig:ABBYYCorrectionsSpotAndArea}}
 	\end{figure}
 
-	Entonces, volvemos a \scantailor (y/o \gimp), hacemos las modificaciones pertinentes y nos vemos ante el problema de actualizar el proyecto de \abby. Podemos hacer \menu{\rightclick > Page Properties} en la página correspondiente en el panel de navegación y presionar en \keys{Reopen Page}, seleccionando la página que acabamos de corregir. Este procedimiento es un poco tedioso, pero para pocas páginas está bien.
+	Entonces, volvemos a \scantailor (y/o \gimp), hacemos las modificaciones pertinentes y nos vemos ante el problema de actualizar el proyecto de \abbyy. Podemos hacer \menu{\rightclick > Page Properties} en la página correspondiente en el panel de navegación y presionar en \keys{Reopen Page}, seleccionando la página que acabamos de corregir. Este procedimiento es un poco tedioso, pero para pocas páginas está bien.
 
-	Si las ediciones son frecuentes, podemos ahorrar algo de tiempo mientras no cambiemos las dimensiones de la imagen,\footnote{Esto no debería ocurrir en este punto.} ejecutando el script~\ref{scr:replaceInABBY}.\footnote{Para que funcione debemos haber mantenido la numeración correcta de las páginas y \emph{no haber usado} \keys{Reopen Page} con esta página. Además, la imagen debe ser bitonal y \abby no debe tenerla abierta, para lo que debemos seleccionar alguna otra.} Este nos consulta por la página que queremos substituir y lo hace rápidamente. Su funcionamiento es un poco delicado, por lo que si no funciona bien recomiendo leer el apéndice~\ref{sec:abbyProjectStructure} para intentar arreglarlo.
+	Si las ediciones son frecuentes, podemos ahorrar algo de tiempo mientras no cambiemos las dimensiones de la imagen,\footnote{Esto no debería ocurrir en este punto.} ejecutando el script~\ref{scr:replaceInABBYY}.\footnote{Para que funcione debemos haber mantenido la numeración correcta de las páginas y \emph{no haber usado} \keys{Reopen Page} con esta página. Además, la imagen debe ser bitonal y \abbyy no debe tenerla abierta, para lo que debemos seleccionar alguna otra.} Este nos consulta por la página que queremos substituir y lo hace rápidamente. Su funcionamiento es un poco delicado, por lo que si no funciona bien recomiendo leer el apéndice~\ref{sec:abbyyProjectStructure} para intentar arreglarlo.
 
-	\pythonScript{replaceInABBY.py}%
-	\scriptcaption{Reemplazo de imagen bitonal en \abby 14\label{scr:replaceInABBY}}
+	\pythonScript{replaceInABBYY.py}%
+	\scriptcaption{Reemplazo de imagen bitonal en \abbyy 14\label{scr:replaceInABBYY}}
 
-	\subsubsection{Ajuste del alfabeto} El alfabeto es el conjunto de caracteres que el programa asume que pueden aparecer en un documento dado. Al crear nuestro idioma se elije por defecto un conjunto más o menos razonable de letras, números y signos de puntuación. \abby solo reconocerá aquellos caracteres que pertenezcan a este alfabeto.
+	\subsubsection{Ajuste del alfabeto} El alfabeto es el conjunto de caracteres que el programa asume que pueden aparecer en un documento dado. Al crear nuestro idioma se elije por defecto un conjunto más o menos razonable de letras, números y signos de puntuación. \abbyy solo reconocerá aquellos caracteres que pertenezcan a este alfabeto.
 
 	Si nuestro documento utiliza más caracteres,\footnote{Por ejemplo, nuestro material contiene algunas letras del alfabeto griego.} debemos agregarlos al diccionario y preferentemente entrenar el patrón de usuario para facilitar su reconocimiento.
 
-	Esto lo haremos editando las propiedades de nuestro idioma (fig.~\ref{fig:ABBYoptionsLanguagesLanguageProperties}). Allí, presionando \keys{\raisebox{.25em}{\...}}, podemos ver y editar los caracteres incluidos.\footnote{En realidad básicamente solo las letras y números. \keys{Advanced} despliega un menú similar, pero que además incluye los distintos símbolos y signos de puntuación. En algún caso podríamos necesitar trabajar con él (es análogo).}
+	Esto lo haremos editando las propiedades de nuestro idioma (fig.~\ref{fig:ABBYYoptionsLanguagesLanguageProperties}). Allí, presionando \keys{\raisebox{.25em}{\...}}, podemos ver y editar los caracteres incluidos.\footnote{En realidad básicamente solo las letras y números. \keys{Advanced} despliega un menú similar, pero que además incluye los distintos símbolos y signos de puntuación. En algún caso podríamos necesitar trabajar con él (es análogo).}
 
-	El cuadro de diálogo se muestra en la figura~\ref{fig:ABBYoptionsLanguagesLanguagePropertiesAlphabet}. En el menú desplegable \menu{Unicode subrange} tenemos páginas con los diferentes conjuntos de caracteres para seleccionar.\footnote{Normalmente solo uso caracteres de las páginas: \menu{Basic Latin}, \menu{Latin-1 Supplement}, \menu{Basic Greek}, \menu{General Punctuation} y \menu{Mathematical Operators}, si bien hay algunos de otras páginas seleccionados por defecto. Esto dependerá mucho de lo que haya impreso en el material que estemos reconociendo.}
+	El cuadro de diálogo se muestra en la figura~\ref{fig:ABBYYoptionsLanguagesLanguagePropertiesAlphabet}. En el menú desplegable \menu{Unicode subrange} tenemos páginas con los diferentes conjuntos de caracteres para seleccionar.\footnote{Normalmente solo uso caracteres de las páginas: \menu{Basic Latin}, \menu{Latin-1 Supplement}, \menu{Basic Greek}, \menu{General Punctuation} y \menu{Mathematical Operators}, si bien hay algunos de otras páginas seleccionados por defecto. Esto dependerá mucho de lo que haya impreso en el material que estemos reconociendo.}
 
 	\begin{figure}
-		\includegraphics[width=\linewidth]{ABBYoptionsLanguagesLanguagePropertiesAlphabet}
-		\caption{Edición del alfabeto\label{fig:ABBYoptionsLanguagesLanguagePropertiesAlphabet}}
+		\includegraphics[width=\linewidth]{ABBYYoptionsLanguagesLanguagePropertiesAlphabet}
+		\caption{Edición del alfabeto\label{fig:ABBYYoptionsLanguagesLanguagePropertiesAlphabet}}
 	\end{figure}
 
 	Podría ocurrir que nuestro alfabeto tuviera caracteres que no aparecen en nuestro material, pero que el software está confundiendo. Por ejemplo, es frecuente la confusión entre «*» y «$\bullet$». Si este último símbolo no aparece entonces podemos borrarlo del alfabeto (o agregarlo a los caracteres prohibidos en el menú \menu{Advanced}). Esto no nos asegura el reconocimiento que esperamos (todavía podría confundirlo con otro), pero en general mejora los resultados.
@@ -908,12 +908,12 @@
 
 	\subsubsection{Numeración de las zonas} La numeración de las zonas es importante si queremos que la selección de texto sea natural en la página.
 
-	El número del area seleccionada lo podemos ver en la pestaña \menu{Area Properties} que se encuentra debajo del \menu{Image Pane} (fig.~\ref{fig:ABBYareaProperties}). Allí además podemos cambiar el tipo de área, el idioma y haciendo clic en \keys{\,\faCaretRight} accedemos a la orientación y otras opciones.
+	El número del area seleccionada lo podemos ver en la pestaña \menu{Area Properties} que se encuentra debajo del \menu{Image Pane} (fig.~\ref{fig:ABBYYareaProperties}). Allí además podemos cambiar el tipo de área, el idioma y haciendo clic en \keys{\,\faCaretRight} accedemos a la orientación y otras opciones.
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=.7\linewidth]{ABBYareaProperties}
-		\caption[Pestaña Area Properties de \abby]{Pestaña \menu{Area Properties} de \abby\label{fig:ABBYareaProperties}}
+		\includegraphics[width=.7\linewidth]{ABBYYareaProperties}
+		\caption[Pestaña Area Properties de \abbyy]{Pestaña \menu{Area Properties} de \abbyy\label{fig:ABBYYareaProperties}}
 	\end{figure}
 
 	Supongamos que tenemos tres zonas que se encuentran una encima de la otra. Si de arriba hacia abajo las ordenamos 1-3-2, cuando en el documento final queramos seleccionar texto de distintas áreas a la vez, veremos que no ocurre como desearíamos. El orden correcto sería obviamente 1-2-3. Recomiendo experimentar un poco cambiando los números y viendo el resultado para entender de que estamos hablando.
@@ -922,53 +922,53 @@
 
 	\subsubsection{Texto rotado} A veces parte del texto impreso en una página tiene una orientación distinta del resto. Por ejemplo, es común que en las gráficas, la etiqueta del eje vertical se imprima rotada 90\textdegree. Si el texto en el área que queremos reconocer se encuentra rotado 90\textdegree, 180\textdegree\ o 270\textdegree, debemos seleccionar el tipo de área \menu{Text} y desde el menú de propiedades del área indicar que orientación tiene para que el reconocimiento funcione bien (\menu{Rotated left}, \menu{Rotated right} o \menu{Rotated 180 degrees}). Para texto a 45\textdegree\ u otro ángulo no recto no disponemos de opciones, por lo que no podrá ser reconocido.
 
-	\subsubsection{Mejor diccionario que edición manual} Si hay alguna palabra mal reconocida es probable que esta no esté en el diccionario. Si es así, \abby la subraya y haciendo \keys{\rightclick} sobre ella nos presenta una lista de posibles candidatas tomadas del diccionario. Desde el punto de vista de mantener la selección en el documento final sincronizada con lo que se está viendo, es mejor corregir la palabra de esta manera que borrando y tipeando manualmente.
+	\subsubsection{Mejor diccionario que edición manual} Si hay alguna palabra mal reconocida es probable que esta no esté en el diccionario. Si es así, \abbyy la subraya y haciendo \keys{\rightclick} sobre ella nos presenta una lista de posibles candidatas tomadas del diccionario. Desde el punto de vista de mantener la selección en el documento final sincronizada con lo que se está viendo, es mejor corregir la palabra de esta manera que borrando y tipeando manualmente.
 
-	\subsubsection{Área no abarca todo el contenido} En algunas áreas, sobre todo aquellas en donde el texto no está justificado, \abby tiende a dejar fuera algunos caracteres, especialmente los guiones o signos de puntuación (fig.~\ref{fig:ABBYCorrectionsSpotAndArea}). En estos casos debemos modificar el área para que pase a incluir todos los contenidos.
+	\subsubsection{Área no abarca todo el contenido} En algunas áreas, sobre todo aquellas en donde el texto no está justificado, \abbyy tiende a dejar fuera algunos caracteres, especialmente los guiones o signos de puntuación (fig.~\ref{fig:ABBYYCorrectionsSpotAndArea}). En estos casos debemos modificar el área para que pase a incluir todos los contenidos.
 
-	\subsubsection{Errores comunes} Para los errores que se repiten comúnmente, por ejemplo cuando \abby confunde «\textit{R}» por «/?», podemos ir tomando nota en un archivo de texto. Al terminar de reconocer todas las páginas, usamos la función de buscar (\keys{\ctrl + F}) para encontrarlos y corregirlos todos de una sola vez.
+	\subsubsection{Errores comunes} Para los errores que se repiten comúnmente, por ejemplo cuando \abbyy confunde «\textit{R}» por «/?», podemos ir tomando nota en un archivo de texto. Al terminar de reconocer todas las páginas, usamos la función de buscar (\keys{\ctrl + F}) para encontrarlos y corregirlos todos de una sola vez.
 
-	\subsubsection{Erratas en el original} A veces el material contiene erratas que pueden ser detectadas porque \abby resalta con subrayado rojo las palabras que no conoce. En los casos de la figura~\ref{fig:ABBYCorrectionsTypos} se trata de palabras a las que les faltó una letra. Para corregirlas podemos insertar manualmente la letra faltante o, aún mejor, hacer \keys{\rightclick} sobre la palabra subrayada y elegir la correcta dentro de la lista de sugerencias que se nos ofrece.
+	\subsubsection{Erratas en el original} A veces el material contiene erratas que pueden ser detectadas porque \abbyy resalta con subrayado rojo las palabras que no conoce. En los casos de la figura~\ref{fig:ABBYYCorrectionsTypos} se trata de palabras a las que les faltó una letra. Para corregirlas podemos insertar manualmente la letra faltante o, aún mejor, hacer \keys{\rightclick} sobre la palabra subrayada y elegir la correcta dentro de la lista de sugerencias que se nos ofrece.
 
 	Otra alternativa es editar el original con \gimp para corregir la errata.
 
 	\begin{figure}
-		\subbottom[«Detemination» en vez de «Dete\textbf{r}mination»]{\includegraphics[width=\linewidth]{ABBYCorrectionsTypo1}}
-		\subbottom[«homogenities» en vez de «homogen\textbf{e}ities»]{\includegraphics[width=\linewidth]{ABBYCorrectionsTypo2}}
-		\subbottom[«feaures» en vez de «fea\textbf{t}ures»]{\includegraphics[width=\linewidth]{ABBYCorrectionsTypo3}}
-		\caption{Algunas erratas en el libro de ejemplo\label{fig:ABBYCorrectionsTypos}}
+		\subbottom[«Detemination» en vez de «Dete\textbf{r}mination»]{\includegraphics[width=\linewidth]{ABBYYCorrectionsTypo1}}
+		\subbottom[«homogenities» en vez de «homogen\textbf{e}ities»]{\includegraphics[width=\linewidth]{ABBYYCorrectionsTypo2}}
+		\subbottom[«feaures» en vez de «fea\textbf{t}ures»]{\includegraphics[width=\linewidth]{ABBYYCorrectionsTypo3}}
+		\caption{Algunas erratas en el libro de ejemplo\label{fig:ABBYYCorrectionsTypos}}
 	\end{figure}
 
 	\subsubsection{Vista previa} Podemos inspeccionar como va a quedar una página haciendo \menu{\rightclick > Save as > Searchable PDF Document} en la correspondiente miniatura en el panel de navegación. Si tenemos alguna duda, conviene abrir el \pdf creado y seleccionar el texto de interés para ver que esté alineado con la imagen. También podemos copiar y pegar en \notepad, para ver que haya sido bien reconocido.
 
-	\subsection{Patrones} \abby contiene patrones por defecto que han sido entrenados con muchos tipos de documentos. En general funcionan bien, pero es conveniente ayudarlo un poco entrenando un patrón personalizado para el documento presente.
+	\subsection{Patrones} \abbyy contiene patrones por defecto que han sido entrenados con muchos tipos de documentos. En general funcionan bien, pero es conveniente ayudarlo un poco entrenando un patrón personalizado para el documento presente.
 
-	El proceso de entrenamiento no es difícil, pero para los detalles refiero al lector al manual de usuario de \abby. A continuación veremos algunos consejos y buenas prácticas respecto al trabajo con patrones.
+	El proceso de entrenamiento no es difícil, pero para los detalles refiero al lector al manual de usuario de \abbyy. A continuación veremos algunos consejos y buenas prácticas respecto al trabajo con patrones.
 
-	\subsubsection{Configuración} Para que el patrón entrenado se use hay que tener marcada la opción \menu{\typesetDotCircle{Use user patterns}} con \menu{\typesetCheckbox{Also use built-in patterns}}, de manera de que se puedan complementar (fig.~\ref{fig:ABBYoptionsOCR}). Solo el patrón personalizado es mala idea: no funciona bien y además no se adapta a los diferentes tamaños y fuentes que pueda haber en el documento.
+	\subsubsection{Configuración} Para que el patrón entrenado se use hay que tener marcada la opción \menu{\typesetDotCircle{Use user patterns}} con \menu{\typesetCheckbox{Also use built-in patterns}}, de manera de que se puedan complementar (fig.~\ref{fig:ABBYYoptionsOCR}). Solo el patrón personalizado es mala idea: no funciona bien y además no se adapta a los diferentes tamaños y fuentes que pueda haber en el documento.
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=\linewidth]{ABBYoptionsOCR}
-		\caption[Opciones de \abby. Pestaña OCR]{Opciones de \abby. Pestaña \menu{OCR}\label{fig:ABBYoptionsOCR}}
+		\includegraphics[width=\linewidth]{ABBYYoptionsOCR}
+		\caption[Opciones de \abbyy. Pestaña OCR]{Opciones de \abbyy. Pestaña \menu{OCR}\label{fig:ABBYYoptionsOCR}}
 	\end{figure}
 
 	\subsubsection{Qué entrenar} Debe tenerse en cuenta que el patrón debe corresponder a un solo tipo y tamaño de fuente. Es decir, será perjudicial entrenarlo con texto principal y con el de los títulos, cubiertas, etc. Sí soporta bien variantes de la misma fuente, como pueden ser negrita, cursiva, superíndice o subíndice.
 
-	De todas formas, debemos ser cuidadosos. A veces sucede que el programa reconoce bien alguna letra y al entrenar un poco el patrón deja de hacerlo, o comienza a confundirla con otra. En mi experiencia, es conveniente no entrenar la letra «l», pues una vez que lo hacemos comienza a confundir los «1» con estas, y las secciones muchas veces pasan a decir «l.l» en lugar de «1.1», o similares. Lo mismo puede suceder con otros carácteres. Ante la duda se puede guardar el patrón presionando \keys{Save Patterns and Languages\...} (fig.~\ref{fig:ABBYoptionsOCR}) y probar editarlo, eliminando o agregando algún carácter para ver como reacciona el programa. En caso de que no se obtengan los resultados buscados, se puede restaurar presionando en \keys{Load Patterns and Languages\...}.
+	De todas formas, debemos ser cuidadosos. A veces sucede que el programa reconoce bien alguna letra y al entrenar un poco el patrón deja de hacerlo, o comienza a confundirla con otra. En mi experiencia, es conveniente no entrenar la letra «l», pues una vez que lo hacemos comienza a confundir los «1» con estas, y las secciones muchas veces pasan a decir «l.l» en lugar de «1.1», o similares. Lo mismo puede suceder con otros carácteres. Ante la duda se puede guardar el patrón presionando \keys{Save Patterns and Languages\...} (fig.~\ref{fig:ABBYYoptionsOCR}) y probar editarlo, eliminando o agregando algún carácter para ver como reacciona el programa. En caso de que no se obtengan los resultados buscados, se puede restaurar presionando en \keys{Load Patterns and Languages\...}.
 
 	\subsubsection{Ligaduras} En tipografía existen las así llamadas ligaduras, que ocurren cuando dos o más caracteres que se imprimen juntos quedan unidos. Son ligaduras frecuentes (en el alfabeto latino) «fi», «ff», «ffi» y «ffl», aunque puede haber otras.
 
-	Podemos entrenar nuestro patrón para reconocer ciertas ligaduras. Si esta no existe previamente \abby ofrece incluirla en el alfabeto. Véase la figura~\ref{fig:ABBYPatternTrainingLigature}.
+	Podemos entrenar nuestro patrón para reconocer ciertas ligaduras. Si esta no existe previamente \abbyy ofrece incluirla en el alfabeto. Véase la figura~\ref{fig:ABBYYPatternTrainingLigature}.
 
 	\begin{figure}
-		\includegraphics[width=\linewidth]{ABBYPatternTrainingLigature}
-		\caption{Entrenamiento y creación de la ligadura «fl» en \abby\label{fig:ABBYPatternTrainingLigature}}
+		\includegraphics[width=\linewidth]{ABBYYPatternTrainingLigature}
+		\caption{Entrenamiento y creación de la ligadura «fl» en \abbyy\label{fig:ABBYYPatternTrainingLigature}}
 	\end{figure}
 
-	A veces es útil entrenar como ligaduras pares o ternas de letras que en realidad no lo son. Por ejemplo en los subíndices. A veces \abby tiene dificultad para reconocer el subíndice de $A_{bc}$ (o similar). En dicho caso podría servir entrenar el patrón para que reconozca $_{bc}$ como una ligadura, aunque estrictamente no lo sea.
+	A veces es útil entrenar como ligaduras pares o ternas de letras que en realidad no lo son. Por ejemplo en los subíndices. A veces \abbyy tiene dificultad para reconocer el subíndice de $A_{bc}$ (o similar). En dicho caso podría servir entrenar el patrón para que reconozca $_{bc}$ como una ligadura, aunque estrictamente no lo sea.
 
-	\subsubsection{Patrón + diccionario} El reconocimiento se basa fuertemente en el diccionario del idioma correspondiente. Si nuestro material contiene palabras que no están en el diccionario, \abby tiene más probabilidad de reconocerlas erróneamente. Para ayudarle, podemos incluir estas palabras en el diccionario a medida que van apareciendo. Inclusive ayuda agregar siglas o claves del tipo «l.s.d.» (\emph{least significant digit}, dígito menos significativo), «1.6.» (para los números de sección o de ecuación), «LED», etc.
+	\subsubsection{Patrón + diccionario} El reconocimiento se basa fuertemente en el diccionario del idioma correspondiente. Si nuestro material contiene palabras que no están en el diccionario, \abbyy tiene más probabilidad de reconocerlas erróneamente. Para ayudarle, podemos incluir estas palabras en el diccionario a medida que van apareciendo. Inclusive ayuda agregar siglas o claves del tipo «l.s.d.» (\emph{least significant digit}, dígito menos significativo), «1.6.» (para los números de sección o de ecuación), «LED», etc.
 
 	Con un patrón suficientemente entrenado y un diccionario que contenga la mayoría de las palabras que aparecen en nuestro material solo tendremos que corregir algunos errores en cada página.
 
@@ -980,7 +980,7 @@
 
 	Análogamente, guardaremos un archivo \typesetFile{OCR.djvu}. Este no será de base, sino que lo usaremos solo para extraerle la capa de texto reconocida e insertarla en nuestro \djvu final (ver~\ref{sec:djvuOCR}).
 
-	\section{Conclusiones} El reconocimiento de texto es una etapa importante del procesamiento que aumenta la accesibilidad de su contenido. Puede realizarse de manera más o menos automatizada, pero no debería omitirse. En este capítulo analizamos las principales configuraciones de \abby, así como los problemas que podríamos encontrar en el camino y discutimos algunas formas de resolverlos.
+	\section{Conclusiones} El reconocimiento de texto es una etapa importante del procesamiento que aumenta la accesibilidad de su contenido. Puede realizarse de manera más o menos automatizada, pero no debería omitirse. En este capítulo analizamos las principales configuraciones de \abbyy, así como los problemas que podríamos encontrar en el camino y discutimos algunas formas de resolverlos.
 
 	En los capítulos siguientes veremos como crear los documentos que incluyan tanto nuestras imágenes procesadas como el texto reconocido.
 
@@ -1166,7 +1166,7 @@
 
 	Las más importantes son las del menú \menu{\typesetCheckbox{Images}}. Hay que elegir \menu{Downsample > Off} para todos los tipos de imágenes, pues las resoluciones las hemos ajustado en pasos anteriores. Igualmente, ya hemos elegido la calidad de todas las ilustraciones, por lo que para que no sean recomprimidas seleccionamos \menu{Compression > Retain existing} para las \menu{Color Images} y \menu{Grayscale Images}.
 
-	Donde sí hay cierta discrecionalidad es en las \menu{Monochrome Images}, que todavía no hemos tocado. Debemos elegir \menu{Compression > JBIG2}, que es un algoritmo moderno y muy eficiente para comprimir imágenes monocromáticas.\footnote{\menu{CCITT Group 4} es una alternativa, pero fue diseñada para la máquinas de fax y ya es algo obsoleta. \textsc{jbig2} genera archivos entre 3 y 5 veces menores.} Este nos ofrece las opciones \menu{Lossy} y \menu{Lossless} (con y sin pérdidas). Personalmente elijo siempre \menu{Lossless}, dado que en las pruebas que he hecho el tamaño final es prácticamente el mismo.\footnote{Desde que \abby incorpora compresión \jbig, este párrafo se ha vuelto redundante: aplicarlo no mejora el tamaño de archivo.}
+	Donde sí hay cierta discrecionalidad es en las \menu{Monochrome Images}, que todavía no hemos tocado. Debemos elegir \menu{Compression > JBIG2}, que es un algoritmo moderno y muy eficiente para comprimir imágenes monocromáticas.\footnote{\menu{CCITT Group 4} es una alternativa, pero fue diseñada para la máquinas de fax y ya es algo obsoleta. \textsc{jbig2} genera archivos entre 3 y 5 veces menores.} Este nos ofrece las opciones \menu{Lossy} y \menu{Lossless} (con y sin pérdidas). Personalmente elijo siempre \menu{Lossless}, dado que en las pruebas que he hecho el tamaño final es prácticamente el mismo.\footnote{Desde que \abbyy incorpora compresión \jbig, este párrafo se ha vuelto redundante: aplicarlo no mejora el tamaño de archivo.}
 
 	En \menu{\typesetCheckbox{Discard Objects}} debemos desmarcar \menu{\typesetBox{Discard document tags}} y \menu{\typesetBox{Discard bookmarks}}, para no perder el trabajo de la parte anterior. Lo mismo con \menu{\typesetBox{Discard document information and metadata}} en el menú \menu{\typesetCheckbox{Discard User Data}}.
 
@@ -1392,7 +1392,7 @@
 
 	Si por alguna razón el orden en la lista de archivos no fuera el correcto, podemos presionar \keys{\rotatebox[origin=c]{90}{\faCut}} (\menu{Edit files list}) y ordenarlos manualmente. Aunque si fuimos preservando la correcta numeración de los archivos esto no debería ocurrir.
 
-	\section{Inserción de la capa \texorpdfstring{\ocr}{OCR}\label{sec:djvuOCR}} Para insertar la capa de texto que reconocimos tenemos el script~\ref{scr:djvuOCR}, que mediante la ejecución del programa \typesetExe{djvused.exe} de \djvulibre extrae la capa de texto del archivo \typesetFile{OCR.djvu} que creamos con \abby. Luego de la búsqueda y sustitución de algunas expresiones regulares, usa el mismo programa para insertarla en el documento \typesetFile{SCAN\_INS\_OCR.djvu}.
+	\section{Inserción de la capa \texorpdfstring{\ocr}{OCR}\label{sec:djvuOCR}} Para insertar la capa de texto que reconocimos tenemos el script~\ref{scr:djvuOCR}, que mediante la ejecución del programa \typesetExe{djvused.exe} de \djvulibre extrae la capa de texto del archivo \typesetFile{OCR.djvu} que creamos con \abbyy. Luego de la búsqueda y sustitución de algunas expresiones regulares, usa el mismo programa para insertarla en el documento \typesetFile{SCAN\_INS\_OCR.djvu}.
 
 	\pythonScript{djvuOCR.py}
 	\scriptcaption{Inserción de la capa \ocr en documento \djvu\label{scr:djvuOCR}}
@@ -1427,7 +1427,7 @@
 	\pythonScript{djvuMetadata.py}
 	\scriptcaption{Inserción de metadatos en documento \djvu\label{scr:djvuMetadata}}
 
-	\section{Conclusiones} La producción del \djvu es similar a la del \pdf, aunque con algunas diferencias notables. Primero, tenemos dos alternativas para creación del documento: \djvusmall y \djvusmallmod. En el primer caso debemos usar otro software para insertar las fotos, mientras que el segundo se encarga de todo. Luego usamos un script para insertar el texto, que tomamos del \djvu generado por \abby. Finalmente agregamos marcadores, etiquetas de página y metadatos.
+	\section{Conclusiones} La producción del \djvu es similar a la del \pdf, aunque con algunas diferencias notables. Primero, tenemos dos alternativas para creación del documento: \djvusmall y \djvusmallmod. En el primer caso debemos usar otro software para insertar las fotos, mientras que el segundo se encarga de todo. Luego usamos un script para insertar el texto, que tomamos del \djvu generado por \abbyy. Finalmente agregamos marcadores, etiquetas de página y metadatos.
 
 % ------------------------------------------------------------------------------
 % ---------------------------------  PART III  ---------------------------------
@@ -1498,7 +1498,7 @@
 		\caption[Comparación entre original y binarizado.]{Comparación entre original y binarizado. El efecto ha sido acentuado por claridad; en la práctica no será tan notorio\label{fig:SToutputPictureZonesBitonal}}
 	\end{figure}
 
-	De proceder así, todas nuestras imágenes serán bitonales (a excepción tal vez de las cubiertas). Así las cargaremos en \abby y luego podremos codificarlas en \djvu usando el perfil \menu{MyBitonal} sin discriminación.
+	De proceder así, todas nuestras imágenes serán bitonales (a excepción tal vez de las cubiertas). Así las cargaremos en \abbyy y luego podremos codificarlas en \djvu usando el perfil \menu{MyBitonal} sin discriminación.
 
 	\section{Procesamiento posterior} La otra alternativa es no tocar nada hasta el momento de codificar. En el caso del \pdf, deberemos optimizar el archivo para bajar un poco el tamaño como se explica en~\ref{sec:pdfOptimize}. La desventaja es que las páginas bitonales se codificarán usando el algoritmo \jbig, mientras que las que contengan fotos usarán \jpeg. Este método de compresión no es el más adecuado para el texto, por lo que aparecerán los característicos artefactos de la figura~\ref{fig:SToutputPictureZonesJpeg} alrededor del mismo.
 
@@ -1516,7 +1516,7 @@
 
 	La limpieza y ajuste se simplificarán a costa de no corregir prácticamente nada. En el paso 6 de \scantailor debemos elegir \menu{Mode > Color / Grayscale}, que aplicará todos los filtros pero no binarizará nada. De esta forma obtendremos las imágenes recortadas y desinclinadas, con márgenes que deberemos seleccionar en cada caso.
 
-	Esas imágenes son las que procesaremos con \abby, de la misma forma que se explica en~\ref{sec:OCR} (o en el apéndice~\ref{sec:simpleOCR}).
+	Esas imágenes son las que procesaremos con \abbyy, de la misma forma que se explica en~\ref{sec:OCR} (o en el apéndice~\ref{sec:simpleOCR}).
 
 	Para la codificación tanto del \pdf como del \djvu ignoraremos los pasos de inserción de imágenes.
 
@@ -1526,7 +1526,7 @@
 
 	Una vez codificado el archivo, los pasos de insertar la capa \ocr, marcadores, metadatos, etc. son idénticos.
 
-	\chapter{\texorpdfstring{\textsc{Ocr}}{OCR} simplificado\label{sec:simpleOCR}} Como alternativas al \abby para incluir el \ocr en nuestros documentos se pueden usar \acrobat y \djvueditor.
+	\chapter{\texorpdfstring{\textsc{Ocr}}{OCR} simplificado\label{sec:simpleOCR}} Como alternativas al \abbyy para incluir el \ocr en nuestros documentos se pueden usar \acrobat y \djvueditor.
 
 	Este método tiene por ventaja la rapidez, porque es totalmente automatizado. En cambio presenta varias desventajas. La primera es que vamos a usar un software distinto para cada formato, por lo que la capa de texto seguramente difiera de uno a otro.\footnote{No sé como exportar la capa \ocr de un formato e insertarla en otro.} Tampoco podremos hacer ningún tipo de corrección\footnote{\acrobat sí permite corregir, pero considero a la herramienta poco útil.} ni reconocer texto rotado.
 
@@ -1563,7 +1563,7 @@
 
 	Las bitonales se pueden comprimir en \menu{JBIG2} (\menu{Lossy} o \menu{Lossless}) o \menu{CCiTT Group 4} (no recomendado). Las que contengan algún elemento a color o en escala de grises en \menu{JPEG}, \menu{JPEG2000} o \menu{ZIP}. Con la barra deslizante ajustamos la calidad global del documento.
 
-	En \menu{Filters} recomiendo desactivar todas las correcciones, poniéndolas en \menu{Off}. Análogamente al trabajo con \abby, ya nos encargamos de preparar el documento con \scantailor, por lo que no queremos ahora que se corrija más nada (y menos automáticamente y sin posibilidad de revisión).
+	En \menu{Filters} recomiendo desactivar todas las correcciones, poniéndolas en \menu{Off}. Análogamente al trabajo con \abbyy, ya nos encargamos de preparar el documento con \scantailor, por lo que no queremos ahora que se corrija más nada (y menos automáticamente y sin posibilidad de revisión).
 
 	Por último, en \menu{Text Recognition Options} activamos \menu{\typesetCheckbox{Recognize Text}} y presionamos \keys{Edit}. En el cuadro de dialogo que aparece (fig.~\ref{fig:simpleOCRpdfEnhanceSettingsOCR}) tenemos para elegir el idioma (\menu{Document Language}) y un parámetro algo más misterioso llamado \menu{Output} con dos opciones: \menu{Searchable Image} y \menu{Editable Text and Images}.
 
@@ -1573,7 +1573,7 @@
 		\caption{\menu{Text Recognition Options > Edit} en \acrobat\label{fig:simpleOCRpdfEnhanceSettingsOCR}}
 	\end{figure}
 
-	La primera es equivalente a la opción \menu{Text under the page image} de \abby. Las imágenes se comprimen con las \menu{Optimization Options} elegidas y la capa de texto se inserta de manera invisible por debajo de estas.
+	La primera es equivalente a la opción \menu{Text under the page image} de \abbyy. Las imágenes se comprimen con las \menu{Optimization Options} elegidas y la capa de texto se inserta de manera invisible por debajo de estas.
 
 	A la segunda se le llamó originalmente \emph{ClearScan} \cite{ClearScan}. Lo que hace es tratar de generar una fuente sintética a partir del texto reconocido y utilizarla para reemplazar las imágenes de cada carácter. De esta manera pretende reducir el tamaño y obtener un resultado visualmente superior. Se ilustra un ejemplo en la figura~\ref{fig:simpleOCRpdfEnhanceGoodExamples}
 
@@ -1596,15 +1596,15 @@
 		\caption{Preferencias de \ocr en \djvueditor\label{fig:simpleOCRdjvuPreferences}}
 	\end{figure}
 
-\chapter{Estructura del proyecto de \abby 14\label{sec:abbyProjectStructure}} En la figura~\ref{fig:abbyProjectStructure} se presenta un diagrama del árbol de directorios que se genera cuando guardamos un proyecto de \abby~v14.
+\chapter{Estructura del proyecto de \abbyy 14\label{sec:abbyyProjectStructure}} En la figura~\ref{fig:abbyyProjectStructure} se presenta un diagrama del árbol de directorios que se genera cuando guardamos un proyecto de \abbyy~v14.
 
 El software crea una carpeta para cada página que vamos agregando. Esas carpetas son numeradas sucesivamente utilizando cuatro dígitos: \typesetFolder{0001}, \typesetFolder{0002}, \... Dentro de la carpeta se crean archivos que guardan información sobre esa página, las transformaciones que se le hicieron, su miniatura, etc, pero lo más importante es que para las páginas en blanco y negro se crea un archivo \typesetFile{bwPage.frdat}, que no es más que el \tiff original copiado y pegado allí.
 
-Si \abby no tiene esa página abierta, podemos reemplazar ese archivo por un \tiff con el mismo nombre y el software creerá que se trata de la imagen original. Esto funciona siempre que el nuevo \tiff también sea en blanco y negro y que además tenga las mismas dimensiones que el anterior.
+Si \abbyy no tiene esa página abierta, podemos reemplazar ese archivo por un \tiff con el mismo nombre y el software creerá que se trata de la imagen original. Esto funciona siempre que el nuevo \tiff también sea en blanco y negro y que además tenga las mismas dimensiones que el anterior.
 
 Algo parecido ocurre con las páginas a color, solo que estas se guardan divididas en sus componentes YCbCr \cite{YCbCr}: \typesetFile{grayComponent.frdat} guarda la componente de luma, \typesetFile{cbComponent.frdat} la de crominancia diferencia de azul y \typesetFile{crComponent.frdat} de crominancia diferencia de rojo. No he hecho pruebas, pero estimo que si queremos reemplazar la imagen podemos hacerlo al igual que con la páginas en blanco y negro, solo que habrá que generar primero estas tres componentes para reemplazar, tal vez usando \emph{ImageMagick}.
 
-Este reemplazo permite corregir con \scantailor errores encontrados en la etapa de \ocr sin tener que usar el cuadro de diálogo para reabrir la página. La ventaja de esto es que se mantiene la coherencia de la numeración: si usáramos el diálogo para reabrir, \abby en realidad eliminaría la carpeta correspondiente y crearía una nueva al final de la lista con la página reabierta. Por ejemplo, si nuestro material tuviera 461 páginas y decidiéramos reabrir la número 100, \abby eliminaría la carpeta \typesetFolder{0100} y crearía la \typesetFolder{0462}, donde colocaría la nueva página.
+Este reemplazo permite corregir con \scantailor errores encontrados en la etapa de \ocr sin tener que usar el cuadro de diálogo para reabrir la página. La ventaja de esto es que se mantiene la coherencia de la numeración: si usáramos el diálogo para reabrir, \abbyy en realidad eliminaría la carpeta correspondiente y crearía una nueva al final de la lista con la página reabierta. Por ejemplo, si nuestro material tuviera 461 páginas y decidiéramos reabrir la número 100, \abbyy eliminaría la carpeta \typesetFolder{0100} y crearía la \typesetFolder{0462}, donde colocaría la nueva página.
 
 \begin{figure}
 	\vspace{-\onelineskip}
@@ -1612,7 +1612,7 @@ Este reemplazo permite corregir con \scantailor errores encontrados en la etapa 
 		for tree={font=\sffamily, grow'=0,
 			folder indent=.9em, folder icons,
 			edge=densely dotted}
-		[ABBY
+		[ABBYY
 		[0001
 		[Image
 		[cbComponent.frdat, is file]
@@ -1642,7 +1642,7 @@ Este reemplazo permite corregir con \scantailor errores encontrados en la etapa 
 		[batchOptions.xml, is file]
 		]
 	\end{forest}
-	\caption{Árbol de directorios del proyecto de \abby\label{fig:abbyProjectStructure}}
+	\caption{Árbol de directorios del proyecto de \abbyy\label{fig:abbyyProjectStructure}}
 \end{figure}
 
 \chapter{Opciones avanzadas de codificación de \djvusmallmod\label{app:djvuSmallModAdvancedEncoding}}
@@ -1724,8 +1724,8 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Agregada una nota al pie en la sección~\ref{sec:scanningState}.
 				\item Agregado un ejemplo de las diferencias entre niveles de compresión con y sin pérdidas en el formato \djvu (sec~\ref{sec:profiles}).
 				\item Aclarado en una nota al pie (sec.~\ref{sec:djvuPageLabels}) que para que funcione paginate.py (script~\ref{scr:djvuPageLabels}) los nombres de página que lleven algún espacio deben estar entre comillas dobles.
-				\item Agregada explicación de las advertencias de \abby en la sección~\ref{sec:ABBYwarnings}.
-				\item Mejorada la redacción de la sección~\ref{sec:STsplitPages} y agregada una nota al pie explicando bajo que condiciones el script~\ref{scr:replaceInABBY} deja de funcionar.
+				\item Agregada explicación de las advertencias de \abbyy en la sección~\ref{sec:ABBYYwarnings}.
+				\item Mejorada la redacción de la sección~\ref{sec:STsplitPages} y agregada una nota al pie explicando bajo que condiciones el script~\ref{scr:replaceInABBYY} deja de funcionar.
 				\item Ampliada un poco la sección sobre los requisitos de software (sec.~\ref{sec:softRequirements}).
 				\item Simplificados los scripts~\ref{scr:orientationOddEven} y \ref{scr:fixLandscapePages} y corregidos algunos textos que los referían.
 				\item Agregada una sección de conclusiones a los capítulos más importantes.
@@ -1801,7 +1801,7 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 	\item Respecto a la conversión de hOCR a djvused, ver \href{https://github.com/ksa242/pdfsed-tools}{pdfsed-tools}.
 	\item Investigar y comentar Djvutoy para la creación de djvus.
 	\item Transparencias de páginas de pueden corregir también por software.
-	\item archivos ocultos en estructura de \abby.
+	\item archivos ocultos en estructura de \abbyy.
 	\item Algún comentario más sobre que Split pages rompe otras cosas como \djvuimager.
 \end{itemize}
 

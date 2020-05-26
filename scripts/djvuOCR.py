@@ -27,7 +27,7 @@ with open(djvuOCR, 'r') as outputFile:
 	# select X
 	content = re.sub(r'"page\d+\.djvu\" # page ', '', content, flags = re.M)
 
-	# Now, delete many lines corresponding to spurious space characters. The result of not doing it can be seen by selecting text from the ABBY-created OCR.djvu. Since DjVu viewers automatically introduce a space in between words, copying text with some viewers will result un doubly spaced words. Besides, I find it more pleasing to the eye this way.
+	# Now, delete many lines corresponding to spurious space characters. The result of not doing it can be seen by selecting text from the ABBYY-created OCR.djvu. Since DjVu viewers automatically introduce a space in between words, copying text with some viewers will result un doubly spaced words. Besides, I find it more pleasing to the eye this way.
 	content = re.sub(r' \(char \d+ \d+ \d+ \d+ " "\)\n', '', content, flags = re.M)
 
 with open(djvuOCR, 'w') as outputFile:
