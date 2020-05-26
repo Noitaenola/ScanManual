@@ -49,7 +49,7 @@
 	\clearpage%
 
 	\thispagestyle{empty}\pdfbookmark{Legales}{copyrightpage}%
-	{\emph{ScanManual/Guía para aprender a escanear} \textcopyright 2019-2020 Noita Enola está bajo licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional. Para ver una copia de la licencia, puede visitar el sitio  \href{https://creativecommons.org/licenses/by-sa/4.0/deed.es}{https://creativecommons.org/licenses/by-sa/4.0/deed.es}.
+	{\emph{ScanManual/Guía para aprender a escanear} \textcopyright 2019-2020 Noita Enola está bajo licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional. Para ver una copia de la licencia, puede visitar el sitio https://creativecommons.org/licenses/by-sa/4.0/deed.es \cite{CC-BY-SA-4.0}.
 
 	\vfill
 	\license
@@ -74,17 +74,17 @@
 
 	\chapter{Introducción} Bienvenido. En esta introducción comienzo con algunos comentarios generales, luego explico como está organizada la guía y que alcance tiene, y hago un breve esbozo sobre los formatos de archivo.
 
-	Mucha de la información que aquí recopilo proviene de fuentes en ruso.\footnote{Para entenderlas sugiero hacer amistad con el traductor de Google.} Desconozco las razones, pero parecería que allí hay muchas más personas interesadas en el arte del escaneo de libros que en los países de habla hispana o inglesa. Las principales que conozco son \href{http://djvu-soft.narod.ru/}{Djvu-Soft} \cite{DjvuSoft} y OCR Forum \cite{OCRForum}. Por supuesto existen otros sitios y personas que iré mencionando a medida que avancemos.
+	Mucha de la información que aquí recopilo proviene de fuentes en ruso.\footnote{Para entenderlas sugiero hacer amistad con el traductor de Google.} Desconozco las razones, pero parecería que allí hay muchas más personas interesadas en el arte del escaneo de libros que en los países de habla hispana o inglesa. Las principales que conozco son Djvu-Soft \cite{DjvuSoft} y OCR Forum \cite{OCRForum}. Por supuesto existen otros sitios y personas que iré mencionando a medida que avancemos.
 
 	Otros materiales de referencia similares a este son \cite{WikimediaCreatingDjVu, ScanAndShare2008, HowToMakeDjVu, rutrackertwdragon, ALinuxGuideToBookScanning, LIBRITOS}.
 
 	\section{Organización} He decidido dividir la guía en tres partes:
 
-	\paragraph*{Parte I} La primera cubre los requisitos de software y hardware para comenzar a escanear. Hay una larga lista de programas con sus descripciones y una discusión sobre los distintos tipos de escáneres.
+	\paragraph{Parte I} La primera cubre los requisitos de software y hardware para comenzar a escanear. Hay una larga lista de programas con sus descripciones y una discusión sobre los distintos tipos de escáneres.
 
-	\paragraph*{Parte II} La segunda es la más extensa y contiene propiamente el procedimiento de digitalización, desde el escaneo pasando por la limpieza, ajuste y reconocimiento del texto, hasta la producción final de los documentos en los distintos formatos. Expongo con cierto detalle cada paso y explico algunas alternativas de trabajo, tratando de resaltar las ventajas y desventajas de cada una.
+	\paragraph{Parte II} La segunda es la más extensa y contiene propiamente el procedimiento de digitalización, desde el escaneo pasando por la limpieza, ajuste y reconocimiento del texto, hasta la producción final de los documentos en los distintos formatos. Expongo con cierto detalle cada paso y explico algunas alternativas de trabajo, tratando de resaltar las ventajas y desventajas de cada una.
 
-	\paragraph*{Parte III} Para la última parte dejé los apéndices. Hacia aquí trasladé algunas discusiones que considero útiles pero que pienso hubieran entorpecido el flujo del proceso. También coloqué las referencias, listas, historial de cambios y cambios y mejoras pendientes.
+	\paragraph{Parte III} Para la última parte dejé los apéndices. Hacia aquí trasladé algunas discusiones que considero útiles pero que pienso hubieran entorpecido el flujo del proceso. También coloqué las referencias, listas, historial de cambios y cambios y mejoras pendientes.
 
 	\section{Alcance de la guía\label{sec:scope}} El método que presento funciona bien con impresos de texto y diagramas en negro sobre papel claro, con fotografías ya sea a color o escala de grises.
 
@@ -123,93 +123,94 @@
 	\subsection{Variable \texttt{PATH}} Recomiendo instalar todos los programas en una carpeta de fácil acceso, por ejemplo \typesetFolder{C\,\faCaretRight\,SOFT}. Además, como invocaremos varios programas usando scripts, será importante que la carpeta donde se instaló cada uno esté incluida en la variable \menu{PATH} del sistema \cite{WikipediaVariableDeEntorno, SuperUserEnvironment}.
 
 	\subsection{Generales} Estos son programas de uso general. Algunos asociados con el correcto funcionamiento de diferentes aplicaciones y otros con el manejo de archivos de todo tipo.
-	\paragraph{\href{https://www.virtualbox.org}{\textsc{VirtualBox}}} Software de virtualización. Principales funciones bajo licencia GPLv2. Se trata de un programa completamente opcional, pero no es mala idea tener todo el flujo de trabajo encapsulado en una máquina virtual. En caso de usarse, todo el software siguiente se instalaría en la VM creada.
-	\paragraph{\textsc{Drivers}} Drivers del escáner correctamente instalados y funcionando.
-	\paragraph{\href{https://dotnet.microsoft.com}{\textsc{.NET Framework Runtime}}} No sabría definirlo. Licencia MIT. Es necesario para correr algunos programas, en particular \dexpress. Podría ser opcional si no se instala este último.
-	\paragraph{\href{https://www.java.com/es/}{\textsc{Java}}} Ídem anterior. Freeware. Necesario si se va a usar \textsc{veraPDF}.
-	\paragraph{\href{https://www.python.org}{\textsc{Python 3}}} Lenguaje de programación sencillo (para lo que lo vamos a usar). Licencia PSFL (estilo BSD). Necesario para ejecutar los scripts que tengo preparados.
-	\paragraph{\href{https://www.7-zip.org}{\szip}} Archivador de ficheros. GPLv2+BSD. Buena alternativa a \textsc{WinZip} y \textsc{WinRAR}. Desde que lo empecé a usar no he mirado atrás.
-	\paragraph{\href{https://www.advancedrenamer.com}{\textsc{Advanced Renamer}}} Renombrador de archivos masivo. Freeware. Podría no llegar a necesitarse. Hay mil alternativas.
-	\paragraph{\href{https://www.hexelon.com/en}{\textsc{HEXelon MAX}}} Calculadora, conversor de unidades y monedas, etc. Freeware. Alternativa a la calculadora de Windows. Hay otras. Podría sustituirse por una calculadora de escritorio.
+	\paragraph{\textsc{VirtualBox}} Software de virtualización. Principales funciones bajo licencia GPLv2. Se trata de un programa completamente opcional, pero no es mala idea tener todo el flujo de trabajo encapsulado en una máquina virtual. En caso de usarse, todo el software siguiente se instalaría en la VM creada.
+	\paragraph{\textsc{Drivers}} Drivers del escáner correctamente instalados y funcionando \cite{VirtualBox}.
+	\paragraph{\textsc{.NET Framework Runtime}} No sabría definirlo. Licencia MIT. Es necesario para correr algunos programas, en particular \dexpress. Podría ser opcional si no se instala este último \cite{dotNET}.
+	\paragraph{\textsc{Java}} Ídem anterior. Freeware. Necesario si se va a usar \textsc{veraPDF} \cite{Java}.
+	\paragraph{\textsc{Python 3}} Lenguaje de programación sencillo (para lo que lo vamos a usar). Licencia PSFL (estilo BSD). Necesario para ejecutar los scripts que tengo preparados \cite{Python3}.
+	\paragraph{\szip} Archivador de ficheros. GPLv2+BSD. Buena alternativa a \textsc{WinZip} y \textsc{WinRAR}. Desde que lo empecé a usar no he mirado atrás \cite{7zip}.
+	\paragraph{\textsc{Advanced Renamer}} Renombrador de archivos masivo. Freeware. Podría no llegar a necesitarse. Hay mil alternativas \cite{ARen}.
+	\paragraph{\textsc{HEXelon MAX}} Calculadora, conversor de unidades y monedas, etc. Freeware. Alternativa a la calculadora de Windows. Hay otras. Podría sustituirse por una calculadora de escritorio \cite{HEXelonMAX}.
 
 	\subsection{Visualizadores de documentos} Programas para visualizar archivos de texto, imágenes y documentos. También nos servirán para escanear nuestro material.
-	\paragraph{\href{https://notepad-plus-plus.org}{\notepad}} Editor de texto y código fuente. Licencia GPLv2. Adiós Notepad de Windows.
-	\paragraph{\href{https://www.irfanview.com}{\irfanview}} Visor de imágenes freeware. Será utilizado para la adquisición de imágenes desde el escáner.
-	\paragraph{\href{https://www.xnview.com/es/}{\textsc{XnView}}} Visor de imágenes freeware. Es con el que me siento cómodo para visualizar imágenes en general. Existen muchas alternativas disponibles (por ejemplo, \irfanview).
-	\paragraph{\href{https://sumatrapdfreader.org}{\textsc{SumatraPDF}}} Un buen visualizador de documentos multiformato. Licencia GPLv3. Para ver los \pdf y \djvu que vamos a generar.
-	\paragraph{\href{https://windjview.sourceforge.io}{\textsc{WinDjView}}} Visualizador de archivos \djvu. GPLv2. \textsc{sumatraPDF} lo suple en general bien, pero este muestra alguna información adicional específica que puede sernos útil.
+	\paragraph{\notepad} Editor de texto y código fuente. Licencia GPLv2. Adiós Notepad de Windows \cite{Notepad}.
+	\paragraph{\irfanview} Visor de imágenes freeware. Será utilizado para la adquisición de imágenes desde el escáner \cite{IrfanView}.
+	\paragraph{\textsc{XnView}} Visor de imágenes freeware. Es con el que me siento cómodo para visualizar imágenes en general. Existen muchas alternativas disponibles (por ejemplo, \irfanview) \cite{XnView}.
+	\paragraph{\textsc{SumatraPDF}} Un buen visualizador de documentos multiformato. Licencia GPLv3. Para ver los \pdf y \djvu que vamos a generar \cite{SumatraPDF}.
+	\paragraph{\textsc{WinDjView}} Visualizador de archivos \djvu. GPLv2. \textsc{sumatraPDF} lo suple en general bien, pero este muestra alguna información adicional específica que puede sernos útil \cite{WinDjView}.
 
 	\subsection{Procesadores de imágenes} Se trata de software para procesar las imágenes escaneadas, realizar algún retoque o edición por lotes.
-	\paragraph{\href{https://github.com/4lex4/scantailor-advanced}{\scantailorAdvanced}} Herramienta interactiva para el postprocesamiento de las páginas escaneadas. Licencia GPLv3. Núcleo de todo el proceso. Con este software se enderezarán y binarizarán las páginas, ajustarán los márgenes, separarán las imágenes, etc. Es un fork del original \href{scantailor.org}{\mbox{\scantailor}}, prácticamente abandonado desde el 2012. Existe otro fork similar y aún mantenido: \href{https://github.com/trufanov-nok/scantailor}{\textsc{\scantailor Universal}}. No tengo experiencia con este último. Siempre que hablamos de \scantailor nos estaremos refiriendo a \scantailorAdvanced.
-	\paragraph{\href{http://forum.ru-board.com/topic.cgi?forum=5&topic=29984}{\textsc{ScanKromsator}}} Alternativa a \scantailor con muchas más opciones. Freeware. Por lo que entiendo existe desde bastante antes y es muy usado en Rusia. Lamentablemente posee escasa documentación y ésta es poco actualizada. Puede ser difícil conseguir información o soporte en otro idioma que no sea ruso.
-	\paragraph{\href{https://www.gimp.org}{\gimp}} Programa de edición de imágenes. Licencia GPLv3. Es una alternativa libre a Photoshop. Lo usaremos para retocar detalles de las páginas escaneadas.
-	\paragraph{\href{https://www.imagemagick.org}{\imagemagick}} Conjunto de utilidades para manipular y convertir imágenes. Licencia Apache 2.0. Lo usaremos para procesar imágenes por lotes.
+	\paragraph{\scantailorAdvanced} Herramienta interactiva para el posprocesamiento de las páginas escaneadas. Licencia GPLv3. Núcleo de todo el proceso. Con este software se enderezarán y binarizarán las páginas, ajustarán los márgenes, separarán las imágenes, etc. Es un fork del original \scantailor (\cite{ScanTailor}), prácticamente abandonado desde el 2012. Existe otro fork similar y aún mantenido: \textsc{\scantailor Universal} (\cite{ScanTailorUniversal}). No tengo experiencia con este último. Siempre que hablamos de \scantailor nos estaremos refiriendo a \scantailorAdvanced \cite{ScanTailorAdvanced}.
+	\paragraph{\textsc{ScanKromsator}} Alternativa a \scantailor con muchas más opciones. Freeware. Por lo que entiendo existe desde bastante antes y es muy usado en Rusia. Lamentablemente posee escasa documentación y ésta es poco actualizada. Puede ser difícil conseguir información o soporte en otro idioma que no sea ruso \cite{ScanKromsator}.
+	\paragraph{\gimp} Programa de edición de imágenes. Licencia GPLv3. Es una alternativa libre a Photoshop. Lo usaremos para retocar detalles de las páginas escaneadas \cite{GIMP}.
+	\paragraph{\imagemagick} Conjunto de utilidades para manipular y convertir imágenes. Licencia Apache 2.0. Lo usaremos para procesar imágenes por lotes \cite{ImageMagick}.
 
 	\subsection{Generadores de \texorpdfstring{\ocr}{OCR}} Este será el software que utilizaremos para reconocer el texto en nuestros documentos escaneados.
-	\paragraph{\href{https://www.abbyy.com/es-es/finereader/}{\textsc{ABBY FineReader}}} Aplicación de software de \ocr (reconocimiento óptico de caracteres). Software propietario y de pago. Lo usaremos para insertar una capa de texto seleccionable a nuestros documentos finales.
-	\paragraph{\href{https://github.com/tesseract-ocr/tesseract}{\textsc{tesseract}}} Motor de \ocr libre para varias plataformas. Licencia Apache 2.0. Hay varias interfaces gráficas disponibles. No tengo experiencia con él. Para usarlo habría que hacer adaptaciones a todo el flujo de trabajo.
-	\paragraph{\href{https://www.nuance.com/print-capture-and-pdf-solutions/optical-character-recognition/omnipage.html}{\textsc{Nuance Omnipage}}} Alternativa propietaria y paga. Más bien orientada al reconocimiento en serie de grandes volúmenes de documentos. Tampoco la he probado. No estoy seguro de que maneje archivos \djvu.
+	\paragraph{\textsc{ABBY \abby}} Aplicación de software de \ocr (reconocimiento óptico de caracteres). Software propietario y de pago. Lo usaremos para insertar una capa de texto seleccionable a nuestros documentos finales.\todo{Aclarar que salió la versión 15.}
+	\paragraph{\textsc{tesseract}} Motor de \ocr libre para varias plataformas. Licencia Apache 2.0. Hay varias interfaces gráficas disponibles. No tengo experiencia con él. Para usarlo habría que hacer adaptaciones a todo el flujo de trabajo \cite{tesseract}.
+	\paragraph{\textsc{Nuance Omnipage}} Alternativa propietaria y paga. Más bien orientada al reconocimiento en serie de grandes volúmenes de documentos. Tampoco la he probado. No estoy seguro de que maneje archivos \djvu \cite{Omnipage}.
 
 	\subsection{Productores de documentos} Este software es el que nos permitirá generar y editar nuestros documentos a partir de las imágenes procesadas.
-	\paragraph{\href{https://acrobat.adobe.com/es/es/acrobat.html}{\textsc{Adobe} \acrobat}} Permite visualizar, crear y modificar archivos \pdf. También hace \ocr. Software propietario y de pago. Lo usaremos para personalizar los marcadores, los números de página, insertar las imágenes (opcionalmente) y generar documentos \pdfa, para el guardado a largo plazo de documentos electrónicos. Las versiones anteriores también servirán, salvo quizás para el paso de insertar imágenes (se requiere la ejecución de javascripts de Adobe, que no he probado con estas). Dependiendo del resultado que busquemos, podría ser opcional.
-	\paragraph{\href{http://djvu.sourceforge.net/}{\djvulibre}} Implementación libre del formato \djvu. Incluye visor, decoder, algunos encoders simples y otras herramientas varias. Licencia GPLv2. Si bien podría emplearse para generar nuestros documentos \djvu, de este paquete usaremos casi exclusivamente las herramientas de manipulación (\typesetExe{djvused.exe}, \typesetExe{djvm.exe}, etc.).
+	\paragraph{\textsc{Adobe} \acrobat} Permite visualizar, crear y modificar archivos \pdf. También hace \ocr. Software propietario y de pago. Lo usaremos para personalizar los marcadores, los números de página, insertar las imágenes (opcionalmente) y generar documentos \pdfa, para el guardado a largo plazo de documentos electrónicos. Las versiones anteriores también servirán, salvo quizás para el paso de insertar imágenes (se requiere la ejecución de javascripts de Adobe, que no he probado con estas). Dependiendo del resultado que busquemos, podría ser opcional \cite{Acrobat}.
+	\paragraph{\djvulibre} Implementación libre del formato \djvu. Incluye visor, decoder, algunos encoders simples y otras herramientas varias. Licencia GPLv2. Si bien podría emplearse para generar nuestros documentos \djvu, de este paquete usaremos casi exclusivamente las herramientas de manipulación (\typesetExe{djvused.exe}, \typesetExe{djvm.exe}, etc.) \cite{DjVuLibre}.
 	\paragraph{\textsc{LizardTech DjVu Document Express Enterprise}} Aplicación comercial para la generación de archivos \djvu. Software propietario y de pago. Discontinuado en 2006.\footnote{AT\&T es dueña de varias patentes relativas al formato. (Para más información, ver \cite{DjVuLicensing, DjVuOpenSourceLicensing}.) Desde hace algunos años los derechos de uso comercial de estas se han ido transfiriendo a diferentes compañías: LizardTech (ahora Extensis), Celartem (que adquirió estas dos) y Cuminas. Esta última ofrece un producto con el mismo nombre pero completamente distinto.} La alternativa libre es \djvulibre. Sin embargo, la calidad de los encoders de LizardTech es superior salvo, tal vez, para la codificación de fotografías.\footnote{De la web de \djvulibre: «The compressors provided here are slower, produce larger files (sometimes with lower image quality) than the commercial compressors, but they do the job».} Si bien hay versiones más recientes, la v5.1.0 (b946 o b973) funciona bien. No lo usaremos directamente, por lo que no hay necesidad de obtenerlo.
 	\paragraph{\textsc{LizardTech} \djvueditor} Creador y editor de ficheros \djvu. Software propietario y de pago. Tiene una interfaz amigable que permite insertar páginas en un documento, así como crear hipervínculos. Incluye \ocr. Opcional.
-	\paragraph{\href{http://djvu-soft.narod.ru/scan/djvu_small.htm}{\djvusmall}} Interfaz de usuario para las aplicaciones de línea de comandos \typesetExe{djvudecode.exe} y \typesetExe{documenttodjvu.exe} de \dexpress (v5.0.0.973). La licencia de la \textsc{gui} es GPLv2, pero las aplicaciones que controla son comerciales. Su autor es \mondaytwothousand. Sigue muy vigente a pesar de que se dejó de desarrollar en 2006.\footnote{El autor ofrece por un lado los fuentes, que son libres, y por otro los binarios, que ya incluyen las aplicaciones comerciales. En particular, \typesetExe{documenttodjvu.exe} fue modificada para funcionar sin licencia y redirigir ciertos mensajes internos hacia la consola, lo que permite visualizar el proceso de codificación en tiempo real.}
-	\paragraph{\href{https://book-scan.wixsite.com/djvu}{\djvusmallmod}} Fork de \djvusmall desarrollado por \textsharik (\href{mailto:textsharik@ya.ru}{textsharik [at] ya.ru}) a partir del \href{http://www.djvu-scan.ru/forum/index.php?topic=1099.0}{2011}. Es un proyecto bastante más ambicioso, que ya incluye la funcionalidad de \djvuimager, la separación automática o semiatomática en capas,\footnote{No la cubro en esta guía.} agrega varias modificaciones más a \typesetExe{documenttodjvu.exe} (por ejemplo, procesamiento multihilos) e incluye ejecutables de versiones más nuevas de \dexpress (para convertir de \djvu a \pdf). Licencia GPLv2. Incluye completa documentación en ruso. Usando un traductor como el de Google se logra entender bastante bien.
+	\paragraph{\djvusmall} Interfaz de usuario para las aplicaciones de línea de comandos \typesetExe{djvudecode.exe} y \typesetExe{documenttodjvu.exe} de \dexpress (v5.0.0.973). La licencia de la \textsc{gui} es GPLv2, pero las aplicaciones que controla son comerciales. Su autor es \mondaytwothousand. Sigue muy vigente a pesar de que se dejó de desarrollar en 2006 \cite{DjVuSmall}.\footnote{El autor ofrece por un lado los fuentes, que son libres, y por otro los binarios, que ya incluyen las aplicaciones comerciales. En particular, \typesetExe{documenttodjvu.exe} fue modificada para funcionar sin licencia y redirigir ciertos mensajes internos hacia la consola, lo que permite visualizar el proceso de codificación en tiempo real.}
+	\paragraph{\djvusmallmod} Fork de \djvusmall desarrollado por \textsharik a partir del 2011. Es un proyecto bastante más ambicioso, que ya incluye la funcionalidad de \djvuimager, la separación automática o semiatomática en capas,\footnote{No la cubro en esta guía.} agrega varias modificaciones más a \typesetExe{documenttodjvu.exe} (por ejemplo, procesamiento multihilos) e incluye ejecutables de versiones más nuevas de \dexpress (para convertir de \djvu a \pdf). Licencia GPLv2. Incluye completa documentación en ruso. Usando un traductor como el de Google se logra entender bastante bien \cite{DjVuSmallMod}.
 
 	\subsection{Herramientas varias} Sobre todo para el formato \djvu, existen varias herramientas que vamos a necesitar en los distintos pasos.
-	\paragraph{\href{http://qpdf.sourceforge.net/}{\qpdf}} Aplicación de línea de comandos que hace transformaciones estructurales y que preservan el contenido de archivos \pdf. Licencia Apache~2.0. Lo usaremos para insertar las imágenes en nuestro documento \pdf.
-	\paragraph{\href{http://www.djvu-soft.narod.ru/scan/djvu_imager_en.htm}{\djvuimager}} Herramienta para pegar imágenes en archivos \djvu. Licencia GPLv2. La necesitaremos si vamos a utilizar el método de la sección~\ref{sec:SToutputPictureZones}.
-	\paragraph{\href{http://www.cnblogs.com/stronghorse/}{\textsc{PdgCntEditor}}} Editor de marcadores para \pdf y \djvu. Freeware para uso no comercial. Brinda una cantidad de herramientas para la generación y edición de marcadores en estos dos formatos.
-	\paragraph{\href{http://www.djvu-scan.ru/forum/index.php?topic=320}{bookm}} Herramienta desarrollada por \mondaytwothousand. A partir de un archivo de marcadores convencional genera otro con la estructura necesaria para usar con \typesetExe{djvused.exe}.
+	\paragraph{\qpdf} Aplicación de línea de comandos que hace transformaciones estructurales y que preservan el contenido de archivos \pdf. Licencia Apache~2.0. Lo usaremos para insertar las imágenes en nuestro documento \pdf \cite{QPDF}.
+	\paragraph{\djvuimager} Herramienta para pegar imágenes en archivos \djvu. Licencia GPLv2. La necesitaremos si vamos a utilizar el método de la sección~\ref{sec:SToutputPictureZones} \cite{DjVuImager}.
+	\paragraph{\textsc{PdgCntEditor}} Editor de marcadores para \pdf y \djvu. Freeware para uso no comercial. Brinda una cantidad de herramientas para la generación y edición de marcadores en estos dos formatos \cite{PdgCntEditor}.
+	\paragraph{bookm} Herramienta desarrollada por \mondaytwothousand. A partir de un archivo de marcadores convencional genera otro con la estructura necesaria para usar con \typesetExe{djvused.exe} \cite{bookm}.
 
 	\subsection{Verificadores} En el caso del formato \pdf, existe un software que permite verificar que nuestro documento cumple con el estándar \pdfa de almacenamiento de largo plazo.
-	\paragraph{\href{https://verapdf.org}{\textsc{veraPDF}}} Herramienta de validación de documentos \pdfa. Licencia GPLv3 o MPLv2. La usaremos para verificar el \pdfa que hayamos creado.
+	\paragraph{\veraPDF} Herramienta de validación de documentos \pdfa. Licencia GPLv3 o MPLv2. La usaremos para verificar el \pdfa que hayamos creado \cite{veraPDF}.
 
 	\section{Requisitos de hardware} Los requisitos de hardware son bastante más escasos, pero hay una discusión interesante sobre el escáner.
 	\subsection{Material para digitalizar} Esta guía está enfocada en la digitalización de libros, pero su lectura podría resultar útil para la digitalización de otro tipo de documentos.
 	\subsection{Regla de longitud suficiente} Precisión a gusto del usuario. Es un elemento opcional que usaremos para hacer coincidir las medidas reales del impreso físico con las del documento final. Debe poder medir al menos la dimensión más larga del material. Puede omitirse en caso de que esta coincidencia no sea de interés.
+
 	\subsection{Escáner} Respecto al escáner, existen multitud aspectos a tener en cuenta. El correspondiente artículo de la Wikipedia \cite{WikipediaImageScanner} es un buen punto de partida. A continuación se esbozan algunas características de las principales tecnologías. Por supuesto, existen otras.
 	\subsubsection{Escáner de libros} Para la digitalización «profesional» de documentos existen multitud de opciones, sobre todo orientadas a bibliotecarios y archivistas. Son los así llamados \emph{book scanners}, \emph{large format scanners}, \emph{document cameras}, etc. Consisten generalmente en una superficie sobre la que se coloca la obra a digitalizar, iluminación adecuada y una o más cámaras en la parte superior, que van tomando fotografías de alta resolución. Luego, mediante software incluido realizan correcciones a las imágenes, reconocen el texto, generan documentos en varios formatos, etc. Todo esto de manera rápida, automática o semiautomática, pues están pensados para el procesamiento de grandes volúmenes de ejemplares.
 
-	Son aparatos generalmente costosos y voluminosos. En la figura~\ref{fig:scannerbookScanners} se ilustran algunos ejemplos.
+	Son aparatos generalmente costosos y voluminosos. En la figura~\ref{fig:scannerbookScanners} se ilustran algunos ejemplos \cite{ScanSnap, ET16}.
 	\begin{figure}
-		\subbottom[ScanSnap SV600, de \href{http://www.fujitsu.com/es/products/computing/peripheral/scanners/scansnap/sv600/}{Fujitsu}]{\includegraphics[width=.44\linewidth]{scannerScanSnap}}\hfill
-		\subbottom[ET16, de \href{https://www.czur.com/product/et16/}{CZUR}]{\includegraphics[width=.54\linewidth]{scannerET16}}
+		\subbottom[test][ScanSnap SV600, de Fujitsu]{\includegraphics[width=.44\linewidth]{scannerScanSnap}}\hfill
+		\subbottom[ET16/ET18, de CZUR]{\includegraphics[width=.54\linewidth]{scannerET16}}
 		\caption{Dos ejemplos de \emph{book scanners}\label{fig:scannerbookScanners}}
 	\end{figure}
 
-	Es de destacar la labor que desde hace años viene realizando la comunidad DIY Book Scanner \cite{DIYBookScanner}, fundada por \href{http://www.danreetz.com}{Daniel Reetz}, para desarrollar soluciones de escaneo accesibles para cualquiera. El sitio y sus foros contienen cantidad de información útil sobre cada etapa tanto de la construcción de un escáner (fig.~\ref{fig:scannerArchivist}) como del posprocesamiento de las imágenes, entre muchos otros temas relacionados.
+	Es de destacar la labor que desde hace años viene realizando la comunidad \emph{DIY Book Scanner} \cite{DIYBookScanner}, fundada por Daniel Reetz \cite{danreetz}, para desarrollar soluciones de escaneo accesibles para cualquiera. El sitio y sus foros contienen cantidad de información útil sobre cada etapa tanto de la construcción de un escáner (fig.~\ref{fig:scannerArchivist}) como del posprocesamiento de las imágenes, entre muchos otros temas relacionados.
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=.7\linewidth]{scannerArchivist}
-		\caption[The Archivist Book Scanner]{The Archivist Book Scanner. Desarrollado por Daniel Reetz con ayuda de la comunidad \emph{DIY Book Scanner}\label{fig:scannerArchivist}}
+		\caption[The Archivist Book Scanner]{The Archivist Book Scanner. Desarrollado por Daniel Reetz con la colaboración de la comunidad \emph{DIY Book Scanner}\label{fig:scannerArchivist}}
 	\end{figure}
 
-	Otros proyectos similares y aún en desarrollo son Libreflip \cite{Libreflip}, de \href{https://www.youtube.com/c/ijonberlin}{Ijon Berlin}, y Linear Book Scanner \cite{LinearBookScanner}, de Dany Qumsiyeh.
+	Otros proyectos similares y aún en desarrollo son \emph{Libreflip} \cite{Libreflip}, de Ijon Berlin, y \emph{Linear Book Scanner} \cite{LinearBookScanner}, de Dany Qumsiyeh.
 
 	\subsubsection{Escáner de cama plana} Estos son los más comunes y económicos. Existen básicamente dos tecnologías: \textsc{cis} y \textsc{ccd}. Hay una cantidad interesante de detalles técnicos, pero básicamente la tecnología \textsc{ccd} es un poco mejor aunque algo más cara. En mi experiencia, cualquiera de los dos funciona suficientemente bien con una gama amplia de materiales mientras se acerque lo suficiente la página al vidrio del escaner \cite{CCDvsCIS}.
 
 	Este tipo de escáneres son los que ofrecen las impresoras multifunción, aunque también se venden por separado.
 
-	Existe una subvariedad en esta categoría, diseñada específicamente para escanear libros. La característica saliente es que el vidrio del escáner llega casi al borde del aparato, lo que permite alcanzar fácilmente el espacio en donde se unen las páginas. Ver ejemplo en la figura~\ref{fig:scannerOpticBook3800}.
+	Existe una subvariedad en esta categoría, diseñada específicamente para escanear libros. La característica saliente es que el vidrio del escáner llega casi al borde del aparato, lo que permite alcanzar fácilmente el espacio en donde se unen las páginas. Ver ejemplo en la figura~\ref{fig:scannerOpticBook3800} \cite{OpticBook3800}.
 
 	En esta guía utilizo un escáner de cama plana para digitalizar el material. Si se usa otro tipo se deberá hacer algunos ajustes al procedimiento de digitalización.
 
 	\begin{figure}
 		\subbottom[Vista general]{\includegraphics[width=.48\linewidth]{scannerOpticBook3800-1}}\hfill
 		\subbottom[Detalle. El vidrio casi alcanza el borde]{\includegraphics[width=.48\linewidth]{scannerOpticBook3800-2}}
-		\caption{OpticBook 3800, de \href{https://plustek.com/es/products/book-scanners/}{Plustek}\label{fig:scannerOpticBook3800}}
+		\caption[OpticBook 3800, de Plustek]{OpticBook 3800, de Plustek\label{fig:scannerOpticBook3800}}
 	\end{figure}
 
-	\subsubsection{Escáner con \texorpdfstring{\textsc{adf}}{ADF}} \textsc{Adf} significa alimentador automático de documentos (\emph{automatic document feeder}, en inglés). Estos escáneres son muy prácticos, pues toman cada hoja de una pila y la escanean sin necesidad de intervención humana, algunos inclusive por ambas caras. La desventaja es que las hojas a escanear deben estar sueltas. Son muy comunes en las oficinas. Algunos ejemplos en la figura~\ref{fig:scannerADF}.
+	\subsubsection{Escáner con \texorpdfstring{\textsc{adf}}{ADF}} \textsc{Adf} significa alimentador automático de documentos (\emph{automatic document feeder}, en inglés). Estos escáneres son muy prácticos, pues toman cada hoja de una pila y la escanean sin necesidad de intervención humana, algunos inclusive por ambas caras. La desventaja es que las hojas a escanear deben estar sueltas. Son muy comunes en las oficinas. Algunos ejemplos en la figura~\ref{fig:scannerADF} \cite{Workforce, ScanJetPro2500}.
 
 	\begin{figure}
 		\hspace*{\fill}
-		\subbottom[Workforce DS-410, de \href{https://www.epson.es/products/scanners}{Epson}]{\includegraphics[width=.4\linewidth]{scannerWorkforce}}\hfill
-		\subbottom[ScanJet Pro 2500, de \href{https://store.hp.com/SpainStore/Merch/Product.aspx?id=L2747A&opt=B19&sel=SCN}{HP}]{\includegraphics[width=.45\linewidth]{scannerScanJet}}%
+		\subbottom[Workforce DS-410, de Epson]{\includegraphics[width=.4\linewidth]{scannerWorkforce}}\hfill
+		\subbottom[ScanJet Pro 2500, de HP]{\includegraphics[width=.45\linewidth]{scannerScanJet}}%
 		\hspace*{\fill}
 		\caption{Escáneres con \textsc{adf}\label{fig:scannerADF}.}
 	\end{figure}
@@ -1274,7 +1275,7 @@
 
 	\subsection{Inserción de fotos: \djvuimager\label{sec:djvuImager}} Si utilizamos el modo \menu{Mixed} de \scantailor, nos está faltando codificar y e insertar las fotos que separamos en nuestro documento \djvu. Para hacerlo utilizaremos el software \djvuimager. Según ha explicado su autor, \mondaytwothousand, no es más que una GUI para algunas herramientas de \djvulibre, pero no por ello deja de ser muy conveniente.
 
-	Este usa una versión modificada de la aplicación \typesetExe{c44.exe} de \djvulibre\footnote{\typesetExe{fi\_c44.exe} utiliza la biblioteca libre \href{http://freeimage.sourceforge.net/}{\textsc{FreeImage}} para cargar archivos \tiff directamente. De lo contrario habría que convertir primero a \textsc{ppm}.} para codificar las fotos, y luego las inserta en nuestro documento.
+	Este usa una versión modificada de la aplicación \typesetExe{c44.exe} de \djvulibre\footnote{\typesetExe{fi\_c44.exe} utiliza la biblioteca libre \textsc{FreeImage} \cite{FreeImage} para cargar archivos \tiff directamente. De lo contrario habría que convertir primero a \textsc{ppm}.} para codificar las fotos, y luego las inserta en nuestro documento.
 
 	En la figura~\ref{fig:djvuImager}, vemos la ventana principal de \djvuimager. Está dividida principalmente en dos columnas. A la izquierda tiene la lista de archivos que vamos a codificar. A la derecha tenemos, de arriba hacia abajo:
 	\begin{itemize}[noitemsep]
@@ -1435,16 +1436,16 @@
 
 	\chapter{Otras herramientas útiles} En este apéndice se mencionan otras herramientas que conviene tener a mano para este tipo de proyectos. Algunas están discontinuadas, han quedado obsoletas o han sido superadas. Las menciono como alternativas, aunque no se usarán en esta guía.
 
-	\paragraph{\href{http://www.cnblogs.com/stronghorse/}{\textsc{DjVuToy}}} Completa herramienta para la manipulación y conversión de archivos \djvu. Freeware para uso no comercial. Permite unir y dividir archivos; borrar, insertar o rotar páginas; convertir desde varios formatos a \djvu y viceversa; insertar y extraer la capa \ocr; y analizar la estructura interna de archivos \djvu.
-	\paragraph{\href{http://www.cnblogs.com/stronghorse/}{\textsc{FreePic2Pdf}}} Software para generar archivos \pdf a partir de imágenes. Freeware para uso no comercial. Soporta variedad de formatos de imagen y diferentes opciones de compresión.
-	\paragraph{\href{https://www.sno.phy.queensu.ca/~phil/exiftool/}{\textsc{ExifTool}}}Librería Perl y aplicación de línea de comandos para la lectura, escritura y edición de meta información en una gran variedad de tipos de archivos. Licencia GPLv1 o Artistic License.
-	\paragraph{\href{https://sourceforge.net/projects/djvuoutline/}{\textsc{DjVuOutline}}} Programa para la creación y edición de marcadores en archivos \djvu. Basado en \typesetExe{djvused.exe} de \djvulibre.
-	\paragraph{\href{http://handyoutlinerfo.sourceforge.net/}{\textsc{HandyOutliner}}} Ídem \textsc{DjVuOutline}.
-	\paragraph{\href{http://jwilk.net/software/pdf2djvu}{\textsc{pdf2djvu}}} Herramienta de línea de comandos para crear archivos \djvu a partir de \pdf. Licencia GPLv2. Existen muchas GUI para trabajar con ella.
-	\paragraph{\href{http://djvu.org/any2djvu/}{\textsc{Any2DjVu}}} Herramienta en línea gratuita que ofrece la creación de archivos \djvu a partir de una gran variedad de formatos de origen. De los autores \djvulibre.
-	\paragraph{\href{http://minidjvu.sourceforge.net/}{\textsc{MiniDjVu}}} Utilidad de línea de comandos para codificar y decodificar archivos \djvu en blanco y negro. La versión para Windows incluye una \textsc{gui} mínima basada en \emph{Javascript} que funciona desde Internet Explorer. Licencia GPLv2. No se actualiza desde el 2009. No la he probado, pero su autor declara que la intención es que se use para experimentar. Los comentarios en la Runet \cite{WikipediaRunet} son similares y hablan de que la calidad de compresión no es la mejor.
-	\paragraph{\href{http://www.djvu-scan.ru/forum/index.php?topic=52.0}{\textsc{MiniDjVu Plus}}} Interfaz gráfica para \textsc{MiniDjVu}. Además agrega decodificación y codificación de imágenes a color mediante aplicaciones de \djvulibre. Licencia GPLv2. Herramienta experimental. No se actualiza desde el 2010.
-	\paragraph{\href{http://www.djvu.org/resources/}{\textsc{LizardTech DjVu Solo}}} Una de las primeras aplicaciones (en su momento prácticamente la única) para crear documentos \djvu. Gratuita para uso no comercial. Discontinuada en el año 2000 y ya superada por las otras alternativas.
+	\paragraph{\textsc{DjVuToy}} Completa herramienta para la manipulación y conversión de archivos \djvu. Freeware para uso no comercial. Permite unir y dividir archivos; borrar, insertar o rotar páginas; convertir desde varios formatos a \djvu y viceversa; insertar y extraer la capa \ocr; y analizar la estructura interna de archivos \djvu \cite{DjVuToy}.
+	\paragraph{\textsc{FreePic2Pdf}} Software para generar archivos \pdf a partir de imágenes. Freeware para uso no comercial. Soporta variedad de formatos de imagen y diferentes opciones de compresión \cite{FreePic2Pdf}.
+	\paragraph{\textsc{ExifTool}}Librería Perl y aplicación de línea de comandos para la lectura, escritura y edición de meta información en una gran variedad de tipos de archivos. Licencia GPLv1 o Artistic License \cite{ExifTool}.
+	\paragraph{\textsc{DjVuOutline}} Programa para la creación y edición de marcadores en archivos \djvu. Basado en \typesetExe{djvused.exe} de \djvulibre \cite{DjVuOutline}.
+	\paragraph{\textsc{HandyOutliner}} Ídem \textsc{DjVuOutline} \cite{HandyOutliner}.
+	\paragraph{\textsc{pdf2djvu}} Herramienta de línea de comandos para crear archivos \djvu a partir de \pdf. Licencia GPLv2. Existen muchas GUI para trabajar con ella \cite{pdf2djvu}.
+	\paragraph{\textsc{Any2DjVu}} Herramienta en línea gratuita que ofrece la creación de archivos \djvu a partir de una gran variedad de formatos de origen. De los autores \djvulibre \cite{Any2DjVu}.
+	\paragraph{\textsc{MiniDjVu}} Utilidad de línea de comandos para codificar y decodificar archivos \djvu en blanco y negro. La versión para Windows incluye una \textsc{gui} mínima basada en \emph{Javascript} que funciona desde Internet Explorer. Licencia GPLv2. No se actualiza desde el 2009. No la he probado, pero su autor declara que la intención es que se use para experimentar. Los comentarios en la Runet \cite{WikipediaRunet} son similares y hablan de que la calidad de compresión no es la mejor \cite{MiniDjVu}.\todo{agregar la versión mod?}
+	\paragraph{\textsc{MiniDjVu Plus}} Interfaz gráfica para \textsc{MiniDjVu}. Además agrega decodificación y codificación de imágenes a color mediante aplicaciones de \djvulibre. Licencia GPLv2. Herramienta experimental. No se actualiza desde el 2010 \cite{MiniDjVuPlus}.
+	\paragraph{\textsc{LizardTech DjVu Solo}} Una de las primeras aplicaciones (en su momento prácticamente la única) para crear documentos \djvu. Gratuita para uso no comercial. Discontinuada en el año 2000 y ya superada por las otras alternativas \cite{DjVuSolo}.
 
 	\chapter{Conversión pix-pulgadas\label{app:conversion}} Para convertir entre pixeles y pulgadas las fórmulas son un poco más sencillas, pues no incluyen el factor \mbox{2,54}:
 	\[
@@ -1469,7 +1470,7 @@
 
 	Lo elegí por varias razones. La primera es que tengo un ejemplar físico en mi biblioteca y me interesaba obtener un respaldo del mismo en formato digital. Por otra parte, es un caso realista de lo que se podría querer digitalizar y por ello me pareció apropiado usarlo como ejemplo en esta guía. Además, la editorial \emph{Springer} tiene a la venta la versión digital de este libro,\footnote{En realidad se trata de una reimpresión posterior bajo otra editorial y con algunas correcciones, aunque muy parecida.} producida por métodos similares, por lo que existe un punto de referencia con el cual comparar nuestros resultados.
 
-	Los documentos en \pdf\footnote{MD5 (mi \pdf): \href{http://gen.lib.rus.ec/book/index.php?md5=646923F422762352F3E47360952BE03C}{\texttt{646923F422762352F3E47360952BE03C}}.} y \djvu\footnote{MD5 (mi \djvu): \href{http://gen.lib.rus.ec/book/index.php?md5=C34ABFC96152F9B881CCD06593A7CD36}{\texttt{C34ABFC96152F9B881CCD06593A7CD36}}.} creados junto con esta guía, así como el \pdf\footnote{MD5 (\pdf Springer): \href{http://gen.lib.rus.ec/book/index.php?md5=7A43F6FAE8ABB7450FD3A2978D5E295C}{\texttt{7A43F6FAE8ABB7450FD3A2978D5E295C}}.} de \emph{Springer} se pueden descargar de \emph{Library Genesis} \cite{LibGen}.
+	Los documentos en \pdf \cite{miGregoryPDF} y \djvu \cite{miGregoryDjVu} creados junto con esta guía, así como el \pdf de \emph{Springer} \cite{SpringerGregoryPDF} se pueden ver en \emph{Library Genesis} \cite{LibGen}.
 
 	A medida que la guía se ha ido expandiendo y con el objetivo de ilustrar ciertos puntos, fui agregando algunos elementos que corresponden a otros documentos (p.e.: fig.~\ref{fig:djvuSmallProfilesQuality}). Siendo que se trata de inclusiones menores, no los cito expresamente.
 
@@ -1688,7 +1689,11 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 \backmatter
 \chapter{Referencias}%
 \nocite{*}
-\printbibliography[heading=none]
+% Thanks Eiji Onchi, at: https://stackoverflow.com/questions/51922086/latex-biblatex-bibliography-titles-arent-doing-a-break-line-they-overflow-ins
+\setcounter{biburllcpenalty}{9000}
+\printbibliography[heading=none, nottype=software]
+\section{Software}
+\printbibliography[heading=none, type=software]
 
 \cleardoublepage\listoffigures
 \cleardoublepage\listoftables
@@ -1696,7 +1701,7 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 
 \chapter{Historial de cambios}
 	\begin{itemize}
-		\item v1.1 -- 2020-XX-XX: 
+		\item v1.1 -- 2020-XX-XX:
 			\begin{itemize}
 				\item Agregada la ubicación en GitHub del proyecto a la portada.
 				\item Como en general el escaneo se hace a 300\,dpi, no tiene sentido conservar las imágenes del directorio \typesetFolder{background} en 600\,dpi como las saca \scantailor. Esto implicó varios ajustes:
@@ -1754,6 +1759,8 @@ La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que 
 				\item Eliminado el comando \textbackslash note; reemplazado por \textbackslash paragraph.
 				\item Agregados marcadores \pdf para las portadas.
 				\item Declarada la inclusión de material distinto del Gregory en la sección~\ref{sec:aboutGregory}.
+				\item Todas las referencias web explicitadas en la bibliografía.
+				\item Creada la sección «Software» en la bibliografía.
 
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
