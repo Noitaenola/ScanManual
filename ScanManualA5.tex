@@ -392,21 +392,23 @@
 		\caption{Distorsiones trapezoidal y por movimiento\label{fig:distortion2}}
 	\end{figure}
 
-	\subsection{Transparencia de páginas} Dependiendo del tipo de papel y la tinta que se hayan usado puede ocurrir que sobre cada página se transparenten los contenidos de las contiguas. Normalmente este es un inconveniente que desaparece durante la binarización, pero en el caso de las fotos o imágenes complejas es más persistente y en algunos casos es fácil de tratar.
+	\subsection{Transparencia de páginas\label{sec:transparency}} Dependiendo del tipo de papel y la tinta que se hayan usado puede ocurrir que sobre cada página se transparenten los contenidos de las contiguas. Normalmente este es un inconveniente que desaparece durante la binarización, pero en el caso de las fotos o imágenes complejas es más persistente y en algunos casos es fácil de tratar.
 
 	Ampliando en la figura~\ref{fig:distortion1} vemos que es posible distinguir el texto y los diagramas de las páginas contiguas. En la figura~\ref{fig:transparencyText} se muestra con más detalle.
 
 	Para disminuir el efecto de las transparencias en las fotos (fig.~\ref{fig:transparencyPhoto}) puede colocarse un papel de color negro\footnote{Usé una hoja impresa en negro por las dos caras. Según el caso, podría funcionar mejor otro color.} entre la página que se va a escanear y la siguiente (o anterior; fig.~\ref{fig:transparencyPaper}). Es decir que tendríamos el vidrio del escáner, luego la página que estamos escaneando, luego el papel negro y finalmente las demás hojas. El resultado se ve en la figura~\ref{fig:transparencyPhotoFix}.
 
+	Si esta medida no fuera suficiente, se podrían atenuar utilizando algún software. Si no fueran muchas páginas, podría usarse \gimp en cada una. De lo contrario, habría que buscar algún ajuste que diera resultados aceptables para aplicar por lotes, o dejarlas como están.
+
 	\begin{figure}
 		\includegraphics[width=\linewidth]{transparencyText}
-		\caption[Transparencia sobre texto y diagramas]{Transparencia sobre texto y diagramas. (Se ha acentuado para que se distinga con claridad.)\label{fig:transparencyText}}
+		\caption[Transparencia sobre texto y diagramas]{Transparencia sobre texto y diagramas (se ha acentuado para que se distinga con claridad)\label{fig:transparencyText}}
 	\end{figure}
 
 	\begin{figure}
 		\vspace{-1.11\onelineskip}
 		\subbottom[Transparencias sobre fotos\label{fig:transparencyPhoto}]{\includegraphics[width=\linewidth]{transparencyPhoto}}
-		\subbottom[Mitigado el efecto usando un papel negro por debajo\label{fig:transparencyPhotoFix}]{\includegraphics[width=\linewidth]{transparencyPhotoFix}}
+		\subbottom[Mitigadas usando un papel negro por debajo\label{fig:transparencyPhotoFix}]{\includegraphics[width=\linewidth]{transparencyPhotoFix}}
 		\subbottom[Colocación del papel negro\label{fig:transparencyPaper}]{\includegraphics[width=\linewidth]{transparencyPaper}}
 		\caption{Detalle de transparencias sobre fotos\label{fig:transparency}}
 	\end{figure}
@@ -1767,6 +1769,7 @@
 				\item Corregido donde correspondiera: fotografías \faLongArrowAltRight\ fotos.
 				\item Modificada la definición de \textbackslash pythonScript para disminuir a la mitad el tamaño de los TABs en los scripts.
 				\item Mencionada la existencia de archivos ocultos en la estructura de \abbyy (cap.~\ref{sec:abbyyProjectStructure}).
+				\item Transparencias de páginas se podrían corregir por software (sec.~\ref{sec:transparency}).
 
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
@@ -1799,7 +1802,6 @@
 	\item Agregar algunas referencias sobre \jbig: \href{http://everist.org/NobLog/20131122_an_actual_knob.htm}{Never Use JBIG2 Document Compression}, \href{http://www.dkriesel.com/en/blog/2013/0802_xerox-workcentres_are_switching_written_numbers_when_scanning}{Xerox scanners/photocopiers randomly alter numbers in scanned documents}, \href{http://www.dkriesel.com/en/blog/2013/0808_number_mangling_not_a_xerox-only_issue}{Number mangling reportedly not a Xerox-only issue}, \href{https://www.xerox.com/assets/pdf/ScanningQAincludingAppendixA.pdf}{Xerox Scanning Update: What You Need To Know}.
 	\item Otras referencias a investigar: \href{http://www.meeus-d.be/linux/OCR.html}{Reconnaissance de caractères, Optical Character Recognition (OCR)}, \href{http://www.tobias-elze.de/pdfsandwich/}{pdfsandwich}, 
 	\item Respecto a la conversión de hOCR a djvused, ver \href{https://github.com/ksa242/pdfsed-tools}{pdfsed-tools}.
-	\item Transparencias de páginas de pueden corregir también por software.
 	\item Algún comentario más sobre que Split pages rompe otras cosas como \djvuimager.
 \end{itemize}
 
