@@ -306,9 +306,9 @@
 
 	\section{Configuración del software\label{sec:scanningSoftware}} El paso siguiente es configurar el software de escaneo. Generalmente, este viene pensado para que se pueda usar sin pensar demasiado y que aún así puedan obtenerse buenos resultados. Por ello ya se incluyen cantidad de herramientas de posprocesado (mejora de la nitidez, desinclinación, balance de blancos, separación de varias imágenes, entre muchas otras). Debemos desactivarlas todas. Tengamos en cuenta que de ser necesarias algunas de estas correcciones podremos realizarlas más adelante y con mucho más control utilizando programas adicionales.
 
-	Abrimos \irfanview y elegimos \menu{File > Acquire/Batch Scanning\...} obteniendo el cuadro de diálogo de la figura~\ref{fig:scanningIrfanViewBatch}. Debemos seleccionar \menu{\typesetDotCircle{Multiple images (Batch mode)}}, luego en \menu{Output file name > SCAN\_}, en \menu{Number of digits > 3}\footnote{o \menu{4} si nuestro proyecto contiene 1000 páginas o más.} y en \menu{Destination directory > C:\textbackslash Project\textbackslash SCAN}. Es conveniente activar \menu{\typesetCheckbox{Skip existing files}} y \menu{\typesetCheckbox{Remember last scan counter}}.
+	\subsection{\irfanview} Abrimos \irfanview y elegimos \menu{File > Acquire/Batch Scanning\...} obteniendo el cuadro de diálogo de la figura~\ref{fig:scanningIrfanViewBatch}. Debemos seleccionar \menu{\typesetDotCircle{Multiple images (Batch mode)}}, luego en \menu{Output file name > SCAN\_}, en \menu{Number of digits > 3}\footnote{o \menu{4} si nuestro proyecto contiene 1000 páginas o más.} y en \menu{Destination directory > C:\textbackslash Project\textbackslash SCAN}. Es conveniente activar \menu{\typesetCheckbox{Skip existing files}} y \menu{\typesetCheckbox{Remember last scan counter}}.
 
-	\subsection{Formatos\label{sec:scanningSoftwareFormats}} En este punto debemos elegir el formato de archivo para guardar las exploraciones. \irfanview ofrece muchos, pero dos que funcionan bien son \tiff y \png.
+	\subsubsection{Formatos\label{sec:scanningSoftwareFormats}} En este punto debemos elegir el formato de archivo para guardar las exploraciones. \irfanview ofrece muchos, pero los dos que funcionan mejor son \tiff y \png.\footnote{En el resto de la guía asumiremos que se usó \tiff.}
 
 	Para \tiff elegimos la opción \menu{TIF - Tagged Image File Format} del menú \menu{Save as} y presionamos \keys{Options}. Allí aparece el cuadro de la figura~\ref{fig:scanningIrfanViewBatchTIF}, donde se debe seleccionar el tipo de compresión. Sin entrar en más detalles, elegimos \menu{\typesetDotCircle{LZW}}, pues no tiene pérdidas (\emph{lossless}) y ofrece un grado razonable de compresión. Otras alternativas sin pérdidas son \menu{\typesetCircle{ZIP}}, que alguna vez me dio problemas con \scantailor y \menu{\typesetCircle{Packbits}}, que no he probado. Por ninguna razón elegir \menu{\typesetCircle{JPEG}}, pues introduce pérdidas (\emph{lossy}) o \menu{\typesetCircle{None}} (sin compresión) porque genera archivos enormes.\footnote{Nuestro proceso contendrá muchos archivos temporales de gran tamaño que al final terminarán en un documento de tamaño razonable. Estos archivos temporales podrán ser borrados al terminar, pero si de todas formas pudiéramos ahorrar algo de espacio durante el proceso lo haremos.}
 
@@ -322,7 +322,7 @@
 		\caption{Ajustes de escaneo de \irfanview\label{fig:scanningIrfanView}}
 	\end{figure}
 
-	Luego de elegir las opciones presionamos \keys{OK} y si el escáner está bien configurado debería iniciarse el software correspondiente. Como ejemplo usaremos el programa \epsonscan (v5.7.9.3). En la figura~\ref{fig:epsonScan} se muestra la ventana principal. Podemos ver que se ofrecen varios \menu{Modos}: \menu{Automático}, \menu{Fácil}, \menu{Oficina} y \menu{Profesional}. Por supuesto elegimos \menu{Profesional}.
+	\subsection{\epsonscan} Luego de elegir las opciones presionamos \keys{OK} y si el escáner está bien configurado debería iniciarse el software correspondiente. Como ejemplo usaremos el programa \epsonscan (v5.7.9.3). En la figura~\ref{fig:epsonScan} se muestra la ventana principal. Podemos ver que se ofrecen varios \menu{Modos}: \menu{Automático}, \menu{Fácil}, \menu{Oficina} y \menu{Profesional}. Por supuesto elegimos \menu{Profesional}.
 
 	Comenzamos por colocar una página representativa\footnote{Elegí una donde haya tanto texto como fotos.} del material a escanear y luego presionamos \keys{Previsualización}, lo que nos dará un resultado como el de la fig.~\ref{fig:epsonScan}. En caso de que la región a escanear no ocupe toda la superficie del escáner, conviene seleccionarla dibujando un rectángulo en la pestaña de \menu{Previsualización}, de esta forma se agilizan un poco los tiempos de escaneo. \label{pag:scanningRegionSelection} Para que esta opción funcione bien cada página a escanear debe ser colocada dentro de la misma zona seleccionada. De lo contrario podría quedar contenido fuera.
 
@@ -352,7 +352,9 @@
 
 	\section{A escanear} Una vez preparado todo, podemos comenzar a escanear. Para ello presionamos \keys{Escanear}. El equipo hará una exploración e \irfanview irá mostrando y guardando las imágenes de acuerdo a las opciones seleccionadas. Lo hará usando el nombre base (\menu{Output file name}) y aumentando la numeración. Es importante que el orden creciente de las páginas del libro corresponda con el orden creciente de los números de los archivos, para que no haya confusión a la hora de compaginar todo. Además, algunos scripts y aplicaciones que usaremos luego dependerán de que esta numeración sea consistente a lo largo de todo el proyecto para funcionar correctamente.
 
-	Si el libro es suficientemente pequeño podremos ir escaneando de a dos páginas a la vez, de lo contrario será de a una. Luego de un rato trabajando veremos que el proceso transcurre prácticamente sin pensar. Llegado ese punto yo aprovecho para paralelamente mirar televisión, escuchar música o meditar sobre lo humano y lo divino.
+	Si el libro es suficientemente pequeño podremos ir escaneando de a dos páginas a la vez, de lo contrario será de a una.\footnote{Sobre todo si es la primera vez que se utiliza esta guía recomiendo escanear de a una página, puesto que hacerlo de a dos complica el proceso como se explica en la sección~\ref{sec:scanningTwoPages}.}
+
+	Luego de un rato trabajando veremos que el proceso transcurre prácticamente sin pensar. Llegado ese punto yo aprovecho para paralelamente mirar televisión, escuchar música o meditar sobre lo humano y lo divino.
 
 	Conviene que las páginas estén rectas respecto a los bordes de la superficie de exploración, pero sin necesidad de perfección. Durante el procesamiento podremos corregir algunas desviaciones.
 
@@ -484,7 +486,7 @@
 
 	En \menu{Page Layout} tenemos tres opciones (fig.~\ref{fig:STsplitPages}). La primera es para indicarle a \scantailor que la página ocupa toda el área de la imagen,\footnote{Útil si ya al escanear dibujamos un rectángulo en el área de previsualización como se explica en la página~\pageref{pag:scanningRegionSelection}.} mientras que la segunda permite excluir dos bandas verticales. Estas dos opciones las usaremos para páginas escaneadas de a una a la vez.
 
-	Si hicimos la digitalización de a dos páginas por vez usaremos la tercera opción, que es la que efectivamente divide la imagen, separándola en dos páginas.\footnote{Téngase en cuenta que si se utiliza esta última opción, cambiará la forma en que \scantailor nombra los archivos de salida y con ello dejará de funcionar el script~\ref{scr:replaceInABBYY} de la sección \ref{sec:ABBYYCorrectionsSpotAndArea} tal como está.}
+	Si hicimos la digitalización de a dos páginas por vez usaremos la tercera opción, que es la que efectivamente divide la imagen, separándola en dos páginas.\footnote{Tengamos en cuenta las consecuencias (sec.~\ref{sec:scanningTwoPages}) de trabajar de esta manera.}
 
 	\begin{figure}
 		\centering
@@ -632,7 +634,13 @@
 
 	\paragraph{Verificación} Si nos interesa verificar que los márgenes nos hayan quedado bien, podemos usar \djvusmall\footnote{Para aprender a trabajar con \djvusmall consultar la sección~\ref{sec:djvuSmall}.} con un perfil cualquiera (por ejemplo, \menu{default}) para generar un \djvu de prueba y, pasando las páginas rápidamente, detectar algún error de alineación que no hayamos notado. También es posible ir pasando dentro de \scantailor, pero de momento la navegación es bastante lenta y a veces no permite apreciar las diferencias.
 
-	\subsection{Paso 6. \emph{Output}\label{sec:SToutput}} Comenzaremos por seleccionar \menu{Output Resolution (DPI) > 600} y presionamos \play\ para que se binaricen todos los archivos. Este es un proceso que también le lleva a \scantailorAdvanced algo de tiempo, aunque se ha mejorado mucho respecto de la versión original. Al finalizar podemos inspeccionar cada página en busca de errores. A continuación veamos algunos de los más comunes.
+	\subsection{Paso 6. \emph{Output}\label{sec:SToutput}} Este paso dispone de una cantidad de opciones cuyos valores por defecto funcionan bien. Lo primero que haremos será presionar \play\ para que se procesen todos los archivos. Este es un proceso que también le lleva a \scantailorAdvanced algo de tiempo, aunque se ha mejorado mucho respecto de la versión original.
+
+	Al finalizar tendremos los archivos procesados en la carpeta \typesetFolder{out} en formato \tiff. Si escaneamos de a una página los archivos tendrán el mismo nombre que los originales con la extensión \texttt{tif}. Es decir, \typesetFile{SCAN/SCAN\_XXX.tif} se procesará en \typesetFile{SCAN/out/SCAN\_XXX.tif}.
+
+	En cambio, si escaneamos de a dos páginas (y elegimos split pages) cambiará la forma en que \scantailor nombra los archivos de salida: a partir de la imagen \typesetFile{SCAN/SCAN\_XXX.tif} que contiene las dos páginas creará los archivos \typesetFile{SCAN/out/SCAN\_XXX\_1L.tif} y \typesetFile{SCAN/out/SCAN\_XXX\_2R.tif}, correspondientes al verso y al recto respectivamente.
+
+	Una vez terminado el procesamiento, podemos inspeccionar cada página en busca de errores. A continuación veamos algunos de los más comunes.
 
 	\subsubsection{Caracteres mal impresos o faltantes} A veces el proceso de impresión falla y algunos caracteres aparecen cortados, como en la figura~\ref{fig:SToutputBadChars}. Existen dos formas de corregirlos.
 	\begin{enumerate}
@@ -711,7 +719,7 @@
 
 	Para estas páginas debemos activar siempre \menu{Splitting > \typesetCheckbox{Split output} > \typesetDotCircle{B\&W foreground}}. Esto generará dos carpetas más dentro de \typesetFolder{out}: \typesetFolder{foreground} y \typesetFolder{background}, adonde se guardará cada componente de la imagen. A la primera irá todo el contenido binarizado y a la segunda las fotos. Podemos activarla y echar un vistazo para entenderlo mejor.
 
-	Esto nos permitirá procesar cada parte en sus particularidades de manera independiente, de forma de lograr un resultado óptimo. Si no se va a hacer, de todas formas elegir la opción no hace daño, pues en \typesetFolder{out} se sigue guardando la imagen con las dos componentes superpuestas.
+	Esto nos permitirá procesar cada parte en sus particularidades de manera independiente, de forma de lograr un resultado óptimo. Si no se va a hacer este procesamiento independiente, de todas formas elegir la opción no hace daño, pues en \typesetFolder{out} se sigue guardando la imagen con las dos componentes superpuestas.
 
 	\subsubsection{Ilustraciones problemáticas} Algunas ilustraciones, dibujos o diagramas, a pesar de estar impresos a una sola tinta, pierden muchos detalles cuando son binarizados. Ocurre cuando hay líneas muy cercanas pero que no se tocan: el blanco que queda en medio no es lo suficientemente claro, y \scantailor lo convierte en negro. Análogamente si hay líneas negras demasiado tenues. La figura~\ref{fig:SToutputBadDiagrams} ilustra un ejemplo. Para arreglar esto existen tres opciones.
 
@@ -733,6 +741,14 @@
 	\end{figure}
 
 	\subsubsection{Algoritmo de binarización} Existen diferentes algoritmos de binarización, cada uno con ventajas y desventajas. Con el submenú \menu{Threshold} (umbral) \scantailorAdvanced permite cambiar entre \menu{Otsu} (por defecto), \menu{Sauvola} y \menu{Wolf}. De no estar conformes con el resultado por defecto, podríamos intentar cambiando el algoritmo o ajustando los parámetros que cada uno ofrece. El impacto que tiene cada algoritmo está por fuera del alcance de nuestra guía, si bien existe abundante literatura al respecto \cite{RashmiBinarization}.
+
+	\subsubsection{Escanear de a dos páginas: consecuencias\label{sec:scanningTwoPages}} Al no quedar ya los archivos numerados secuencialmente, los procedimientos que dependan de ello dejarán de funcionar.
+
+	Si no vamos a separar fotos como en la sección~\ref{sec:SToutputPictureZones}, entonces no será un gran problema (solo el script~\ref{scr:fixLandscapePages} dejará de funcionar). De lo contrario, esta nomenclatura nos dificultará bastante el proceso. En particular, los scripts~\ref{scr:replaceInABBYY}, \ref{scr:pdfPhotosqpdf} y \ref{scr:pdfPhotosAcrobat}, así como el software \djvuimager (sec.~\ref{sec:djvuImager}) se verán afectados.
+
+	Una forma de remediarlo sería usar \textsc{Advanced Renamer} para renombrar uniformemente los archivos de la carpeta \typesetFolder{out}, aunque si se aplica el procedimiento de la sección~\ref{sec:SToutputPictureZones} habrá que tener cuidado en renombrar también correctamente los archivos en las carpetas \typesetFolder{foreground} y \typesetFolder{background}.
+
+	Otra podría ser ir un paso hacia atrás y utilizar algún software de edición por lotes para separar previamente las páginas, nombrarlas adecuadamente y con ellas recomenzar el proyecto de \scantailor, aunque perderíamos todo el trabajo hecho hasta ahora.
 
 	\subsection{Páginas apaisadas\label{sec:landscapePages}} Recomiendo corregir la rotación de las páginas apaisadas (\emph{landscape}, en inglés) para que estén bien orientadas en el documento final (fig.~\ref{fig:STlandscapePages}). De esta forma se facilita el proceso de \ocr y queda más fácil de visualizar. Si bien podríamos haber elegido la orientación adecuada desde el paso 1 de \scantailor, no lo hacemos así porque no tener todas las páginas orientadas en el mismo sentido nos dificulta la configuración de márgenes consistentes.\footnote{En realidad, nos obliga a considerar todas esas páginas como atípicas, teniendo que ingresar todos sus márgenes manualmente.} Por ello, debemos tomar nota de los números de página que queramos ajustar y adaptar el script~\ref{scr:fixLandscapePages} para que las procese correctamente.\footnote{Bastará con rellenar la variable \menu{landscapePages} con los números de página correspondientes.}
 
@@ -1770,6 +1786,9 @@
 				\item Modificada la definición de \textbackslash pythonScript para disminuir a la mitad el tamaño de los TABs en los scripts.
 				\item Mencionada la existencia de archivos ocultos en la estructura de \abbyy (cap.~\ref{sec:abbyyProjectStructure}).
 				\item Transparencias de páginas se podrían corregir por software (sec.~\ref{sec:transparency}).
+				\item Creadas algunas subsecciones en la sección «Configuración del software» (\ref{sec:scanningSoftware}).
+				\item Ampliada la sección «Paso 6. Output» (\ref{sec:SToutput}) con información sobre los nombres de archivo.
+				\item Agregada una sección sobre las consecuencias de escanear de a dos páginas (sec.~\ref{sec:scanningTwoPages}) y algunas referencias.
 
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
@@ -1802,7 +1821,6 @@
 	\item Agregar algunas referencias sobre \jbig: \href{http://everist.org/NobLog/20131122_an_actual_knob.htm}{Never Use JBIG2 Document Compression}, \href{http://www.dkriesel.com/en/blog/2013/0802_xerox-workcentres_are_switching_written_numbers_when_scanning}{Xerox scanners/photocopiers randomly alter numbers in scanned documents}, \href{http://www.dkriesel.com/en/blog/2013/0808_number_mangling_not_a_xerox-only_issue}{Number mangling reportedly not a Xerox-only issue}, \href{https://www.xerox.com/assets/pdf/ScanningQAincludingAppendixA.pdf}{Xerox Scanning Update: What You Need To Know}.
 	\item Otras referencias a investigar: \href{http://www.meeus-d.be/linux/OCR.html}{Reconnaissance de caractères, Optical Character Recognition (OCR)}, \href{http://www.tobias-elze.de/pdfsandwich/}{pdfsandwich}, 
 	\item Respecto a la conversión de hOCR a djvused, ver \href{https://github.com/ksa242/pdfsed-tools}{pdfsed-tools}.
-	\item Algún comentario más sobre que Split pages rompe otras cosas como \djvuimager.
 \end{itemize}
 
 % -------------------------  Intentionally blank pages -------------------------
