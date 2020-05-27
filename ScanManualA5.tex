@@ -1316,6 +1316,8 @@
 
 	\section{Codificación con \djvusmallmod\label{sec:djvuSmallMod}} El flujo de trabajo con \djvusmallmod es muy similar al de \djvusmall, solo que ahora más funciones se encuentran incluidas en el mismo programa.
 
+	\paragraph{Advertencia} Las instrucciones dadas en esta sección funcionan, aunque no estoy seguro de que todas las opciones trabajen exactamente como se explica.
+
 	En la figura~\ref{fig:djvuSmallMod} podemos ver la ventana principal del programa. De arriba a abajo tenemos:
 
 	\begin{figure}
@@ -1777,7 +1779,6 @@ Este reemplazo permite corregir con \scantailor errores encontrados en la etapa 
 
 \chapter{ToDo} Estos son cambios o adiciones que me falta hacer.
 \begin{itemize}
-	\item Considerar https://www.ctan.org/pkg/lettrine.
 	\item Ordenar el historial de cambios.
 	\item Dejar de usar los floats de memoir y pasar a los del paquete caption como sugiere el encargado de mantenimiento de memoir en \href{https://tex.stackexchange.com/questions/524747/memoir-subbottom-and-subtop-vertical-alignment-control}{Memoir subbottom (and subtop) vertical alignment control}.
 	\item homogeneizar todo el tono del documento: haremos, haré, haga?
@@ -1790,19 +1791,13 @@ Este reemplazo permite corregir con \scantailor errores encontrados en la etapa 
 			\item Esta respuesta usa el \href{https://askubuntu.com/a/334463}{C\#.NET PDF SDK} (basada en \href{http://www.rasteredge.com/how-to/csharp-imaging/pdf-add-image/}{Add Image to PDF Page in C\#.NET});
 			\item \LaTeX, mediante el paquete \href{https://www.ctan.org/pkg/pdfpages}{pdfpages} (también en \href{https://pypi.org/project/pdfpages/}{Python}; creo que vi alguna versión CLI también);
 			\item Alguien estaba buscando lo mismo que yo en este foro de \imagemagick: \href{https://www.imagemagick.org/discourse-server/viewtopic.php?t=31103}{Adding image to pdf}.
+			\href{https://github.com/LibrePDF/OpenPDF/}{OpenPDF}
 		\end{itemize}
 	\item Investigar este \href{https://github.com/lovasoa/pagelabels-py}{script} de Python para cambiar las etiquetas de página de los \pdf.
-	\item agregar una sección sobre como trabajar con \djvulibre?
-	\item ordenar la bibliografía?
-	\item Pasar en limpio o eliminar el apéndice que trata sobre las opciones avanzadas de \djvusmallmod.
-	\item Crear un script para agregar los metadatos con \exiftool.
 	\item Dar alguna referencia sobre qué hacer si falla la conversión \pdfa.
-	\item Algún comentario sobre la librería \href{https://github.com/LibrePDF/OpenPDF/}{OpenPDF}?
-	\item Está mal la explicación del Bg subsample y en general toda la explicación de cómo codificar las imágenes con \djvusmallmod. Investigar un poco y arreglarlo! Además, no recuerdo si el comportamiento codificando las fotos sueltas y ya insertándolas es el mismo o difiere. Investigar.
 	\item Agregar algunas referencias sobre \jbig: \href{http://everist.org/NobLog/20131122_an_actual_knob.htm}{Never Use JBIG2 Document Compression}, \href{http://www.dkriesel.com/en/blog/2013/0802_xerox-workcentres_are_switching_written_numbers_when_scanning}{Xerox scanners/photocopiers randomly alter numbers in scanned documents}, \href{http://www.dkriesel.com/en/blog/2013/0808_number_mangling_not_a_xerox-only_issue}{Number mangling reportedly not a Xerox-only issue}, \href{https://www.xerox.com/assets/pdf/ScanningQAincludingAppendixA.pdf}{Xerox Scanning Update: What You Need To Know}.
 	\item Otras referencias a investigar: \href{http://www.meeus-d.be/linux/OCR.html}{Reconnaissance de caractères, Optical Character Recognition (OCR)}, \href{http://www.tobias-elze.de/pdfsandwich/}{pdfsandwich}, 
 	\item Respecto a la conversión de hOCR a djvused, ver \href{https://github.com/ksa242/pdfsed-tools}{pdfsed-tools}.
-	\item Investigar y comentar Djvutoy para la creación de djvus.
 	\item Transparencias de páginas de pueden corregir también por software.
 	\item archivos ocultos en estructura de \abbyy.
 	\item Algún comentario más sobre que Split pages rompe otras cosas como \djvuimager.
