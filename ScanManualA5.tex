@@ -146,7 +146,7 @@
 	\paragraph{\imagemagick} Conjunto de utilidades para manipular y convertir imágenes. Licencia Apache 2.0. Lo usaremos para procesar imágenes por lotes \cite{ImageMagick}.
 
 	\subsection{Generadores de \texorpdfstring{\ocr}{OCR}} Este será el software que utilizaremos para reconocer el texto en nuestros documentos escaneados.
-	\paragraph{\textsc{ABBYY \abbyy}} Aplicación de software de \ocr (reconocimiento óptico de caracteres). Software propietario y de pago. Lo usaremos para insertar una capa de texto seleccionable a nuestros documentos finales.\todo{Aclarar que salió la versión 15.}
+	\paragraph{\textsc{ABBYY \abbyy}} Aplicación de software de \ocr (reconocimiento óptico de caracteres). Software propietario y de pago. Lo usaremos para insertar una capa de texto seleccionable a nuestros documentos finales.
 	\paragraph{\textsc{tesseract}} Motor de \ocr libre para varias plataformas. Licencia Apache 2.0. Hay varias interfaces gráficas disponibles. No tengo experiencia con él. Para usarlo habría que hacer adaptaciones a todo el flujo de trabajo \cite{tesseract}.
 	\paragraph{\textsc{Nuance Omnipage}} Alternativa propietaria y paga. Más bien orientada al reconocimiento en serie de grandes volúmenes de documentos. Tampoco la he probado. No estoy seguro de que maneje archivos \djvu \cite{Omnipage}.
 
@@ -620,7 +620,7 @@
 		\caption[Detalle de las guías para ajustar márgenes]{Detalle de las guías para ajustar márgenes. Las páginas (bien comportadas) ya fueron alineadas con sus guías correspondientes\label{fig:STmarginsGuides}}
 	\end{figure}
 
-	Para crearlas hacemos \menu{\rightclick > Add vertical guide}, y las posicionamos con \keys{\ctrl + \Alt + \leftclick + arrastrar}. Haciendo \keys{\shift + \leftclick + arrastrar} podemos mover el contenido en sentido horizontal para alinearlo. En este caso será al número de página. Necesitaremos una para las pares y otra para las impares. Sugiero fijar las guías en las páginas más anchas (pp.~250 y 117).\todo{Referir a la documentación de \scantailor para los controles.}
+	Para crearlas hacemos \menu{\rightclick > Add vertical guide}, y las posicionamos con \keys{\ctrl + \Alt + \leftclick + arrastrar}. Haciendo \keys{\shift + \leftclick + arrastrar} podemos mover el contenido en sentido horizontal para alinearlo. En este caso será al número de página. Necesitaremos una para las pares y otra para las impares. Sugiero fijar las guías en las páginas más anchas (pp.~250 y 117).
 
 	Con \keys{\shift + \,\leftclick\,\leftclick} sobre el área que queremos alinear, \scantailor hace un buen trabajo de acomodar automáticamente el contenido a la guía más cercana. Si no nos satisface el resultado, podemos arrastrarlo manualmente como en el párrafo anterior, hasta colocarlo donde queramos.
 
@@ -792,7 +792,7 @@
 
 	\paragraph{Nota previa} \abbyy también es un programa muy completo, con una cantidad de modos de funcionamiento, opciones y errores que esta guía no pretende cubrir exhaustivamente. Si alguna explicación no quedara clara, lo mejor será experimentar, leer el manual de usuario o realizar consultas en algún sitio especializado.
 
-	\section{Configuración} Abrimos luego \abbyy\footnote{Recomiendo trabajar con la versión 14 (la más reciente al momento de escribir esta guía). Sin embargo, cualquier versión que permita salvar en \djvu es suficiente (v11 o superior). Las opciones no serán exactamente iguales (habrá que improvisar) y no podremos usar el script~\ref{scr:replaceInABBYY} (no es grave).} y procedemos a configurar primero las opciones básicas (más adelante trataremos algunas otras). Se accede al menú haciendo \menu{\leftclick > Tools > Options}. En principio sugiero configurar las opciones tal cual se muestran en las figuras.
+	\section{Configuración} Abrimos luego \abbyy\footnote{En esta guía trabajaremos con la versión 14. Sin embargo, cualquier versión que permita salvar en \djvu es suficiente (v11 o superior). Tal vez las opciones no sean exactamente iguales (habrá que improvisar) y o no se pueda usar el script~\ref{scr:replaceInABBYY} (no es grave).} y procedemos a configurar primero las opciones básicas (más adelante trataremos algunas otras). Se accede al menú haciendo \menu{\leftclick > Tools > Options}. En principio sugiero configurar las opciones tal cual se muestran en las figuras.
 
 	\subsection{Pestaña \texttt{Image Processing}} En la pestaña \menu{Image Processing} presionamos \keys{Show Advanced Settings} y deshabilitamos todas las opciones, como en la fig.~\ref{fig:ABBYYoptionsImage}. Así nos aseguramos de que el software no realizará ninguna corrección de imagen. Para eso ya transitamos por los pasos anteriores. Si aún hubiera algo para ajustar, lo mejor será volver a \scantailor y hacerlo nosotros mismos.
 
@@ -1063,7 +1063,7 @@
 
 	Luego pegamos el contenido de \typesetFile{pdfPhotos.js} en la consola, lo seleccionamos todo y presionamos \keys{\ctrl + \return}. Después de algunos segundos aparecerá nuestro archivo \typesetFile{SCAN\_INS.pdf} con las fotos insertadas. Si \emph{no} ocurrió ningún error, la consola mostrará el mensaje \texttt{undefined}.
 
-	\subsection{Nota: sobre el tamaño final} Descubrí que si bien este método funciona bien, el blanco (convertido en transparente) de los \jpeg en algunos casos puede llegar a duplicar el tamaño de los archivos de fotos. De momento lo presento así, pero hay que idear un método más eficiente, que recorte las fotos (fácil) y las inserte en la posición adecuada en el documento final (difícil). (Acepto sugerencias.)
+	\paragraph{Nota: sobre el tamaño final} Descubrí que si bien este método funciona bien, el blanco (convertido en transparente) de los \jpeg en algunos casos puede llegar a hacer que el tamaño de los archivos de fotos se duplique. De momento lo presento así, pero hay que idear un método más eficiente, que recorte las fotos (fácil) y las inserte en la posición adecuada en el documento final (difícil). (Acepto sugerencias.)
 
 	\section{Marcadores\label{sec:pdfBookmarks}} Para insertar marcadores comenzaremos abriendo \notepad, creando un archivo de texto \typesetFile{bookmarks.txt} y pegando allí la tabla de contenidos copiada del \pdf.
 
@@ -1091,7 +1091,7 @@
 
 	\subsection{Secciones extra} A veces el material está dividido en más subsecciones de las que aparecen en la tabla de contenidos. Si queremos incluirlas deberemos hacerlo manualmente, recorriendo las páginas, copiando y pegando el texto y agregando el número de página que corresponda.
 
-	\subsection{Corrección de \texorpdfstring{n.\textsuperscript{os}}{n.os} de página} Las entradas de la tabla de contenidos están referidas a los números de página impresos en el material, pero nosotros deberemos referirlos a los números de página del documento. Recordemos que en este caso, la página N\textsuperscript{o}~1 es la 13 del documento. Esto significa que debemos hacer un corrimiento de +12 páginas. Para ello podemos usar la aplicación \pdg.
+	\subsection{Corrección de \texorpdfstring{n.\textsuperscript{os}}{n.os} de página} Las entradas de la tabla de contenidos están referidas a los números de página impresos en el material, pero nosotros deberemos referirlos a los números de página del documento. Recordemos que en este caso, la página n.\textsuperscript{o}~1 es la 13 del documento. Esto significa que debemos hacer un corrimiento de +12 páginas. Para ello podemos usar la aplicación \pdg.
 
 	Pegando los marcadores ya formateados, debemos seleccionar los que queramos corregir y presionar \keys{\boldpm} (\menu{Adjust Page Number}). En el cuadro de diálogo que aparece (fig.~\ref{fig:pdfBookmarksOffset}) ingresamos el desplazamiento que deseamos (en este caso son +12 páginas) y presionamos \keys{OK}. Esos marcadores ajustados los volvemos a pegar en \typesetFile{bookmarks.txt}, para tenerlos respaldados.
 
@@ -1207,7 +1207,7 @@
 
 	\section{Verificación} Al guardar como \pdfa, \acrobat hace una verificación de cumplimiento del estándar, pero aunque aparezca el mensaje \texttt{Preflight profile ``Convert to PDF'' did not find any errors or warnings} aún podría tener errores. Como los distintos actores que participan de la industria de creación y verificación de archivos \pdfa tenían discrepancias sobre si tal o cual documento cumplía o no con el estándar, se formó una coalición para desarrollar una herramienta de código libre que fuera la piedra de toque para estos asuntos: se le llamó \veraPDF.
 
-	Su utilización es muy simple: iniciamos el programa, hacemos clic en \menu{Choose PDF}, elegimos el archivo que creamos en la sección anterior y presionamos \keys{Execute}. Al terminar sabremos si nuestro archivo efectivamente cumple y si no lo hace qué problemas tiene.\footnote{La solución de estos eventuales problemas quedó por fuera del alcance de esta guía.} En nuestro \pdf de ejemplo el resultado fue satisfactorio, como se ve en la figura~\ref{fig:pdfVerify}.
+	Su utilización es muy simple: iniciamos el programa, hacemos clic en \menu{Choose PDF}, elegimos el archivo que creamos en la sección anterior y presionamos \keys{Execute}. Al terminar sabremos si nuestro archivo efectivamente cumple y si no lo hace qué problemas tiene.\footnote{La solución de estos eventuales problemas cae fuera del alcance de esta guía.} En nuestro \pdf de ejemplo el resultado fue satisfactorio, como se ve en la figura~\ref{fig:pdfVerify}.
 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{pdfVerify}
@@ -1463,7 +1463,7 @@
 	\paragraph{\textsc{HandyOutliner}} Ídem \textsc{DjVuOutline} \cite{HandyOutliner}.
 	\paragraph{\textsc{pdf2djvu}} Herramienta de línea de comandos para crear archivos \djvu a partir de \pdf. Licencia GPLv2. Existen muchas GUI para trabajar con ella \cite{pdf2djvu}.
 	\paragraph{\textsc{Any2DjVu}} Herramienta en línea gratuita que ofrece la creación de archivos \djvu a partir de una gran variedad de formatos de origen. De los autores \djvulibre \cite{Any2DjVu}.
-	\paragraph{\textsc{MiniDjVu}} Utilidad de línea de comandos para codificar y decodificar archivos \djvu en blanco y negro. La versión para Windows incluye una \textsc{gui} mínima basada en \emph{Javascript} que funciona desde Internet Explorer. Licencia GPLv2. No se actualiza desde el 2009. No la he probado, pero su autor declara que la intención es que se use para experimentar. Los comentarios en la Runet \cite{WikipediaRunet} son similares y hablan de que la calidad de compresión no es la mejor \cite{MiniDjVu}.\todo{agregar la versión mod?}
+	\paragraph{\textsc{MiniDjVu}} Utilidad de línea de comandos para codificar y decodificar archivos \djvu en blanco y negro. La versión para Windows incluye una \textsc{gui} mínima basada en \emph{Javascript} que funciona desde Internet Explorer. Licencia GPLv2. No se actualiza desde el 2009. No la he probado, pero su autor declara que la intención es que se use para experimentar. Los comentarios en la Runet \cite{WikipediaRunet} son similares y hablan de que la calidad de compresión no es la mejor \cite{MiniDjVu}.
 	\paragraph{\textsc{MiniDjVu Plus}} Interfaz gráfica para \textsc{MiniDjVu}. Además agrega decodificación y codificación de imágenes a color mediante aplicaciones de \djvulibre. Licencia GPLv2. Herramienta experimental. No se actualiza desde el 2010 \cite{MiniDjVuPlus}.
 	\paragraph{\textsc{LizardTech DjVu Solo}} Una de las primeras aplicaciones (en su momento prácticamente la única) para crear documentos \djvu. Gratuita para uso no comercial. Discontinuada en el año 2000 y ya superada por las otras alternativas \cite{DjVuSolo}.
 
@@ -1502,7 +1502,7 @@
 
 	Antes de comenzar con el proceso de \ocr tenemos dos alternativas: convertimos las imágenes en bitonales o las procesamos más adelante.
 
-	\section{Conversión previa} Usando \gimp podemos transformar las páginas que tienen fotos (especialmente en escala de grises) en bitonales. Para ello abrimos la imagen y vamos a \menu{Image > Mode > Indexed\...}. Se abrirá el menú de la figura~\ref{fig:noSplitPagesGIMP}. Allí elegimos \menu{\typesetDotCircle{Use black and white (1-bit) palette}} y en \menu{Color dithering} elegimos alguna de las opciones: \menu{None}, \menu{Floyd-Steinberg} (\menu{Normal} o \menu{Reduced color bleeding}) o \menu{Positioned}. Normalmente \menu{None} da los peores resultados.\todo{Agregar alternativa usando \imagemagick}
+	\section{Conversión previa} Usando \gimp podemos transformar las páginas que tienen fotos (especialmente en escala de grises) en bitonales. Para ello abrimos la imagen y vamos a \menu{Image > Mode > Indexed\...}. Se abrirá el menú de la figura~\ref{fig:noSplitPagesGIMP}. Allí elegimos \menu{\typesetDotCircle{Use black and white (1-bit) palette}} y en \menu{Color dithering} elegimos alguna de las opciones: \menu{None}, \menu{Floyd-Steinberg} (\menu{Normal} o \menu{Reduced color bleeding}) o \menu{Positioned}. Normalmente \menu{None} da los peores resultados.
 
 	\begin{figure}
 		\centering
@@ -1804,23 +1804,6 @@
 \begin{itemize}
 	\item Ordenar el historial de cambios.
 	\item Dejar de usar los floats de memoir y pasar a los del paquete caption como sugiere el encargado de mantenimiento de memoir en \href{https://tex.stackexchange.com/questions/524747/memoir-subbottom-and-subtop-vertical-alignment-control}{Memoir subbottom (and subtop) vertical alignment control}.
-	\item homogeneizar todo el tono del documento: haremos, haré, haga?
-	\item respecto a la nota al final de la sección~\ref{sec:pdfPhotos} hay otras posibilidades para insertar las imágenes en el \pdf, pero me pasa el agua:
-		\begin{itemize}[noitemsep]
-			\item API \href{cairographics.org}{cairo} (también en Python con \href{https://www.cairographics.org/pycairo/}{Pycairo});
-			\item \href{https://github.com/pmaupin/pdfrw}{pdfrw}, una librería de Python para leer y escribir \pdf; ver en particular los ejemplos \texttt{watermark.py} y \texttt{fancy\_watermark.py};
-			\item \href{https://github.com/pikepdf/pikepdf}{pikepdf}, otra librería de Python para leer y escribir \pdf; esta basada en \qpdf;
-			\item \href{https://github.com/mstamy2/PyPDF2}{PyPDF2}, otra más;
-			\item Esta respuesta usa el \href{https://askubuntu.com/a/334463}{C\#.NET PDF SDK} (basada en \href{http://www.rasteredge.com/how-to/csharp-imaging/pdf-add-image/}{Add Image to PDF Page in C\#.NET});
-			\item \LaTeX, mediante el paquete \href{https://www.ctan.org/pkg/pdfpages}{pdfpages} (también en \href{https://pypi.org/project/pdfpages/}{Python}; creo que vi alguna versión CLI también);
-			\item Alguien estaba buscando lo mismo que yo en este foro de \imagemagick: \href{https://www.imagemagick.org/discourse-server/viewtopic.php?t=31103}{Adding image to pdf}.
-			\href{https://github.com/LibrePDF/OpenPDF/}{OpenPDF}
-		\end{itemize}
-	\item Investigar este \href{https://github.com/lovasoa/pagelabels-py}{script} de Python para cambiar las etiquetas de página de los \pdf.
-	\item Dar alguna referencia sobre qué hacer si falla la conversión \pdfa.
-	\item Agregar algunas referencias sobre \jbig: \href{http://everist.org/NobLog/20131122_an_actual_knob.htm}{Never Use JBIG2 Document Compression}, \href{http://www.dkriesel.com/en/blog/2013/0802_xerox-workcentres_are_switching_written_numbers_when_scanning}{Xerox scanners/photocopiers randomly alter numbers in scanned documents}, \href{http://www.dkriesel.com/en/blog/2013/0808_number_mangling_not_a_xerox-only_issue}{Number mangling reportedly not a Xerox-only issue}, \href{https://www.xerox.com/assets/pdf/ScanningQAincludingAppendixA.pdf}{Xerox Scanning Update: What You Need To Know}.
-	\item Otras referencias a investigar: \href{http://www.meeus-d.be/linux/OCR.html}{Reconnaissance de caractères, Optical Character Recognition (OCR)}, \href{http://www.tobias-elze.de/pdfsandwich/}{pdfsandwich}, 
-	\item Respecto a la conversión de hOCR a djvused, ver \href{https://github.com/ksa242/pdfsed-tools}{pdfsed-tools}.
 \end{itemize}
 
 % -------------------------  Intentionally blank pages -------------------------
