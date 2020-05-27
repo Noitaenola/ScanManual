@@ -1598,54 +1598,54 @@
 		\caption{Preferencias de \ocr en \djvueditor\label{fig:simpleOCRdjvuPreferences}}
 	\end{figure}
 
-\chapter{Estructura del proyecto de \abbyy 14\label{sec:abbyyProjectStructure}} En la figura~\ref{fig:abbyyProjectStructure} se presenta un diagrama del árbol de directorios que se genera cuando guardamos un proyecto de \abbyy~v14.
+	\chapter{Estructura del proyecto de \abbyy 14\label{sec:abbyyProjectStructure}} En la figura~\ref{fig:abbyyProjectStructure} se presenta un diagrama del árbol de directorios que se genera cuando guardamos un proyecto de \abbyy~v14.\footnote{\abbyy genera además una serie de archivos ocultos que cumplen diversas funciones, como por ejemplo registrar cual fue la última página visualizada antes de cerrar el programa.}
 
-El software crea una carpeta para cada página que vamos agregando. Esas carpetas son numeradas sucesivamente utilizando cuatro dígitos: \typesetFolder{0001}, \typesetFolder{0002}, \... Dentro de la carpeta se crean archivos que guardan información sobre esa página, las transformaciones que se le hicieron, su miniatura, etc, pero lo más importante es que para las páginas en blanco y negro se crea un archivo \typesetFile{bwPage.frdat}, que no es más que el \tiff original copiado y pegado allí.
+	El software crea una carpeta para cada página que vamos agregando. Esas carpetas son numeradas sucesivamente utilizando cuatro dígitos: \typesetFolder{0001}, \typesetFolder{0002}, \... Dentro de la carpeta se crean archivos que guardan información sobre esa página, las transformaciones que se le hicieron, su miniatura, etc, pero lo más importante es que para las páginas bitonales se crea un archivo \typesetFile{bwPage.frdat}, que no es más que el \tiff original copiado y pegado allí.
 
-Si \abbyy no tiene esa página abierta, podemos reemplazar ese archivo por un \tiff con el mismo nombre y el software creerá que se trata de la imagen original. Esto funciona siempre que el nuevo \tiff también sea en blanco y negro y que además tenga las mismas dimensiones que el anterior.
+	Si \abbyy no tiene esa página abierta, podemos reemplazar ese archivo por un \tiff con el mismo nombre y el software creerá que se trata de la imagen original. Esto funciona siempre que el nuevo \tiff también sea bitonal y que además tenga las mismas dimensiones que el anterior.
 
-Algo parecido ocurre con las páginas a color, solo que estas se guardan divididas en sus componentes YCbCr \cite{YCbCr}: \typesetFile{grayComponent.frdat} guarda la componente de luma, \typesetFile{cbComponent.frdat} la de crominancia diferencia de azul y \typesetFile{crComponent.frdat} de crominancia diferencia de rojo. No he hecho pruebas, pero estimo que si queremos reemplazar la imagen podemos hacerlo al igual que con la páginas en blanco y negro, solo que habrá que generar primero estas tres componentes para reemplazar, tal vez usando \emph{ImageMagick}.
+	Algo parecido ocurre con las páginas a color, solo que estas se guardan divididas en sus componentes YCbCr \cite{YCbCr}: \typesetFile{grayComponent.frdat} guarda la componente de luma, \typesetFile{cbComponent.frdat} la de crominancia diferencia de azul y \typesetFile{crComponent.frdat} de crominancia diferencia de rojo. No he hecho pruebas, pero estimo que si queremos reemplazar la imagen podemos hacerlo al igual que con la páginas en blanco y negro, solo que habrá que generar primero estas tres componentes para reemplazar, tal vez usando \emph{ImageMagick}.
 
-Este reemplazo permite corregir con \scantailor errores encontrados en la etapa de \ocr sin tener que usar el cuadro de diálogo para reabrir la página. La ventaja de esto es que se mantiene la coherencia de la numeración: si usáramos el diálogo para reabrir, \abbyy en realidad eliminaría la carpeta correspondiente y crearía una nueva al final de la lista con la página reabierta. Por ejemplo, si nuestro material tuviera 461 páginas y decidiéramos reabrir la número 100, \abbyy eliminaría la carpeta \typesetFolder{0100} y crearía la \typesetFolder{0462}, donde colocaría la nueva página.
+	Este reemplazo permite corregir con \scantailor errores encontrados en la etapa de \ocr sin tener que usar el cuadro de diálogo para reabrir la página. La ventaja de esto es que se mantiene la coherencia de la numeración: si usáramos el diálogo para reabrir, \abbyy en realidad eliminaría la carpeta correspondiente y crearía una nueva al final de la lista con la página reabierta. Por ejemplo, si nuestro material tuviera 461 páginas y decidiéramos reabrir la número 100, \abbyy eliminaría la carpeta \typesetFolder{0100} y crearía la \typesetFolder{0462}, donde colocaría la nueva página.
 
-\begin{figure}
-	\vspace{-\onelineskip}
-	\begin{forest}
-		for tree={font=\sffamily, grow'=0,
-			folder indent=.9em, folder icons,
-			edge=densely dotted}
-		[ABBYY
-		[0001
-		[Image
-		[cbComponent.frdat, is file]
-		[converters.frdat, is file]
-		[crComponent.frdat, is file]
-		[grayComponent.frdat, is file]
-		[metadata.frdat, is file]
-		[parameters.frdat, is file]
-		[preview.frdat, is file]
-		[properties.frdat, is file]
-		]
-		]
-		[0002
-		[Image
-		[bwPage.frdat, is file]
-		[converters.frdat, is file]
-		[metadata.frdat, is file]
-		[parameters.frdat, is file]
-		[preview.frdat, is file]
-		[properties.frdat, is file]
-		]
-		]
-		[\dots]
-		[data]
-		[docdata]
-		[temp]
-		[batchOptions.xml, is file]
-		]
-	\end{forest}
-	\caption{Árbol de directorios del proyecto de \abbyy\label{fig:abbyyProjectStructure}}
-\end{figure}
+	\begin{figure}
+		\vspace{-\onelineskip}
+		\begin{forest}
+			for tree={font=\sffamily, grow'=0,
+				folder indent=.9em, folder icons,
+				edge=densely dotted}
+			[ABBYY
+			[0001
+			[Image
+				[cbComponent.frdat, is file]
+				[converters.frdat, is file]
+				[crComponent.frdat, is file]
+				[grayComponent.frdat, is file]
+				[metadata.frdat, is file]
+				[parameters.frdat, is file]
+				[preview.frdat, is file]
+				[properties.frdat, is file]
+			]
+			]
+			[0002
+			[Image
+				[bwPage.frdat, is file]
+				[converters.frdat, is file]
+				[metadata.frdat, is file]
+				[parameters.frdat, is file]
+				[preview.frdat, is file]
+				[properties.frdat, is file]
+			]
+			]
+			[\dots]
+			[data]
+			[docdata]
+			[temp]
+			[batchOptions.xml, is file]
+			]
+		\end{forest}
+		\caption{Árbol de directorios del proyecto de \abbyy\label{fig:abbyyProjectStructure}}
+	\end{figure}
 
 %\chapter{Opciones avanzadas de codificación de \djvusmallmod\label{app:djvuSmallModAdvancedEncoding}}
 %
@@ -1766,6 +1766,7 @@ Este reemplazo permite corregir con \scantailor errores encontrados en la etapa 
 				\item Uniformizado el estilo de todos los captions.
 				\item Corregido donde correspondiera: fotografías \faLongArrowAltRight\ fotos.
 				\item Modificada la definición de \textbackslash pythonScript para disminuir a la mitad el tamaño de los TABs en los scripts.
+				\item Mencionada la existencia de archivos ocultos en la estructura de \abbyy (cap.~\ref{sec:abbyyProjectStructure}).
 
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
@@ -1799,7 +1800,6 @@ Este reemplazo permite corregir con \scantailor errores encontrados en la etapa 
 	\item Otras referencias a investigar: \href{http://www.meeus-d.be/linux/OCR.html}{Reconnaissance de caractères, Optical Character Recognition (OCR)}, \href{http://www.tobias-elze.de/pdfsandwich/}{pdfsandwich}, 
 	\item Respecto a la conversión de hOCR a djvused, ver \href{https://github.com/ksa242/pdfsed-tools}{pdfsed-tools}.
 	\item Transparencias de páginas de pueden corregir también por software.
-	\item archivos ocultos en estructura de \abbyy.
 	\item Algún comentario más sobre que Split pages rompe otras cosas como \djvuimager.
 \end{itemize}
 
