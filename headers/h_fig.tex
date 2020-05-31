@@ -8,10 +8,26 @@
 	\graphicspath{{img/}} % images folder
 
 % ------------------------------------------------------------------------------
-\usepackage[table]{xcolor}
+\usepackage{caption, subcaption}
 
-% ------------------------------------------------------------------------------
-\usepackage{tikz}
-	\usetikzlibrary{babel}
+\DeclareCaptionLabelSeparator{mycapsep}{.\hspace{0.5em}}
+\DeclareCaptionLabelSeparator{mysubcapsep}{\hspace{0.5em}}
+
+\captionsetup{%
+	labelsep		= mycapsep,
+	justification	= centerlast,
+	position		= bottom,
+	labelfont		= {small, sc},
+	textfont		= {small, bf},
+	skip			= 5pt,
+	hypcap			= true,
+}
+
+\captionsetup[sub]{%
+	labelsep		= mysubcapsep,
+	labelfont		= {footnotesize},
+	textfont		= {footnotesize},
+	skip			= 3pt,
+}
 
 % ------------------------------------------------------------------------------

@@ -6,15 +6,8 @@
 % ------------------------------------------------------------------------------
 % -------------------------------    COMMANDS    -------------------------------
 % ------------------------------------------------------------------------------
-% Some title/author commands
-\newcommand{\documentTitle}{ScanManual/Guía para aprender a escanear}
-\newcommand{\documentVersion}{v1.1}
-\newcommand{\documentAuthor}{Noita Enola}
-\newcommand{\documentURL}{https://github.com/Noitaenola/ScanManual}
-
-% ------------------------------------------------------------------------------
 % Text macros
-\usepackage{xspace} % To manage spaces at the end of text macros
+\usepackage{xspace} % Adds a space unless the text macro is followed by certain punctuation characters.
 
 \newcommand{\pdf}{\textsc{pdf}\xspace}
 \newcommand{\pdfa}{\textsc{pdf/a}\xspace}
@@ -25,7 +18,7 @@
 \newcommand{\jbig}{\textsc{jbig}\xspace}
 \newcommand{\adf}{\textsc{adf}\xspace}
 \newcommand{\ocr}{\textsc{ocr}\xspace}
-\newcommand{\mondaytwothousand}{monday2000\xspace} % Acoording to a footnote at http://www.djvu-soft.narod.ru/ this grumpy old guy is called Ivanov Victor (Иванов Виктор). He dissapears from the scene around 2014.
+\newcommand{\mondaytwothousand}{monday2000\xspace}
 \newcommand{\textsharik}{textsharik\xspace}
 
 \newcommand{\szip}{\textsc{7-Zip}\xspace}
@@ -51,32 +44,50 @@
 \newcommand{\exiftool}{\textsc{ExifTool}\xspace}
 
 % ------------------------------------------------------------------------------
+% License command
+\newcommand{\license}{
+	\vspace{\baselineskip}
+	\hfill%
+	\begin{minipage}[c]{.35\linewidth}
+		\doclicenseImage[imagewidth=\linewidth]\\
+		\centering\doclicenseNameRef
+	\end{minipage}
+}
+
+% ------------------------------------------------------------------------------
+% ICONS
+
 % Play icon
 \newcommand{\play}{%
 	\begin{tikzpicture}[baseline=-0.6ex]%
-%		\node[circle, draw, thick, green!75!black, inner sep=3.2pt] (bcircle) {}; % This line draw the circle
-		\node (bcircle) {}; % This one won't
-		\node[scale=0.7, green!75!black, inner sep=0pt] at ([xshift=0.6pt] bcircle.center) {\faPlay};%
+	%		\node[circle, draw, thick, green!75!black, inner sep=3.2pt] (bcircle) {}; % This line draws a circle around the arrowhead
+	\node (bcircle) {}; % This one won't
+	\node[scale=0.7, green!75!black, inner sep=0pt] at ([xshift=0.6pt] bcircle.center) {\faPlay};%
 	\end{tikzpicture}%
 }
 
 % ------------------------------------------------------------------------------
-% Bold plus-minus
+% Bold plus-minus icon
 \newcommand{\boldpm}{%
 	\begin{tikzpicture}[baseline=-0.6ex]%
-		\node (bcircle) {};%
-		\node[inner sep=0pt] at ([yshift=.1em] bcircle.center) {\faPlus};%
-		\node[inner sep=0pt] at ([yshift=-0.4em] bcircle.center) {\faMinus};%
+	\node (bcircle) {};%
+	\node[inner sep=0pt] at ([yshift=.1em] bcircle.center) {\faPlus};%
+	\node[inner sep=0pt] at ([yshift=-0.4em] bcircle.center) {\faMinus};%
 	\end{tikzpicture}%
 }
 
 % ------------------------------------------------------------------------------
 % Mouse click icons
-\newcommand{\leftclick}{\raisebox{-.15em}{\!\includegraphics[width=1em]{leftclick}}}
-\newcommand{\rightclick}{\raisebox{-.15em}{\,\includegraphics[width=1em]{rightclick}}}
-
-% ------------------------------------------------------------------------------
-% menukeys package commands with fontawesome5 icons
+\newcommand{\leftclick}{
+	\raisebox{-.15em}{
+		\!\includegraphics[width=1em]{leftclick}
+	}
+}
+\newcommand{\rightclick}{
+	\raisebox{-.15em}{
+		\,\includegraphics[width=1em]{rightclick}
+	}
+}
 
 % ------------------------------------------------------------------------------
 % typesetFile command
@@ -135,12 +146,3 @@
 }
 
 % ------------------------------------------------------------------------------
-% License command
-\newcommand{\license}{
-	\vspace{\baselineskip}
-	\hfill%
-	\begin{minipage}[c]{.35\linewidth}
-		\doclicenseImage[imagewidth=\linewidth]\\\centering
-		\doclicenseNameRef
-	\end{minipage}
-}

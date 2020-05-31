@@ -27,6 +27,13 @@
 % ------------------------------------------------------------------------------
 % ----------------------------------  MEMOIR  ----------------------------------
 % ------------------------------------------------------------------------------
+% Some document commands
+\newcommand{\documentTitle}{ScanManual/Guía para aprender a escanear}
+\newcommand{\documentVersion}{v1.1}
+\newcommand{\documentAuthor}{Noita Enola}
+\newcommand{\documentURL}{https://github.com/Noitaenola/ScanManual}
+
+% ------------------------------------------------------------------------------
 % Document data
 \title{\documentTitle, \documentVersion}
 \author{\documentAuthor}
@@ -47,19 +54,11 @@
 \setsubsubsecheadstyle{\bfseries\sffamily}
 \setparaheadstyle{\bfseries\sffamily}
 \setlength{\headheight}{13pt}
-%\nouppercaseheads
 
 % ------------------------------------------------------------------------------
-% Figures and captions
-\newsubfloat{figure}
-\captiondelim{.\hspace{0.5em}}
-\captionnamefont{\small\scshape}
-\captiontitlefont{\small\bfseries}
-\captionstyle{\centerlastline}
-\subcaptionstyle{\centerlastline}
-%\hangcaption
-\setlength{\textfloatsep}{10pt}
-\setlength{\abovecaptionskip}{5pt}
+% Depth of the bookmarks
+\setsecnumdepth{subsubsection}
+\settocdepth{section}
 
 % ------------------------------------------------------------------------------
 % Custom list names. Thank you lockstep: https://tex.stackexchange.com/questions/82993/how-to-change-the-name-of-document-elements-like-figure-contents-bibliogr
@@ -70,13 +69,13 @@
 }
 
 % ------------------------------------------------------------------------------
-% Script environment, caption and list
+% Script environment and corresponding list definitions
 \newcommand{\scriptname}{Script}
+\newfloat[chapter]{script}{loscr}{\scriptname}
+
 \newcommand{\listscriptname}{Lista de scripts}
 \newlistof{listofscripts}{loscr}{\listscriptname}
 \newlistentry[chapter]{script}{loscr}{0}
-\newfloat[chapter]{script}{loscr}{\scriptname}
-\newfixedcaption{\scriptcaption}{script}
 
 % ------------------------------------------------------------------------------
 % No overfull boxes in toc page numbers greater than 2 digits: https://tex.stackexchange.com/questions/49887/overfull-hbox-warning-for-toc-entries-when-using-memoir-documentclass
@@ -84,5 +83,17 @@
 \renewcommand*{\cftdotsep}{1}
 \setpnumwidth{2em}
 \setrmarg{3.55em}
+
+% ------------------------------------------------------------------------------
+% Add some space between number and text in the footnotes. By JohnReed: https://tex.stackexchange.com/questions/54685/inserting-space-after-the-number-in-footnotes
+\let\oldfootnote\footnote
+\renewcommand\footnote[1]{\oldfootnote{\hspace{0.5em}#1}}
+
+\let\oldfootnotetext\footnotetext
+\renewcommand\footnotetext[1]{\oldfootnotetext{\hspace{0.5em}#1}}
+
+% ------------------------------------------------------------------------------
+% Thicker top, bottom rules for tables
+\setlength{\heavyrulewidth}{1pt}
 
 % ------------------------------------------------------------------------------

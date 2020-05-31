@@ -9,73 +9,54 @@
 \pdfobjcompresslevel=0
 
 % ------------------------------------------------------------------------------
-% Depth of the bookmarks
-\setsecnumdepth{subsubsection}
-\settocdepth{section}
-
-% ------------------------------------------------------------------------------
 % ToDo notes in the margins
-\usepackage[textsize=scriptsize]{todonotes}
-	\setlength{\marginparwidth}{2cm}
+%\usepackage[textsize=scriptsize]{todonotes}
+%	\setlength{\marginparwidth}{2cm}
 
 % ------------------------------------------------------------------------------
 % Sections of text in multiple columns
 \usepackage{multicol}
+
 % ------------------------------------------------------------------------------
-% To ease customizing of the list environments
+% To ease customizing of list environments
 \usepackage{enumitem}
 
 % ------------------------------------------------------------------------------
-% hyperref package and hypelinks colour
-\colorlet{colorLinks}{blue!30!black}
-
-\usepackage[
-	bookmarks,
-	bookmarksopen,
-	bookmarksdepth = 3,
-	bookmarksopenlevel = 1,
-	bookmarksnumbered,
-%	hidelinks,
-	colorlinks,
-	allcolors=colorLinks,
-	pdfusetitle,
-	pdfview = Fit,
-	pdfpagelayout = TwoPageRight,
-]{hyperref}
-
-% ------------------------------------------------------------------------------
-% To typeset code snippets
-\usepackage[newfloat]{minted}
+% Nice code snippets typestting
 \usepackage[skins, breakable, minted]{tcolorbox}
 	\colorlet{bg}{black!5!white} % background color for snippets
 %	\definecolor{bg}{rgb}{0.95,0.95,0.95}
-	\newcommand{\pythonScript}[1]{% Shortcut for inputing scripts
+	\newcommand{\pythonScript}[3]{% Shortcut for inputting python scripts
 		\begin{tcolorbox}[%
 			arc	= 0mm,
-			colback	= bg,
-			coltitle	= black,
-			colframe	= bg,
-			titlerule	= 1pt,
-			titlerule style	= black,
-			bottomrule	= 1pt,
-			title	= #1,
-			fonttitle	=\sffamily\bfseries,
-			breakable,
+			colback				= bg,
+			coltitle			= black,
+			colframe			= bg,
+			titlerule			= 1pt,
+			titlerule style		= black,
+			bottomrule			= 1pt,
+			title				= #1,
+			fonttitle			=\sffamily\bfseries,
+			breakable			= true,
 			title after break	= #1 (cont.),
 			toprule at break	= 0pt,
-			bottomrule at break = 0pt,
+			bottomrule at break	= 0pt,
+%			code				= {},
 			]%
+			\captionsetup{type=script}% Putting \captionsetup outside the tcolorbox (or using code = {...}) misplaces some anchors in the previous pages when the snippet is the first thing of the page. Putting it here makes the links point just below the script title.
 			\inputminted[
 				breaklines,
 				breakafter	= /,
 				fontfamily	= tt,
 				tabsize	= 4,
 			]{python}{./scripts/#1}%
+			\vspace{-0.5\baselineskip}
+			\caption{#2}
 		\end{tcolorbox}%
 	}
 
 % ------------------------------------------------------------------------------
-% To include the CC logo
+% Support for putting documents under a license
 \usepackage[
 	type		= {CC},
 	modifier	= {by-sa},
@@ -83,45 +64,74 @@
 ]{doclicense}
 
 % ------------------------------------------------------------------------------
-% Bibliography handling.
+% Advanced bibliographic facilities
 \usepackage[style=numeric,sorting=none,sortcites]{biblatex}
-\addbibresource{bibliography.bib}
-%\renewcommand{\cite}[1]{\textbf{[#1]}}
+	\addbibresource{bibliography.bib}
+	%\renewcommand{\cite}[1]{\textbf{[#1]}}
 
 % ------------------------------------------------------------------------------
-% To generate the nicer folder trees. By Guilherme Zanotelli: https://tex.stackexchange.com/questions/5073/making-a-simple-directory-tree
+% Nice, simple directory trees. By Guilherme Zanotelli: https://tex.stackexchange.com/questions/5073/making-a-simple-directory-tree
 \usepackage[edges]{forest}
 \definecolor{foldercolor}{RGB}{124,166,198}
-\tikzset{pics/folder/.style={code={%
+\tikzset{%
+	pics/folder/.style = {%
+		code = {%
 			\node[inner sep=0pt, minimum size=#1](-foldericon){};
 			\node[folder style, inner sep=0pt, minimum width=0.3*#1, minimum height=0.6*#1, above right, xshift=0.05*#1] at (-foldericon.west){};
-			\node[folder style, inner sep=0pt, minimum size=#1] at (-foldericon.center){};}
+			\node[folder style, inner sep=0pt, minimum size=#1] at (-foldericon.center){};
+		}
 	},
-	pics/folder/.default={20pt},
-	folder style/.style={draw=foldercolor!80!black,top color=foldercolor!40,bottom color=foldercolor}
+	pics/folder/.default = {20pt},
+	folder style/.style = {%
+		draw = foldercolor!80!black,
+		top color = foldercolor!40,
+		bottom color = foldercolor
+	}
 }
 
-\forestset{is file/.style={edge path'/.expanded={%
-			([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor)},
-		inner sep=1pt},
-	this folder size/.style={edge path'/.expanded={%
-			([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor) pic[solid]{folder=#1}}, inner xsep=0.6*#1},
-	folder tree indent/.style={before computing xy={l=#1}},
-	folder icons/.style={folder, this folder size=#1, folder tree indent=3*#1},
-	folder icons/.default={12pt},
+\forestset{%
+	is file/.style = {%
+		edge path'/.expanded = {%
+			([xshift = \forestregister{folder indent}]!u.parent anchor) |- (.child anchor)
+		},
+		inner sep = 1pt
+	},
+	this folder size/.style = {%
+		edge path'/.expanded = {%
+			([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor) pic[solid]{folder=#1}
+		},
+		inner xsep = 0.6*#1
+	},
+	folder tree indent/.style = {%
+		before computing xy = {l=#1}
+	},
+	folder icons/.style = {%
+		folder,
+		this folder size = #1,
+		folder tree indent = 3*#1
+	},
+	folder icons/.default = {12pt},
 }
 
 % ------------------------------------------------------------------------------
-% Package for the menus and buttons
+% Menu sequences, paths and keystrokes formatting
 \usepackage[os=win]{menukeys}
-\renewmenumacro{\directory}[/]{paths}
-\renewmenumacro{\keys}[+]{shadowedroundedkeys}
+	\renewmenumacro{\directory}[/]{paths}
+	\renewmenumacro{\keys}[+]{shadowedroundedkeys}
 
 % ------------------------------------------------------------------------------
-% Add some space between number and text in the footnotes. By JohnReed: https://tex.stackexchange.com/questions/54685/inserting-space-after-the-number-in-footnotes
-\let\oldfootnote\footnote
-\renewcommand\footnote[1]{\oldfootnote{\hspace{0.5em}#1}}
+% Hypertext support for LaTeX
 
-\let\oldfootnotetext\footnotetext
-\renewcommand\footnotetext[1]{\oldfootnotetext{\hspace{0.5em}#1}}
-% ------------------------------------------------------------------------------
+\usepackage[
+	bookmarks			= true,
+	bookmarksopen		= true,
+	bookmarksdepth		= 3,
+	bookmarksopenlevel	= 0,
+	bookmarksnumbered	= true,
+%	hidelinks			= true,
+	colorlinks			= true,
+	allcolors			= blue!30!black,
+	pdfusetitle			= true,
+	pdfstartview		= Fit,
+	pdfpagelayout		= TwoPageRight,
+]{hyperref}

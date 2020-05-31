@@ -16,19 +16,18 @@
 ]{memoir}
 
 % ------------------------------------------------------------------------------
-% ---------------------------------  COMMANDS  ---------------------------------
-% ------------------------------------------------------------------------------
-\input{headers/commands.tex}
-
-% ------------------------------------------------------------------------------
 % ---------------------------------  PACKAGES  ---------------------------------
 % ------------------------------------------------------------------------------
 \input{headers/h_gen.tex}
-\input{headers/h_tab.tex}
 \input{headers/h_fig.tex}
 \input{headers/h_math.tex}
 \input{headers/h_misc.tex}
 \input{headers/title.tex}
+
+% ------------------------------------------------------------------------------
+% ---------------------------------  COMMANDS  ---------------------------------
+% ------------------------------------------------------------------------------
+\input{headers/commands.tex}
 
 % ------------------------------------------------------------------------------
 % -------------------------------    DOCUMENT    -------------------------------
@@ -49,7 +48,7 @@
 	\clearpage%
 
 	\thispagestyle{empty}\pdfbookmark{Legales}{copyrightpage}%
-	{\emph{ScanManual/Guía para aprender a escanear} \textcopyright 2019-2020 Noita Enola está bajo licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional. Para ver una copia de la licencia, puede visitar el sitio https://creativecommons.org/licenses/by-sa/4.0/deed.es \cite{CC-BY-SA-4.0}.
+	{\emph{ScanManual/Guía para aprender a escanear} \textcopyright 2019-2020 Noita Enola está bajo licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional. Para ver una copia de la licencia, puede visitar el sitio \url{https://creativecommons.org/licenses/by-sa/4.0/deed.es} \cite{CC-BY-SA-4.0}.
 
 	\vfill
 	\license
@@ -176,8 +175,8 @@
 
 	Son aparatos generalmente costosos y voluminosos. En la figura~\ref{fig:scannerbookScanners} se ilustran algunos ejemplos \cite{ScanSnap, ET16}.
 	\begin{figure}
-		\subbottom[test][ScanSnap SV600, de Fujitsu]{\includegraphics[width=.44\linewidth]{scannerScanSnap}}\hfill
-		\subbottom[ET16/ET18, de CZUR]{\includegraphics[width=.54\linewidth]{scannerET16}}
+		\subcaptionbox{ScanSnap SV600, de Fujitsu}{\includegraphics[width=.44\linewidth]{scannerScanSnap}}\hfill
+		\subcaptionbox{ET16/ET18, de CZUR}{\includegraphics[width=.54\linewidth]{scannerET16}}
 		\caption{Dos ejemplos de \emph{book scanners}\label{fig:scannerbookScanners}}
 	\end{figure}
 
@@ -200,8 +199,8 @@
 	En esta guía utilizo un escáner de cama plana para digitalizar el material. Si se usa otro tipo se deberá hacer algunos ajustes al procedimiento de digitalización.
 
 	\begin{figure}
-		\subbottom[Vista general]{\includegraphics[width=.48\linewidth]{scannerOpticBook3800-1}}\hfill
-		\subbottom[Detalle. El vidrio casi alcanza el borde]{\includegraphics[width=.48\linewidth]{scannerOpticBook3800-2}}
+		\subcaptionbox{Vista general}{\includegraphics[width=.48\linewidth]{scannerOpticBook3800-1}}\hfill
+		\subcaptionbox{Detalle. El vidrio casi alcanza el borde}{\includegraphics[width=.48\linewidth]{scannerOpticBook3800-2}}
 		\caption[OpticBook 3800]{OpticBook 3800, de Plustek\label{fig:scannerOpticBook3800}}
 	\end{figure}
 
@@ -209,8 +208,8 @@
 
 	\begin{figure}
 		\hspace*{\fill}
-		\subbottom[Workforce DS-410, de EPSON]{\includegraphics[width=.4\linewidth]{scannerWorkforce}}\hfill
-		\subbottom[ScanJet Pro 2500, de HP]{\includegraphics[width=.45\linewidth]{scannerScanJet}}%
+		\subcaptionbox{Workforce DS-410, de EPSON}{\includegraphics[width=.4\linewidth]{scannerWorkforce}}\hfill
+		\subcaptionbox{ScanJet Pro 2500, de HP}{\includegraphics[width=.45\linewidth]{scannerScanJet}}%
 		\hspace*{\fill}
 		\caption{Escáneres con \textsc{adf}\label{fig:scannerADF}.}
 	\end{figure}
@@ -316,9 +315,9 @@
 
 	\begin{figure}
 		\centering
-		\subbottom[Menú \menu{Acquire/Batch Scanning\...}\label{fig:scanningIrfanViewBatch}]{\includegraphics[width=\linewidth]{scanningIrfanViewBatch}}\\
-		\subbottom[Opciones del formato \menu{TIF}\label{fig:scanningIrfanViewBatchTIF}]{\includegraphics[width=.49\linewidth]{scanningIrfanViewBatchTIF}}\hfill
-		\subbottom[Opciones del formato \menu{PNG}\label{fig:scanningIrfanViewBatchPNG}]{\includegraphics[width=.49\linewidth]{scanningIrfanViewBatchPNG}}
+		\subcaptionbox{Menú \menu{Acquire/Batch Scanning\...}\label{fig:scanningIrfanViewBatch}}{\includegraphics[width=\linewidth]{scanningIrfanViewBatch}}\\
+		\subcaptionbox{Opciones del formato \menu{TIF}\label{fig:scanningIrfanViewBatchTIF}}{\includegraphics[width=.49\linewidth]{scanningIrfanViewBatchTIF}}\hfill
+		\subcaptionbox{Opciones del formato \menu{PNG}\label{fig:scanningIrfanViewBatchPNG}}{\includegraphics[width=.49\linewidth]{scanningIrfanViewBatchPNG}}
 		\caption{Ajustes de escaneo de \irfanview\label{fig:scanningIrfanView}}
 	\end{figure}
 
@@ -373,8 +372,8 @@
 	\subsection{Curvatura y contenido fuera del área} Si no presionamos bien el lomo sobre el vidrio del escáner, obtendremos imágenes con sombras y distorsiones cerca del margen interior, debido a que el papel no está plano respecto al sensor. Ver un ejemplo en la figura~\ref{fig:scanningIrfanView}.
 
 	\begin{figure}
-		\subbottom[Curvatura y sombra]{\includegraphics[width=.49\linewidth]{distortionCurveShadow}}\hfill
-		\subbottom[Contenido fuera del área]{\includegraphics[width=.49\linewidth]{distortionCut}}
+		\subcaptionbox{Curvatura y sombra}{\includegraphics[width=.49\linewidth]{distortionCurveShadow}}\hfill
+		\subcaptionbox{Contenido fuera del área}{\includegraphics[width=.49\linewidth]{distortionCut}}
 		\caption{Distorsiones y sombras sobre el margen interior\label{fig:distortion1}}
 	\end{figure}
 
@@ -389,8 +388,8 @@
 	También podría ocurrir que el material se moviera mientras el sensor del escáner avanza, provocando compresión o estiramiento de las líneas si es en la misma dirección del avance, o deformación lateral si es en la dirección perpendicular (fig.~\ref{fig:movimiento}). En este caso también deberá escanearse de nuevo.
 
 	\begin{figure}
-		\subbottom[Trapezoidal. Se dibujó el trapecio\label{fig:keystone}]{\includegraphics[width=.59\linewidth]{distortionKeystone}}
-		\subbottom[Movimiento\label{fig:movimiento}]{\includegraphics[width=.4\linewidth]{distortionMovement}}\hfill
+		\subcaptionbox{Trapezoidal. Se dibujó el trapecio\label{fig:keystone}}{\includegraphics[width=.59\linewidth]{distortionKeystone}}
+		\subcaptionbox{Movimiento\label{fig:movimiento}}{\includegraphics[width=.4\linewidth]{distortionMovement}}\hfill
 		\caption{Distorsiones trapezoidal y por movimiento\label{fig:distortion2}}
 	\end{figure}
 
@@ -408,10 +407,9 @@
 	\end{figure}
 
 	\begin{figure}
-		\vspace{-1.11\onelineskip}
-		\subbottom[Transparencias sobre fotos\label{fig:transparencyPhoto}]{\includegraphics[width=\linewidth]{transparencyPhoto}}
-		\subbottom[Mitigadas usando un papel negro por debajo\label{fig:transparencyPhotoFix}]{\includegraphics[width=\linewidth]{transparencyPhotoFix}}
-		\subbottom[Colocación del papel negro\label{fig:transparencyPaper}]{\includegraphics[width=\linewidth]{transparencyPaper}}
+		\subcaptionbox{Transparencias sobre fotos\label{fig:transparencyPhoto}}{\includegraphics[width=\linewidth]{transparencyPhoto}}\par\medskip
+		\subcaptionbox{Mitigadas usando un papel negro por debajo\label{fig:transparencyPhotoFix}}{\includegraphics[width=\linewidth]{transparencyPhotoFix}}\par\medskip
+		\subcaptionbox{Colocación del papel negro\label{fig:transparencyPaper}}{\includegraphics[width=\linewidth]{transparencyPaper}}
 		\caption{Detalle de transparencias sobre fotos\label{fig:transparency}}
 	\end{figure}
 
@@ -426,12 +424,15 @@
 	\chapter{Limpieza y ajuste\label{sec:cleanAdjust}} Siendo esta la etapa crucial del procesamiento, la presento de la manera más exhaustiva posible. Sin embargo, el detalle que queramos prestarle a cada etapa del procesamiento dependerá de nuestro tiempo, habilidad y paciencia. Algunos de los pasos que siguen podrían ser salteados y aún así obtener resultados aceptables. He tratado de indicarlo cuando así sea.
 
 	\section{Dimensiones\label{sec:cleanAdjustDimensions}} Lo primero que vamos a hacer es medir las dimensiones del libro usando una regla.\footnote{Si el encuadernado fuera de tapa dura tal vez habría un tamaño para las cubiertas y otro para las páginas. Será nuestra decisión si preservamos esas diferencias o no.} En este caso el ejemplar es de tapa blanda y mide 15,5\,cm de ancho, 23,5\,cm de alto y 2,5\,cm de espesor. Al final obtendremos imágenes de 600\,dpi, por lo que podemos convertir entre cm y pixeles usando alguna de las siguientes fórmulas para estimar las dimensiones finales de nuestras páginas procesadas:\footnote{En el apéndice~\ref{app:conversion} se presentan las correspondientes fórmulas en pulgadas.}
+
 	\[
-	\text{pix} = \frac{\text{cm} \times \text{dpi}}{\text{2,54}}\hspace{3em} \text{cm} = \frac{\text{pix} \times \text{2,54}}{\text{dpi}}
+		\text{pix} = \frac{\text{cm} \times \text{dpi}}{\text{2,54}}\hspace{3em} \text{cm} = \frac{\text{pix} \times \text{2,54}}{\text{dpi}}
 	\]
+
 	Resumo los resultados en el cuadro~\ref{tab:bookDimensions}.
 	\begin{table}
 		\centering
+		\caption{Dimensiones del libro a escanear (en cm) y dimensiones estimadas de imagen a 600\,dpi (en pix)\label{tab:bookDimensions}}
 		\begin{tabular}{rccc}
 			\toprule
 			(600\,dpi) & ancho & alto & espesor \\
@@ -440,15 +441,13 @@
 			pix & 3661 & 5551 & 591 \\
 			\bottomrule
 		\end{tabular}
-		\caption{Dimensiones del libro a escanear (en cm) y dimensiones estimadas de imagen a 600\,dpi (en pix)\label{tab:bookDimensions}}
 	\end{table}
 
 	\section{Orientación de páginas\label{sec:fixOrientation}} De acuerdo a como hayamos colocado el material en el escáner, es posible que las páginas pares o las impares estén rotadas 180\textdegree. Siempre es una buena idea, pero especialmente si estamos pensando en corregir frecuentemente los errores que vayamos encontrando, como se explica en la sección~\ref{sec:SToutput}, que la orientación de todas las páginas originales sea corregida antes de ingresarlas a \scantailor.
 
 	En nuestro caso de ejemplo son las páginas pares las que requieren ajuste. Para hacerlo ejecutamos el script~\ref{scr:orientationOddEven} de Python que invoca el comando \texttt{mogrify} de \imagemagick sobre las páginas de interés. Este nos preguntará por las páginas a corregir (\mintinline{python}|'Rotate odd or even pages?'|): deberemos ingresar \texttt{even} para rotar las pares y \texttt{odd} para las impares. Téngase en cuenta lo dicho en la sección~\ref{sec:scanOriginalBackup} sobre el respaldo de los originales, puesto que con este script los estaremos modificando.
 
-	\pythonScript{orientationOddEven.py}
-	\scriptcaption{Rotación de las páginas\label{scr:orientationOddEven}}
+	\pythonScript{orientationOddEven.py}{Rotación de las páginas\label{scr:orientationOddEven}}
 
 	\section{Procesamiento con \scantailor} Este software es muy completo e incluye una gran cantidad de opciones en sus distintos pasos. La realidad es que al momento de escribir esta guía aún se encuentra pleno en desarrollo, por lo que no existe documentación suficiente que las explique todas en profundidad. Además, algunas son de carácter experimental o directamente no funcionan bien (la función \menu{Dewarp}, por ejemplo). Quien esto escribe no las ha probado todas. Por ello recomiendo al lector que busque la información que necesite en internet\footnote{El autor del fork original tiene una wiki con información y videos \cite{ScanTailorWiki}.} y que no tenga miedo de experimentar.\footnote{\scantailor \emph{no} modifica los archivos originales.} Tal vez esta guía esté sugiriendo algún procedimiento manual tedioso para una tarea que ya está cubierta por una nueva opción. La misma recomendación vale para todo otro software que se utilice.
 
@@ -500,8 +499,8 @@
 
 	\begin{figure}
 		\centering
-		\subbottom[Error]{\includegraphics[width=.48\linewidth]{STsplitPagesError}}\hfill
-		\subbottom[Remediado]{\includegraphics[width=.48\linewidth]{STsplitPagesErrorFix}}
+		\subcaptionbox{Error}{\includegraphics[width=.48\linewidth]{STsplitPagesError}}\hfill
+		\subcaptionbox{Remediado}{\includegraphics[width=.48\linewidth]{STsplitPagesErrorFix}}
 		\caption{Error en el Paso 2\label{fig:STsplitPagesError}}
 	\end{figure}
 
@@ -523,8 +522,8 @@
 
 	\begin{figure}
 		\centering
-		\subbottom[Opciones\label{fig:STselectContentOptions}]{\includegraphics[width=.4\linewidth]{STselectContent}}\hfill
-		\subbottom[Diálogo \menu{Apply to\...}\label{fig:STselectContentApplyTo}]{\includegraphics[width=.58\linewidth]{STselectContentApplyTo}}
+		\subcaptionbox{Opciones\label{fig:STselectContentOptions}}{\includegraphics[width=.4\linewidth]{STselectContent}}\hfill
+		\subcaptionbox{Diálogo \menu{Apply to\...}\label{fig:STselectContentApplyTo}}{\includegraphics[width=.58\linewidth]{STselectContentApplyTo}}
 		\caption{Paso 4. \emph{Select content}\label{fig:STselectContent}}
 	\end{figure}
 
@@ -552,8 +551,8 @@
 
 	\begin{figure}
 		\centering
-		\subbottom[Error inducido por defectos en la impresión]{\includegraphics[width=\linewidth]{STselectContentError}}
-		\subbottom[Remediado manualmente]{\includegraphics[width=\linewidth]{STselectContentErrorFix}}
+		\subcaptionbox{Error inducido por defectos en la impresión}{\includegraphics[width=\linewidth]{STselectContentError}}
+		\subcaptionbox{Remediado manualmente}{\includegraphics[width=\linewidth]{STselectContentErrorFix}}
 		\caption{Error al seleccionar contenido automáticamente\label{fig:STselectContentError}}
 	\end{figure}
 
@@ -568,8 +567,8 @@
 	Vamos entonces al paso 5 de \scantailor, nos paramos en una página par y en el submenú \menu{Alignment} (fig.~\ref{fig:STmarginsAlignment}) presionamos la flecha que apunta hacia arriba y a la izquierda. Veremos que la alienación cambia. Por ahora no nos preocuparemos por el ancho de los márgenes. El paso siguiente es presionar \keys{Apply to\...}, seleccionar \menu{\typesetDotCircle{Every other page}} y dar \keys{OK}. Luego hacemos lo mismo con las páginas impares, eligiendo la flecha que apunta hacia arriba y a la derecha.
 
 	\begin{figure}
-		\subbottom[Submenú \menu{Margins}\label{fig:STmarginsWidth}]{\includegraphics[width=.49\linewidth]{STmarginsWidth}}
-		\subbottom[Submenú \menu{Alignment}\label{fig:STmarginsAlignment}]{\includegraphics[width=.49\linewidth]{STmarginsAlignment}}\hfill
+		\subcaptionbox{Submenú \menu{Margins}\label{fig:STmarginsWidth}}{\includegraphics[width=.49\linewidth]{STmarginsWidth}}
+		\subcaptionbox{Submenú \menu{Alignment}\label{fig:STmarginsAlignment}}{\includegraphics[width=.49\linewidth]{STmarginsAlignment}}\hfill
 		\caption{Paso 5. \emph{Margins}\label{fig:STmargins}}
 	\end{figure}
 
@@ -589,6 +588,7 @@
 
 	\begin{table}
 		\centering
+		\caption{Márgenes de las páginas bien comportadas (en mm)\label{tab:pageMargins}}
 		\begin{tabular}{@{}rlcccc@{}}
 			\toprule
 			\multicolumn{1}{c}{página} & \multicolumn{1}{c}{nro.} & sup. & inf. & izq. & der. \\
@@ -598,7 +598,6 @@
 			ancha (impar) & p.~117 & --- & --- & 11 & 20 \\
 			\bottomrule
 		\end{tabular}
-		\caption{Márgenes de las páginas bien comportadas (en mm)\label{tab:pageMargins}}
 	\end{table}
 
 	\subsubsection{Márgenes razonables\label{sec:STmarginsReasonables}} Si mantenerse 100\% fiel al material original no es el objetivo, en general la opción \menu{\typesetCheckbox{Auto Margins}} da un buen resultado que además conserva las dimensiones de la página original, por lo que se podría dar aquí por finalizado el paso 5.
@@ -614,9 +613,9 @@
 	\begin{figure}
 		\tiny
 		\def\svgwidth{\linewidth}
-		\subbottom[Página par]{\input{img/STmarginsEven.pdf_tex}}
+		\subcaptionbox{Página par}{\input{img/STmarginsEven.pdf_tex}}
 		\def\svgwidth{\linewidth}
-		\subbottom[Página impar]{\input{img/STmarginsOdd.pdf_tex}}
+		\subcaptionbox{Página impar}{\input{img/STmarginsOdd.pdf_tex}}
 		\caption[Detalle de las guías para ajustar márgenes]{Detalle de las guías para ajustar márgenes. Las páginas (bien comportadas) ya fueron alineadas con sus guías correspondientes\label{fig:STmarginsGuides}}
 	\end{figure}
 
@@ -649,9 +648,9 @@
 	\end{enumerate}
 
 	\begin{figure}
-		\subbottom[Original]{\includegraphics[width=.32\linewidth]{SToutputBadCharsOriginal}}\hfill
-		\subbottom[Salida]{\includegraphics[width=.32\linewidth]{SToutputBadChars}}\hfill
-		\subbottom[Salida corregida]{\includegraphics[width=.32\linewidth]{SToutputBadCharsFix}}
+		\subcaptionbox{Original}{\includegraphics[width=.32\linewidth]{SToutputBadCharsOriginal}}\hfill
+		\subcaptionbox{Salida}{\includegraphics[width=.32\linewidth]{SToutputBadChars}}\hfill
+		\subcaptionbox{Salida corregida}{\includegraphics[width=.32\linewidth]{SToutputBadCharsFix}}
 		\caption[Caracteres cortados]{Caracteres cortados. La corrección se hizo desde la pestaña \menu{Fill zones}\label{fig:SToutputBadChars}}
 	\end{figure}
 
@@ -665,23 +664,23 @@
 	También existe la posibilidad de cambiar el parámetro del filtro, para que detecte detalles más grandes. En dicho caso se debe tener cuidado de que no elimine elementos que no debe, como por ejemplo puntos y comas.
 
 	\begin{figure}
-		\subbottom[Original\label{fig:SToutputDespeckleSpotOriginal}]{\includegraphics[width=.48\linewidth]{SToutputDespeckleSpotOriginal}}\hfill
-		\subbottom[Procesada. Punto no eliminado\label{fig:SToutputDespeckleSpotBad}]{\includegraphics[width=.48\linewidth]{SToutputDespeckleSpotBad}}
+		\subcaptionbox{Original\label{fig:SToutputDespeckleSpotOriginal}}{\includegraphics[width=.48\linewidth]{SToutputDespeckleSpotOriginal}}\hfill
+		\subcaptionbox{Procesada. Punto no eliminado\label{fig:SToutputDespeckleSpotBad}}{\includegraphics[width=.48\linewidth]{SToutputDespeckleSpotBad}}
 		\caption{Filtro \emph{despeckle} frente a puntos demasiado grandes\label{fig:SToutputDespeckleSpot}}
 	\end{figure}
 
 	\begin{figure}
-		\subbottom[Original. Dos motas\label{fig:SToutputDespeckleSpeckleSomeOriginal}]{\includegraphics[width=.48\linewidth]{SToutputDespeckleSpeckleSomeOriginal}}\hfill
-		\subbottom[Procesada. Una mota permanece\label{fig:SToutputDespeckleSpeckleSome}]{\includegraphics[width=.48\linewidth]{SToutputDespeckleSpeckleSome}}
+		\subcaptionbox{Original. Dos motas\label{fig:SToutputDespeckleSpeckleSomeOriginal}}{\includegraphics[width=.48\linewidth]{SToutputDespeckleSpeckleSomeOriginal}}\hfill
+		\subcaptionbox{Procesada. Una mota permanece\label{fig:SToutputDespeckleSpeckleSome}}{\includegraphics[width=.48\linewidth]{SToutputDespeckleSpeckleSome}}
 		\caption{Filtro \emph{despeckle} frente a motas pegadas al texto\label{fig:SToutputDespeckleSpeckle}}
 	\end{figure}
 
 	\subsubsection{Contenido por motas} A veces al \emph{despeckle} se le va la mano y borra puntos que en realidad pertenecen al contenido. Ver la figura~\ref{fig:SToutputDespeckle}. Si interesa retener esos puntos podría desactivarse el filtro y hacer un \emph{despeckle} manual en esa página. Otra alternativa puede ser darle énfasis a los puntos de interés con \gimp, para que el filtro no los borre (es lo que se hizo en este caso).
 
 	\begin{figure}
-		\subbottom[Original]{\includegraphics[width=\linewidth]{SToutputDespeckleOriginal}}
-		\subbottom[Procesada]{\includegraphics[width=\linewidth]{SToutputDespeckleBad}}
-		\subbottom[Procesada luego de dar énfasis con \gimp]{\includegraphics[width=\linewidth]{SToutputDespeckleFix}}
+		\subcaptionbox{Original}{\includegraphics[width=\linewidth]{SToutputDespeckleOriginal}}
+		\subcaptionbox{Procesada}{\includegraphics[width=\linewidth]{SToutputDespeckleBad}}
+		\subcaptionbox{Procesada luego de dar énfasis con \gimp}{\includegraphics[width=\linewidth]{SToutputDespeckleFix}}
 		\caption{Efecto indeseado del filtro despeckle\label{fig:SToutputDespeckle}}
 	\end{figure}
 
@@ -710,8 +709,8 @@
 	Un ejemplo de zonas dibujadas manualmente y su resultado se muestra en la figura~\ref{fig:SToutputPicureZonesFree}. Nótese que es posible tener huecos dentro de la foto que serán rellenados de blanco. En este caso le darán un efecto interesante al resultado final. De lo contrario esos huecos quedarían rellenos con el color del blanco de la página, que como se ve en la figura \ref{fig:SToutputPicureZonesFreeOriginal} es más bien un beige.
 
 	\begin{figure}
-		\subbottom[Zonas marcadas manualmente\label{fig:SToutputPicureZonesFreeOriginal}]{\includegraphics[width=\linewidth]{SToutputPicureZonesFree}}
-		\subbottom[Resultado]{\includegraphics[width=\linewidth]{SToutputPicureZonesFreeResult}}
+		\subcaptionbox{Zonas marcadas manualmente\label{fig:SToutputPicureZonesFreeOriginal}}{\includegraphics[width=\linewidth]{SToutputPicureZonesFree}}
+		\subcaptionbox{Resultado}{\includegraphics[width=\linewidth]{SToutputPicureZonesFreeResult}}
 		\caption[Selección manual en la pestaña \texttt{Picture Zones}]{Selección manual de las fotos en la pestaña \menu{Picture Zones}. Los contornos rojos se dibujaron manualmente\label{fig:SToutputPicureZonesFree}}
 	\end{figure}
 
@@ -731,11 +730,11 @@
 
 	\begin{figure}
 		\hspace*{\fill}
-		\subbottom[Exploración original]{\includegraphics[width=.4\linewidth]{SToutputBadDiagramsOriginalScan}}\hfill
-		\subbottom[Salida original]{\includegraphics[width=.4\linewidth]{SToutputBadDiagramsOriginalOutput}}\hspace*{\fill}\\
+		\subcaptionbox{Exploración original}{\includegraphics[width=.4\linewidth]{SToutputBadDiagramsOriginalScan}}\hfill
+		\subcaptionbox{Salida original}{\includegraphics[width=.4\linewidth]{SToutputBadDiagramsOriginalOutput}}\hspace*{\fill}\\
 		\hspace*{\fill}
-		\subbottom[Corregida (manualmente)]{\includegraphics[width=.4\linewidth]{SToutputBadDiagramsCorrectedScan}}\hfill
-		\subbottom[Salida final]{\includegraphics[width=.4\linewidth]{SToutputBadDiagramsCorrectedOutput}}%
+		\subcaptionbox{Corregida (manualmente)}{\includegraphics[width=.4\linewidth]{SToutputBadDiagramsCorrectedScan}}\hfill
+		\subcaptionbox{Salida final}{\includegraphics[width=.4\linewidth]{SToutputBadDiagramsCorrectedOutput}}%
 		\hspace*{\fill}
 		\caption{Binarización de una ilustración problemática\label{fig:SToutputBadDiagrams}}
 	\end{figure}
@@ -757,20 +756,18 @@
 		\caption{Página apaisada y sus contiguas en el documento final\label{fig:STlandscapePages}}
 	\end{figure}
 
-	\pythonScript{fixLandscapePages.py}
-	\scriptcaption{Ajuste de páginas apaisadas\label{scr:fixLandscapePages}}
-
+	\pythonScript{fixLandscapePages.py}{Ajuste de páginas apaisadas\label{scr:fixLandscapePages}}
 
 	\section{Cubiertas\label{sec:covers}} Las cubiertas de los libros muchas veces son las únicas ilustraciones o fotos a color que que estos incluyen, por lo que me gusta dedicarles un poco más de atención.
 
-	En la figura~\ref{fig:SCANcoverRaw} vemos la cubierta del libro sobre el que estamos trabajando. Consta básicamente de 4 colores: blanco para el nombre del autor y la edición, naranja para el título de la obra, azul oscuro para el fondo y los gráficos de la parte de abajo y azul celeste para el fondo del gráfico. Podemos ver que en las esquinas presenta marcas de doblez y que en algunos lugares se ha borrado la ilustración.
+	En la figura~\ref{fig:SCANcoverRaw} vemos la cubierta del libro sobre el que estamos trabajando. Consta básicamente de cuatro colores: blanco para el nombre del autor y la edición, naranja para el título de la obra, azul oscuro para el fondo y los gráficos de la parte de abajo y azul celeste para el fondo del gráfico. Podemos ver que en las esquinas presenta marcas de doblez y que en algunos lugares se ha borrado la ilustración.
 
 	Para remediar estos detalles uso \gimp. El proceso cae un poco por fuera de los objetivos de esta guía, así que no entraré en pormenores. Valga decir que selecciono las áreas de cada color y las vuelvo uniformes, para luego convertir la imagen en indizada. De esta manera conservo el diseño original y reduzco el tamaño casi 100 veces. La diferencia se muestra en la figura~\ref{fig:SCANcover}. Este archivo, que es una modificación de lo que entrega \scantailor, debemos guardarlo en una carpeta aparte, para que el programa no lo sobrescriba accidentalmente.
 
 	\begin{figure}
 		\centering
-		\subbottom[Escaneo crudo\label{fig:SCANcoverRaw}]{\includegraphics[width=.48\linewidth]{SCANcoverRaw}}\hfill
-		\subbottom[Retocado\label{fig:SCANcoverMOD}]{\includegraphics[width=.48\linewidth]{SCANcoverMOD}}
+		\subcaptionbox{Escaneo crudo\label{fig:SCANcoverRaw}}{\includegraphics[width=.48\linewidth]{SCANcoverRaw}}\hfill
+		\subcaptionbox{Retocado\label{fig:SCANcoverMOD}}{\includegraphics[width=.48\linewidth]{SCANcoverMOD}}
 		\caption[Efectos de retoque en la cubierta del libro]{Efectos de retoque en la cubierta del libro. Se pasó de un \tiff de 56\,MB a uno de 0,69\,MB con una apariencia más limpia\label{fig:SCANcover}}
 	\end{figure}
 
@@ -814,8 +811,8 @@
 
 	\begin{figure}
 		\centering
-		\subbottom[Creando un nuevo idioma\label{fig:ABBYYoptionsLanguagesNewLanguage}]{\includegraphics[width=.7\linewidth]{ABBYYoptionsLanguagesNewLanguage}}
-		\subbottom[Propiedades del idioma\label{fig:ABBYYoptionsLanguagesLanguageProperties}]{\includegraphics[width=.7\linewidth]{ABBYYoptionsLanguagesLanguageProperties}}
+		\subcaptionbox{Creando un nuevo idioma\label{fig:ABBYYoptionsLanguagesNewLanguage}}{\includegraphics[width=.7\linewidth]{ABBYYoptionsLanguagesNewLanguage}}
+		\subcaptionbox{Propiedades del idioma\label{fig:ABBYYoptionsLanguagesLanguageProperties}}{\includegraphics[width=.7\linewidth]{ABBYYoptionsLanguagesLanguageProperties}}
 		\caption{Opciones de \abbyy. Creando un nuevo idioma.}
 	\end{figure}
 
@@ -826,8 +823,8 @@
 	\begin{figure}
 		\vspace{-20pt}
 		\centering
-		\subbottom[Ventana principal\label{fig:ABBYYoptionsFormatsPDF}]{\includegraphics[width=\linewidth]{ABBYYoptionsFormatPDF}}
-		\subbottom[\menu{Custom Settings}\label{fig:ABBYYoptionsFormatPDFCustom}]{\includegraphics[width=.5\linewidth]{ABBYYoptionsFormatPDFCustom}}
+		\subcaptionbox{Ventana principal\label{fig:ABBYYoptionsFormatsPDF}}{\includegraphics[width=\linewidth]{ABBYYoptionsFormatPDF}}
+		\subcaptionbox{\menu{Custom Settings}\label{fig:ABBYYoptionsFormatPDFCustom}}{\includegraphics[width=.5\linewidth]{ABBYYoptionsFormatPDFCustom}}
 		\caption[Opciones de \abbyy. \texttt{Format Settings >\ PDF}]{Opciones de \abbyy. Pestaña \menu{Format Settings > PDF}\label{fig:ABBYYoptionsFormatPDF}}
 	\end{figure}
 
@@ -904,8 +901,7 @@
 
 	Si las ediciones son frecuentes, podemos ahorrar algo de tiempo mientras no cambiemos las dimensiones de la imagen,\footnote{Esto no debería ocurrir en este punto.} ejecutando el script~\ref{scr:replaceInABBYY}.\footnote{Para que funcione debemos haber mantenido la numeración correcta de las páginas y \emph{no haber usado} \keys{Reopen Page} con esta página. Además, la imagen debe ser bitonal y \abbyy no debe tenerla abierta, para lo que debemos seleccionar alguna otra.} Este nos consulta por la página que queremos substituir y lo hace rápidamente. Su funcionamiento es un poco delicado, por lo que si no funciona bien recomiendo leer el apéndice~\ref{sec:abbyyProjectStructure} para intentar arreglarlo.
 
-	\pythonScript{replaceInABBYY.py}%
-	\scriptcaption{Reemplazo de imagen bitonal en \abbyy 14\label{scr:replaceInABBYY}}
+	\pythonScript{replaceInABBYY.py}{Reemplazo de imagen bitonal en \abbyy 14\label{scr:replaceInABBYY}}
 
 	\subsubsection{Ajuste del alfabeto} El alfabeto es el conjunto de caracteres que el programa asume que pueden aparecer en un documento dado. Al crear nuestro idioma se elije por defecto un conjunto más o menos razonable de letras, números y signos de puntuación. \abbyy solo reconocerá aquellos caracteres que pertenezcan a este alfabeto.
 
@@ -951,9 +947,9 @@
 	Otra alternativa es editar el original con \gimp para corregir la errata.
 
 	\begin{figure}
-		\subbottom[«Detemination» en vez de «Dete\textbf{r}mination»]{\includegraphics[width=\linewidth]{ABBYYCorrectionsTypo1}}
-		\subbottom[«homogenities» en vez de «homogen\textbf{e}ities»]{\includegraphics[width=\linewidth]{ABBYYCorrectionsTypo2}}
-		\subbottom[«feaures» en vez de «fea\textbf{t}ures»]{\includegraphics[width=\linewidth]{ABBYYCorrectionsTypo3}}
+		\subcaptionbox{«Detemination» en vez de «Dete\textbf{r}mination»}{\includegraphics[width=\linewidth]{ABBYYCorrectionsTypo1}}
+		\subcaptionbox{«homogenities» en vez de «homogen\textbf{e}ities»}{\includegraphics[width=\linewidth]{ABBYYCorrectionsTypo2}}
+		\subcaptionbox{«feaures» en vez de «fea\textbf{t}ures»}{\includegraphics[width=\linewidth]{ABBYYCorrectionsTypo3}}
 		\caption{Algunas erratas en el libro de ejemplo\label{fig:ABBYYCorrectionsTypos}}
 	\end{figure}
 
@@ -1034,8 +1030,7 @@
 		\item \mintinline{monkey}|SCAN_INS.pdf| es el nombre del documento que va a recibir la foto.
 	\end{itemize}
 
-	\pythonScript{pdfPhotosqpdf.py}
-	\scriptcaption{Inserción de fotos usando \qpdf\label{scr:pdfPhotosqpdf}}
+	\pythonScript{pdfPhotosqpdf.py}{Inserción de fotos usando \qpdf\label{scr:pdfPhotosqpdf}}
 
 
 	Su ejecución puede tomar un par de minutos. Al terminar tendremos un archivo \typesetFile{SCAN\_INS.pdf} con las fotos insertadas.
@@ -1051,8 +1046,7 @@
 		\end{itemize}
 	\end{itemize}
 
-	\pythonScript{pdfPhotosAcrobat.py}
-	\scriptcaption{Inserción de fotos usando \acrobat\label{scr:pdfPhotosAcrobat}}
+	\pythonScript{pdfPhotosAcrobat.py}{Inserción de fotos usando \acrobat\label{scr:pdfPhotosAcrobat}}
 
 	Para aplicarlo, debemos abrir el documento base \typesetFile{SCAN.pdf} con \acrobat e iniciar la consola de javascript. Se puede hacer eligiendo \menu{Tools > JavaScript > Debugger} o presionando \keys{\ctrl + J}. Deberá abrirse una ventana como la de la figura~\ref{fig:pdfPhotosJavascriptConsole}.
 
@@ -1264,8 +1258,8 @@
 	He hecho algunas pruebas y, salvo \menu{lossless}, que es totalmente sin pérdidas y da un archivo algo más grande que las otras, las demás alternativas difieren poco en el tamaño final del archivo. Por esta razón me incliné por usar \menu{quasilossless} en el perfil, que según su nombre sería de estas otras la más fiel al contenido original. Sin embargo, he descubierto algunos casos en los que se pierde información notoria con este nivel. Se trata de los punteados muy finos de algunas gráficas (fig~\ref{fig:djvuSmallProfilesQuality}). Podrían existir otras situaciones donde la diferencia también sea visible.
 
 	\begin{figure}
-		\subbottom[\menu{lossless}]{\includegraphics[width=\linewidth]{djvuSmallProfilesLossless}}
-		\subbottom[\menu{quasilossless}]{\includegraphics[width=\linewidth]{djvuSmallProfilesQuasilossless}}
+		\subcaptionbox{\menu{lossless}}{\includegraphics[width=\linewidth]{djvuSmallProfilesLossless}}
+		\subcaptionbox{\menu{quasilossless}}{\includegraphics[width=\linewidth]{djvuSmallProfilesQuasilossless}}
 		\caption[Diferencia entre compresión \texttt{lossless} y \texttt{quasilossless}]{Diferencia entre niveles de compresión \menu{lossless} y \menu{quasilossless} en el \djvu final\label{fig:djvuSmallProfilesQuality}}
 	\end{figure}
 
@@ -1288,8 +1282,7 @@
 
 	\subsection{Unión de cuerpo y cubiertas} Para unir el cuerpo y las cubiertas ejecutamos el script~\ref{scr:djvuBundle}, que invoca al programa \typesetExe{djvm.exe} de \djvulibre. Este lo que hace es insertar \typesetFile{BODY.djvu} en \typesetFile{COVERS.djvu} a partir de la página \menu{startPage}, que en este caso es la \menu{2}.
 
-	\pythonScript{djvuBundle.py}
-	\scriptcaption{Unión del cuerpo con las cubiertas de \djvu\label{scr:djvuBundle}}
+	\pythonScript{djvuBundle.py}{Unión del cuerpo con las cubiertas de \djvu\label{scr:djvuBundle}}
 
 	\subsection{Inserción de fotos: \djvuimager\label{sec:djvuImager}} Si utilizamos el modo \menu{Mixed} de \scantailor, nos está faltando codificar y e insertar las fotos que separamos en nuestro documento \djvu. Para hacerlo utilizaremos el software \djvuimager. Según ha explicado su autor, \mondaytwothousand, no es más que una GUI para algunas herramientas de \djvulibre, pero no por ello deja de ser muy conveniente.
 
@@ -1327,8 +1320,7 @@
 
 	\subsubsection{Alternativa usando \djvusmall} Si no nos convence el resultado de codificación que da \djvuimager (basado en \djvulibre), podemos hacer un poco de trampa y codificar las fotos con \djvusmall (basado en \dexpress), usando por ejemplo el perfil \menu{MyPhoto}\footnote{Aquí sí con \menu{bg-subsample=2}.} u otros. El inconveniente es que \djvuimager requiere que cada página a insertar sea un archivo \djvu independiente y \djvusmall no dispone de ninguna opción que permita codificar de una sola vez cada archivo por separado, sino que genera un solo \djvu multipágina con todas las imágenes.\footnote{La alternativa sería hacerlo uno por uno, lo que podría llevar mucho tiempo.} Este inconveniente es fácil de resolver: simplemente ejecutamos el script~\ref{scr:djvuSeparatePhotos}, que invoca al programa \typesetExe{djvmcvt.exe} de \djvulibre para separar las páginas del archivo resultante y reemplaza las generadas por \djvuimager.
 
-	\pythonScript{djvuSeparatePhotos.py}
-	\scriptcaption{Separación de las fotos creadas con \djvusmall\label{scr:djvuSeparatePhotos}}
+	\pythonScript{djvuSeparatePhotos.py}{Separación de las fotos creadas con \djvusmall\label{scr:djvuSeparatePhotos}}
 
 	Supongamos que usamos \djvusmall para generar un archivo \typesetFile{PHOTOS.djvu} con todas las fotos, que guardamos en la carpeta \typesetFolder{djv} del proyecto. Entonces, luego de presionar \keys{Convert} ejecutamos el script~\ref{scr:djvuSeparatePhotos}\footnote{El script~\ref{scr:djvuSeparatePhotos} asume que \djvuimager está instalado en \typesetFolder{C:/SOFT/DjVu Imager}. De lo contrario se debe modificar la variable \menu{tmp} para que refleje el directorio correcto.} y finalmente presionamos \keys{Insert in DjVu}. De esta manera, engañamos al \djvuimager, haciéndole creer que está insertando los archivos que convirtió, cuando en realidad está insertando los codificados con \djvusmall.
 
@@ -1414,20 +1406,17 @@
 
 	\section{Inserción de la capa \texorpdfstring{\ocr}{OCR}\label{sec:djvuOCR}} Para insertar la capa de texto que reconocimos tenemos el script~\ref{scr:djvuOCR}, que mediante la ejecución del programa \typesetExe{djvused.exe} de \djvulibre extrae la capa de texto del archivo \typesetFile{OCR.djvu} que creamos con \abbyy. Luego de la búsqueda y sustitución de algunas expresiones regulares, usa el mismo programa para insertarla en el documento \typesetFile{SCAN\_INS\_OCR.djvu}.
 
-	\pythonScript{djvuOCR.py}
-	\scriptcaption{Inserción de la capa \ocr en documento \djvu\label{scr:djvuOCR}}
+	\pythonScript{djvuOCR.py}{Inserción de la capa \ocr en documento \djvu\label{scr:djvuOCR}}
 
 	\section{Marcadores\label{sec:djvuBookmarks}} Para insertar los marcadores podemos usar la misma técnica de la sección~\ref{sec:pdfBookmarks} o correr el script~\ref{scr:djvuBookmarks}. Para que funcione debe existir el archivo \typesetFile{bookmarks.txt} con el formato correcto. Al terminar debemos tener un archivo \typesetFile{SCAN\_INS\_OCR\_BOOK.djvu}.
 
-	\pythonScript{djvuBookmarks.py}
-	\scriptcaption{Inserción de marcadores en documento \djvu\label{scr:djvuBookmarks}}
+	\pythonScript{djvuBookmarks.py}{Inserción de marcadores en documento \djvu\label{scr:djvuBookmarks}}
 
 	\section{Etiquetas de páginas\label{sec:djvuPageLabels}} Como explicamos en la sección~\ref{sec:pdfPageLabels} podemos modificar las etiquetas de las páginas para que coincidan con los números de página impresos en el material.
 
 	Para ello, podemos modificar el script~\ref{scr:djvuPageLabels}, de forma que se adapte a las características de nuestro documento y ejecutarlo. Si todo sale bien tendremos un archivo \typesetFile{SCAN\_INS\_OCR\_BOOK\_PAG.djvu} con las etiquetas de página correctas.\footnote{Debemos tener en cuenta que si la etiqueta que queremos usar contiene espacios, entonces deben estar encerradas entre comillas dobles. Como se ve en el script, la etiqueta \emph{Back cover} se ingresa como \mintinline{python}|'"Back cover"'|.}
 
-	\pythonScript{djvuPageLabels.py}
-	\scriptcaption{Modificación de etiquetas de páginas en documento \djvu\label{scr:djvuPageLabels}}
+	\pythonScript{djvuPageLabels.py}{Modificación de etiquetas de páginas en documento \djvu\label{scr:djvuPageLabels}}
 
 	\section{Creación de hipervínculos\label{sec:djvuHyperlinks}} Se puede usar \djvueditor para agregar hipervínculos al documento. Estos pueden ser internos o externos.
 	
@@ -1444,8 +1433,7 @@
 
 	Para hacerlo, editamos los valores de interés en el script~\ref{scr:djvuMetadata} y lo ejecutamos para obtener \typesetFile{SCAN\_INS\_OCR\_BOOK\_PAG\_HYP\_MET.djvu}. Podemos usar la herramienta \exiftool para verificar que la información quedó guardada correctamente. Los campos disponibles están detallados en la propia web de \exiftool \cite{DjVuTags}, aunque los más usuales ya están incluidos en el script.
 
-	\pythonScript{djvuMetadata.py}
-	\scriptcaption{Inserción de metadatos en documento \djvu\label{scr:djvuMetadata}}
+	\pythonScript{djvuMetadata.py}{Inserción de metadatos en documento \djvu\label{scr:djvuMetadata}}
 
 	\section{Conclusiones} La producción del \djvu es similar a la del \pdf, aunque con algunas diferencias notables. Primero, tenemos dos alternativas para creación del documento: \djvusmall y \djvusmallmod. En el primer caso debemos usar otro software para insertar las fotos, mientras que el segundo se encarga de todo. Luego usamos un script para insertar el texto, que tomamos del \djvu generado por \abbyy. Finalmente agregamos marcadores, etiquetas de página y metadatos.
 
@@ -1475,6 +1463,7 @@
 	El cuadro~\ref{tab:bookDimensions} se convierte en el cuadro~\ref{tab:bookDimensionsInches}.
 	\begin{table}
 		\centering
+		\caption{Dimensiones del libro a escanear (en in) y dimensiones estimadas de imagen a 600\,dpi (en pix)\label{tab:bookDimensionsInches}}
 		\begin{tabular}{rccc}
 			\toprule
 			(600\,dpi) & ancho & alto & espesor \\
@@ -1483,7 +1472,6 @@
 			pix & 3660 & 5580 & 600 \\
 			\bottomrule
 		\end{tabular}
-		\caption{Dimensiones del libro a escanear (en in) y dimensiones estimadas de imagen a 600\,dpi (en pix)\label{tab:bookDimensionsInches}}
 	\end{table}
 
 	\chapter{Sobre el material de ejemplo\label{sec:aboutGregory}} Como se explica al comienzo del capítulo~\ref{sec:procedure}, esta guía fue elaborada tomando como ejemplo la digitalización del libro \emph{An Introduction to Electrical Instrumentation and Measurement Systems,} de B.~A. Gregory \cite{GregorySpringer}. Se trata de un ejemplar de tapa blanda, compuesto de texto, ecuaciones y diagramas monocromáticos, así como de varias fotos en escala de grises (o semitonos \cite{WikipediaHalftone}).
@@ -1513,8 +1501,8 @@
 	De esta manera, se obtiene una reducción importante del tamaño a costa de la calidad. En el ejemplo de la página 128, se pasó de un archivo de 10,5\,MB a uno de 525\,kB. En la figura~\ref{fig:SToutputPictureZonesBitonal} se ilustra un poco el efecto que produce en una foto la conversión a bitonal. Por supuesto que estará acentuado en fotos a color.
 
 	\begin{figure}
-		\subbottom[Original]{\includegraphics[width=\linewidth]{SToutputPictureZonesGrayscale}}
-		\subbottom[Bitonal (Positioned)]{\includegraphics[width=\linewidth]{SToutputPictureZonesBitonal}}
+		\subcaptionbox{Original}{\includegraphics[width=\linewidth]{SToutputPictureZonesGrayscale}}
+		\subcaptionbox{Bitonal (Positioned)}{\includegraphics[width=\linewidth]{SToutputPictureZonesBitonal}}
 		\caption[Comparación entre original y binarizado.]{Comparación entre original y binarizado. El efecto ha sido acentuado por claridad; en la práctica no será tan notorio\label{fig:SToutputPictureZonesBitonal}}
 	\end{figure}
 
@@ -1523,8 +1511,8 @@
 	\section{Procesamiento posterior} La otra alternativa es no tocar nada hasta el momento de codificar. En el caso del \pdf, deberemos optimizar el archivo para bajar un poco el tamaño como se explica en~\ref{sec:pdfOptimize}. La desventaja es que las páginas bitonales se codificarán usando el algoritmo \jbig, mientras que las que contengan fotos usarán \jpeg. Este método de compresión no es el más adecuado para el texto, por lo que aparecerán los característicos artefactos de la figura~\ref{fig:SToutputPictureZonesJpeg} alrededor del mismo.
 
 	\begin{figure}
-		\subbottom[Original]{\includegraphics[width=\linewidth]{SToutputPictureZonesGrayscale}}
-		\subbottom[\jpeg]{\includegraphics[width=\linewidth]{SToutputPictureZonesJpeg}}
+		\subcaptionbox{Original}{\includegraphics[width=\linewidth]{SToutputPictureZonesGrayscale}}
+		\subcaptionbox{\jpeg}{\includegraphics[width=\linewidth]{SToutputPictureZonesJpeg}}
 		\caption[Comparación entre original y \jpeg]{Comparación entre original y \jpeg. El efecto ha sido acentuado por claridad. En la práctica no será tan notorio\label{fig:SToutputPictureZonesJpeg}}
 	\end{figure}
 
@@ -1598,8 +1586,8 @@
 	A la segunda se le llamó originalmente \emph{ClearScan} \cite{ClearScan}. Lo que hace es tratar de generar una fuente sintética a partir del texto reconocido y utilizarla para reemplazar las imágenes de cada carácter. De esta manera pretende reducir el tamaño y obtener un resultado visualmente superior. Se ilustra un ejemplo en la figura~\ref{fig:simpleOCRpdfEnhanceGoodExamples}
 
 	\begin{figure}
-		\subbottom[Texto original]{\includegraphics[width=\linewidth]{simpleOCRpdfEnhanceGoodOriginal}}
-		\subbottom[Texto después de ClearScan]{\includegraphics[width=\linewidth]{simpleOCRpdfEnhanceGoodClearScan}}
+		\subcaptionbox{Texto original}{\includegraphics[width=\linewidth]{simpleOCRpdfEnhanceGoodOriginal}}
+		\subcaptionbox{Texto después de ClearScan}{\includegraphics[width=\linewidth]{simpleOCRpdfEnhanceGoodClearScan}}
 		\caption[\texttt{Editable Text and Images/ClearScan} en \acrobat]{Resultado de la opción \menu{Editable Text and Images}/ClearScan sobre texto reconocido\label{fig:simpleOCRpdfEnhanceGoodExamples}}
 	\end{figure}
 
@@ -1688,6 +1676,7 @@
 %
 %\begin{table}
 %	\centering
+%	\caption{Impacto de algunos parámetros de la pestaña \menu{Background} en el tamaño final de un conjunto de imágenes de prueba\label{tab:djvuSmallModBackgroundTab}}
 %	\begin{tabular}{ccc}
 %		\toprule
 %		\menu{Bg subsample} & \menu{Target subsample} & tamaño (kB) \\
@@ -1700,7 +1689,6 @@
 %		0 & 0 & 354 \\
 %		\bottomrule
 %	\end{tabular}
-%	\caption{Impacto de algunos parámetros de la pestaña \menu{Background} en el tamaño final de un conjunto de imágenes de prueba\label{tab:djvuSmallModBackgroundTab}}
 %\end{table}
 %
 %La primera fila corresponde a la calidad del perfil \menu{MyPhoto} mientras que la segunda baja el tamaño a la mitad manteniendo una buena apariencia de las fotos. Considero que allí está el punto óptimo para la mayoría de los casos. En las restantes 4 filas la compresión es mucho mayor pero el resultado comienza a deteriorarse rápidamente. Si se usa alguna de estas combinaciones u otra dependerá de cada caso.
@@ -1789,6 +1777,9 @@
 				\item Creadas algunas subsecciones en la sección «Configuración del software» (\ref{sec:scanningSoftware}).
 				\item Ampliada la sección «Paso 6. Output» (\ref{sec:SToutput}) con información sobre los nombres de archivo.
 				\item Agregada una sección sobre las consecuencias de escanear de a dos páginas (sec.~\ref{sec:scanningTwoPages}) y algunas referencias.
+				\item Pasados todos los floats al paquete caption (y subcaption).
+				\item Corregidos los espacios alrededor de las figuras y captions.
+				\item Pasados los títulos de los cuadros a la parte superior.
 
 				\item Ampliada la lista de referencias.
 				\item Cambiada la licencia a CC BY-SA 4.0.
@@ -1803,7 +1794,7 @@
 \chapter{ToDo} Estos son cambios o adiciones que me falta hacer.
 \begin{itemize}
 	\item Ordenar el historial de cambios.
-	\item Dejar de usar los floats de memoir y pasar a los del paquete caption como sugiere el encargado de mantenimiento de memoir en \href{https://tex.stackexchange.com/questions/524747/memoir-subbottom-and-subtop-vertical-alignment-control}{Memoir subbottom (and subtop) vertical alignment control}.
+
 \end{itemize}
 
 % -------------------------  Intentionally blank pages -------------------------
