@@ -459,12 +459,12 @@
 		\caption[Cuadro de diálogo \texttt{New Project} de \scantailor]{Cuadro de diálogo \menu{New Project de \scantailor}\label{fig:STnewProject}}
 	\end{figure}
 
-	\subsection{Paso 1. Fix Orientation\label{sec:STfixOrientation}} Presionamos \keys{OK} y se cargan las imágenes. La vista debería ser como la de la figura~\ref{fig:STfixOrientation}. Sobre la izquierda tenemos el panel \menu{Filters}, con 6 pasos o filtros. Cada uno corresponde a una etapa del proceso. El primero es \menu{Fix Orientation} y se utiliza para corregir la orientación de las imágenes. Si no lo hicimos manualmente como se explica en la subsección~\ref{sec:fixOrientation} debemos hacerlo ahora.
+	\subsection{Paso 1. Fix orientation\label{sec:STfixOrientation}} Presionamos \keys{OK} y se cargan las imágenes. La vista debería ser como la de la figura~\ref{fig:STfixOrientation}. Sobre la izquierda tenemos el panel \menu{Filters}, con 6 pasos o filtros. Cada uno corresponde a una etapa del proceso. El primero es \menu{Fix Orientation} y se utiliza para corregir la orientación de las imágenes. Si no lo hicimos manualmente como se explica en la subsección~\ref{sec:fixOrientation} debemos hacerlo ahora.
 
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{STfixOrientation}
-		\caption[Paso 1. \emph{Fix orientation}]{Ventana principal de \scantailor y Paso 1. \emph{Fix orientation}\label{fig:STfixOrientation}}
+		\caption[Paso 1. Fix orientation]{Ventana principal de \scantailor y Paso 1. Fix orientation\label{fig:STfixOrientation}}
 	\end{figure}
 
 	Dijimos que teníamos rotadas las páginas pares, por lo que seleccionaremos una cualquiera de estas y presionaremos una de las flechas naranja debajo de \menu{Rotate} hasta que la página quede en la orientación correcta. Una vez listo presionaremos \keys{Apply to\...} y elegiremos la opción \menu{\typesetDotCircle{Every other page}} (fig.~\ref{fig:STfixOrientationApplyTo}). Para ver que más o menos haya quedado bien, podemos recorrer las miniaturas de la columna derecha y verificar que efectivamente todas las páginas están bien orientadas.
@@ -481,7 +481,7 @@
 
 	\paragraph{Nota: páginas apaisadas} Si bien la mayoría de las páginas tienen orientación vertical, a veces nuestro material contiene algunas páginas con orientación horizontal,\footnote{Ver Wikipedia \cite{WikipediaPageOrientation} (en inglés).} también llamadas páginas «apaisadas» (fig.~\ref{fig:STsplitPagesError}). Más adelante deberemos decidir como queremos que estén en nuestro documento final (sección~\ref{sec:landscapePages}). De momento orientémoslas todas tal como aparecen en el material original.
 
-	\subsection{Paso 2. Split Pages\label{sec:STsplitPages}} En este paso le indicaremos a \scantailor qué parte de la imagen escaneada corresponde a la página. Lo que debemos lograr es que toda la página quede dentro del área azul y que el resto quede fuera: trozos de la hoja que no estábamos escaneando, imágenes de nuestras manos presionando el material, bandas negras donde no había papel, etc.
+	\subsection{Paso 2. Split pages\label{sec:STsplitPages}} En este paso le indicaremos a \scantailor qué parte de la imagen escaneada corresponde a la página. Lo que debemos lograr es que toda la página quede dentro del área azul y que el resto quede fuera: trozos de la hoja que no estábamos escaneando, imágenes de nuestras manos presionando el material, bandas negras donde no había papel, etc.
 
 	En \menu{Page Layout} tenemos tres opciones (fig.~\ref{fig:STsplitPages}). La primera es para indicarle a \scantailor que la página ocupa toda el área de la imagen,\footnote{Útil si ya al escanear dibujamos un rectángulo en el área de previsualización como se explica en la página~\pageref{pag:scanningRegionSelection}.} mientras que la segunda permite excluir dos bandas verticales. Estas dos opciones las usaremos para páginas escaneadas de a una a la vez.
 
@@ -490,7 +490,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=.5\linewidth]{STsplitPages}
-		\caption{Paso 2. \emph{Split pages}\label{fig:STsplitPages}}
+		\caption{Paso 2. Split pages\label{fig:STsplitPages}}
 	\end{figure}
 
 	Cada vez que seleccionamos una página el programa elige automáticamente la opción que considera más adecuada. También podemos presionar \keys{Change\...} y especificar manualmente las opciones para todas las páginas (o pares, impares, etc.).
@@ -501,7 +501,7 @@
 		\centering
 		\subcaptionbox{Error}{\includegraphics[width=.48\linewidth]{STsplitPagesError}}\hfill
 		\subcaptionbox{Remediado}{\includegraphics[width=.48\linewidth]{STsplitPagesErrorFix}}
-		\caption{Error en el Paso 2\label{fig:STsplitPagesError}}
+		\caption{Error en el paso 2\label{fig:STsplitPagesError}}
 	\end{figure}
 
 	\subsection{Paso 3. Deskew\label{sec:STdeskew}} \emph{Deskew} se podría traducir por desinclinar. En este paso el programa analiza cada imagen y corrige la inclinación que pueda tener. Si nuestro trabajo de escaneo fue más o menos prolijo entonces cada imagen necesitará rotarse apenas unos grados o menos. En mi experiencia el algoritmo es bastante robusto y se equivoca poco. De todas formas luego de dar \play\ conviene revisar que esté todo bien.
@@ -509,7 +509,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=.5\linewidth]{STdeskew}
-		\caption{Paso 3. \emph{Deskew}\label{fig:STdeskew}}
+		\caption{Paso 3. Deskew\label{fig:STdeskew}}
 	\end{figure}
 
 	El programa ofrece la opción \menu{Order by decreasing deviation}, que permite ordenar las páginas según el ángulo por el cual debieron rotarse. Así ordenadas, las primeras de la lista son las que tienen mayor probabilidad de error, y podemos corregirlas manualmente. En nuestro ejemplo la mayor desinclinación que se debió aplicar fue de solo 1\textdegree. Esto indica que todas las páginas estaban bastante rectas. De todas formas 1\textdegree\ es una cantidad perceptible a simple vista.
@@ -524,7 +524,7 @@
 		\centering
 		\subcaptionbox{Opciones\label{fig:STselectContentOptions}}{\includegraphics[width=.4\linewidth]{STselectContent}}\hfill
 		\subcaptionbox{Diálogo \menu{Apply to\...}\label{fig:STselectContentApplyTo}}{\includegraphics[width=.58\linewidth]{STselectContentApplyTo}}
-		\caption{Paso 4. \emph{Select content}\label{fig:STselectContent}}
+		\caption{Paso 4. Select content\label{fig:STselectContent}}
 	\end{figure}
 
 	\subsubsection{Page Box} En el cuadro \menu{Page Box} que se ve en la figura~\ref{fig:STselectContentOptions} presionamos \keys{Manual} e ingresamos respectivamente el ancho y el alto del material en \menu{Width} y \menu{Height} del subcuadro \menu{Options}. En nuestro caso el cuadro~\ref{tab:bookDimensions} de la sección~\ref{sec:cleanAdjustDimensions} nos indica 155\,mm y 235\,mm. Luego presionamos \keys{Apply to\...} y en el cuadro de diálogo que aparece (fig.~\ref{fig:STselectContentApplyTo}) activamos \menu{\typesetCheckbox{Apply page box}} y elegimos \menu{\typesetDotCircle{All pages}}. Finalmente damos \keys{OK} para aplicar las dimensiones ingresadas a todas las páginas del proyecto.
@@ -560,7 +560,7 @@
 
 	Todos los errores de selección de contenido que no corrijamos seguramente se hagan evidentes al compaginar el documento, sobre todo si somos escrupulosos con los márgenes. En ese punto aún serán fáciles de corregir, pero cuanto menos trabajo nos quede hacia adelante, mejor.
 
-	\subsection{Paso 5. \emph{Margins}\label{sec:STmargins}} Una vez que ya hemos revisado cada página y marcado bien los contenidos es hora de ajustar los márgenes. Propongo un método que conserva lo más exactamente posible la apariencia original y otro que introduce márgenes razonables.
+	\subsection{Paso 5. Margins\label{sec:STmargins}} Una vez que ya hemos revisado cada página y marcado bien los contenidos es hora de ajustar los márgenes. Propongo un método que conserva lo más exactamente posible la apariencia original y otro que introduce márgenes razonables.
 
 	Cualquiera sea el caso, comenzamos decidiendo respecto a qué parte de las páginas vamos a referir los márgenes. En el caso que nos ocupa, el libro tiene los números de página impresos en las esquinas superiores exteriores de cada hoja. Las pares en la superior izquierda y las impares en la superior derecha. Estos son referencias bastante naturales y son las que usaremos.
 
@@ -569,7 +569,7 @@
 	\begin{figure}
 		\subcaptionbox{Submenú \menu{Margins}\label{fig:STmarginsWidth}}{\includegraphics[width=.49\linewidth]{STmarginsWidth}}
 		\subcaptionbox{Submenú \menu{Alignment}\label{fig:STmarginsAlignment}}{\includegraphics[width=.49\linewidth]{STmarginsAlignment}}\hfill
-		\caption{Paso 5. \emph{Margins}\label{fig:STmargins}}
+		\caption{Paso 5. Margins\label{fig:STmargins}}
 	\end{figure}
 
 	Si nuestra alineación fuera por ejemplo sobre los números de página que aparecen abajo al centro u otra, deberemos elegir la flecha que mejor se ajuste al resultado buscado, tal vez también teniendo que discriminar entre páginas pares e impares.
@@ -623,7 +623,7 @@
 
 	Con \keys{\shift + \,\leftclick\,\leftclick} sobre el área que queremos alinear, \scantailor hace un buen trabajo de acomodar automáticamente el contenido a la guía más cercana. Si no nos satisface el resultado, podemos arrastrarlo manualmente como en el párrafo anterior, hasta colocarlo donde queramos.
 
-	Si también quisiéramos ajustar la posición vertical, crearíamos una guía horizontal con \menu{\rightclick > Add horizontal guide} y usaríamos \keys{\ctrl + \,\leftclick\,\leftclick} o \keys{\ctrl + \leftclick + arrastrar} para alinear el contenido verticalmente. Podría ponerse esta guía en los títulos de página, en cuyo caso la crearíamos con la página más alta como referencia. En este caso considero que no es necesario ajustar verticalmente las páginas bien comportadas.
+	Si también quisiéramos ajustar la posición vertical, crearíamos una guía horizontal con \menu{\rightclick > Add horizontal guide} y usaríamos \keys{\ctrl + \leftclick\!\!\!\leftclick} o \keys{\ctrl + \leftclick + arrastrar} para alinear el contenido verticalmente. Podría ponerse esta guía en los títulos de página, en cuyo caso la crearíamos con la página más alta como referencia. En este caso considero que no es necesario ajustar verticalmente las páginas bien comportadas.
 
 	Como todos los comienzos de capítulos omiten el número de página, debemos usar otro punto como referencia. Elegí la base del texto que marca el título. Es la única guía horizontal que creé para este proyecto.
 
@@ -633,7 +633,7 @@
 
 	\paragraph{Verificación} Si nos interesa verificar que los márgenes nos hayan quedado bien, podemos usar \djvusmall\footnote{Para aprender a trabajar con \djvusmall consultar la sección~\ref{sec:djvuSmall}.} con un perfil cualquiera (por ejemplo, \menu{default}) para generar un \djvu de prueba y, pasando las páginas rápidamente, detectar algún error de alineación que no hayamos notado. También es posible ir pasando dentro de \scantailor, pero de momento la navegación es bastante lenta y a veces no permite apreciar las diferencias.
 
-	\subsection{Paso 6. \emph{Output}\label{sec:SToutput}} Este paso dispone de una cantidad de opciones cuyos valores por defecto funcionan bien. Lo primero que haremos será presionar \play\ para que se procesen todos los archivos. Este es un proceso que también le lleva a \scantailorAdvanced algo de tiempo, aunque se ha mejorado mucho respecto de la versión original.
+	\subsection{Paso 6. Output\label{sec:SToutput}} Este paso dispone de una cantidad de opciones cuyos valores por defecto funcionan bien. Lo primero que haremos será presionar \play\ para que se procesen todos los archivos. Este es un proceso que también le lleva a \scantailorAdvanced algo de tiempo, aunque se ha mejorado mucho respecto de la versión original.
 
 	Al finalizar tendremos los archivos procesados en la carpeta \typesetFolder{out} en formato \tiff. Si escaneamos de a una página los archivos tendrán el mismo nombre que los originales con la extensión \texttt{tif}. Es decir, \typesetFile{SCAN/SCAN\_XXX.tif} se procesará en \typesetFile{SCAN/out/SCAN\_XXX.tif}.
 
@@ -701,7 +701,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{SToutputPicureZonesRectangular}
-		\caption[Paso 6. \emph{Output}]{Paso 6. \emph{Output}. Se seleccionó la pestaña \menu{Picture zones}\label{fig:SToutputPicureZonesRectangular}}
+		\caption[Paso 6. Output]{Paso 6. Output. Se seleccionó la pestaña \menu{Picture zones}\label{fig:SToutputPicureZonesRectangular}}
 	\end{figure}
 
 	En los que no, deberemos dibujar nuestras propias zonas (y tal vez eliminar o corregir algunas mal detectadas). Para cada una podemos hacer \menu{\rightclick > Properties} y elegir si añadirla a la capa ya detectada (\menu{Add to auto layer}), eliminarla de esa capa (\menu{Subtract from auto layer}) o eliminarla de todas las capas (\menu{Subtract from all layers}). Todo esto tendrá sentido si las zonas se superponen. Sugiero experimentar un poco con las opciones para entender bien su significado.
@@ -791,7 +791,7 @@
 
 	\section{Configuración} Abrimos luego \abbyy\footnote{En esta guía trabajaremos con la versión 14. Sin embargo, cualquier versión que permita salvar en \djvu es suficiente (v11 o superior). Tal vez las opciones no sean exactamente iguales (habrá que improvisar) y o no se pueda usar el script~\ref{scr:replaceInABBYY} (no es grave).} y procedemos a configurar primero las opciones básicas (más adelante trataremos algunas otras). Se accede al menú haciendo \menu{\leftclick > Tools > Options}. En principio sugiero configurar las opciones tal cual se muestran en las figuras.
 
-	\subsection{Pestaña \texttt{Image Processing}} En la pestaña \menu{Image Processing} presionamos \keys{Show Advanced Settings} y deshabilitamos todas las opciones, como en la fig.~\ref{fig:ABBYYoptionsImage}. Así nos aseguramos de que el software no realizará ninguna corrección de imagen. Para eso ya transitamos por los pasos anteriores. Si aún hubiera algo para ajustar, lo mejor será volver a \scantailor y hacerlo nosotros mismos.
+	\subsection{Pestaña \texttt{Image Processing}} En \menu{Image Processing} presionamos \keys{Show Advanced Settings} y deshabilitamos todas las opciones, como en la fig.~\ref{fig:ABBYYoptionsImage}. Así nos aseguramos de que el software no realizará ninguna corrección de imagen. Para eso ya transitamos por los pasos anteriores. Si aún hubiera algo para ajustar, lo mejor será volver a \scantailor y hacerlo nosotros mismos.
 
 	\begin{figure}
 		\centering
@@ -1528,7 +1528,7 @@
 
 	Para la codificación tanto del \pdf como del \djvu ignoraremos los pasos de inserción de imágenes.
 
-	En el caso del \pdf, tendrá mucho peso el paso~\ref{sec:pdfOptimize}. Recomiendo experimentar con las diferentes opciones del menú \menu{Images}.
+	En el caso del \pdf, tendrá mucho peso la optimización (sec.~\ref{sec:pdfOptimize}). Recomiendo experimentar con las diferentes opciones del menú \menu{Images}.
 
 	Para el \djvu no podremos utilizar el perfil \menu{MyBitonal}. Deberemos hacer ensayos con \menu{MyScan} o \menu{MyPhoto}, y preferentemente con los perfiles de la categoría \menu{Extreme} de \djvusmallmod. Este programa también ofrece métodos de segmentación automática y semiautomática que no he probado pero que se ven muy prometedores. También existen otras aplicaciones para realizar este tipo de tareas \cite{didjvu}.
 
@@ -1708,94 +1708,84 @@
 \cleardoublepage\listofscripts
 
 \chapter{Historial de cambios}
-	\begin{itemize}
-		\item v1.1 -- 2020-XX-XX:
-			\begin{itemize}
-				\item Agregada la ubicación en GitHub del proyecto a la portada.
-				\item Como en general el escaneo se hace a 300\,dpi, no tiene sentido conservar las imágenes del directorio \typesetFolder{background} en 600\,dpi como las saca \scantailor. Esto implicó varios ajustes:
-				\begin{itemize}
-					\item Modificada la línea que invoca a \imagemagick (sec.~\ref{sec:pdfPhotosImageMagick}; afecta a los scripts \ref{scr:pdfPhotosqpdf} y \ref{scr:pdfPhotosAcrobat}). Por lo tanto, ahora \imagemagick hace un \emph{resample} a 300\,dpi y luego aplica la compresión \jpeg deseada. Agregada una nota al pie explicando las razones.
-					\item Agregada la opción \menu{bg-subsample=2} en el perfil \menu{MyPhoto} y cambiada su descripción (sec.~\ref{sec:profiles}).
-					\item Actualizada la sección~\ref{sec:djvuImager} y la imagen~\ref{fig:djvuImager}, donde se habla de la opción \menu{BSF}.
-					\item Actualizada la sección~\ref{sec:djvuSmallMod}, donde se habla de \menu{Bg subsample}.
-					\item Actualizada la sección~\ref{sec:djvuSmallCovers}. advirtiendo que tal vez para las cubiertas sea mejor no hacer \emph{resample}.
-				\end{itemize}
-				\item En la sección~\ref{sec:djvuSmallModPhotos} se cambió el método de codificación a \menu{Glue}. Ahora que lo entiendo un poco mejor parece el más apropiado. Se actualizó la figura~\ref{fig:djvuSmallModSegmenterTab}.
-				\item Se agregaron el cuadro~\ref{tab:djvuSmallModBackgroundTab} y algunas explicaciones.
-				\item Eliminadas del perfil \menu{MyScan} algunas opciones de las que no estoy del todo convencido (sec.~\ref{sec:profiles}).
-				\item Mejorada la explicación de los parámetros que se pasan a \qpdf y \acrobat en las subsecciones~\ref{sec:pdfPhotosqpdf} y \ref{sec:pdfPhotosAcrobat}.
-				\item Expandida la sección~\ref{sec:covers} para tratar cubiertas que no puedan ser transformadas en imágenes indizadas sin pérdidas inaceptables de calidad («cubiertas complejas»).
-				\item En la sección~\ref{sec:pdfOptimize} se explicaron con más detalle las opciones elegidas para \menu{Downsample} y \menu{Compression} del menú \menu{Images} y se actualizó la imagen~\ref{fig:pdfOptimizeImages}.
-				\item Agregada una división al principio del capítulo~\ref{sec:cleanAdjust}: la subsección \ref{sec:cleanAdjustDimensions} (Dimensiones).
-				\item Modificado el pie del cuadro~\ref{tab:bookDimensions} para que sea más preciso.
-				\item Invertido el orden de las secciones~\ref{sec:djvuHyperlinks} y \ref{sec:djvuMetadata} porque \djvueditor suprime los metadatos si se usa después. Actualizado levemente el script~\ref{scr:djvuMetadata} para reflejar esto.
-				\item Agregada una nota al pie en la sección~\ref{sec:scanningState}.
-				\item Agregado un ejemplo de las diferencias entre niveles de compresión con y sin pérdidas en el formato \djvu (sec~\ref{sec:profiles}).
-				\item Aclarado en una nota al pie (sec.~\ref{sec:djvuPageLabels}) que para que funcione paginate.py (script~\ref{scr:djvuPageLabels}) los nombres de página que lleven algún espacio deben estar entre comillas dobles.
-				\item Agregada explicación de las advertencias de \abbyy en la sección~\ref{sec:ABBYYwarnings}.
-				\item Mejorada la redacción de la sección~\ref{sec:STsplitPages} y agregada una nota al pie explicando bajo que condiciones el script~\ref{scr:replaceInABBYY} deja de funcionar.
-				\item Ampliada un poco la sección sobre los requisitos de software (sec.~\ref{sec:softRequirements}).
-				\item Simplificados los scripts~\ref{scr:orientationOddEven} y \ref{scr:fixLandscapePages} y corregidos algunos textos que los referían.
-				\item Agregada una sección de conclusiones a los capítulos más importantes.
-				\item Movida la subsección~\ref{sec:scanningWhatToScan} a~\ref{sec:scanningPreparingMaterial} y cambiado el nombre de esta última.
-				\item Ampliada la sección \ref{sec:STselectContent} con la mención de las opciones \menu{Page Box} y \menu{Content Box}.
-				\item Simplificados los nombres de algunos archivos y de algunas etiquetas internas del fuente \LaTeX.
-				\item Ampliado un poco el prólogo.
-				\item Ampliadas la sección~\ref{sec:scanningSoftware} y la figura~\ref{fig:scanningIrfanView} para incluir el formato \png y otras opciones.
-				\item Cambiada la definición de páginas atípicas.
-				\item Ampliada la sección~\ref{sec:STselectContent} y agregada la figura~\ref{fig:STselectContentOrder}.
-				\item Modificado el procedimiento de configuración de márgenes, haciendo mejor uso de las facilidades de \scantailor. Gracias a esto se pudo intercambiar el orden de las secciones~\ref{sec:STmargins} y \ref{sec:SToutput} para respetar el flujo natural del proceso.
-				\item Aplicada la definición de «fotos» en las instancias que corresponde.
-				\item Uniformizado el estilo de las referencias entre paréntesis: (ver figura X) \faLongArrowAltRight\ (fig. X).
-				\item Agregada una imagen del cuadro de diálogo \keys{Apply to\...} (fig.~\ref{fig:STfixOrientationApplyTo}) y uniformizados los textos que lo refieren.
-				\item Agregado un breve párrafo a la sección «1. Fix Orientation» (sec.~\ref{sec:fixOrientation}).
-				\item Simplificado el procedimiento del paso «5. Margins» (sec.~\ref{sec:STmargins}) y reorganizada la redacción de la sección. El método anterior era totalmente manual y fue reemplazado por uno que hace uso de la función \menu{Auto Margins} de ScanTailor.
-				\item Acomodada la redacción de la sección «6. Output» (sec.~\ref{sec:SToutput} a los cambios del último commit.
-				\item Corregido el script \ref{scr:fixLandscapePages}: debe rotar 90 grados, no 180.
-				\item Limpieza de los archivos auxiliares.
-				\item Agregado un nivel más a la numeración de las secciones. Ahora es capítulo.sección.subsección.subsubsección.
-				\item Mejorada la redacción de la sección «¿Qué partes escanear?» (sec.~\ref{sec:scanningWhatToScan}).
-				\item Usada exclusivamente la palabra «cubierta» (en vez de «tapa»).
-				\item Agregadas páginas de cortesía.
-				\item Modificado el título del documento.
-				\item Generada una portadilla sencilla.
-				\item Agregada una página de legales.
-				\item Actualizados el historial y ToDo.
-				\item Agregadas algunas divisiones al fuente tex.
-				\item Uniformizados los títulos: Insertar fotos \faLongArrowAltRight\ Inserción de fotos.
-				\item Eliminado el artículo «el» antes de los nombres de programas.
-				\item Eliminado el comando \textbackslash note; reemplazado por \textbackslash paragraph.
-				\item Agregados marcadores \pdf para las portadas.
-				\item Declarada la inclusión de material distinto del Gregory en la sección~\ref{sec:aboutGregory}.
-				\item Todas las referencias web explicitadas en la bibliografía.
-				\item Creada la sección «Software» en la bibliografía.
-				\item Uniformizado el estilo de todos los captions.
-				\item Corregido donde correspondiera: fotografías \faLongArrowAltRight\ fotos.
-				\item Modificada la definición de \textbackslash pythonScript para disminuir a la mitad el tamaño de los TABs en los scripts.
-				\item Mencionada la existencia de archivos ocultos en la estructura de \abbyy (cap.~\ref{sec:abbyyProjectStructure}).
-				\item Transparencias de páginas se podrían corregir por software (sec.~\ref{sec:transparency}).
-				\item Creadas algunas subsecciones en la sección «Configuración del software» (\ref{sec:scanningSoftware}).
-				\item Ampliada la sección «Paso 6. Output» (\ref{sec:SToutput}) con información sobre los nombres de archivo.
-				\item Agregada una sección sobre las consecuencias de escanear de a dos páginas (sec.~\ref{sec:scanningTwoPages}) y algunas referencias.
-				\item Pasados todos los floats al paquete caption (y subcaption).
-				\item Corregidos los espacios alrededor de las figuras y captions.
-				\item Pasados los títulos de los cuadros a la parte superior.
-
-				\item Ampliada la lista de referencias.
-				\item Cambiada la licencia a CC BY-SA 4.0.
-				\item Otros muchos cambios y correcciones menores.
-			\end{itemize}
-		\item v1.0 -- 2019-04-16:
-			\begin{itemize}
-				\item Versión inicial.
-			\end{itemize}
+	\section{v1.1 -- 2020-XX-XX}
+	\subsection{Generales}
+	\begin{itemize}[noitemsep]
+		\item Agregadas páginas de cortesía.
+		\item Modificado el título del documento.
+		\item Generada una portadilla sencilla.
+		\item Agregada la ubicación en GitHub del proyecto a la portada.
+		\item Agregada una página de legales.
+		\item Cambiada la licencia a CC BY-SA 4.0.
+		\item Ampliado un poco el prólogo.
+		\item Pasados todos los floats al paquete \texttt{caption} (y \texttt{subcaption}).
+		\item Armonizado el estilo de todos los títulos de figuras.
+		\item Corregidos los espacios alrededor de las figuras y sus títulos.
+		\item Pasados los títulos de los cuadros a la parte superior.
+		\item Reducido a la mitad el tamaño de los TABs en los scripts.
+		\item Agregada una sección de conclusiones a los capítulos más importantes.
+		\item Armonizado el estilo de las referencias entre paréntesis: (ver figura X) $\rightarrow$ (fig. X).
+		\item Armonizados los títulos: Insertar fotos $\rightarrow$ Inserción de fotos.
+		\item Eliminado el artículo «el» antes de los nombres de programas.
+		\item Eliminado el comando \texttt{\textbackslash note}; reemplazado por \texttt{\textbackslash paragraph}.
+		\item Usada exclusivamente la palabra «cubierta» (en vez de «tapa»).
+		\item Agregado un nivel más a la numeración de las secciones. Ahora es capítulo.sección.subsección.subsubsección.
+		\item Ampliada la lista de referencias.
+		\item Todas las referencias web explicitadas en la bibliografía.
+		\item Actualizado el historial.
+		\item Simplificados los nombres de algunos archivos y de algunas etiquetas internas y agregadas algunas divisiones al fuente \LaTeX.
+		\item Limpieza de los archivos auxiliares.
 	\end{itemize}
 
-\chapter{ToDo} Estos son cambios o adiciones que me falta hacer.
-\begin{itemize}
-	\item Ordenar el historial de cambios.
+	\subsection{Específicos}
+	\begin{itemize}
+		\item Ampliada un poco «Requisitos de software» (sec.~\ref{sec:softRequirements}).
+		\item Agregada una nota al pie en «Estado del aparato» (sec.~\ref{sec:scanningState}).
+		\item Mejorada la redacción de «¿Qué partes escanear?» (sec.~\ref{sec:scanningWhatToScan}) y movida a «Preparación del material» (sec.~\ref{sec:scanningPreparingMaterial}); cambiado el nombre de esta última.
+		\item Aplicada la definición de «fotos» (sec.~\ref{sec:scanningPhotos}) en las instancias que corresponde.
+		\item Ampliadas «Configuración del software» (sec.~\ref{sec:scanningSoftware}) y la fig.~\ref{fig:scanningIrfanView} para incluir el formato \png y otras opciones.
+		\item Creadas tres divisiones en «Configuración del software» (sec.~\ref{sec:scanningSoftware}).
+		\item Mencionado que las transparencias de páginas se podrían corregir por software (sec.~\ref{sec:transparency}).
+		\item Agregada «Dimensiones» (sec.~\ref{sec:cleanAdjustDimensions}) al principio de «Limpieza y ajuste» (cap.~\ref{sec:cleanAdjust}).
+		\item Agregado un breve párrafo a «Paso 1. Fix Orientation» (sec.~\ref{sec:fixOrientation}).
+		\item Simplificados \texttt{orientationOddEven.py} y \texttt{fixLandscapePages.py} (scr.~\ref{scr:fixLandscapePages} y \ref{scr:orientationOddEven}) y corregidos algunos textos que los referían.
+		\item Modificado el pie del cuadro~\ref{tab:bookDimensions} para que sea más preciso.
+		\item Agregada una imagen del cuadro de diálogo \keys{Apply to\...} (fig.~\ref{fig:STfixOrientationApplyTo}) y uniformizados los textos que lo refieren.
+		\item Mejorada la redacción de «Paso 2. Split Pages» (sec.~\ref{sec:STsplitPages}) y agregada una nota al pie de página explicando bajo que condiciones \texttt{replaceInABBYY.py} (scr.~\ref{scr:replaceInABBYY}) deja de funcionar.
+		\item Cambiada la definición de «páginas atípicas» (sec.~\ref{sec:STselectContent}).
+		\item Ampliada «Paso 4. Select content» (sec.~\ref{sec:STselectContent}) con la mención de las opciones \menu{Page Box} y \menu{Content Box} y agregada la fig.~\ref{fig:STselectContentOrder}.
+		\item Simplificado el procedimiento de configuración de márgenes y reorganizada la redacción. El método anterior era totalmente manual y fue reemplazado por uno que hace uso de la función \menu{Auto Margins} de \scantailor. Gracias a esto se pudo intercambiar el orden de «Paso 5. Margins» (sec.~\ref{sec:STmargins}) y «Paso 6. Output» (sec.~\ref{sec:SToutput}) para respetar el flujo natural del proceso.
+		\item Ampliada «Paso 6. Output» (sec.~\ref{sec:SToutput}) con información sobre los nombres de archivo.
+		\item Agregada una sección sobre las consecuencias de escanear de a dos páginas (sec.~\ref{sec:scanningTwoPages}) y algunas referencias.
+		\item Corregido \texttt{fixLandscapePages.py} (scr.~\ref{scr:fixLandscapePages}): debe rotar 90 grados, no 180.
+		\item Expandida «Cubiertas» (sec.~\ref{sec:covers}) para tratar cubiertas que no puedan ser transformadas en imágenes indizadas sin pérdidas inaceptables de calidad («cubiertas complejas»).
+		\item Agregada una explicación sobre las advertencias de \abbyy (sec.~\ref{sec:ABBYYwarnings}).
+		\item Mejorada la explicación de los parámetros que se pasan a \qpdf y \acrobat en «Usando \qpdf» (sec.~\ref{sec:pdfPhotosqpdf}) y «Usando \acrobat» (sec.~\ref{sec:pdfPhotosAcrobat}).
+		\item En «Optimización» (sec.~\ref{sec:pdfOptimize}) se explicaron con más detalle las opciones elegidas para \menu{Downsample} y \menu{Compression} del menú \menu{Images} y se actualizó la fig.~\ref{fig:pdfOptimizeImages}.
+		\item Eliminadas del perfil \menu{MyScan} algunas opciones de las que no estoy del todo convencido (sec.~\ref{sec:profiles}).
+		\item Agregado un ejemplo de las diferencias entre niveles de compresión con y sin pérdidas en el formato \djvu (sec~\ref{sec:profiles}).
+		\item Como en general el escaneo se hace a 300\,dpi, no tiene sentido conservar las imágenes del directorio \typesetFolder{background} en 600\,dpi como las saca \scantailor. Esto implicó varios ajustes:
+		\begin{itemize}[noitemsep]
+			\item Modificada la línea que invoca a \imagemagick (sec.~\ref{sec:pdfPhotosImageMagick}): afecta a \texttt{pdfPhotosqpdf.py} y \texttt{pdfPhotosAcrobat.py} (scr.~\ref{scr:pdfPhotosqpdf} y \ref{scr:pdfPhotosAcrobat}). Por lo tanto, ahora \imagemagick hace un \emph{resample} a 300\,dpi y luego aplica la compresión \jpeg deseada. Agregada una nota al pie explicando las razones.
+			\item Agregada la opción \menu{bg-subsample=2} en el perfil \menu{MyPhoto} y cambiada su descripción (sec.~\ref{sec:profiles}).
+			\item Actualizada «Codificación de las cubiertas» (sec.~\ref{sec:djvuSmallCovers}) advirtiendo que tal vez para las cubiertas sea mejor no hacer \emph{resample}.
+			\item Actualizada «Inserción de fotos: DjVu Imager» (sec.~\ref{sec:djvuImager}) y la fig.~\ref{fig:djvuImager}, donde se habla de la opción \menu{BSF}.
+			\item Actualizada «Codificación con DjVu Small Mod» (sec.~\ref{sec:djvuSmallMod}), donde se habla de \menu{Bg subsample}.
+		\end{itemize}
+		\item En «Codificación del cuerpo + inserción de fotos» (sec.~\ref{sec:djvuSmallModPhotos}) se cambió el método de codificación a \menu{Glue}. Ahora que lo entiendo un poco mejor parece el más apropiado. Se actualizó la fig.~\ref{fig:djvuSmallModSegmenterTab}.
+		\item Aclarado en una nota al pie (sec.~\ref{sec:djvuPageLabels}) que para que funcione \texttt{paginate.py} (scr.~\ref{scr:djvuPageLabels}) los nombres de página que lleven algún espacio deben estar entre comillas dobles.
+		\item Invertido el orden de «Creación de hipervínculos» (sec.~\ref{sec:djvuHyperlinks}) y «Metadatos» (sec.~\ref{sec:djvuMetadata}) porque \djvueditor suprime los metadatos si se usa después. Actualizado levemente \texttt{djvuMetadata.py} (scr.~\ref{scr:djvuMetadata}) para reflejar esto.
+		\item Declarada la inclusión de material distinto del Gregory (ap.~\ref{sec:aboutGregory}).
+		\item Mencionada la existencia de archivos ocultos en la estructura de \abbyy (ap.~\ref{sec:abbyyProjectStructure}).
+		\item Creada la sección «Software» en la bibliografía.
 
-\end{itemize}
+		\item Otros muchos cambios y correcciones menores.
+	\end{itemize}
+
+	\section{v1.0 -- 2019-04-16}
+	\begin{itemize}
+		\item Versión inicial.
+	\end{itemize}
 
 % -------------------------  Intentionally blank pages -------------------------
 \newpage\null\thispagestyle{empty}\newpage
