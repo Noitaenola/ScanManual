@@ -15,7 +15,7 @@ namesList = [os.path.basename(x) for x in glob.glob(backgroundDir + '*.tif')]
 with open(insertPhotos, 'w') as outputFile:
 	for filename in namesList:
 		# Call ImageMagick to create the transparent-white pdf of the page.
-		os.system('magick convert ' + backgroundDir + filename + ' -resample 300 -transparent white -compress jpeg -quality 40 ' + backgroundDir + filename + '.pdf')
+		os.system('magick convert ' + backgroundDir + filename + ' -transparent white -resample 300 -compress jpeg -quality 40 ' + backgroundDir + filename + '.pdf')
 		print(filename + '.pdf created!')
 		# Save the correspinding line to the script.
 		print('this.addWatermarkFromFile({cDIPath: "/C/Project/SCAN/out/background/' + filename + '.pdf", nSourcePage: 0, nStart:', str(int(re.search(r'\d+', filename).group(0))-1) + '});', file=outputFile)

@@ -1002,16 +1002,14 @@
 
 	\section{Inserción de fotos\label{sec:pdfPhotos}} Si decidimos separar las fotos del resto del contenido como se explica en~\ref{sec:SToutputPictureZones}, debemos ahora insertarlas nuevamente en el documento con el texto ya reconocido.
 
-	\subsection{Conversión con \imagemagick\label{sec:pdfPhotosImageMagick}} Tenemos dos scripts para insertar las fotos. Ambos utilizan \imagemagick para convertir los archivos \tiff sin pérdidas en \jpeg comprimidos con pérdidas encapsulados en \pdf. Esto lo hacen con líneas del tipo \mintinline{monkey}|magick convert SCAN_XXX.tif -resample 300 -transparent|\\
-	\mintinline{monkey}|white -compress jpeg -quality 40 SCAN_XXX.tif.pdf|, donde:
+	\subsection{Conversión con \imagemagick\label{sec:pdfPhotosImageMagick}} Tenemos dos scripts para insertar las fotos. Ambos utilizan \imagemagick para convertir los archivos \tiff sin pérdidas en \jpeg comprimidos con pérdidas encapsulados en \pdf. Esto lo hacen con líneas del tipo \mintinline{monkey}|magick convert SCAN_XXX.tif -transparent white -resample 300|\\
+	\mintinline{monkey}|-compress jpeg -quality 40 SCAN_XXX.tif.pdf|, donde:
 
 	\begin{itemize}[noitemsep]
 		\item \mintinline{monkey}|magick convert| significa convertir con \imagemagick;
 		\item \mintinline{monkey}|SCAN_XXX.tif| es el \tiff original;
-		\item \mintinline{monkey}|-resample 300| redimensiona la foto de manera tal de que, a la nueva resolución (300\,dpi), el tamaño de su representación se mantenga igual que el original (15,5cm por 23,5\,cm en nuestro ejemplo; ver sección~\ref{sec:cleanAdjustDimensions});\footnote{\label{foot:resample}Aquí estamos asumiendo que las páginas fueron todas escaneadas a 300\,dpi. Al pasar por \scantailor, todo es escalado a 600\,dpi. En el caso de las áreas monocromáticas tiene sentido conservar esta resolución, porque el programa hace un mejoramiento importante, pero no con las fotos (apenas rotación y ecualización), que ahora ocupan el cuádruple y no aportan más información. Por esta razón, las reducimos a su tamaño original.
-
-		Si hubiera alguna imagen escaneada a más resolución que se quisiera conservar, deberá procesarse con los valores de \texttt{-resample} adecuados e insertarse aparte. No debería ser muy difícil si se entienden los conceptos aquí desarrollados, aunque podría resultar tedioso.}
 		\item \mintinline{monkey}|-transparent white| convierte el blanco en transparente;
+		\item \mintinline{monkey}|-resample 300| redimensiona la foto de manera tal de que, a la nueva resolución (300\,dpi), el tamaño de su representación se mantenga igual que el original (15,5cm por 23,5\,cm en nuestro ejemplo; ver sección~\ref{sec:cleanAdjustDimensions});\footnote{\label{foot:resample}Aquí estamos asumiendo que las páginas fueron todas escaneadas a 300\,dpi. Al pasar por \scantailor, todo es escalado a 600\,dpi. En el caso de las áreas monocromáticas tiene sentido conservar esta resolución, porque el programa hace un mejoramiento importante, pero no con las fotos (apenas rotación y ecualización), que ahora ocupan el cuádruple y no aportan más información. Por esta razón, las reducimos a su tamaño original. Si hubiera alguna imagen escaneada a más resolución que se quisiera conservar, deberá procesarse con los valores de \texttt{-resample} adecuados e insertarse aparte. No debería ser muy difícil si se entienden los conceptos aquí desarrollados, aunque podría resultar tedioso.}
 		\item \mintinline{monkey}|-compress jpeg| impone compresión \textsc{jpeg} (con pérdidas);
 		\item \mintinline{monkey}|-quality 40| es el nivel de compresión (va de 1 a 100);\footnote{En este caso elegí un valor de 40, pero deberemos encontrar aquel que nos satisfaga en cada caso.} y
 		\item \mintinline{monkey}|SCAN_XXX.tif.pdf| es el archivo \pdf de salida.
@@ -1031,7 +1029,6 @@
 	\end{itemize}
 
 	\pythonScript{pdfPhotosqpdf.py}{Inserción de fotos usando \qpdf\label{scr:pdfPhotosqpdf}}
-
 
 	Su ejecución puede tomar un par de minutos. Al terminar tendremos un archivo \typesetFile{SCAN\_INS.pdf} con las fotos insertadas.
 
@@ -1708,7 +1705,13 @@
 \cleardoublepage\listofscripts
 
 \chapter{Historial de cambios}
-	\section{v1.1 -- 2020-XX-XX}
+	\section{v1.1.X -- 2020-XX-XX}
+		\begin{itemize}[noitemsep]
+			\item Invertido el orden de \mintinline{monkey}|-resample 300| y \mintinline{monkey}|-transparent white| (parámetros de \imagemagick), tanto en la explicación de la sección «Conversión con \imagemagick» (\ref{sec:pdfPhotosImageMagick}), como en los scripts que insertan las fotos usando \qpdf (\ref{scr:pdfPhotosqpdf}) y \acrobat (\ref{scr:pdfPhotosAcrobat}). Hacer el \texttt{resample} antes de transparentar el blanco introduce artefactos alrededor de las fotos.
+			\item Agregada la fecha de la versión v1.1.
+		\end{itemize}
+
+	\section{v1.1 -- 2020-05-31}
 	\subsection{Generales}
 	\begin{itemize}[noitemsep]
 		\item Agregadas páginas de cortesía.
