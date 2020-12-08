@@ -42,18 +42,28 @@
 			toprule at break	= 0pt,
 			bottomrule at break	= 0pt,
 %			code				= {},
-			]%
-			\captionsetup{type=script}% Putting \captionsetup outside the tcolorbox (or using code = {...}) misplaces some anchors in the previous pages when the snippet is the first thing of the page. Putting it here makes the links point just below the script title.
+		]%
+			\captionsetup{type=script}% Putting \captionsetup outside the tcolorbox (or using code = {...}) misplaces some anchors in the previous pages when the snippet is the first thing of the page. Putting it here makes the links point just below the script title. I think it's the best compromise.
 			\inputminted[
 				breaklines,
 				breakafter	= /,
 				fontfamily	= tt,
-				tabsize	= 4,
+				tabsize		= 4,
+				fontsize	= \small,
 			]{python}{./scripts/#1}%
 			\vspace{-0.5\baselineskip}
 			\caption{#2}
 		\end{tcolorbox}%
 	}
+
+% ------------------------------------------------------------------------------
+% Advanced bibliographic facilities
+\usepackage[style=numeric,sorting=none,sortcites]{biblatex}
+	\addbibresource{bibliography.bib}
+	%\renewcommand{\cite}[1]{\textbf{[#1]}}
+
+% Package csquotes is recommended by the biblatex docs
+\usepackage{csquotes}
 
 % ------------------------------------------------------------------------------
 % Support for putting documents under a license
@@ -62,12 +72,6 @@
 	modifier	= {by-sa},
 	version		= {4.0},
 ]{doclicense}
-
-% ------------------------------------------------------------------------------
-% Advanced bibliographic facilities
-\usepackage[style=numeric,sorting=none,sortcites]{biblatex}
-	\addbibresource{bibliography.bib}
-	%\renewcommand{\cite}[1]{\textbf{[#1]}}
 
 % ------------------------------------------------------------------------------
 % Nice, simple directory trees. By Guilherme Zanotelli: https://tex.stackexchange.com/questions/5073/making-a-simple-directory-tree
