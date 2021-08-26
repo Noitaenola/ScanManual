@@ -15,5 +15,5 @@ else:
     print("Wrong option! Try again.")
 
 for x in pages:
-    os.system("mogrify -rotate 180 " + x)
+    os.system("mogrify -compress LZW -rotate 180 " + x)
     print(x + " rotated!")

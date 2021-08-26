@@ -12,5 +12,5 @@ landscapePages = [
 # fmt: on
 
 for x in landscapePages:
-    os.system("mogrify -rotate 90 ../SCAN/out/SCAN_" + str(x) + ".tif")
+    os.system("mogrify -compress LZW -rotate 90 ../SCAN/out/SCAN_" + str(x) + ".tif")
     print("SCAN_" + str(x) + ".tif" + " rotated!")
